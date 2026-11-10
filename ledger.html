@@ -1,0 +1,896 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Ledger</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 09 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html" aria-current="page"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: ninth story in the Kesarpur series. Storybook column with a ledger margin; wide interludes and interactive diagrams of blocks and hashes. Indigo accent for the chain, amber for coins; green/crimson reserved for valid/invalid and gain/loss. */
+:root{
+  --bg:#F1F1F5; --paper:#FBFBFD; --ink:#1C1C26; --muted:#5E5E70; --rule:#D6D6E0;
+  --acc:#3B3F9E; --acc-soft:#E1E2F4; --coin:#B06A08; --coin-soft:#F6E5CC; --leaf:#3F6B3A; --leaf-soft:#E2ECDD;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B0203C; --down-soft:#F6DCE1;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121219; --paper:#1A1A24; --ink:#E8E8F2; --muted:#A2A2B6; --rule:#30303E;
+  --acc:#A7ABF2; --acc-soft:#23244A; --coin:#F0B24F; --coin-soft:#392A12; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121219; --paper:#1A1A24; --ink:#E8E8F2; --muted:#A2A2B6; --rule:#30303E;
+  --acc:#A7ABF2; --acc-soft:#23244A; --coin:#F0B24F; --coin-soft:#392A12; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+.warn{margin-top:18px;border:1px solid var(--down);background:var(--down-soft);border-radius:6px;padding:10px 14px;font-size:.9rem;max-width:44ch}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.coin .label{color:var(--coin)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+input[type=text]{font:inherit;font-family:var(--mono);font-size:.85rem;padding:6px 8px;border:1px solid var(--rule);border-radius:4px;background:var(--bg);color:var(--ink);width:100%}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button,.btn{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"],.btn.primary{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+/* Block chain demo */
+.blocks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.blk{border:2px solid var(--up);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px;background:var(--paper);font-size:.8rem;min-width:0;transition:border-color .3s ease, background .3s ease}
+.blk.bad{border-color:var(--down);background:var(--down-soft)}
+.blk .h{font-family:var(--mono);font-size:.72rem;word-break:break-all}
+.blk .t{font-family:var(--display);font-size:1rem}
+.blk .st{font-family:var(--mono);font-size:.7rem;color:var(--up)}
+.blk.bad .st{color:var(--down)}
+.mine-out{font-family:var(--mono);font-size:.85rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;word-break:break-all;min-height:3.2em}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.c{border-color:var(--coin)} .col.l{border-color:var(--leaf)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.growx{animation:growx .9s ease both}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.pop{animation:pop .5s ease both}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+  .blocks{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about the crypto market, in sixteen chapters</span>
+    <h1>The Kesarpur Ledger</h1>
+    <p class="lede">Varun is nineteen. His feed is full of people who turned ₹10,000 into ₹10 lakh with a coin he'd never heard of. His cousin Rohit has read eight stories about markets and is less sure. Follow them as they find out what crypto really is: an idea about a shared ledger, a new kind of asset with no earnings behind it, and a market full of both innovation and traps.</p>
+    <div class="cast">
+      <span class="chip">Varun, college student</span>
+      <span class="chip">Rohit, his cousin</span>
+      <span class="chip">Neha, analyst</span>
+      <span class="chip">Mr. Iyer, bank</span>
+      <span class="chip">Kamala, the great-aunt</span>
+      <span class="chip">Salim, in Dubai</span>
+    </div>
+    <p class="warn"><strong>Read this first:</strong> crypto assets are highly volatile, mostly unregulated as investments in India, and a common route for scams. This page explains how they work. It does not recommend buying them.</p>
+  </div>
+  <figure style="margin:0">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Animated chain of blocks: transactions drop into a new block, which links onto the end of the chain"><g id="hero"></g></svg>
+  </figure>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Ten thousand to ten lakh</a></li>
+    <li><a href="#trust"><span>01</span>Money is a ledger</a></li>
+    <li><a href="#bitcoin"><span>02</span>A ledger with no owner</a></li>
+    <li><a href="#blocks"><span>03</span>Blocks, hashes and tampering</a></li>
+    <li><a href="#mining"><span>04</span>Mining: who writes the next page?</a></li>
+    <li><a href="#supply"><span>05</span>Only 21 million</a></li>
+    <li><a href="#keys"><span>06</span>Keys and wallets</a></li>
+    <li><a href="#beyond"><span>07</span>Beyond bitcoin</a></li>
+    <li><a href="#stable"><span>08</span>Stablecoins and the e-rupee</a></li>
+    <li><a href="#price"><span>09</span>What sets a coin's price?</a></li>
+    <li><a href="#vol"><span>10</span>The wildest ride in finance</a></li>
+    <li><a href="#exchanges"><span>11</span>When exchanges fail</a></li>
+    <li><a href="#scam"><span>12</span>Kamala and the trading bot</a></li>
+    <li><a href="#india"><span>13</span>Crypto in India: rules and tax</a></li>
+    <li><a href="#market"><span>14</span>The crypto market at scale</a></li>
+    <li><a href="#rules"><span>15</span>If you still want to buy</a></li>
+    <li><a href="#epilogue"><span>16</span>Varun's decision</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>How it works</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Ten thousand to ten lakh</h2></header>
+  <div class="prose">
+    <p>Varun studies engineering at the district college. He's Rohit's younger cousin, and Kamala's other grandson. Every evening his phone shows him the same kind of video: a young man in a rented car, a screenshot of a crypto wallet up 9,000%, and a link to a Telegram group.</p>
+    <p>A classmate bought a "memecoin" with a dog on it and says it went up 40 times in three weeks. Varun has ₹25,000 saved from tutoring. He messages Rohit: "Should I put it all in?"</p>
+    <p>Rohit, who has learned a lot from his family's money stories, replies: "Before you buy anything, can you explain what it is?" Varun can't. So they decide to find out together, with help from Rohit's analyst friend Neha.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Ninth story</span>This follows the bond, mutual fund, stock, derivatives, money market, forex, commodity and real estate stories. Kamala, Rohit, Iyer, Neha and Salim return.</div>
+    <div class="note risk"><span class="label">Survivorship</span>You see the screenshots of people who won. You don't see the much larger number who lost and posted nothing.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="trust">
+  <header><span class="label">Chapter 1</span><h2>Money is a ledger</h2></header>
+  <div class="prose">
+    <p>Neha starts with a question: when Rohit pays Varun ₹500 by UPI, what actually moves? No notes travel. Two banks change numbers in their records: Rohit's balance goes down by 500, Varun's goes up by 500. Most money today is simply entries in <strong>ledgers</strong> kept by banks, and those banks keep accounts at the RBI, which keeps the master ledger.</p>
+    <p>This works because we trust the record-keepers. Banks are regulated, audited and insured; the RBI stands behind them. The system stops one person from spending the same rupee twice, which is called the <strong>double-spending problem</strong>, because there's one official book.</p>
+    <p>But some people, especially after the 2008 financial crisis, asked: what if you didn't want to trust a bank or a government? Could strangers on the internet keep a shared ledger that nobody controls, and that nobody can cheat?</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Ledger</span>A record of who owns what and every transfer between them. Shopkeepers in Kesarpur still keep paper ones, called bahi-khata.</div>
+    <div class="note"><span class="label">Double spending</span>Paying two people with the same money. Digital files can be copied, so digital money needs a way to stop this.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="bitcoin">
+  <header><span class="label">Chapter 2</span><h2>A ledger with no owner</h2></header>
+  <div class="prose">
+    <p>On 31 October 2008, in the middle of the financial crisis, someone using the name <strong>Satoshi Nakamoto</strong> published a nine-page paper describing "a peer-to-peer electronic cash system": <strong>Bitcoin</strong>. The network started in January 2009. Nobody knows for certain who Satoshi is.</p>
+    <p>The idea is simple to describe. Instead of one bank keeping the book, <em>thousands of computers around the world each keep a full copy</em> of the same ledger. When someone sends bitcoin, the transaction is broadcast to all of them. They check it against their copy: does the sender really have that much? Is it signed by the owner? If enough agree, it's added to everyone's book.</p>
+    <p>If one computer tries to change its copy, giving itself extra coins, everyone else's copies disagree, and it's ignored. Watch:</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Thousands of copies, one truth</span><div class="seg"><button type="button" id="dist-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 300" width="100%" style="min-width:480px" role="img" aria-label="Animated network of computers each holding a copy of the ledger; one copy is altered, turns red and is rejected by the others"><g id="dist"></g></svg></div>
+    <figcaption>One node changes its copy (red). Its version doesn't match the majority, so the network rejects it. No bank was needed to catch the cheat.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Node</span>A computer running the network's software and keeping a copy of the ledger.</div>
+    <div class="note"><span class="label">Decentralised</span>No single company, bank or government runs it. That's the core feature, and also why there's nobody to call when something goes wrong.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="blocks">
+  <header><span class="label">Chapter 3</span><h2>Blocks, hashes and tampering</h2></header>
+  <div class="prose">
+    <p>The ledger is written in pages called <strong>blocks</strong>. Each block holds a batch of transactions. Each block also contains a fingerprint of the block before it, so they form a chain: a <strong>blockchain</strong>.</p>
+    <p>The fingerprint is a <strong>hash</strong>: a short code calculated from all the data in the block. Change even one letter of the data, and the hash changes completely. Try it: type anything in the box and watch the hash.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="hash-in">Any text</label><input type="text" id="hash-in" value="Rohit pays Varun 500"></div>
+    <div class="mine-out" id="hash-out"></div>
+    <p style="font-size:.85rem;color:var(--muted)">This page uses a simple, fast hash for demonstration. Bitcoin uses SHA-256, which works on the same principle but is designed to be practically impossible to reverse or fake.</p>
+  </div>
+  <div class="prose">
+    <p>Now here's why the chain is hard to tamper with. Below are four blocks. Each stores the hash of the one before it. Press the button to secretly change a payment in Block 2.</p>
+  </div>
+  <div class="panel">
+    <div class="blocks" id="chain-demo"></div>
+    <div class="seg"><button type="button" class="btn primary" id="tamper">Change Block 2: 5 coins → 50 coins</button><button type="button" class="btn" id="restore">Restore</button></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="chain-note"></p>
+  </div>
+  <div class="prose">
+    <p>Changing Block 2 changes its hash. Block 3 still holds the <em>old</em> hash of Block 2, so the link breaks, and so does every block after it. To cheat, you'd have to rebuild every later block, and do it faster than the rest of the network adds new ones. The next chapter shows why that's so expensive.</p>
+  </div>
+</section>
+
+<section class="chapter" id="mining">
+  <header><span class="label">Chapter 4</span><h2>Mining: who writes the next page?</h2></header>
+  <div class="prose">
+    <p>If thousands of computers keep copies, who gets to add the next block? Bitcoin's answer is a competition called <strong>proof of work</strong>. Computers called <strong>miners</strong> race to find a number (a <em>nonce</em>) that, combined with the block's data, gives a hash starting with a required number of zeros. There's no shortcut; you can only guess, again and again.</p>
+    <p>The first miner to find one broadcasts the block. Others check it instantly (checking is easy; finding is hard), add it to their copy, and the winner receives newly created bitcoin plus transaction fees. Try mining a block yourself.</p>
+  </div>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="Difficulty" id="diff">
+      <button type="button" data-v="2" aria-pressed="true">Easy: hash starts "00"</button>
+      <button type="button" data-v="3" aria-pressed="false">Harder: "000"</button>
+      <button type="button" data-v="4" aria-pressed="false">Hard: "0000"</button>
+    </div>
+    <div class="seg"><button type="button" class="btn primary" id="mine">Mine the block</button></div>
+    <div class="readout">
+      <div><span class="label">Guesses tried</span><span class="big" id="m-tries">0</span></div>
+      <div><span class="label">Nonce found</span><span class="big" id="m-nonce">—</span></div>
+    </div>
+    <div class="mine-out" id="m-hash">Block data: "Varun pays Rohit 2 coins" · press Mine</div>
+  </div>
+  <div class="prose">
+    <p>Each extra zero makes the puzzle about 16 times harder here. The real network adjusts difficulty every two weeks so a new block appears roughly every 10 minutes, no matter how many miners join. Today, bitcoin miners worldwide make an almost unimaginable number of guesses every second, using warehouses of specialised machines.</p>
+    <p>That's what makes cheating so costly: to rewrite history, you'd need more computing power than everyone else combined. It's also why bitcoin uses a lot of electricity. Cambridge University estimates put its yearly use comparable to that of a mid-sized country.</p>
+    <p>Many newer networks use <strong>proof of stake</strong> instead. Validators lock up their own coins as a deposit and are chosen to add blocks; if they cheat, they lose their deposit. Ethereum switched to proof of stake in 2022, cutting its energy use by more than 99%.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Hash</span>A fixed-length fingerprint of data. Easy to compute, practically impossible to reverse, and changes completely with any edit.</div>
+    <div class="note coin"><span class="label">Block reward</span>New coins paid to the miner who adds a block. This is the only way new bitcoin is created.</div>
+    <div class="note risk"><span class="label">51% attack</span>If one group controlled most of a network's mining or staking power, it could rewrite recent history. Small coins with few miners are most at risk.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="supply">
+  <header><span class="label">Chapter 5</span><h2>Only 21 million</h2></header>
+  <div class="prose">
+    <p>Bitcoin's rules fix its total supply at 21 million coins, ever. The block reward started at 50 bitcoin per block and is cut in half about every four years, an event called the <strong>halving</strong>: 25 in 2012, 12.5 in 2016, 6.25 in 2020, 3.125 in 2024. The last fraction of a coin will be mined around 2140.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Bitcoin in existence (millions)</span><div class="seg"><button type="button" id="supply-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Curve of total bitcoin supply rising quickly in early years and flattening toward 21 million, with halvings marked"><g id="supply-chart"></g></svg></div>
+    <figcaption>Calculated from bitcoin's issuance rule: 210,000 blocks between halvings, about every four years. Over 90% of all bitcoin that will ever exist has already been mined.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Supporters call bitcoin "digital gold": scarce, like gold in the commodity story, and impossible for any central bank to print more of. Critics answer that a fixed supply doesn't create value by itself: plenty of scarce things are worthless if nobody wants them. And unlike gold, bitcoin has no use in jewellery or industry. Its value depends entirely on people continuing to want it.</p>
+    <p>Many bitcoins are also gone for good. Researchers estimate that millions of coins sit in wallets whose owners have lost their keys.</p>
+  </div>
+  <aside>
+    <div class="note coin"><span class="label">Satoshi</span>The smallest unit of bitcoin: one hundred-millionth of a coin. You don't need to buy a whole bitcoin.</div>
+    <div class="note"><span class="label">Other coins</span>Not every crypto has a cap. Some have unlimited or flexible supply, and many give large shares to their founders.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="keys">
+  <header><span class="label">Chapter 6</span><h2>Keys and wallets</h2></header>
+  <div class="prose">
+    <p>Who owns which coins? There are no names on the blockchain, only addresses. Ownership comes from a pair of mathematically linked keys:</p>
+    <ul>
+      <li>A <strong>private key</strong>: a secret number. Whoever knows it can spend the coins. It's like the key to a locker, the signature and the PIN all in one.</li>
+      <li>A <strong>public key</strong> and <strong>address</strong>: derived from the private key, and safe to share, like an account number.</li>
+    </ul>
+  </div>
+  <figure class="fig-card">
+    <span class="label">One-way doors</span>
+    <div class="scroll"><svg viewBox="0 0 680 220" width="100%" style="min-width:540px" role="img" aria-label="Diagram: a seed phrase creates a private key, which creates a public key, which creates an address; each step is one-way"><g id="keys"></g></svg></div>
+    <figcaption>Each arrow is easy to compute forward and practically impossible to reverse. Sharing your address is safe; sharing your seed phrase or private key gives away everything.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>A <strong>wallet</strong> is the software or device that stores your keys. Most wallets show a <strong>seed phrase</strong> of 12 or 24 words, which can regenerate all the keys. Lose it, and the coins are gone forever. Let someone see it, and they can take everything, with no bank to reverse it.</p>
+    <p>There are two ways to hold crypto:</p>
+    <ul>
+      <li><strong>Custodial:</strong> an exchange holds the keys for you, like a bank holds your money. Convenient, but if the exchange fails or is hacked, you may lose your coins (Chapter 11).</li>
+      <li><strong>Self-custody:</strong> you hold your own keys, on an app or a hardware device. Nobody can freeze your coins, but nobody can help you if you make a mistake. Send to a wrong address, and it's gone.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Never share</span>No genuine exchange, support agent or wallet will ever ask for your seed phrase or private key. Anyone who asks is stealing.</div>
+    <div class="note"><span class="label">Pseudonymous</span>Addresses aren't names, but every transaction is public forever. Investigators routinely trace funds through the chain.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="beyond">
+  <header><span class="label">Chapter 7</span><h2>Beyond bitcoin</h2></header>
+  <div class="prose">
+    <p>Bitcoin was the first. Today there are thousands of crypto tokens, and the idea has spread far beyond digital cash. Neha sorts them into groups.</p>
+  </div>
+  <div class="cols">
+    <div class="col c"><h3>Bitcoin</h3><p>The original. Designed as money and a store of value; deliberately simple and slow to change.</p></div>
+    <div class="col"><h3>Ethereum and smart contracts</h3><p>Launched in 2015. Its blockchain runs programs called <strong>smart contracts</strong>: code that moves tokens automatically when conditions are met. This made possible most of what follows.</p></div>
+    <div class="col"><h3>DeFi</h3><p>"Decentralised finance": lending, borrowing and trading run by smart contracts instead of banks. Innovative, but bugs and hacks have drained billions.</p></div>
+    <div class="col c"><h3>Stablecoins</h3><p>Tokens designed to stay at a fixed value, usually $1. Widely used for trading and cross-border payments (Chapter 8).</p></div>
+    <div class="col m"><h3>NFTs</h3><p>Non-fungible tokens: unique tokens recording ownership of a digital item. A digital artwork sold for $69 million in 2021; most NFTs from that boom later lost almost all their value.</p></div>
+    <div class="col d"><h3>Memecoins and new tokens</h3><p>Coins based on jokes and internet trends, or freshly launched tokens. Anyone can create one in minutes. Many are pure speculation, and a large share collapse to zero or are scams (Chapter 12).</p></div>
+  </div>
+  <div class="prose">
+    <p>Varun's dog coin is a memecoin. It has no business, no earnings, and no purpose beyond being traded. Its creators kept a large slice of the supply at launch, and can sell whenever they like.</p>
+  </div>
+</section>
+
+<section class="chapter" id="stable">
+  <header><span class="label">Chapter 8</span><h2>Stablecoins and the e-rupee</h2></header>
+  <div class="prose">
+    <p>Salim, who sends money home from Dubai in the forex story, hears that some workers use dollar <strong>stablecoins</strong> to send money. A stablecoin is meant to stay worth exactly $1, usually because its issuer holds dollars and short-term US government bonds as backing. The biggest ones are used heavily on crypto exchanges.</p>
+    <p>But "meant to" is the key phrase. Some stablecoins are backed by real reserves; others relied on algorithms. In May 2022, <strong>TerraUSD</strong>, an algorithmic stablecoin, lost its link to the dollar. Within days it fell to a few cents, and its sister coin, Luna, collapsed to almost nothing, wiping out around $40 billion.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">A "stable" coin, May 2022 (approximate, US$)</span><div class="seg"><button type="button" id="terra-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Chart of TerraUSD staying at 1 dollar and then collapsing to a few cents over about a week"><g id="terra"></g></svg></div>
+    <figcaption>Approximate path. A coin promised to stay at $1 lost over 90% of its value in about a week.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>For Salim, there's also the law: sending money to India through crypto isn't an authorised remittance channel under India's foreign exchange rules. He sticks with his remittance app.</p>
+    <h3 class="sub-h">The e-rupee is not crypto</h3>
+    <p>Iyer explains that the RBI has its own digital currency, the <strong>e-rupee</strong>, piloted since late 2022. It's a <strong>central bank digital currency (CBDC)</strong>: a digital form of the rupee note, issued and backed by the RBI, with the same value as cash. It isn't decentralised, it doesn't change in value against the rupee, and it isn't an investment.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Bitcoin</th><th>Stablecoin</th><th>e-rupee (CBDC)</th><th>UPI rupees</th></tr></thead>
+        <tbody>
+          <tr><td>Issued by</td><td>No one (software rules)</td><td>A private company</td><td>RBI</td><td>Banks, on RBI-backed rupees</td></tr>
+          <tr><td>Value</td><td>Swings wildly</td><td>Aims for $1</td><td>₹1 = ₹1</td><td>₹1 = ₹1</td></tr>
+          <tr><td>Legal tender in India</td><td>No</td><td>No</td><td>Yes</td><td>Bank money in rupees</td></tr>
+          <tr><td>Who to call if it fails</td><td>No one</td><td>The issuer, if it still exists</td><td>RBI-regulated banks</td><td>Your bank</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note coin"><span class="label">Peg</span>A promise to keep a fixed value, like the dirham's peg in the forex story. Pegs are only as strong as the reserves and trust behind them.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>The market</h2></div>
+
+<section class="chapter" id="price">
+  <header><span class="label">Chapter 9</span><h2>What sets a coin's price?</h2></header>
+  <div class="prose">
+    <p>Rohit asks Neha the question he'd ask about any investment: "What's it worth?" In every earlier story, there was an answer rooted in cash:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Asset</th><th>Pays its owner</th><th>Can be valued from</th></tr></thead>
+        <tbody>
+          <tr><td>Kesarpur bridge bond</td><td>Fixed interest</td><td>Coupons and repayment</td></tr>
+          <tr><td>Sunrise share</td><td>A share of profits</td><td>Earnings and dividends</td></tr>
+          <tr><td>Ananya's flat</td><td>Rent, or a place to live</td><td>Rent and use</td></tr>
+          <tr><td>Gold</td><td>Nothing</td><td>Jewellery and industry demand, plus investor demand</td></tr>
+          <tr class="hl"><td>Bitcoin, most coins</td><td>Nothing</td><td>Only what the next buyer will pay</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Most crypto produces no cash flow. So its price is set entirely by supply and demand: how many people want to hold it, and why. The forces that move it:</p>
+    <ul>
+      <li><strong>Belief and adoption:</strong> more users, payments or institutional buyers, such as the US bitcoin ETFs approved in 2024, raise demand.</li>
+      <li><strong>Narratives:</strong> "digital gold", "the future of finance", or a celebrity post can move prices more than any fact.</li>
+      <li><strong>Interest rates and liquidity:</strong> crypto has tended to boom when money is cheap and slump when central banks raise rates.</li>
+      <li><strong>Leverage:</strong> many traders borrow heavily. When prices fall, forced selling of borrowed positions (liquidations) can crash prices in minutes.</li>
+      <li><strong>Supply:</strong> halvings, token unlocks for founders, and new coins.</li>
+      <li><strong>Regulation and hacks:</strong> bans, approvals and exchange failures cause sharp moves.</li>
+    </ul>
+    <p>Neha's summary: "With a share, you can be wrong about the price but still own part of a real business. With most coins, if people stop wanting them, there's nothing underneath."</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Greater fool</span>An investment whose only source of profit is selling to someone who'll pay more. It can work for a long time, until the buyers run out.</div>
+    <div class="note"><span class="label">Market cap</span>Price × coins in circulation. A tiny coin can show a huge market cap if a few coins trade at a high price while most of the supply is held by insiders.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="vol">
+  <header><span class="label">Chapter 10</span><h2>The wildest ride in finance</h2></header>
+  <div class="prose">
+    <p>Here is bitcoin's price since 2013. It's on a logarithmic scale, so each gridline is ten times the one below. Even so, the swings are enormous.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Bitcoin in US$, approximate, log scale</span><div class="seg"><button type="button" id="btc-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 680 300" width="100%" style="min-width:520px" role="img" aria-label="Log-scale chart of bitcoin from about 750 dollars in 2013 to about 94,000 in 2024, with falls of around 80 percent marked in 2014, 2018 and 2022"><g id="btc"></g></svg></div>
+    <figcaption>Approximate year-end and peak values, for illustration. Bitcoin rose above $100,000 in late 2024 and has kept swinging widely since.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Each of bitcoin's three big booms ended in a fall of roughly 75–85%. Anyone who bought at a peak waited years to break even. And bitcoin is the <em>least</em> volatile major coin; smaller coins routinely fall 90–99% and never recover.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">How much does a typical year swing? (approximate)</span><div class="seg"><button type="button" id="volbars-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Bars comparing typical yearly price swings of a fixed deposit, gold, the Nifty 50, bitcoin and small coins"><g id="volbars"></g></svg></div>
+    <figcaption>Rough yearly volatility (standard deviation), for comparison only. Bitcoin swings several times as much as Indian shares; small coins far more.</figcaption>
+  </figure>
+  <aside>
+    <div class="note risk"><span class="label">Drawdown</span>A fall from peak. From −80%, you need +400% just to get back to where you started.</div>
+    <div class="note"><span class="label">Correlation</span>Crypto is often described as separate from stock markets, but in recent years it has often fallen together with shares in market sell-offs.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="exchanges">
+  <header><span class="label">Chapter 11</span><h2>When exchanges fail</h2></header>
+  <div class="prose">
+    <p>Most people buy crypto through an <strong>exchange</strong>: an app or website that takes rupees and gives coins, holding the coins for you. That makes the exchange a kind of bank, but often without a bank's regulation, capital rules, audits or deposit insurance.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Mt. Gox, 2014</strong><span>Then the world's largest bitcoin exchange, based in Tokyo, collapsed after about 850,000 bitcoins disappeared through hacks and mismanagement. Customers waited about a decade for partial repayment.</span></div>
+    <div class="risk-row"><strong>FTX, 2022</strong><span>One of the biggest exchanges, valued at about $32 billion, collapsed within days in November 2022 after it emerged that customer money had been moved to its sister trading firm. Its founder was convicted of fraud and sentenced to 25 years in prison.</span></div>
+    <div class="risk-row"><strong>Lending platforms, 2022</strong><span>Platforms like Celsius that promised high "interest" on deposited crypto went bankrupt in the same crash, freezing customers' coins.</span></div>
+    <div class="risk-row"><strong>WazirX hack, 2024</strong><span>In July 2024, hackers stole roughly $230 million from one of India's largest crypto exchanges, which froze withdrawals for many users.</span></div>
+  </div>
+  <figure class="fig-card">
+    <span class="label">Where your coins sit on an exchange</span>
+    <div class="scroll"><svg viewBox="0 0 680 230" width="100%" style="min-width:540px" role="img" aria-label="Animated diagram: customer deposits flow into an exchange wallet; in a safe exchange they stay there, but in a failed exchange some flow out to an affiliated trading firm, leaving a hole"><g id="exch"></g></svg></div>
+    <figcaption>When an exchange holds your keys, you depend on it not to lend, gamble or lose your coins. When that trust fails, there's usually no insurance to fall back on.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Proof of reserves</span>Some exchanges now publish evidence that they hold customers' coins. It helps, but it doesn't always show debts, and isn't a full audit.</div>
+    <div class="note risk"><span class="label">"Not your keys, not your coins"</span>A common saying in crypto: if someone else holds the keys, you hold a promise, not the coins.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="scam">
+  <header><span class="label">Chapter 12</span><h2>Kamala and the trading bot</h2></header>
+  <div class="prose">
+    <p>Kamala, who has lost money on options and silver in earlier stories, receives a friendly message from a wrong number. A polite young woman apologises, and they start chatting. Weeks later, the woman mentions her uncle's "AI crypto trading bot" that makes 3% a day. She sends screenshots of profits and a link to a smart-looking app.</p>
+    <p>Kamala deposits ₹20,000 through a UPI ID she's given. The app shows her balance growing every day. She deposits ₹1 lakh more. When she tries to withdraw, the app says she must first pay a 20% "tax" and "unlock fee". She pays. More fees appear. The woman stops replying.</p>
+    <p>The app was fake. The "profits" were numbers on a screen. This type of fraud, which builds trust slowly before the theft, is sometimes called a <strong>pig-butchering scam</strong>, and it has taken huge sums from people in India and worldwide.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Anatomy of the scam</span><div class="seg"><button type="button" id="scam-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 860 210" width="100%" style="min-width:700px" role="img" aria-label="Five-stage timeline of a crypto scam: contact, trust, small win, big deposit, fees and disappearance"><g id="scamline"></g></svg></div>
+  </figure>
+  <div class="prose">
+    <p>Rohit helps Kamala report it immediately on India's cybercrime helpline, <strong>1930</strong>, and at <strong>cybercrime.gov.in</strong>. Reporting fast can sometimes freeze money still in the receiving bank accounts. She recovers part of the first transfer.</p>
+    <p>Other common crypto scams: fake exchange apps; "guaranteed return" schemes that pay early investors with later investors' money; <strong>rug pulls</strong>, where creators of a new token sell all their coins and vanish; <strong>pump-and-dumps</strong> organised in Telegram groups; fake support agents who ask for your seed phrase; and impersonation of celebrities "giving away" crypto.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Red flags</span>Guaranteed or daily returns. Strangers who become friends online and then talk about investing. Payments to personal UPI IDs or bank accounts. Fees to withdraw your own money. Pressure to act fast.</div>
+    <div class="note"><span class="label">Help</span>Call 1930 or report at cybercrime.gov.in. Also tell your bank immediately.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="india">
+  <header><span class="label">Chapter 13</span><h2>Crypto in India: rules and tax</h2></header>
+  <div class="prose">
+    <p>India's approach has changed several times:</p>
+    <ul>
+      <li><strong>2018:</strong> the RBI told banks not to deal with crypto businesses.</li>
+      <li><strong>2020:</strong> the Supreme Court set that circular aside, and trading revived.</li>
+      <li><strong>2022:</strong> the government brought in a special tax regime for "virtual digital assets" (VDAs), including crypto and NFTs.</li>
+      <li><strong>2023:</strong> crypto platforms serving Indians were brought under anti-money-laundering law and must register with the Financial Intelligence Unit (FIU-IND). Later that year, the FIU acted against several offshore exchanges that hadn't registered.</li>
+    </ul>
+    <p>Crypto is not legal tender in India, and there's no comprehensive law regulating it as an investment the way SEBI regulates shares and funds. The RBI has repeatedly warned about its risks.</p>
+    <h3 class="sub-h">How crypto gains are taxed</h3>
+    <p>The VDA tax rules, as introduced in 2022, are much harsher than for shares:</p>
+    <ul>
+      <li>Gains are taxed at a flat <strong>30%</strong> (plus cess), whatever your income and however long you held.</li>
+      <li><strong>No deduction</strong> except the purchase cost: no fees or other expenses.</li>
+      <li><strong>Losses can't be set off</strong> against gains on other coins or any other income, and can't be carried forward.</li>
+      <li>A <strong>1% TDS</strong> is deducted on sales above a threshold, which can be adjusted against your final tax.</li>
+    </ul>
+    <p>Try what that means when you win on one coin and lose on another:</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="t-a">Gain on coin A <output id="t-a-out">₹50,000</output></label><input id="t-a" type="range" min="0" max="200000" step="5000" value="50000"></div>
+      <div class="ctrl"><label for="t-b">Loss on coin B <output id="t-b-out">₹40,000</output></label><input id="t-b" type="range" min="0" max="200000" step="5000" value="40000"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 210" width="100%" style="min-width:480px" role="img" aria-label="Bars comparing actual net profit with the tax owed under crypto rules, where losses can't be offset"><g id="taxchart"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Your real net result</span><span class="big" id="t-net">+₹10,000</span></div>
+      <div><span class="label">Tax under VDA rules (31.2%)</span><span class="big" id="t-tax">₹15,600</span></div>
+      <div><span class="label">After tax</span><span class="big" id="t-after">−₹5,600</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="t-note"></p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Rules change</span>Crypto rules and tax in India have changed repeatedly and may change again. This describes the structure introduced in 2022. Check current rules before acting.</div>
+    <div class="note"><span class="label">Records</span>Every trade, including coin-to-coin swaps, can be a taxable transfer. Keep full records.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>The crypto market at scale</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. The crypto market runs 24 hours a day, every day, across thousands of tokens and hundreds of exchanges worldwide. Its total value has swung by trillions of dollars between booms and busts.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Builders and networks</h3><p>Open-source developers, foundations and companies building blockchains and applications. Some do serious engineering; others mainly sell tokens.</p></div>
+    <div class="col"><h3>Miners and validators</h3><p>Those who secure networks and add blocks, earning new coins and fees. Bitcoin mining is now dominated by large industrial operations.</p></div>
+    <div class="col c"><h3>Exchanges and custodians</h3><p>Centralised exchanges, decentralised exchanges run by smart contracts, and custodians holding coins for institutions.</p></div>
+    <div class="col c"><h3>Investors and traders</h3><p>Individuals, hedge funds, and since 2024 large asset managers through US bitcoin ETFs. Much of the trading volume is leveraged derivatives.</p></div>
+    <div class="col m"><h3>Regulators</h3><p>Approaches differ: the US regulates through securities and commodities agencies; the EU introduced a dedicated crypto law, MiCA; El Salvador made bitcoin legal tender in 2021, then scaled that back in 2025; India taxes heavily and applies anti-money-laundering rules.</p></div>
+    <div class="col d"><h3>Criminals</h3><p>Ransomware, scams, sanctions evasion and money laundering use crypto, though blockchain analysis firms help police trace many of these flows.</p></div>
+  </div>
+  <div class="prose">
+    <p>Underneath the speculation, some ideas from crypto are being taken seriously: tokenising bonds and funds, faster cross-border settlement, programmable payments. Central banks, including the RBI, are experimenting with similar technology in their own digital currencies. The technology and the speculation are two separate questions.</p>
+  </div>
+</section>
+
+<section class="chapter" id="rules">
+  <header><span class="label">Chapter 15</span><h2>If you still want to buy</h2></header>
+  <div class="prose">
+    <p>Rohit's own view, after all eight earlier stories: he doesn't need crypto to reach his goals. His index funds, debt funds and a little gold do that. But he respects that some adults will decide to take a small, deliberate gamble. If so, these are the rules he'd insist on:</p>
+    <ul>
+      <li><strong>Only money you can lose completely</strong> without changing your life. For most people, a very small share of savings, if any. Never borrowed money, never your emergency fund.</li>
+      <li><strong>Goals first.</strong> Emergency fund, insurance and long-term investments come before any crypto.</li>
+      <li><strong>Use platforms registered with FIU-IND</strong> in India. Avoid apps and websites you find through ads, messages or social media.</li>
+      <li><strong>Stick to the largest, longest-running coins</strong> if at all. Avoid memecoins, new tokens and anything promising returns.</li>
+      <li><strong>No leverage, no futures, no lending your coins for "interest".</strong></li>
+      <li><strong>Protect access:</strong> strong passwords, app-based two-factor authentication, and if you self-custody, keep the seed phrase offline and private.</li>
+      <li><strong>Keep tax records</strong> of every trade from day one.</li>
+      <li><strong>Expect an 80% fall</strong> at some point, and decide in advance that you won't panic or add more to "win it back".</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">One simple test</span>If you can't explain what you're buying and why it has value, in two sentences, to Meera, don't buy it.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Varun's decision</h2></header>
+  <div class="prose">
+    <p>Three weeks later, Varun's classmate's dog coin has fallen 92% from its peak. Its creators had sold their tokens near the top. Varun is very glad he waited.</p>
+    <p>He puts ₹20,000 of his tutoring money into an index fund SIP, the way his cousin Ananya started. He keeps ₹5,000 as a deliberate, small experiment: he buys a little bitcoin on a registered Indian platform, writes down every trade for tax, and treats it as tuition. Mostly, though, he spends his evenings learning to write smart contracts, because the engineering fascinates him far more than the price.</p>
+    <p>Kamala tells her scam story at the senior citizens' club, right after her options story. She now forwards every "guaranteed returns" message to Rohit before replying.</p>
+    <p>That is what crypto is: a clever way to keep a shared ledger without a central owner, with tokens whose value depends on people continuing to believe in them. And that is what the crypto market is: a global, round-the-clock market where serious technology, wild speculation and outright fraud trade side by side, with far fewer of the protections that guard every other market in these stories.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The nine stories</span><em>Bonds</em> lend. <em>Funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing. <em>Forex</em> crosses borders. <em>Commodities</em> price real goods. <em>Real estate</em> builds homes. <em>Crypto</em> rewrites the ledger and tests how much trust we really need.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Eight myths about crypto</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Blockchain makes crypto safe.</span><span>The chain is hard to tamper with. Exchanges, apps, smart contracts and your own phone are not.</span></div>
+    <div class="myth"><span class="m">It's anonymous.</span><span>Every transaction is public forever; investigators trace them routinely.</span></div>
+    <div class="myth"><span class="m">Scarcity guarantees value.</span><span>Scarce things are only valuable if people keep wanting them.</span></div>
+    <div class="myth"><span class="m">Stablecoins can't lose value.</span><span>TerraUSD fell from $1 to cents in a week.</span></div>
+    <div class="myth"><span class="m">Big exchanges are safe like banks.</span><span>FTX and Mt. Gox were among the biggest. Exchanges aren't insured like bank deposits.</span></div>
+    <div class="myth"><span class="m">Losses reduce my crypto tax.</span><span>Under India's VDA rules, losses can't be set off against gains.</span></div>
+    <div class="myth"><span class="m">The e-rupee is a cryptocurrency.</span><span>It's a digital rupee issued by the RBI, worth exactly ₹1.</span></div>
+    <div class="myth"><span class="m">AI trading bots earn guaranteed daily returns.</span><span>Guaranteed returns are the clearest sign of a scam.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before touching crypto: a checklist</h2>
+  <ul class="check">
+    <li>My emergency fund, insurance and long-term investments are in place.</li>
+    <li>I can lose this whole amount without real harm.</li>
+    <li>I can explain in two sentences what I'm buying and why it might have value.</li>
+    <li>The platform is registered with FIU-IND and I found it myself, not through a message or ad.</li>
+    <li>I'm not using leverage, borrowed money, futures or lending products.</li>
+    <li>No one has promised me guaranteed or daily returns.</li>
+    <li>I'll never share my seed phrase, private key or OTP with anyone.</li>
+    <li>I understand the 30% tax, the 1% TDS, and that losses can't be set off.</li>
+    <li>I'm ready to see it fall 80% without panic-selling or doubling down.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Rohit's UPI payment</td><td>Money as a ledger</td><td>Most money is records kept by trusted institutions</td></tr>
+        <tr><td>Satoshi's paper</td><td>Decentralised ledger</td><td>Thousands of copies replace one record-keeper</td></tr>
+        <tr><td>The tampered block</td><td>Hashes, blockchain</td><td>Changing history breaks every later link</td></tr>
+        <tr><td>Mining the block</td><td>Proof of work / stake</td><td>Costly puzzles or deposits secure the chain</td></tr>
+        <tr><td>21 million</td><td>Fixed supply, halving</td><td>Scarcity by rule, not by nature</td></tr>
+        <tr><td>Twelve secret words</td><td>Keys, wallets, custody</td><td>Whoever has the key has the coins</td></tr>
+        <tr><td>The dog coin</td><td>Altcoins, memecoins</td><td>Anyone can make a token; most fail</td></tr>
+        <tr><td>Terra's collapse</td><td>Stablecoins, pegs</td><td>"Stable" depends on real reserves</td></tr>
+        <tr><td>What's it worth?</td><td>No cash flows</td><td>Price depends only on demand</td></tr>
+        <tr><td>−80% three times</td><td>Volatility, drawdowns</td><td>Extreme swings are normal</td></tr>
+        <tr><td>FTX, Mt. Gox, WazirX</td><td>Exchange risk</td><td>An exchange holding your keys can fail</td></tr>
+        <tr><td>Kamala's trading bot</td><td>Scams</td><td>Guaranteed returns mean fraud</td></tr>
+        <tr><td>Win ₹50k, lose ₹40k, pay ₹15.6k</td><td>VDA tax</td><td>Losses don't offset gains</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Address</dt><dd>A public identifier where crypto can be sent, derived from a public key.</dd></div>
+    <div><dt>Block</dt><dd>A batch of transactions added to the blockchain.</dd></div>
+    <div><dt>Blockchain</dt><dd>A chain of blocks, each linked to the previous by its hash.</dd></div>
+    <div><dt>CBDC</dt><dd>Central bank digital currency, like the RBI's e-rupee.</dd></div>
+    <div><dt>Cold / hot wallet</dt><dd>Keys stored offline / on an internet-connected device.</dd></div>
+    <div><dt>Custodial</dt><dd>A service holds your keys for you.</dd></div>
+    <div><dt>DeFi</dt><dd>Financial services run by smart contracts.</dd></div>
+    <div><dt>Double spending</dt><dd>Spending the same digital money twice.</dd></div>
+    <div><dt>Exchange</dt><dd>A platform to buy, sell and hold crypto.</dd></div>
+    <div><dt>FIU-IND</dt><dd>India's Financial Intelligence Unit, where crypto platforms must register.</dd></div>
+    <div><dt>Halving</dt><dd>Bitcoin's block reward cut in half about every four years.</dd></div>
+    <div><dt>Hash</dt><dd>A fixed-length fingerprint of data.</dd></div>
+    <div><dt>Liquidation</dt><dd>Forced closing of a leveraged position after losses.</dd></div>
+    <div><dt>Memecoin</dt><dd>A token based on a joke or trend, with no underlying business.</dd></div>
+    <div><dt>Mining</dt><dd>Competing to add blocks by solving proof-of-work puzzles.</dd></div>
+    <div><dt>NFT</dt><dd>A unique token recording ownership of a digital item.</dd></div>
+    <div><dt>Node</dt><dd>A computer keeping a copy of the blockchain.</dd></div>
+    <div><dt>Nonce</dt><dd>The number miners change to find a valid hash.</dd></div>
+    <div><dt>Private key</dt><dd>The secret that controls crypto at an address.</dd></div>
+    <div><dt>Proof of stake</dt><dd>Securing a network with locked-up coins instead of computing power.</dd></div>
+    <div><dt>Proof of work</dt><dd>Securing a network by solving costly computing puzzles.</dd></div>
+    <div><dt>Rug pull</dt><dd>Creators of a token abandon it after taking investors' money.</dd></div>
+    <div><dt>Satoshi</dt><dd>One hundred-millionth of a bitcoin.</dd></div>
+    <div><dt>Seed phrase</dt><dd>12 or 24 words that can restore a wallet's keys.</dd></div>
+    <div><dt>Smart contract</dt><dd>Code on a blockchain that executes automatically.</dd></div>
+    <div><dt>Stablecoin</dt><dd>A token designed to hold a fixed value, usually $1.</dd></div>
+    <div><dt>VDA</dt><dd>Virtual digital asset: India's legal term for crypto and NFTs.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how crypto assets work. Varun, Kamala's scam and all figures are illustrative; historical prices are approximate. Crypto assets are highly risky and largely unregulated as investments in India, and rules and taxes change. Nothing here recommends buying any crypto asset. It is not financial, legal or tax advice. If you suspect fraud, call 1930 or report at cybercrime.gov.in.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const fmt=n=>(n<0?'−':'')+'₹'+Math.round(Math.abs(n)).toLocaleString('en-IN');
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function axes(g,o){
+    const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L), Y=o.Y||(v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T));
+    o.yt.forEach(v=>{ g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v))); });
+    (o.xt||[]).forEach(v=> g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));
+    if(o.xl) g.appendChild(el('text',{x:(o.L+o.R)/2,y:o.B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xl));
+    return {X,Y};
+  }
+  const pathD=(pts,X,Y)=>pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+  function line(g,pts,X,Y,attrs){ const e=el('path',Object.assign({d:pathD(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},attrs)); g.appendChild(e); return e; }
+  function mover(g,d,color,dur,r,begin){ if(reduce) return; const grp=el('g',{}); grp.appendChild(el('circle',{r:r||5,fill:color})); grp.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(begin||0))+'s'})); g.appendChild(grp); }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  function arrow(g,x1,y1,x2,y2,color){ g.appendChild(el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':2})); const a=Math.atan2(y2-y1,x2-x1), s=8; g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*0.6*Math.sin(a),y2-s*Math.sin(a)-s*0.6*Math.cos(a)],[x2-s*Math.cos(a)-s*0.6*Math.sin(a),y2-s*Math.sin(a)+s*0.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:color})); }
+  function replayClass(g,sel,cls,step){ g.querySelectorAll(sel).forEach((p,i)=>{ p.classList.remove(cls); void p.getBoundingClientRect(); p.style.animationDelay=(i*(step||0.15))+'s'; p.classList.add(cls); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+  function seg(id,cb){ document.querySelectorAll('#'+id+' button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#'+id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); cb(b.dataset.v); })); }
+  function wire(btn,g,fn){ document.getElementById(btn).addEventListener('click',fn); onView(g,fn); }
+
+  // Demo hash: FNV-1a, two passes for 16 hex chars
+  function fnv(str,seed){ let h=seed>>>0; for(let i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,16777619)>>>0; } return h>>>0; }
+  function hash(str){ const a=fnv(str,2166136261), b=fnv(str+'#'+a,a^0x9e3779b9); return (a.toString(16).padStart(8,'0')+b.toString(16).padStart(8,'0')); }
+
+  // Hero: chain of blocks with new block forming
+  (function(){
+    const g=document.getElementById('hero');
+    g.appendChild(el('rect',{x:0,y:0,width:440,height:300,rx:8,fill:'var(--paper)'}));
+    const ys=200;
+    for(let i=0;i<4;i++){ const x=20+i*92; g.appendChild(el('rect',{x,y:ys,width:72,height:60,rx:6,fill:'var(--acc-soft)',stroke:'var(--acc)','stroke-width':1.5}));
+      g.appendChild(el('text',{x:x+36,y:ys+24,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Block '+(810+i)));
+      g.appendChild(el('text',{x:x+36,y:ys+42,'text-anchor':'middle','font-size':9,fill:'var(--muted)'},hash('b'+i).slice(0,8)));
+      if(i<3) g.appendChild(el('line',{x1:x+72,x2:x+92,y1:ys+30,y2:ys+30,stroke:'var(--acc)','stroke-width':2})); }
+    const nb=el('rect',{x:20+4*92-8,y:ys,width:72,height:60,rx:6,fill:'var(--paper)',stroke:'var(--coin)','stroke-width':2,'stroke-dasharray':'5 4'}); g.appendChild(nb);
+    g.appendChild(el('text',{x:20+4*92+28,y:ys+34,'text-anchor':'middle','font-size':10,fill:'var(--coin)'},'next'));
+    g.appendChild(el('text',{x:20,y:28,'font-size':11,fill:'var(--muted)'},'NEW TRANSACTIONS WAITING'));
+    const tx=['Rohit → Varun 0.002','Asha → Dev 0.15','Lee → Ana 1.20','Mo → Sam 0.04','Ravi → Jo 0.30'];
+    tx.forEach((t,i)=>{ const x=20+(i%3)*140, y=46+Math.floor(i/3)*34; g.appendChild(el('rect',{x,y,width:128,height:24,rx:4,fill:'var(--coin-soft)'})); g.appendChild(el('text',{x:x+8,y:y+16,'font-size':10,fill:'var(--ink)'},t)); });
+    for(let i=0;i<5;i++){ const x=20+(i%3)*140+64, y=58+Math.floor(i/3)*34; mover(g,'M'+x+' '+y+' L'+(20+4*92+28)+' '+(ys+30),'var(--coin)',3,4,i*0.6); }
+    g.appendChild(el('text',{x:220,y:285,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Each block stores the fingerprint (hash) of the one before'));
+  })();
+
+  // Distributed copies
+  (function(){
+    const g=document.getElementById('dist');
+    const cx=320, cy=150, R=110, N=10, pts=[];
+    for(let i=0;i<N;i++){ const a=i/N*2*Math.PI-Math.PI/2; pts.push([cx+R*1.9*Math.cos(a)*0.75, cy+R*Math.sin(a)]); }
+    pts.forEach((p,i)=>pts.forEach((q,j)=>{ if(j>i && (j-i===1||j-i===3||(i===0&&j===N-1))) g.appendChild(el('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:'var(--rule)'})); }));
+    const nodes=pts.map((p,i)=>{ const grp=el('g',{}); const r=el('rect',{x:p[0]-26,y:p[1]-17,width:52,height:34,rx:5,fill:'var(--acc-soft)',stroke:'var(--acc)','stroke-width':1.5,style:'transition:fill .4s ease, stroke .4s ease'}); grp.appendChild(r);
+      for(let k=0;k<3;k++) grp.appendChild(el('line',{x1:p[0]-18,x2:p[0]+18,y1:p[1]-8+k*8,y2:p[1]-8+k*8,stroke:'var(--acc)','stroke-width':1.2,opacity:.6}));
+      g.appendChild(grp); return r; });
+    const msg=el('text',{x:cx,y:cy+4,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'All 10 copies agree'); g.appendChild(msg);
+    const bad=3;
+    function run(){ nodes.forEach(r=>{ r.setAttribute('fill','var(--acc-soft)'); r.setAttribute('stroke','var(--acc)'); }); msg.textContent='All 10 copies agree'; msg.setAttribute('fill','var(--ink)');
+      setTimeout(()=>{ nodes[bad].setAttribute('fill','var(--down-soft)'); nodes[bad].setAttribute('stroke','var(--down)'); msg.textContent='One copy says "I own 1,000 coins"'; msg.setAttribute('fill','var(--down)'); },900);
+      setTimeout(()=>{ msg.textContent='9 of 10 disagree → rejected'; msg.setAttribute('fill','var(--up)'); },2400);
+      setTimeout(()=>{ nodes[bad].setAttribute('fill','var(--acc-soft)'); nodes[bad].setAttribute('stroke','var(--acc)'); msg.textContent='The cheat re-syncs to the true copy'; msg.setAttribute('fill','var(--ink)'); },4000); }
+    wire('dist-replay',g,run);
+  })();
+
+  // Hash box
+  (function(){
+    const i=document.getElementById('hash-in'), o=document.getElementById('hash-out');
+    function u(){ o.textContent='Hash: '+hash(i.value); } i.addEventListener('input',u); u();
+  })();
+
+  // Chain demo
+  (function(){
+    const box=document.getElementById('chain-demo'), note=document.getElementById('chain-note');
+    const data=['Genesis: 50 coins to Asha','Asha pays Dev 5 coins','Dev pays Lee 2 coins','Lee pays Mo 1 coin'];
+    let cur=data.slice();
+    const stored=[]; let prev='0000000000000000';
+    data.forEach((d,i)=>{ const h=hash(prev+'|'+d); stored.push({prev,h}); prev=h; });
+    function render(){ box.innerHTML=''; let ok=true; let p='0000000000000000';
+      cur.forEach((d,i)=>{ const h=hash(stored[i].prev+'|'+d); const linkOk = stored[i].prev===p; const selfOk = h===stored[i].h; const valid=ok && linkOk && selfOk; if(!valid) ok=false;
+        const b=document.createElement('div'); b.className='blk'+(valid?'':' bad');
+        b.innerHTML='<span class="t">Block '+(i+1)+'</span><span>'+d+'</span><span class="label">Previous hash</span><span class="h">'+stored[i].prev+'</span><span class="label">This block’s hash</span><span class="h">'+h+'</span><span class="st">'+(valid?'✓ valid':(selfOk?'✗ chain broken before this block':'✗ data changed, hash no longer matches'))+'</span>';
+        box.appendChild(b); p=h; });
+      note.textContent = ok ? 'Every block’s stored "previous hash" matches the block before it. The chain is valid.' : 'Block 2’s hash changed, so it no longer matches what Block 3 recorded. Blocks 2, 3 and 4 are now invalid, and every honest node will reject this version.'; }
+    document.getElementById('tamper').addEventListener('click',()=>{ cur[1]='Asha pays Dev 50 coins'; render(); });
+    document.getElementById('restore').addEventListener('click',()=>{ cur=data.slice(); render(); });
+    render();
+  })();
+
+  // Mining demo
+  (function(){
+    let zeros=2, running=false; const out=document.getElementById('m-hash'), tries=document.getElementById('m-tries'), nonceEl=document.getElementById('m-nonce');
+    seg('diff',v=>{ zeros=+v; });
+    document.getElementById('mine').addEventListener('click',()=>{ if(running) return; running=true; const target='0'.repeat(zeros); let n=Math.floor(Math.random()*1000), count=0; nonceEl.textContent='—';
+      const step=()=>{ const per= reduce?200000:Math.max(40,Math.pow(16,zeros)/120); for(let k=0;k<per;k++){ const h=hash('Varun pays Rohit 2 coins|'+n); count++;
+          if(h.startsWith(target)){ tries.textContent=count.toLocaleString('en-IN'); nonceEl.textContent=n; out.innerHTML='Nonce '+n+' → <strong>'+h.slice(0,zeros)+'</strong>'+h.slice(zeros)+'  ✓ block mined'; running=false; return; }
+          if(k===per-1){ tries.textContent=count.toLocaleString('en-IN'); out.textContent='Trying nonce '+n+' → '+h; } n++; }
+        requestAnimationFrame(step); };
+      step(); });
+  })();
+
+  // Supply curve
+  (function(){
+    const g=document.getElementById('supply-chart');
+    const pts=[]; let s=0, rew=50, year=2009;
+    for(let e=0;e<33;e++){ for(let q=0;q<4;q++){ pts.push([year+e*4+q, s+rew*210000*(q/4)/1e6]); } s+=rew*210000/1e6; rew/=2; }
+    pts.push([2141,21]);
+    const vis=pts.filter(p=>p[0]<=2141);
+    const {X,Y}=axes(g,{L:50,R:610,T:16,B:210,x0:2009,x1:2141,y0:0,y1:21,yt:[0,5,10,15,21],yf:v=>v+'M',xt:[2009,2024,2040,2060,2080,2100,2140],xf:v=>v});
+    g.appendChild(el('line',{x1:50,x2:610,y1:Y(21),y2:Y(21),stroke:'var(--coin)','stroke-dasharray':'6 4'}));
+    g.appendChild(el('text',{x:606,y:Y(21)-6,'text-anchor':'end','font-size':11,fill:'var(--coin)'},'21 million cap'));
+    line(g,vis,X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'sp'});
+    [[2012,'1st halving'],[2016,''],[2020,''],[2024,'2024 halving']].forEach(([y,t])=>{ const sv=vis.find(p=>p[0]>=y); g.appendChild(el('circle',{cx:X(y),cy:Y(sv[1]),r:4,fill:'var(--coin)'})); if(t) g.appendChild(el('text',{x:X(y)+6,y:Y(sv[1])+16,'font-size':10,fill:'var(--muted)'},t)); });
+    wire('supply-replay',g,()=>replayClass(g,'.sp','draw',0));
+  })();
+
+  // Keys diagram
+  (function(){
+    const g=document.getElementById('keys');
+    const items=[['Seed phrase','12–24 words','var(--down-soft)','var(--down)','SECRET'],['Private key','a huge number','var(--down-soft)','var(--down)','SECRET'],['Public key','derived','var(--acc-soft)','var(--acc)','SHAREABLE'],['Address','like an account no.','var(--leaf-soft)','var(--leaf)','SHAREABLE']];
+    items.forEach(([t,s,f,st,tag],i)=>{ const x=10+i*170; box(g,x,70,140,64,t,s,f,st); g.appendChild(el('text',{x:x+70,y:58,'text-anchor':'middle','font-size':10,fill:st},tag)); if(i<3){ arrow(g,x+142,102,x+166,102,'var(--muted)'); } });
+    g.appendChild(el('text',{x:340,y:170,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Easy to go right →   Practically impossible to go ← left'));
+    g.appendChild(el('text',{x:340,y:192,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Anyone with the seed phrase can rebuild all the keys and take the coins.'));
+  })();
+
+  // Terra
+  (function(){
+    const g=document.getElementById('terra');
+    const pts=[[0,1],[1,1],[2,1],[3,0.99],[4,0.98],[5,0.92],[6,0.62],[7,0.68],[8,0.35],[9,0.18],[10,0.14],[11,0.10],[12,0.08]];
+    const lab=['May 1','','','','','May 7','','','','','','','May 13'];
+    const {X,Y}=axes(g,{L:50,R:610,T:16,B:190,x0:0,x1:12,y0:0,y1:1.1,yt:[0,0.25,0.5,0.75,1],yf:v=>'$'+v.toFixed(2),xt:[0,5,12],xf:i=>lab[i]});
+    g.appendChild(el('line',{x1:50,x2:610,y1:Y(1),y2:Y(1),stroke:'var(--coin)','stroke-dasharray':'6 4'}));
+    g.appendChild(el('text',{x:54,y:Y(1)-6,'font-size':11,fill:'var(--coin)'},'The promise: $1'));
+    line(g,pts,X,Y,{stroke:'var(--down)','stroke-width':3,pathLength:1000,class:'tr'});
+    wire('terra-replay',g,()=>replayClass(g,'.tr','draw',0));
+  })();
+
+  // Bitcoin log chart
+  (function(){
+    const g=document.getElementById('btc');
+    const d=[[2013.95,750],[2014.9,320],[2015.9,430],[2016.95,960],[2017.95,19000],[2018.95,3700],[2019.5,12000],[2019.95,7200],[2020.95,29000],[2021.85,67000],[2022.9,16500],[2023.95,42000],[2024.2,71000],[2024.95,94000]];
+    const lo=Math.log10(100), hi=Math.log10(200000);
+    const Yf=v=>250-(Math.log10(v)-lo)/(hi-lo)*(250-20);
+    const {X,Y}=axes(g,{L:70,R:650,T:20,B:250,x0:2013.5,x1:2025.2,Y:Yf,yt:[100,1000,10000,100000],yf:v=>'$'+v.toLocaleString('en-IN'),xt:[2014,2016,2018,2020,2022,2024],xf:v=>v});
+    line(g,d,X,Y,{stroke:'var(--coin)','stroke-width':3,pathLength:1000,class:'bt'});
+    [[2017.95,19000,2018.95,3700,'−80%'],[2021.85,67000,2022.9,16500,'−75%']].forEach(([x1,y1,x2,y2,t])=>{ g.appendChild(el('line',{x1:X(x1),y1:Y(y1),x2:X(x1),y2:Y(y2),stroke:'var(--down)','stroke-dasharray':'3 3'})); g.appendChild(el('line',{x1:X(x1),y1:Y(y2),x2:X(x2),y2:Y(y2),stroke:'var(--down)','stroke-dasharray':'3 3'})); g.appendChild(el('text',{x:X(x1)+6,y:(Y(y1)+Y(y2))/2,'font-size':12,fill:'var(--down)'},t)); });
+    g.appendChild(el('text',{x:X(2014.3),y:Y(320)+18,'font-size':11,fill:'var(--down)'},'2014: −85% after Mt. Gox'));
+    g.appendChild(el('text',{x:X(2024.95)-6,y:Y(94000)-10,'text-anchor':'end','font-size':11,fill:'var(--ink)'},'≈ $94,000'));
+    wire('btc-replay',g,()=>replayClass(g,'.bt','draw',0));
+  })();
+
+  // Volatility bars
+  (function(){
+    const g=document.getElementById('volbars');
+    const rows=[['Fixed deposit',0,'var(--leaf)'],['Gold',15,'var(--coin)'],['Nifty 50',18,'var(--acc)'],['Bitcoin',65,'var(--down)'],['Small coins',120,'var(--down)']];
+    const L=150,R=600,mx=130;
+    rows.forEach(([n,v,c],i)=>{ const y=16+i*40; g.appendChild(el('text',{x:L-10,y:y+18,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+      g.appendChild(el('rect',{x:L,y:y+4,width:Math.max(2,v/mx*(R-L)),height:22,rx:3,fill:c,opacity:.85,class:'vb',style:'transform-origin:'+L+'px '+(y+15)+'px'}));
+      g.appendChild(el('text',{x:L+Math.max(2,v/mx*(R-L))+8,y:y+20,'font-size':11,fill:'var(--ink)'},v===0?'≈ 0%':(v>=100?'100%+':'≈ '+v+'%'))); });
+    wire('volbars-replay',g,()=>replayClass(g,'.vb','growx',0.12));
+  })();
+
+  // Exchange diagram
+  (function(){
+    const g=document.getElementById('exch');
+    g.appendChild(el('text',{x:170,y:18,'text-anchor':'middle','font-size':11,fill:'var(--up)'},'HOW IT SHOULD WORK'));
+    g.appendChild(el('text',{x:510,y:18,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'WHAT HAPPENED AT FTX'));
+    g.appendChild(el('line',{x1:340,x2:340,y1:10,y2:220,stroke:'var(--rule)'}));
+    box(g,20,90,100,50,'Customers','deposit coins','var(--acc-soft)','var(--acc)');
+    box(g,200,90,120,50,'Exchange wallet','coins held 1:1','var(--leaf-soft)','var(--leaf)');
+    arrow(g,122,115,196,115,'var(--muted)'); mover(g,'M70 115 L260 115','var(--coin)',2.4,5,0); mover(g,'M70 115 L260 115','var(--coin)',2.4,5,1.2);
+    box(g,360,90,100,50,'Customers','deposit coins','var(--acc-soft)','var(--acc)');
+    box(g,520,60,140,50,'Exchange wallet','looks full on screen','var(--down-soft)','var(--down)');
+    box(g,520,150,140,50,'Sister trading firm','risky bets','var(--paper)','var(--down)');
+    arrow(g,462,110,516,90,'var(--muted)'); arrow(g,590,112,590,146,'var(--down)');
+    mover(g,'M410 115 L590 85 L590 175','var(--coin)',3,5,0); mover(g,'M410 115 L590 85 L590 175','var(--coin)',3,5,1.5);
+    g.appendChild(el('text',{x:510,y:220,'text-anchor':'middle','font-size':10,fill:'var(--down)'},'When customers asked for coins back, they weren’t there'));
+  })();
+
+  // Scam timeline
+  (function(){
+    const g=document.getElementById('scamline');
+    const st=[['1. Contact','"wrong number"','var(--acc)'],['2. Trust','weeks of chat','var(--acc)'],['3. The hook','"uncle’s AI bot"','var(--coin)'],['4. Fake profits','₹20k → ₹1.2L deposit','var(--coin)'],['5. Fees, then gone','"pay 20% to withdraw"','var(--down)']];
+    const W=150,gap=20;
+    st.forEach(([t,s,c],i)=>{ const x=10+i*(W+gap); const grp=el('g',{class:'sc',style:'transform-origin:'+(x+W/2)+'px 90px'}); grp.appendChild(el('rect',{x,y:50,width:W,height:80,rx:8,fill:'var(--paper)',stroke:c,'stroke-width':2}));
+      grp.appendChild(el('text',{x:x+W/2,y:84,'text-anchor':'middle','font-size':13,fill:'var(--ink)'},t)); grp.appendChild(el('text',{x:x+W/2,y:106,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s)); g.appendChild(grp);
+      if(i<4) arrow(g,x+W+2,90,x+W+gap-2,90,'var(--muted)'); });
+    g.appendChild(el('path',{d:'M90 160 Q430 200 770 160',fill:'none',stroke:'var(--down)','stroke-width':1.5,'stroke-dasharray':'4 4'}));
+    g.appendChild(el('text',{x:430,y:196,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'The "balance" on the app was never real'));
+    wire('scam-replay',g,()=>replayClass(g,'.sc','pop',0.35));
+  })();
+
+  // Tax chart
+  (function(){
+    const a=document.getElementById('t-a'), b=document.getElementById('t-b'), g=document.getElementById('taxchart');
+    function u(){ const gain=+a.value, loss=+b.value, net=gain-loss, tax=gain*0.312, after=net-tax;
+      document.getElementById('t-a-out').textContent=fmt(gain); document.getElementById('t-b-out').textContent=fmt(loss);
+      const n=document.getElementById('t-net'); n.textContent=(net>=0?'+':'')+fmt(net); n.className='big '+(net>=0?'up':'down');
+      document.getElementById('t-tax').textContent=fmt(tax);
+      const f=document.getElementById('t-after'); f.textContent=(after>=0?'+':'')+fmt(after); f.className='big '+(after>=0?'up':'down');
+      document.getElementById('t-note').textContent = after<0 && net>0 ? 'You made '+fmt(net)+' overall, but after tax you’re '+fmt(-after)+' worse off than when you started, because the loss on coin B can’t reduce the tax on coin A.' : 'Tax is charged on every gain separately; losses are simply ignored. Illustrative, using 30% plus 4% cess.';
+      g.innerHTML=''; const L=170,R=620, mx=Math.max(gain,loss,1)*1.1, mid=L+(R-L)*0.45, sc=(R-mid)/mx;
+      const rows=[['Gain on A',gain,'var(--up)'],['Loss on B',-loss,'var(--down)'],['Real net result',net,net>=0?'var(--up)':'var(--down)'],['Tax charged',-tax,'var(--coin)'],['After tax',after,after>=0?'var(--up)':'var(--down)']];
+      g.appendChild(el('line',{x1:mid,x2:mid,y1:6,y2:204,stroke:'var(--muted)'}));
+      rows.forEach(([nm,v,c],i)=>{ const y=10+i*39, w=Math.abs(v)*sc; g.appendChild(el('text',{x:L-10,y:y+19,'text-anchor':'end','font-size':12,fill:'var(--ink)'},nm));
+        g.appendChild(el('rect',{x:v>=0?mid:mid-w,y:y+4,width:Math.max(1,w),height:22,rx:3,fill:c,opacity:.85}));
+        g.appendChild(el('text',{x:v>=0?mid+w+6:mid-w-6,y:y+20,'text-anchor':v>=0?'start':'end','font-size':11,fill:'var(--ink)'},(v>=0?'+':'')+fmt(v))); });
+    }
+    [a,b].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 09</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="9"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="flat.html" rel="prev"><small>← Previous</small>The Flat</a><a href="safety-net.html" rel="next"><small>Next story →</small>The Safety Net</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

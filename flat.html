@@ -1,0 +1,904 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Flat</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 08 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html" aria-current="page"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: eighth story in the Kesarpur series. Storybook column with a ledger margin; wide interludes and animated diagrams. Cool concrete-grey ground, brick accent for buildings, slate-blue for loans and money; green/crimson reserved for gain/loss. */
+:root{
+  --bg:#F1F2F3; --paper:#FBFBFC; --ink:#1E2124; --muted:#5E6369; --rule:#D5D8DC;
+  --acc:#9A4526; --acc-soft:#F2E0D8; --slate:#3D5A80; --slate-soft:#DFE6F0; --leaf:#3F6B3A; --leaf-soft:#E2ECDD;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B0203C; --down-soft:#F6DCE1;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121417; --paper:#1A1D21; --ink:#E7EAEE; --muted:#A1A7AE; --rule:#30353B;
+  --acc:#E99A78; --acc-soft:#3A241B; --slate:#9DB7DD; --slate-soft:#1E2A3B; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121417; --paper:#1A1D21; --ink:#E7EAEE; --muted:#A1A7AE; --rule:#30353B;
+  --acc:#E99A78; --acc-soft:#3A241B; --slate:#9DB7DD; --slate-soft:#1E2A3B; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.slate .label{color:var(--slate)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.s{border-color:var(--slate)} .col.l{border-color:var(--leaf)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.growy{animation:grow .9s ease both}
+.growx{animation:growx .9s ease both}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about the real estate market, in sixteen chapters</span>
+    <h1>The Kesarpur Flat</h1>
+    <p class="lede">Ananya's landlord has raised the rent again. She's thirty, has some savings, and everyone tells her to "stop paying someone else's EMI". Should she buy a ₹40 lakh flat on the far side of the bridge? Follow her search, her loan and her paperwork, and you'll understand how land and buildings are priced, financed, traded and owned.</p>
+    <div class="cast">
+      <span class="chip">Ananya, nurse</span>
+      <span class="chip">Mr. Deshmukh, builder</span>
+      <span class="chip">Mr. Iyer, bank</span>
+      <span class="chip">Kamala, the great-aunt</span>
+      <span class="chip">Rohit, investor</span>
+      <span class="chip">Meera, grandmother</span>
+    </div>
+  </div>
+  <figure style="margin:0">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Animated map of Kesarpur: plots on the far side of the river near the new bridge darken as land values rise over fifteen years"><g id="hero"></g></svg>
+  </figure>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Another rent increase</a></li>
+    <li><a href="#what"><span>01</span>What real estate is</a></li>
+    <li><a href="#location"><span>02</span>Location, and the bridge</a></li>
+    <li><a href="#area"><span>03</span>How big is the flat, really?</a></li>
+    <li><a href="#construction"><span>04</span>Under construction or ready?</a></li>
+    <li><a href="#title"><span>05</span>Who really owns it?</a></li>
+    <li><a href="#cost"><span>06</span>The real price of a flat</a></li>
+    <li><a href="#loan"><span>07</span>The home loan</a></li>
+    <li><a href="#rentbuy"><span>08</span>Rent or buy?</a></li>
+    <li><a href="#leverage"><span>09</span>Leverage, the double edge</a></li>
+    <li><a href="#kamala"><span>10</span>Kamala's plot</a></li>
+    <li><a href="#landlord"><span>11</span>The landlord's side</a></li>
+    <li><a href="#cycle"><span>12</span>Booms, busts and stalled towers</a></li>
+    <li><a href="#reit"><span>13</span>Owning a mall without a brick</a></li>
+    <li><a href="#market"><span>14</span>The real estate market at scale</a></li>
+    <li><a href="#tax"><span>15</span>Taxes and selling</a></li>
+    <li><a href="#epilogue"><span>16</span>The housewarming</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>Choosing a home</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Another rent increase</h2></header>
+  <div class="prose">
+    <p>Ananya, the nurse from the mutual fund story, rents a two-bedroom flat near the hospital for ₹12,000 a month. This month her landlord raised it by 8%, the third increase in four years. Her colleagues have started buying flats in the new towers on the far side of the river, near the bridge Kesarpur built with bonds years ago.</p>
+    <p>Her SIP has grown well. She has about ₹16 lakh in savings and mutual funds. Her aunt says, "Rent is money thrown away. Buy." Her grandmother Meera, the retired mathematics teacher, says, "Do the sums first."</p>
+    <p>A flat is likely to be the biggest purchase of Ananya's life, and the hardest to undo. It's also unlike everything else in these stories: you can live in it, it can't be moved, no two are exactly alike, and selling one can take months. This is the <strong>real estate market</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Eighth story</span>This follows the bond, mutual fund, stock, derivatives, money market, forex and commodity stories. The bridge from the first story, Iyer's bank and Kamala all reappear.</div>
+    <div class="note slate"><span class="label">Household wealth</span>Indian households have traditionally kept most of their wealth in property and gold. An RBI committee in 2017 estimated that real estate made up around three-quarters of the average household's assets.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="what">
+  <header><span class="label">Chapter 1</span><h2>What real estate is</h2></header>
+  <div class="prose">
+    <p><strong>Real estate</strong> means land and anything permanently built on it: houses, flats, shops, offices, warehouses, farms. The law calls it <em>immovable property</em>. It's different from the other things in these stories in five ways.</p>
+    <ul>
+      <li><strong>Every property is unique.</strong> Two flats in the same tower differ in floor, view, sunlight and noise. There's no single "price of a flat" the way there is a price of gold.</li>
+      <li><strong>It's illiquid.</strong> You can sell a share in a second. Selling a flat can take months, with agents, buyers' loans and paperwork.</li>
+      <li><strong>It's expensive to trade.</strong> Stamp duty, registration, brokerage and taxes can add up to 10% of the price to buy and sell.</li>
+      <li><strong>It's usually bought with borrowed money,</strong> which magnifies both gains and losses (Chapter 9).</li>
+      <li><strong>It does two jobs.</strong> It gives a place to live or work (or rent income), and it may rise in value.</li>
+    </ul>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Type</th><th>Examples</th><th>Main income</th></tr></thead>
+        <tbody>
+          <tr><td>Residential</td><td>Flats, houses, villas, plots for homes</td><td>Use, or rent from families</td></tr>
+          <tr><td>Commercial</td><td>Offices, shops, malls, hotels</td><td>Rent from businesses, usually higher</td></tr>
+          <tr><td>Industrial</td><td>Factories, warehouses, logistics parks</td><td>Rent from manufacturers and logistics firms</td></tr>
+          <tr><td>Land</td><td>Agricultural land, empty plots</td><td>Farming, or future development</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Primary and resale</span>Buying from a builder is the <dfn>primary</dfn> market; buying from a previous owner is <dfn>resale</dfn>, the secondary market.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="location">
+  <header><span class="label">Chapter 2</span><h2>Location, and the bridge</h2></header>
+  <div class="prose">
+    <p>Meera remembers the far bank before the bridge: fields, a few houses, land at about ₹400 a square foot that nobody wanted. Then the bridge opened. The hospital and station were six minutes away instead of fifty. Builders came. Fifteen years later, land near the bridge sells for about ₹3,000 a square foot.</p>
+    <p>The buildings on that land are ordinary concrete, which costs roughly the same to put up anywhere in the district. What changed was the <strong>land</strong>, and what made the land valuable was everything around it: the bridge, the roads, jobs, schools, water.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">What makes up a flat's price</span><div class="seg"><button type="button" id="land-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Bars comparing the same flat in three locations, showing construction cost roughly constant while the land share varies"><g id="landshare"></g></svg></div>
+    <figcaption>Illustrative. The cost of building is similar everywhere; the land under it is what varies hugely. That's why the same flat costs more near the bridge, and far more in a big city.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>So, before choosing a flat, Ananya lists what makes a location valuable to her, and to whoever might rent or buy it from her later: distance to work, the hospital and schools; water supply and drainage (does the area flood?); roads and public transport; planned infrastructure; and the neighbourhood itself.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Location, location, location</span>The old saying is really about land. You can rebuild a building; you can't move it.</div>
+    <div class="note slate"><span class="label">Infrastructure</span>New roads, metro lines, bridges and airports often raise nearby land prices, sometimes years before they open, when they're announced. That's why plans and rumours move land prices.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="area">
+  <header><span class="label">Chapter 3</span><h2>How big is the flat, really?</h2></header>
+  <div class="prose">
+    <p>The brochure from Mr. Deshmukh's tower says "900 sq ft". Inside, the rooms feel smaller. That's because there are three different areas:</p>
+    <ul>
+      <li><strong>Carpet area</strong>: the floor space inside your walls where you could lay a carpet. This is the space you actually live in.</li>
+      <li><strong>Built-up area</strong>: carpet area plus the thickness of walls and your balcony.</li>
+      <li><strong>Super built-up area</strong>: built-up area plus your share of common spaces: corridors, lifts, stairs, lobby, clubhouse.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="load">Loading (extra over carpet area) <output id="load-out">38%</output></label><input id="load" type="range" min="10" max="60" step="1" value="38"></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:460px" role="img" aria-label="Nested rectangles showing carpet, built-up and super built-up areas"><g id="areas"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="area-note"></p>
+  </div>
+  <div class="prose">
+    <p>Because the same flat can be described three ways, buyers were long confused. Under the real estate law of 2016, <strong>RERA</strong>, builders must state the price and size of a flat in carpet area. Ananya always compares price per square foot of <em>carpet</em> area.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Loading</span>How much the super built-up area exceeds the carpet area, often 25–40% in towers with many common facilities.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="construction">
+  <header><span class="label">Chapter 4</span><h2>Under construction or ready?</h2></header>
+  <div class="prose">
+    <p>Mr. Deshmukh's tower is half built. He offers Ananya a flat at ₹40 lakh, about 10% cheaper than a similar ready flat next door, with payments spread over two years as floors are completed. A cheaper price, and time to pay. What's the catch?</p>
+    <p>The catch is that she's lending money to a builder against a promise. In the 2010s, thousands of Indian families paid for flats in projects that were delayed for years or never finished, when builders ran short of money or spent buyers' payments on other projects. That's why Parliament passed the <strong>Real Estate (Regulation and Development) Act, 2016</strong>.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Where Ananya's payments go under RERA</span></div>
+    <div class="scroll"><svg viewBox="0 0 860 240" width="100%" style="min-width:700px" role="img" aria-label="Animated diagram: buyer payments flow into a project account; 70 percent is locked in an escrow account usable only for this project's construction and land, released as an engineer and accountant certify progress"><g id="rera"></g></svg></div>
+    <figcaption>At least 70% of money collected from buyers must go into a separate bank account for that project, and can be withdrawn only in line with certified construction progress.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col s"><h3>What RERA requires</h3><p>Projects above a minimum size must register with the state RERA authority, publish approvals, plans and timelines, sell by carpet area, keep 70% of buyers' money in the project account, pay interest to buyers for delays, and fix structural defects reported within five years of handover.</p></div>
+    <div class="col"><h3>Under construction</h3><p>Lower price and staggered payments. But risk of delay, changes, or a stalled project. GST applies (5% on most homes, 1% on affordable ones, without input credit). Ananya must keep paying rent until handover.</p></div>
+    <div class="col l"><h3>Ready to move</h3><p>What you see is what you get. Move in immediately and stop paying rent. No GST if the builder has the completion certificate. But a higher price, and fewer choices.</p></div>
+  </div>
+  <div class="prose">
+    <p>Ananya checks the state RERA website: Deshmukh's project is registered, his previous two towers were delivered within six months of schedule, and the land approvals are listed. She decides to go ahead, but she'll pay only according to the construction-linked schedule, never large sums upfront.</p>
+  </div>
+</section>
+
+<section class="chapter" id="title">
+  <header><span class="label">Chapter 5</span><h2>Who really owns it?</h2></header>
+  <div class="prose">
+    <p>When you buy a share, the depository guarantees who owns it. Land is different. Ownership in India rests on a chain of documents going back decades, and gaps or disputes in that chain are common. A lawyer's <strong>title search</strong> checks that the seller really has the right to sell.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">The chain of title for the land under Deshmukh's tower</span><div class="seg"><button type="button" id="title-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 860 220" width="100%" style="min-width:700px" role="img" aria-label="Timeline of land ownership from a farmer's family in 1968 through sales to the builder and finally to flat buyers, with checks at each link"><g id="chain"></g></svg></div>
+    <figcaption>Illustrative. Each sale must be a registered deed. A lawyer checks every link, usually for 30 years or more, and any loans or court cases against the land.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Ananya's lawyer checks:</p>
+    <ul>
+      <li><strong>Title deeds</strong> for every past transfer, all registered.</li>
+      <li>An <strong>encumbrance certificate</strong> from the sub-registrar, showing any mortgages or claims on the land.</li>
+      <li><strong>Land records</strong> and <strong>mutation</strong> in the revenue records, showing the current owner for land tax.</li>
+      <li><strong>Land-use conversion</strong> from agricultural to residential, and approved building plans.</li>
+      <li>On completion, the <strong>occupancy certificate</strong> confirming the building is fit to live in.</li>
+    </ul>
+    <p>A bank lending against the flat does its own legal check, which is another layer of protection. That's one reason Ananya is glad to borrow from Iyer's bank.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Power of attorney sales</span>Some properties change hands through "general power of attorney" documents instead of registered sale deeds. The Supreme Court has held that these don't transfer ownership. Buy only through a registered sale deed.</div>
+    <div class="note"><span class="label">Circle rate</span>The minimum value set by the state for each area, used to calculate stamp duty. Registering a sale below it can trigger extra tax.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>Paying for it</h2></div>
+
+<section class="chapter" id="cost">
+  <header><span class="label">Chapter 6</span><h2>The real price of a flat</h2></header>
+  <div class="prose">
+    <p>The flat is priced at ₹40 lakh. But that's not what Ananya will pay. She adds every cost.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="c-price">Agreement price <output id="c-price-out">₹40 lakh</output></label><input id="c-price" type="range" min="1500000" max="15000000" step="100000" value="4000000"></div>
+      <div class="ctrl"><label for="c-stamp">Stamp duty (varies by state) <output id="c-stamp-out">5%</output></label><input id="c-stamp" type="range" min="3" max="8" step="0.5" value="5"></div>
+    </div>
+    <div class="seg" role="group" aria-label="Type of flat" id="c-type">
+      <button type="button" data-v="uc" aria-pressed="true">Under construction (5% GST)</button>
+      <button type="button" data-v="ready" aria-pressed="false">Ready, completion certificate (no GST)</button>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 300" width="100%" style="min-width:480px" role="img" aria-label="Waterfall chart from the agreement price through GST, stamp duty, registration, legal and loan fees, interiors and deposits to the total cost"><g id="costwf"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Total cost to move in</span><span class="big" id="c-tot">₹48.4 lakh</span></div>
+      <div><span class="label">Above the agreement price</span><span class="big" id="c-extra">+21%</span></div>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Many states charge women buyers a lower stamp duty, often 1% less, to encourage women's ownership. Ananya registers the flat in her own name and saves ₹40,000.</p>
+    <p>The lesson: the "price" is only the start. Interiors, furniture, deposits, and costs like a car park or club membership can add far more than people expect. And most of these costs are gone the moment she buys. If she sold the next day, she'd lose them.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Stamp duty</span>A state tax on the sale deed, usually 5–7% of the price or circle rate, whichever is higher. Registration adds about 1%, with caps in some states.</div>
+    <div class="note risk"><span class="label">Cash payments</span>Never agree to pay part of the price in unrecorded cash. It's illegal, it can't be financed by a loan, and you'll have no proof of it later.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="loan">
+  <header><span class="label">Chapter 7</span><h2>The home loan</h2></header>
+  <div class="prose">
+    <p>Ananya can't pay ₹40 lakh herself. She goes to Iyer at the cooperative bank. He explains the rules:</p>
+    <ul>
+      <li>The RBI limits how much of a home's value banks can lend, the <strong>loan-to-value (LTV)</strong> ratio: up to 90% for loans up to ₹30 lakh, 80% for ₹30–75 lakh, and 75% above that. For her ₹40 lakh flat, the bank lends up to ₹32 lakh. She pays ₹8 lakh, the <strong>down payment</strong>, plus all the extra costs from Chapter 6, herself.</li>
+      <li>Her loan has a <strong>floating rate</strong> linked to the RBI's repo rate (the money market story explains why). If the RBI raises rates, her rate rises.</li>
+      <li>The bank checks that her EMI won't be more than about 40–50% of her take-home pay.</li>
+      <li>She can prepay a floating-rate home loan at any time without penalty.</li>
+    </ul>
+    <p>Each month she pays an <strong>equated monthly instalment (EMI)</strong>. Early on, most of it is interest; later, most of it repays the loan.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="l-amt">Loan amount <output id="l-amt-out">₹32 lakh</output></label><input id="l-amt" type="range" min="500000" max="10000000" step="100000" value="3200000"></div>
+      <div class="ctrl"><label for="l-rate">Interest rate <output id="l-rate-out">8.5%</output></label><input id="l-rate" type="range" min="6" max="13" step="0.1" value="8.5"></div>
+      <div class="ctrl"><label for="l-yrs">Years <output id="l-yrs-out">20</output></label><input id="l-yrs" type="range" min="5" max="30" step="1" value="20"></div>
+    </div>
+    <div class="readout">
+      <div><span class="label">EMI</span><span class="big" id="l-emi">₹27,770</span></div>
+      <div><span class="label">Total interest</span><span class="big" id="l-int">₹34.6 lakh</span></div>
+      <div><span class="label">Total paid</span><span class="big" id="l-tot">₹66.6 lakh</span></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Stacked bars by year showing how much of each year's EMI goes to interest and how much to repaying the loan"><g id="amort"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--down);height:10px"></i>Interest</span><span><i style="background:var(--slate);height:10px"></i>Repaying the loan (principal)</span></div>
+  </div>
+  <div class="formula">EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)
+
+P = loan   r = yearly rate ÷ 12   n = number of months</div>
+  <div class="prose">
+    <p>Over 20 years, Ananya will pay back more than twice what she borrowed. In the first year alone, about ₹2.7 lakh of her ₹3.3 lakh in EMIs is interest. That's why even small prepayments early in the loan save a lot, and why a 1% change in rates matters so much. Try moving the rate from 8.5% to 9.5%.</p>
+  </div>
+  <aside>
+    <div class="note slate"><span class="label">When rates rise</span>Banks usually keep the EMI the same and extend the loan's length, sometimes by years. Ask the bank to raise the EMI instead, if you can afford it.</div>
+    <div class="note"><span class="label">Insurance</span>Banks often push loan insurance policies. A simple term life policy covering the loan amount is usually much cheaper.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="rentbuy">
+  <header><span class="label">Chapter 8</span><h2>Rent or buy?</h2></header>
+  <div class="prose">
+    <p>Now Meera's sums. "Rent is money thrown away," the aunt said. But interest is also money thrown away, and so are stamp duty and maintenance. The fair comparison is between two paths:</p>
+    <ul>
+      <li><strong>Buy:</strong> pay the down payment and costs, then EMIs and maintenance. End up owning a flat, minus any loan left.</li>
+      <li><strong>Rent and invest:</strong> keep paying rent, and put the down payment, the costs, and every month's difference between owning costs and rent into mutual funds.</li>
+    </ul>
+    <p>Rent in India is low compared with property prices: Ananya's ₹12,000 a month on a ₹40 lakh flat is a rental yield of only 3.6% a year, less than half her loan rate. That tilts the sums toward renting, as long as she really invests the difference. Change the assumptions and see which path ends up with more wealth.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="rb-pg">Flat price growth per year <output id="rb-pg-out">6%</output></label><input id="rb-pg" type="range" min="0" max="12" step="0.5" value="6"></div>
+      <div class="ctrl"><label for="rb-inv">Investment return per year <output id="rb-inv-out">9%</output></label><input id="rb-inv" type="range" min="4" max="14" step="0.5" value="9"></div>
+      <div class="ctrl"><label for="rb-rent">Starting rent per month <output id="rb-rent-out">₹12,000</output></label><input id="rb-rent" type="range" min="6000" max="25000" step="500" value="12000"></div>
+      <div class="ctrl"><label for="rb-rate">Loan rate <output id="rb-rate-out">8.5%</output></label><input id="rb-rate" type="range" min="6" max="12" step="0.1" value="8.5"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:480px" role="img" aria-label="Line chart of net wealth over 25 years for buying the flat versus renting and investing the difference"><g id="rbchart"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--acc)"></i>Buy: flat value − loan left − 2% selling cost</span><span><i style="background:var(--slate)"></i>Rent and invest the difference</span></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="rb-note"></p>
+  </div>
+  <div class="prose">
+    <p>The answer moves a lot with assumptions nobody can know: how fast prices and rents will grow, and what investments will return. And it ignores things that matter more to many people: the security of not being asked to leave, freedom to renovate, and the discipline an EMI forces. Renting and investing only wins if you actually invest every rupee of the difference, every month, for decades. Most people don't.</p>
+    <p>Ananya decides to buy, for security and because she plans to stay at the hospital for many years. But she buys a flat she can afford with an EMI of under 40% of her pay, and keeps her SIP going.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Rental yield</span>Yearly rent ÷ property price. Indian homes often yield 2–4%, low by global standards, because buyers expect price growth.</div>
+    <div class="note slate"><span class="label">Price-to-rent</span>Price ÷ yearly rent. Ananya's flat: ₹40 lakh ÷ ₹1.44 lakh ≈ 28. The higher this number, the stronger the case for renting.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="leverage">
+  <header><span class="label">Chapter 9</span><h2>Leverage, the double edge</h2></header>
+  <div class="prose">
+    <p>Property feels safe, but almost everyone buys it with borrowed money. That's the same <strong>leverage</strong> as Rohit's futures in the derivatives story, just slower.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="lv">Change in flat price <output id="lv-out">+10%</output></label><input id="lv" type="range" min="-25" max="25" step="1" value="10"></div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:460px" role="img" aria-label="Bars showing the flat value split into loan and Ananya's equity, before and after a price change"><g id="lvchart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="lv-note"></p>
+  </div>
+  <div class="prose">
+    <p>With 20% down, a 10% rise in the flat's price raises Ananya's own stake by 50%. That's why property has made many families wealthy. But a 10% fall cuts her stake in half, and a 20% fall wipes it out: she'd owe the bank as much as the flat is worth. In the US housing crash after 2006, millions of families ended up owing more than their homes were worth.</p>
+    <p>These figures ignore stamp duty and other costs, which make real outcomes worse. After paying 10% or more in costs, a flat has to rise noticeably just to break even.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Equity</span>In property, the part you own outright: value minus loan outstanding.</div>
+    <div class="note risk"><span class="label">Negative equity</span>Owing more than the property is worth. You can't sell without bringing extra money.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>Property as an investment</h2></div>
+
+<section class="chapter" id="kamala">
+  <header><span class="label">Chapter 10</span><h2>Kamala's plot</h2></header>
+  <div class="prose">
+    <p>Kamala, Rohit's great-aunt, has a property story too, and it's the cautionary one. Fifteen years ago, an agent sold her a plot in a "new township" ten kilometres out of town. Glossy brochure, a gate, a few roads marked with lime. "The highway is coming," he said. "Prices will triple."</p>
+    <p>She paid ₹6 lakh, part of it in cash "to save stamp duty". Here's what she learned.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Unapproved layout</strong><span>The land had never been converted from agricultural use, and the layout wasn't approved by the town planning authority. No bank would lend to buyers, and no building permit could be issued.</span></div>
+    <div class="risk-row"><strong>Cash and undervaluation</strong><span>Because she registered a lower price, her official purchase cost is low. If she ever sells, she'll pay more tax on the "gain", and the cash part can't be proven.</span></div>
+    <div class="risk-row"><strong>Illiquidity</strong><span>The highway took a different route. Buyers vanished. She's tried to sell for six years. There's no market price for a plot nobody wants.</span></div>
+    <div class="risk-row"><strong>Encroachment</strong><span>When she visited after a few years, someone had fenced part of her plot. Land you don't watch can be occupied, and evicting someone through the courts can take years.</span></div>
+    <div class="risk-row"><strong>Holding costs</strong><span>Property tax, fencing, travel to check on it. An empty plot earns nothing while it waits.</span></div>
+  </div>
+  <div class="prose">
+    <div class="say"><b>Kamala</b>"Everyone says land never loses value. Maybe land in general doesn't. My piece of land did."</div>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Before buying land</span>Approved layout? Land-use conversion? Clear title? Road access? Registered at full value? Would a bank lend against it? If not, ask why.</div>
+    <div class="note"><span class="label">Benami property</span>Property held in someone else's name to hide the real owner is illegal under India's benami law and can be confiscated.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="landlord">
+  <header><span class="label">Chapter 11</span><h2>The landlord's side</h2></header>
+  <div class="prose">
+    <p>Ananya's old landlord, Mr. Kulkarni, bought her rented flat as an investment. Here are his real numbers for a year.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Item</th><th class="num">₹ a year</th></tr></thead>
+        <tbody>
+          <tr><td>Rent received (11 months, one month vacant between tenants)</td><td class="num">1,32,000</td></tr>
+          <tr><td>Society maintenance</td><td class="num">−24,000</td></tr>
+          <tr><td>Property tax</td><td class="num">−6,000</td></tr>
+          <tr><td>Repairs and repainting (average)</td><td class="num">−12,000</td></tr>
+          <tr><td>Broker's fee for new tenant</td><td class="num">−6,000</td></tr>
+          <tr class="total"><td>Net rent before income tax</td><td class="num">84,000</td></tr>
+          <tr><td>Net yield on a ₹40 lakh flat</td><td class="num">2.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. Gross yield 3.6% becomes a net yield near 2% after costs and vacancy. Rental income is also taxed.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>A net yield of about 2% is less than a savings account. Mr. Kulkarni is really betting on the flat's price rising. When prices are flat for years, as they were in many Indian cities in the late 2010s, landlords earn very little.</p>
+    <p>Being a landlord also means work and risk: finding tenants, collecting rent, handling repairs, and resolving disputes. Most rentals use 11-month agreements, partly because leases of a year or more must be registered. A model tenancy law proposed by the central government in 2021 aims to make renting fairer and faster for both sides, but states must adopt it.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Gross vs. net yield</span>Gross: rent ÷ price. Net: rent minus all costs and vacancy ÷ price. Always ask for the net.</div>
+    <div class="note slate"><span class="label">Commercial property</span>Offices and shops often earn higher yields, 6–9% gross, with longer leases, but need larger sums and carry vacancy risk if a tenant leaves.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="cycle">
+  <header><span class="label">Chapter 12</span><h2>Booms, busts and stalled towers</h2></header>
+  <div class="prose">
+    <p>Property prices move in long, slow cycles, often lasting a decade or more. Because building takes years, supply always arrives late, after prices have already risen.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">The property cycle</span><div class="seg"><button type="button" id="cycle-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 680 280" width="100%" style="min-width:540px" role="img" aria-label="Animated wave of property prices through four phases: recovery, boom, oversupply, and slump"><g id="cyc"></g></svg></div>
+    <figcaption>Illustrative. Rising prices draw in builders and buyers; new supply arrives years later, often just as demand cools; prices stall until the excess is absorbed.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Busts can be severe. In Japan, land and property prices soared in the late 1980s and then fell for more than a decade after 1990. In the US, easy mortgages to borrowers who couldn't repay fuelled a boom that collapsed after 2006; house prices fell by about a quarter nationally, and the losses on mortgage securities triggered the 2008 financial crisis. In China, the developer Evergrande defaulted in 2021 with huge debts and many unfinished flats, part of a wider property slump.</p>
+    <p>India's cycle has been different but painful. After a boom in the late 2000s and early 2010s, prices in many cities stagnated for years. Some large developers collapsed, leaving tens of thousands of families with half-built flats and EMIs to pay. Courts, bankruptcy proceedings (homebuyers were recognised as financial creditors in 2018), and government funds for stalled projects have helped some finish. RERA was a direct response to this period.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Unsold inventory</span>Flats built but not sold. When it piles up, prices stall and builders offer discounts and freebies.</div>
+    <div class="note slate"><span class="label">Price indices</span>The RBI's house price index and the National Housing Bank's RESIDEX track prices across cities, though property prices are harder to measure than share prices.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="reit">
+  <header><span class="label">Chapter 13</span><h2>Owning a mall without a brick</h2></header>
+  <div class="prose">
+    <p>Rohit wants some property in his investments, but he doesn't want a second flat, a tenant or a loan. Neha, his analyst friend, suggests a <strong>REIT</strong>: a real estate investment trust.</p>
+    <p>A REIT is like a mutual fund for buildings. It owns completed, rent-earning properties such as office parks and malls, collects rent from businesses, and passes most of the cash to unitholders. Its units trade on the stock exchange like shares.</p>
+  </div>
+  <figure class="fig-card">
+    <span class="label">How rent reaches Rohit</span>
+    <div class="scroll"><svg viewBox="0 0 660 270" width="100%" style="min-width:540px" role="img" aria-label="Animated diagram: companies pay rent to office buildings, the buildings pass cash to the REIT trust, which distributes most of it to unitholders, overseen by a manager, trustee and valuer"><g id="reitflow"></g></svg></div>
+    <figcaption>Rent flows from tenant companies to the buildings, then to the REIT, and at least 90% of its distributable cash flows out to unitholders.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col s"><h3>The rules</h3><p>SEBI's REIT rules (2014) require at least 80% of assets to be completed, income-producing property, and at least 90% of distributable cash to be paid out. The first Indian REIT listed in 2019, and units can now be bought one at a time on the exchange.</p></div>
+    <div class="col"><h3>Why Rohit likes it</h3><p>Small amounts, no stamp duty, professional management, diversified tenants, regular payouts, and he can sell in seconds.</p></div>
+    <div class="col d"><h3>The risks</h3><p>Prices move daily with interest rates and sentiment. Offices can empty if companies shrink or work from home. Payouts aren't guaranteed, and different parts of the payout are taxed differently.</p></div>
+  </div>
+  <aside>
+    <div class="note"><span class="label">InvITs</span>Infrastructure investment trusts work the same way for toll roads, power lines and pipelines.</div>
+    <div class="note slate"><span class="label">Small REITs</span>Since 2024, SEBI has allowed small and medium REITs, for smaller property portfolios, with their own rules.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>The real estate market at scale</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. Real estate is one of India's biggest industries and employers, linked to cement, steel, paint, furniture, banking and millions of construction jobs. Here's who's involved.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Developers</h3><p>From national listed companies to local builders like Deshmukh. They buy land, get approvals, raise money from banks, investors and buyers' advances, and build.</p></div>
+    <div class="col s"><h3>Lenders</h3><p>Banks and housing finance companies lend to buyers (home loans) and to developers (construction finance). The RBI and the National Housing Bank oversee them.</p></div>
+    <div class="col l"><h3>Government</h3><p>Sets land-use and building rules, collects stamp duty (a major source of state revenue), sets circle rates, runs housing schemes like PMAY for lower-income families, and builds the infrastructure that creates land value.</p></div>
+    <div class="col m"><h3>Regulators</h3><p>State RERA authorities for projects and agents; SEBI for REITs and InvITs; courts and consumer forums for disputes.</p></div>
+    <div class="col"><h3>Middlemen</h3><p>Brokers (who must register with RERA for projects), lawyers, valuers, architects, home inspectors and online property portals.</p></div>
+    <div class="col d"><h3>Investors</h3><p>Families buying second homes, NRIs like Salim from the forex story, private equity funds, pension funds, and REIT unitholders like Rohit.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="tax">
+  <header><span class="label">Chapter 15</span><h2>Taxes and selling</h2></header>
+  <div class="prose">
+    <p>Property has its own tax rules, and they've changed often, so Ananya plans to check the current rules with a tax professional when it matters. The broad picture:</p>
+    <ul>
+      <li><strong>While you own it:</strong> property tax to the town every year. If rented out, rent is taxed as income, after a standard deduction for repairs.</li>
+      <li><strong>Home loan:</strong> under the old tax regime, interest on a home loan for a self-occupied home can be deducted up to a limit, and principal repayments count toward the Section 80C limit. The new regime, now the default, doesn't give these deductions for a self-occupied home.</li>
+      <li><strong>When you sell:</strong> a gain after holding for more than two years is a long-term capital gain. The rate and the use of inflation indexation changed in July 2024. Reinvesting the gain in another home can, within limits, reduce or remove the tax.</li>
+      <li><strong>TDS:</strong> buyers of property above a threshold must deduct tax at source from the payment to the seller.</li>
+    </ul>
+    <p>Selling also takes time and money: brokerage (often 1–2%), clearing the loan, getting the society's no-objection certificate, and waiting for the buyer's loan approval. Meera's advice: "Buy a property you'd be happy to keep, not one you're counting on selling."</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Check current rules</span>Property tax rules in India changed significantly in 2024 and may change again. These notes describe the structure, not current rates.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>The housewarming</h2></header>
+  <div class="prose">
+    <p>Twenty-six months after booking, Deshmukh's tower receives its occupancy certificate, two months late. Under RERA, Ananya gets a small interest payment for the delay. Her lawyer confirms the sale deed is registered in her name, and Iyer's bank holds the original as security for the loan.</p>
+    <p>At the housewarming, Meera, now in her nineties, looks out of the eighth-floor window at the bridge she once lent money to build. "That bridge made this land valuable," she says. "My bond, your flat. It's all one story."</p>
+    <p>Rohit owns a few REIT units. Kamala still owns her plot. Ananya keeps her SIP running and puts any spare money into prepaying her loan.</p>
+    <p>That is what real estate is: land and the buildings on it, valuable mostly because of where it is. And that is what the real estate market is: the builders, buyers, banks, lawyers, governments and trusts that create, finance, register and trade it, more slowly, expensively and personally than any other market in these stories.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The eight stories</span><em>Bonds</em> lend. <em>Funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing. <em>Forex</em> crosses borders. <em>Commodities</em> price real goods. <em>Real estate</em> turns land and loans into homes.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Eight myths about real estate</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Property prices never fall.</span><span>They have fallen sharply in Japan, the US and China, and stayed flat for years in many Indian cities.</span></div>
+    <div class="myth"><span class="m">Rent is money wasted.</span><span>Interest, stamp duty and maintenance are also "wasted". Compare total costs, not rent vs. EMI.</span></div>
+    <div class="myth"><span class="m">Super built-up area is what you get.</span><span>You live in the carpet area, often 25–40% smaller.</span></div>
+    <div class="myth"><span class="m">Under-construction is always cheaper.</span><span>Add GST, rent while you wait, and the risk of delay.</span></div>
+    <div class="myth"><span class="m">Land is the safest investment.</span><span>Unapproved, disputed or badly located land can be impossible to sell.</span></div>
+    <div class="myth"><span class="m">Paying part in cash saves money.</span><span>It's illegal, unprovable, unfinanceable, and raises tax when you sell.</span></div>
+    <div class="myth"><span class="m">A bigger loan is fine if the bank approves it.</span><span>The bank checks whether you can pay; only you can check whether you can live with it.</span></div>
+    <div class="myth"><span class="m">REITs are like fixed deposits.</span><span>Their prices move with markets and payouts can change.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before buying a property: a checklist</h2>
+  <ul class="check">
+    <li>The project is registered on the state RERA website, with approvals listed.</li>
+    <li>I've checked the builder's past projects and delivery record.</li>
+    <li>A lawyer has checked the title for 30 years and an encumbrance certificate.</li>
+    <li>I'm comparing price per square foot of carpet area.</li>
+    <li>I've added GST, stamp duty, registration, fees, interiors and deposits.</li>
+    <li>My EMI is comfortably below 40% of take-home pay, with savings left over.</li>
+    <li>I've kept an emergency fund after the down payment.</li>
+    <li>I'll pay under-construction installments only as construction progresses.</li>
+    <li>The full price is paid through banks and recorded in the sale deed.</li>
+    <li>I'd be happy to keep this property for many years.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Fields that became towers</td><td>Location, land value</td><td>Infrastructure creates land value</td></tr>
+        <tr><td>"900 sq ft" that felt small</td><td>Carpet vs. super built-up</td><td>Compare the space you actually use</td></tr>
+        <tr><td>Deshmukh's half-built tower</td><td>RERA, escrow</td><td>Buyer money is ring-fenced for the project</td></tr>
+        <tr><td>The lawyer's chain</td><td>Title, encumbrance, mutation</td><td>Ownership rests on a chain of documents</td></tr>
+        <tr><td>₹40 lakh that cost ₹48 lakh</td><td>Transaction costs</td><td>Price is only the start</td></tr>
+        <tr><td>Iyer's EMI table</td><td>LTV, EMI, amortisation</td><td>Early payments are mostly interest</td></tr>
+        <tr><td>Meera's sums</td><td>Rent vs. buy, rental yield</td><td>Compare total wealth paths, not rent vs. EMI</td></tr>
+        <tr><td>+10% price, +50% stake</td><td>Leverage</td><td>Loans magnify gains and losses</td></tr>
+        <tr><td>Kamala's plot</td><td>Illiquidity, approvals, encroachment</td><td>Land can be unsellable</td></tr>
+        <tr><td>Kulkarni's net rent</td><td>Gross vs. net yield</td><td>Costs and vacancy eat rental income</td></tr>
+        <tr><td>Stalled towers</td><td>Property cycles</td><td>Supply arrives late; busts last years</td></tr>
+        <tr><td>Rohit's REIT units</td><td>REITs</td><td>Property income in small, tradable pieces</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Amortisation</dt><dd>Gradually repaying a loan through instalments.</dd></div>
+    <div><dt>Built-up area</dt><dd>Carpet area plus walls and balcony.</dd></div>
+    <div><dt>Carpet area</dt><dd>Usable floor area inside the walls.</dd></div>
+    <div><dt>Circle rate</dt><dd>Government minimum value for stamp duty in an area.</dd></div>
+    <div><dt>Completion / occupancy certificate</dt><dd>Official confirmation a building is complete and fit to occupy.</dd></div>
+    <div><dt>Down payment</dt><dd>The part of the price paid from your own money.</dd></div>
+    <div><dt>EMI</dt><dd>Equated monthly instalment repaying a loan.</dd></div>
+    <div><dt>Encumbrance certificate</dt><dd>Record of loans or claims on a property.</dd></div>
+    <div><dt>Equity (property)</dt><dd>Property value minus loan outstanding.</dd></div>
+    <div><dt>Escrow</dt><dd>A separate account where money is held for a specific purpose.</dd></div>
+    <div><dt>InvIT</dt><dd>Infrastructure investment trust.</dd></div>
+    <div><dt>Leverage</dt><dd>Using borrowed money to buy a larger asset.</dd></div>
+    <div><dt>Loading</dt><dd>Extra area added over carpet area for walls and common spaces.</dd></div>
+    <div><dt>LTV</dt><dd>Loan-to-value: loan as a share of the property's value.</dd></div>
+    <div><dt>Mutation</dt><dd>Updating the owner's name in municipal or revenue records.</dd></div>
+    <div><dt>Negative equity</dt><dd>Owing more than the property is worth.</dd></div>
+    <div><dt>Price-to-rent ratio</dt><dd>Property price ÷ yearly rent.</dd></div>
+    <div><dt>RERA</dt><dd>Real Estate (Regulation and Development) Act, 2016, and its state authorities.</dd></div>
+    <div><dt>REIT</dt><dd>Real estate investment trust: listed units in rent-earning property.</dd></div>
+    <div><dt>Rental yield</dt><dd>Yearly rent ÷ property price.</dd></div>
+    <div><dt>Resale</dt><dd>Buying from a previous owner, not the builder.</dd></div>
+    <div><dt>Sale deed</dt><dd>The registered document transferring ownership.</dd></div>
+    <div><dt>Stamp duty</dt><dd>State tax on property transfer documents.</dd></div>
+    <div><dt>Super built-up area</dt><dd>Built-up area plus share of common areas.</dd></div>
+    <div><dt>Title</dt><dd>Legal ownership of property.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how real estate markets work. Ananya, Deshmukh's tower, Kamala's plot and all prices, rates and costs are fictional and illustrative. Stamp duty, GST, loan rules and taxes vary by state and change over time. It is not financial, legal or tax advice. Check current rules, and consult a lawyer and a qualified adviser before buying property.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const fmt=n=>(n<0?'−':'')+'₹'+Math.round(Math.abs(n)).toLocaleString('en-IN');
+  const lakh=n=>(n<0?'−':'')+'₹'+(Math.abs(n)/1e5).toFixed(Math.abs(n)>=1e7?0:1)+' lakh';
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function axes(g,o){
+    const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L), Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);
+    o.yt.forEach(v=>{ g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v))); });
+    (o.xt||[]).forEach(v=> g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));
+    if(o.xl) g.appendChild(el('text',{x:(o.L+o.R)/2,y:o.B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xl));
+    return {X,Y};
+  }
+  const pathD=(pts,X,Y)=>pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+  function line(g,pts,X,Y,attrs){ const e=el('path',Object.assign({d:pathD(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},attrs)); g.appendChild(e); return e; }
+  function mover(g,d,color,dur,r,begin){ if(reduce) return; const grp=el('g',{}); grp.appendChild(el('circle',{r:r||5,fill:color})); grp.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(begin||0))+'s'})); g.appendChild(grp); }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  function arrow(g,x1,y1,x2,y2,color){ g.appendChild(el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':2})); const a=Math.atan2(y2-y1,x2-x1), s=8; g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*0.6*Math.sin(a),y2-s*Math.sin(a)-s*0.6*Math.cos(a)],[x2-s*Math.cos(a)-s*0.6*Math.sin(a),y2-s*Math.sin(a)+s*0.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:color})); }
+  function replayClass(g,sel,cls,step){ g.querySelectorAll(sel).forEach((p,i)=>{ p.classList.remove(cls); void p.getBoundingClientRect(); p.style.animationDelay=(i*(step||0.15))+'s'; p.classList.add(cls); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+  function seg(id,cb){ document.querySelectorAll('#'+id+' button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#'+id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); cb(b.dataset.v); })); }
+  function wire(btn,g,fn){ document.getElementById(btn).addEventListener('click',fn); onView(g,fn); }
+  const emi=(P,a,y)=>{const r=a/12,n=y*12;return r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);};
+
+  // Hero map
+  (function(){
+    const g=document.getElementById('hero');
+    g.appendChild(el('rect',{x:0,y:0,width:440,height:300,rx:8,fill:'var(--paper)'}));
+    g.appendChild(el('path',{d:'M0 150 Q110 130 220 150 T440 150 L440 180 Q330 160 220 180 T0 180 Z',fill:'var(--slate-soft)'}));
+    g.appendChild(el('rect',{x:206,y:132,width:28,height:56,fill:'var(--ink)',opacity:.85}));
+    g.appendChild(el('text',{x:244,y:170,'font-size':10,fill:'var(--muted)'},'the bridge'));
+    g.appendChild(el('text',{x:16,y:24,'font-size':11,fill:'var(--muted)'},'FAR BANK: LAND ₹/SQ FT'));
+    g.appendChild(el('text',{x:16,y:290,'font-size':11,fill:'var(--muted)'},'OLD TOWN: HOSPITAL, STATION'));
+    const plots=[];
+    for(let r=0;r<3;r++) for(let c=0;c<9;c++){ const x=24+c*46, y=36+r*30; const dist=Math.hypot(x+18-220,(y+11)-150); plots.push([x,y,dist]); }
+    const maxd=Math.max(...plots.map(p=>p[2]));
+    plots.forEach(([x,y,d])=>{ const target=(0.92-0.75*(d/maxd)).toFixed(2);
+      const rct=el('rect',{x,y,width:38,height:22,rx:3,fill:'var(--acc)','fill-opacity':reduce?target:0.12}); g.appendChild(rct);
+      if(!reduce) rct.appendChild(el('animate',{attributeName:'fill-opacity',values:'0.12;'+target+';'+target+';0.12',keyTimes:'0;0.6;0.9;1',dur:'8s',begin:(d/maxd*1.5).toFixed(2)+'s',repeatCount:'indefinite'})); });
+    for(let i=0;i<6;i++) g.appendChild(el('rect',{x:30+i*68,y:200+((i*13)%30),width:46,height:60-((i*13)%30),fill:'var(--muted)',opacity:.35}));
+    const yr=el('text',{x:424,y:24,'text-anchor':'end','font-size':13,fill:'var(--acc)'},'Year 15 · ₹3,000'); g.appendChild(yr);
+    if(!reduce){ let t=0; setInterval(()=>{ t=(t+0.25)%8; const p=Math.min(1,t/4.8); const y=Math.round(p*15), v=Math.round((400+p*2600)/50)*50; yr.textContent='Year '+y+' · ₹'+v.toLocaleString('en-IN'); },250); }
+  })();
+
+  // Land share
+  (function(){
+    const g=document.getElementById('landshare');
+    const rows=[['Village outskirts',14,4],['Near the bridge',14,26],['Big city suburb',15,85]];
+    const L=170,R=620, mx=100;
+    rows.forEach(([n,b,l],i)=>{ const y=30+i*66, sc=(R-L)/mx;
+      g.appendChild(el('text',{x:L-10,y:y+24,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+      g.appendChild(el('rect',{x:L,y,width:b*sc,height:34,fill:'var(--muted)',opacity:.6,class:'lb',style:'transform-origin:'+L+'px '+(y+17)+'px'}));
+      g.appendChild(el('rect',{x:L+b*sc,y,width:l*sc,height:34,fill:'var(--acc)',class:'lb',style:'transform-origin:'+L+'px '+(y+17)+'px'}));
+      g.appendChild(el('text',{x:L+(b+l)*sc+8,y:y+22,'font-size':11,fill:'var(--ink)'},'₹'+(b+l)+' lakh'));
+    });
+    g.appendChild(el('rect',{x:L,y:228,width:12,height:12,fill:'var(--muted)',opacity:.6})); g.appendChild(el('text',{x:L+18,y:238,'font-size':11,fill:'var(--muted)'},'Construction'));
+    g.appendChild(el('rect',{x:L+130,y:228,width:12,height:12,fill:'var(--acc)'})); g.appendChild(el('text',{x:L+148,y:238,'font-size':11,fill:'var(--muted)'},'Land share'));
+    wire('land-replay',g,()=>replayClass(g,'.lb','growx',0.12));
+  })();
+
+  // Areas
+  (function(){
+    const s=document.getElementById('load'), g=document.getElementById('areas');
+    function u(){ const ld=+s.value/100, carpet=650, built=carpet*1.15, superA=carpet*(1+ld); g.innerHTML='';
+      const scale=Math.sqrt(1/ (superA)) * 215;
+      const draw=(a,c,lbl,o)=>{ const side=Math.sqrt(a)*scale/Math.sqrt(1); const w=side*1.45, h=side*0.9; const x=320-w/2, y=130-h/2; g.appendChild(el('rect',{x,y,width:w,height:h,rx:4,fill:c,'fill-opacity':o,stroke:c,'stroke-width':1.5})); return [x,y,w,h]; };
+      const [x3,y3]=draw(superA,'var(--muted)',0,.15); const [x2,y2]=draw(built,'var(--slate)',0,.2); const [x1,y1,w1,h1]=draw(carpet,'var(--acc)',0,.35);
+      g.appendChild(el('text',{x:320,y:134,'text-anchor':'middle','font-size':13,fill:'var(--ink)'},'Carpet 650 sq ft'));
+      g.appendChild(el('text',{x:x2+6,y:y2+14,'font-size':11,fill:'var(--slate)'},'Built-up ≈ '+Math.round(built)));
+      g.appendChild(el('text',{x:x3+6,y:y3+14,'font-size':11,fill:'var(--muted)'},'Super built-up ≈ '+Math.round(superA)));
+      document.getElementById('load-out').textContent=Math.round(ld*100)+'%';
+      const priceTotal=4000000; document.getElementById('area-note').textContent='At ₹40 lakh, that’s ₹'+Math.round(priceTotal/superA).toLocaleString('en-IN')+' per sq ft of super built-up area, but ₹'+Math.round(priceTotal/carpet).toLocaleString('en-IN')+' per sq ft of carpet area, the space you actually live in.'; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // RERA escrow
+  (function(){
+    const g=document.getElementById('rera');
+    box(g,20,90,140,60,'Buyers','pay instalments','var(--acc-soft)','var(--acc)');
+    box(g,240,90,160,60,'Project collection','all buyer money');
+    box(g,480,30,170,60,'RERA account (70%)','this project only','var(--slate-soft)','var(--slate)');
+    box(g,480,150,170,60,'Builder (≤30%)','marketing, overheads');
+    box(g,720,30,120,60,'Construction','and land cost','var(--leaf-soft)','var(--leaf)');
+    arrow(g,162,120,236,120,'var(--muted)'); arrow(g,402,110,476,64,'var(--slate)'); arrow(g,402,130,476,176,'var(--muted)'); arrow(g,652,60,716,60,'var(--leaf)');
+    g.appendChild(el('text',{x:684,y:108,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'released only with'));
+    g.appendChild(el('text',{x:684,y:122,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'engineer + CA certificates'));
+    mover(g,'M90 120 L320 120 L565 60 L780 60','var(--acc)',3.6,5,0);
+    mover(g,'M90 120 L320 120 L565 60 L780 60','var(--acc)',3.6,5,1.2);
+    mover(g,'M90 120 L320 120 L565 180','var(--muted)',3.6,5,2.4);
+  })();
+
+  // Title chain
+  (function(){
+    const g=document.getElementById('chain');
+    const ev=[[1968,'Farmer family','inherited'],[1991,'Sold to Patil','registered deed'],[2009,'Converted to residential','land-use order'],[2016,'Sold to Deshmukh','registered deed'],[2020,'Plans approved','RERA registered'],[2026,'Flat to Ananya','sale deed']];
+    const L=50,R=820, X=y=>L+(y-1968)/(2026-1968)*(R-L);
+    g.appendChild(el('line',{x1:L,x2:R,y1:110,y2:110,stroke:'var(--rule)','stroke-width':3}));
+    ev.forEach(([y,t,s],i)=>{ const x=X(y), up=i%2===0;
+      const grp=el('g',{class:'tl',style:'transform-origin:'+x+'px 110px'});
+      grp.appendChild(el('circle',{cx:x,cy:110,r:8,fill:i===ev.length-1?'var(--acc)':'var(--slate)'}));
+      grp.appendChild(el('line',{x1:x,x2:x,y1:up?102:118,y2:up?62:158,stroke:'var(--rule)'}));
+      grp.appendChild(el('text',{x,y:up?50:174,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},t));
+      grp.appendChild(el('text',{x,y:up?36:188,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},y+' · '+s));
+      grp.appendChild(el('text',{x:x+12,y:106,'font-size':12,fill:'var(--up)'},'✓'));
+      g.appendChild(grp); });
+    const style=document.createElement('style'); style.textContent='@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}} .pop{animation:pop .5s ease both}'; document.head.appendChild(style);
+    wire('title-replay',g,()=>replayClass(g,'.tl','pop',0.35));
+  })();
+
+  // Cost waterfall
+  (function(){
+    const p=document.getElementById('c-price'), s=document.getElementById('c-stamp'), g=document.getElementById('costwf'); let type='uc';
+    function u(){ const price=+p.value, st=+s.value/100;
+      const items=[['Agreement price',price,'var(--acc)'],['GST',type==='uc'?price*0.05:0,'var(--down)'],['Stamp duty',price*st,'var(--down)'],['Registration',price*0.01,'var(--down)'],['Legal & loan fees',25000+price*0.0025,'var(--muted)'],['Interiors & furniture',price*0.075,'var(--slate)'],['Deposits & moving',price*0.015,'var(--slate)']];
+      const tot=items.reduce((a,b)=>a+b[1],0);
+      document.getElementById('c-price-out').textContent=lakh(price).replace('.0','');
+      document.getElementById('c-stamp-out').textContent=(+s.value)+'%';
+      document.getElementById('c-tot').textContent=lakh(tot);
+      document.getElementById('c-extra').textContent='+'+Math.round((tot/price-1)*100)+'%';
+      g.innerHTML=''; const L=60,R=620,T=20,B=240, W=(R-L)/(items.length+1)-10, sc=(B-T)/(tot*1.05);
+      [0,0.25,0.5,0.75,1].forEach(f=>{ const v=tot*1.05*f, y=B-v*sc; g.appendChild(el('line',{x1:L,x2:R,y1:y,y2:y,stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-6,y:y+4,'text-anchor':'end','font-size':10,fill:'var(--muted)'},(v/1e5).toFixed(0)+'L')); });
+      let run=0; items.forEach(([n,v,c],i)=>{ const x=L+6+i*(W+10); const y0=B-run*sc, y1=B-(run+v)*sc; run+=v;
+        g.appendChild(el('rect',{x,y:y1,width:W,height:Math.max(1,y0-y1),rx:2,fill:c,opacity:.88}));
+        if(v>0) g.appendChild(el('text',{x:x+W/2,y:y1-5,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},(i?'+':'')+(v/1e5).toFixed(1)+'L'));
+        const words=n.split(' '); words.forEach((w,j)=>g.appendChild(el('text',{x:x+W/2,y:B+14+j*12,'text-anchor':'middle','font-size':9.5,fill:'var(--muted)'},w)));
+      });
+      const x=L+6+items.length*(W+10); g.appendChild(el('rect',{x,y:B-tot*sc,width:W,height:tot*sc,rx:2,fill:'var(--ink)',opacity:.85}));
+      g.appendChild(el('text',{x:x+W/2,y:B-tot*sc-5,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},(tot/1e5).toFixed(1)+'L'));
+      g.appendChild(el('text',{x:x+W/2,y:B+14,'text-anchor':'middle','font-size':9.5,fill:'var(--muted)'},'Total'));
+    }
+    seg('c-type',v=>{type=v;u();}); [p,s].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // EMI + amortisation
+  (function(){
+    const a=document.getElementById('l-amt'), r=document.getElementById('l-rate'), y=document.getElementById('l-yrs'), g=document.getElementById('amort');
+    function u(){ const P=+a.value, R=+r.value/100, Yr=+y.value, E=emi(P,R,Yr);
+      document.getElementById('l-amt-out').textContent=lakh(P).replace('.0',''); document.getElementById('l-rate-out').textContent=(+r.value).toFixed(1)+'%'; document.getElementById('l-yrs-out').textContent=Yr;
+      document.getElementById('l-emi').textContent=fmt(E); document.getElementById('l-int').textContent=lakh(E*Yr*12-P); document.getElementById('l-tot').textContent=lakh(E*Yr*12);
+      const yrs=[]; let b=P; for(let k=0;k<Yr;k++){ let ip=0,pp=0; for(let m=0;m<12;m++){ const i=b*R/12; ip+=i; pp+=E-i; b-=E-i; } yrs.push([ip,pp]); }
+      g.innerHTML=''; const L=60,Rr=620,T=16,B=220, mx=E*12*1.08, W=(Rr-L)/Yr;
+      [0,0.5,1].forEach(f=>{ const v=mx*f, yy=B-v/mx*(B-T); g.appendChild(el('line',{x1:L,x2:Rr,y1:yy,y2:yy,stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-6,y:yy+4,'text-anchor':'end','font-size':10,fill:'var(--muted)'},(v/1e5).toFixed(1)+'L')); });
+      yrs.forEach(([ip,pp],i)=>{ const x=L+i*W+W*0.12, w=W*0.76, hi=ip/mx*(B-T), hp=pp/mx*(B-T);
+        const grp=el('g',{class:'am',style:'transform-origin:'+(x+w/2)+'px '+B+'px'});
+        grp.appendChild(el('rect',{x,y:B-hi,width:w,height:hi,fill:'var(--down)',opacity:.8}));
+        grp.appendChild(el('rect',{x,y:B-hi-hp,width:w,height:hp,fill:'var(--slate)',opacity:.9}));
+        g.appendChild(grp);
+        if(i===0||i===Yr-1||(i+1)%5===0) g.appendChild(el('text',{x:x+w/2,y:B+16,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Yr '+(i+1)));
+      });
+      g.appendChild(el('text',{x:L+4,y:B+36,'font-size':11,fill:'var(--muted)'},'Year 1: '+Math.round(yrs[0][0]/(E*12)*100)+'% interest · Final year: '+Math.round(yrs[Yr-1][0]/(E*12)*100)+'% interest'));
+      if(!reduce) replayClass(g,'.am','growy',0.03);
+    }
+    [a,r,y].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Rent vs buy
+  (function(){
+    const pg=document.getElementById('rb-pg'), inv=document.getElementById('rb-inv'), rent=document.getElementById('rb-rent'), rate=document.getElementById('rb-rate'), g=document.getElementById('rbchart');
+    function sim(){ const price=4000000, costs=price*0.05+price*0.06+price*0.0125+25000, loan0=price*0.8; const P=+pg.value/100, I=+inv.value/100, R=+rate.value/100; let rent0=+rent.value;
+      let loan=loan0, hv=price, port=price*0.2+costs, rr=rent0; const E=emi(loan0,R,20); const buy=[[0,price*0.98-loan0]], rnt=[[0,port]];
+      for(let m=1;m<=300;m++){ const pay = m<=240 ? E : 0; if(m<=240){ const i=loan*R/12; loan-=E-i; if(loan<0) loan=0; }
+        hv*=Math.pow(1+P,1/12); const own=pay+hv*0.006/12; port=port*Math.pow(1+I,1/12)+(own-rr);
+        if(m%12===0){ rr*=1.05; buy.push([m/12,hv*0.98-loan]); rnt.push([m/12,port]); } }
+      return {buy,rnt}; }
+    function u(){ const {buy,rnt}=sim();
+      pg.nextSibling; document.getElementById('rb-pg-out').textContent=(+pg.value)+'%'; document.getElementById('rb-inv-out').textContent=(+inv.value)+'%'; document.getElementById('rb-rent-out').textContent=fmt(+rent.value); document.getElementById('rb-rate-out').textContent=(+rate.value).toFixed(1)+'%';
+      g.innerHTML=''; const mx=Math.max(...buy.map(p=>p[1]),...rnt.map(p=>p[1]),1e6); const top=Math.ceil(mx/5e6)*5e6;
+      const ticks=[0,top/4,top/2,top*3/4,top];
+      const {X,Y}=axes(g,{L:70,R:610,T:16,B:230,x0:0,x1:25,y0:0,y1:top,yt:ticks,yf:v=>(v/1e5).toFixed(0)+'L',xt:[0,5,10,15,20,25],xf:v=>'Yr '+v,xl:'Years from today'});
+      line(g,buy,X,Y,{stroke:'var(--acc)','stroke-width':3});
+      line(g,rnt,X,Y,{stroke:'var(--slate)','stroke-width':3,'stroke-dasharray':'7 4'});
+      [10,20].forEach(y=>{ g.appendChild(el('circle',{cx:X(y),cy:Y(buy[y][1]),r:4,fill:'var(--acc)'})); g.appendChild(el('circle',{cx:X(y),cy:Y(rnt[y][1]),r:4,fill:'var(--slate)'})); });
+      const b20=buy[20][1], r20=rnt[20][1];
+      document.getElementById('rb-note').textContent='After 20 years: buying ≈ '+lakh(b20)+', renting and investing ≈ '+lakh(r20)+'. '+(b20>r20?'Buying comes out ahead on these assumptions.':'Renting and investing comes out ahead on these assumptions, but only if every spare rupee is actually invested.')+' Illustrative: 20% down, 20-year loan, rent rising 5% a year, owner costs 0.6% a year.';
+    }
+    [pg,inv,rent,rate].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Leverage
+  (function(){
+    const s=document.getElementById('lv'), g=document.getElementById('lvchart');
+    function u(){ const ch=+s.value/100, price=40, loan=32, nv=price*(1+ch), eq0=8, eq1=nv-loan; g.innerHTML='';
+      document.getElementById('lv-out').textContent=(ch>0?'+':ch<0?'−':'')+Math.abs(+s.value)+'%';
+      const L=150,R=600, sc=(R-L)/52;
+      [['Bought',price,eq0],['Now',nv,eq1]].forEach(([n,v,e],i)=>{ const y=40+i*80;
+        g.appendChild(el('text',{x:L-10,y:y+24,'text-anchor':'end','font-size':13,fill:'var(--ink)'},n+' ₹'+v.toFixed(1)+'L'));
+        g.appendChild(el('rect',{x:L,y,width:loan*sc,height:36,fill:'var(--slate)',opacity:.75,style:'transition:width .3s ease'}));
+        g.appendChild(el('text',{x:L+8,y:y+23,'font-size':11,fill:'var(--paper)'},'Loan ₹32L'));
+        if(e>0){ g.appendChild(el('rect',{x:L+loan*sc,y,width:e*sc,height:36,fill:i&&e<eq0?'var(--down)':'var(--acc)',style:'transition:width .3s ease'})); g.appendChild(el('text',{x:L+(loan+e)*sc+8,y:y+23,'font-size':11,fill:'var(--ink)'},'Ananya ₹'+e.toFixed(1)+'L')); }
+        else { g.appendChild(el('rect',{x:L+(loan+e)*sc,y:y+36,width:-e*sc,height:8,fill:'var(--down)'})); g.appendChild(el('text',{x:L+loan*sc+8,y:y+23,'font-size':11,fill:'var(--down)'},'Equity gone: owes ₹'+(-e).toFixed(1)+'L more than value')); }
+      });
+      const pct=(eq1/eq0-1)*100;
+      document.getElementById('lv-note').textContent='A '+(ch>=0?'+':'−')+Math.abs(ch*100).toFixed(0)+'% move in the flat’s price changes Ananya’s own stake by '+(pct>=0?'+':'−')+Math.abs(pct).toFixed(0)+'% (ignoring buying and selling costs).';
+    }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Cycle
+  (function(){
+    const g=document.getElementById('cyc');
+    const pts=[]; for(let t=0;t<=20;t+=0.25){ pts.push([t,100+28*Math.sin((t-2.5)/20*2*Math.PI*1.25)+t*2.4]); }
+    const {X,Y}=axes(g,{L:50,R:660,T:20,B:220,x0:0,x1:20,y0:60,y1:190,yt:[80,120,160],yf:()=>'',xt:[0,5,10,15,20],xf:v=>'Yr '+v});
+    g.appendChild(el('text',{x:54,y:16,'font-size':11,fill:'var(--muted)'},'Prices (illustrative)'));
+    const ph=[[0,3.6,'Recovery','var(--leaf-soft)'],[3.6,7.2,'Boom','var(--up-soft)'],[7.2,10.8,'Oversupply','var(--acc-soft)'],[10.8,14.4,'Slump','var(--down-soft)'],[14.4,20,'Recovery','var(--leaf-soft)']];
+    ph.forEach(([a,b,t,c])=>{ g.appendChild(el('rect',{x:X(a),y:20,width:X(b)-X(a),height:200,fill:c,opacity:.6})); g.appendChild(el('text',{x:(X(a)+X(b))/2,y:248,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},t)); });
+    line(g,pts,X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'cy'});
+    g.appendChild(el('text',{x:X(8.5),y:Y(150)-30,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'new towers finish here'));
+    if(!reduce){ const c=el('circle',{r:6,fill:'var(--ink)'}); c.appendChild(el('animateMotion',{dur:'9s',repeatCount:'indefinite',path:pathD(pts,X,Y)})); g.appendChild(c); }
+    wire('cycle-replay',g,()=>replayClass(g,'.cy','draw',0));
+  })();
+
+  // REIT flow
+  (function(){
+    const g=document.getElementById('reitflow');
+    ['IT company','Bank','Retail chain'].forEach((t,i)=>box(g,10,20+i*80,120,52,t,'tenant'));
+    box(g,200,40,130,52,'Office park A','building (SPV)','var(--acc-soft)','var(--acc)');
+    box(g,200,140,130,52,'Mall B','building (SPV)','var(--acc-soft)','var(--acc)');
+    box(g,400,85,120,64,'REIT trust','manager · trustee','var(--slate-soft)','var(--slate)');
+    box(g,575,85,80,64,'Rohit','+ others','var(--leaf-soft)','var(--leaf)');
+    arrow(g,132,46,196,62,'var(--muted)'); arrow(g,132,126,196,76,'var(--muted)'); arrow(g,132,206,196,170,'var(--muted)');
+    arrow(g,332,66,396,108,'var(--muted)'); arrow(g,332,166,396,130,'var(--muted)'); arrow(g,522,117,571,117,'var(--leaf)');
+    g.appendChild(el('text',{x:546,y:104,'text-anchor':'middle','font-size':10,fill:'var(--leaf)'},'≥90%'));
+    g.appendChild(el('text',{x:460,y:180,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'independent valuer'));
+    g.appendChild(el('text',{x:460,y:194,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'values buildings twice a year'));
+    g.appendChild(el('text',{x:330,y:258,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Units trade on the stock exchange like shares'));
+    mover(g,'M70 46 L265 66 L460 117 L615 117','var(--acc)',3.6,5,0);
+    mover(g,'M70 126 L265 166 L460 117 L615 117','var(--acc)',3.6,5,1.2);
+    mover(g,'M70 206 L265 166 L460 117 L615 117','var(--acc)',3.6,5,2.4);
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 08</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="8"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="warehouse.html" rel="prev"><small>← Previous</small>The Warehouse</a><a href="ledger.html" rel="next"><small>Next story →</small>The Ledger</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

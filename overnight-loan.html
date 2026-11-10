@@ -1,0 +1,877 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Overnight Loan</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 05 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html" aria-current="page"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: fifth story in the Kesarpur series. Storybook column with a ledger margin; wide interludes span the full width. Deep teal accent for the "after-hours" world of short-term money; green/red reserved for surplus/shortage. */
+:root{
+  --bg:#F0F3F3; --paper:#FAFCFC; --ink:#18232A; --muted:#58676C; --rule:#D1DBDD;
+  --acc:#14646E; --acc-soft:#D9ECEE; --gold:#A86E0A; --gold-soft:#F4E6CB;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B3313F; --down-soft:#F6DCDF;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1517; --paper:#152024; --ink:#E1EBED; --muted:#98A9AE; --rule:#2A3A3F;
+  --acc:#7FCBD4; --acc-soft:#173236; --gold:#EEB24A; --gold-soft:#382B13;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1517; --paper:#152024; --ink:#E1EBED; --muted:#98A9AE; --rule:#2A3A3F;
+  --acc:#7FCBD4; --acc-soft:#173236; --gold:#EEB24A; --gold-soft:#382B13;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.ledger{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:.85rem}
+.ledger .row{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;padding-block:5px;border-bottom:1px dashed var(--rule)}
+.ledger .row:last-child{border-bottom:none}
+.ledger .t{color:var(--muted)}
+.ledger .gap{background:var(--down-soft);border-radius:4px;padding-inline:6px}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.gold .label{color:var(--gold)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.g{border-color:var(--gold)} .col.u{border-color:var(--up)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+.xfig{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;margin:8px 0}
+.xfig figcaption{font-size:.85rem;color:var(--muted)}
+.xhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.xbtn,.xseg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.xseg{display:flex;flex-wrap:wrap;gap:6px}
+.xseg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+.xdraw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:xdraw 2.2s ease forwards}
+@keyframes xdraw{to{stroke-dashoffset:0}}
+@keyframes xgy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.xgy{animation:xgy .9s ease both}
+.xarc{transition:stroke-dasharray 1.2s ease}
+@media (prefers-reduced-motion:reduce){.xdraw,.xgy{animation:none!important;stroke-dashoffset:0!important}.xarc{transition:none}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about the money market, in sixteen chapters</span>
+    <h1>The Kesarpur Overnight Loan</h1>
+    <p class="lede">At 4 pm on a Friday, the Kesarpur Cooperative Bank is ₹15 crore short. By 5 pm it has borrowed the money from a bank in Mumbai, for one weekend. Follow that loan, and the loans around it, and you will understand the money market: the hidden place where banks, companies and governments lend each other money for a day, a week or a few months.</p>
+    <div class="cast">
+      <span class="chip">Mr. Iyer, bank treasurer</span>
+      <span class="chip">Farida, town treasurer</span>
+      <span class="chip">Lakshmi, Sunrise Foods</span>
+      <span class="chip">Ananya, nurse</span>
+      <span class="chip">The central bank</span>
+    </div>
+  </div>
+  <div class="ledger" aria-label="The cooperative bank's cash position on Friday">
+    <span class="label">Kesarpur Co-op Bank · Friday cash position</span>
+    <div class="row"><span class="t">09:30</span><span>Opening balance at central bank</span><span>₹42.0 cr</span></div>
+    <div class="row"><span class="t">11:00</span><span>Salary withdrawals, ATMs</span><span class="down">−₹21.5 cr</span></div>
+    <div class="row"><span class="t">13:00</span><span>Advance tax paid by customers</span><span class="down">−₹18.0 cr</span></div>
+    <div class="row"><span class="t">14:30</span><span>Loan to a rice mill disbursed</span><span class="down">−₹9.0 cr</span></div>
+    <div class="row"><span class="t">15:00</span><span>Deposits received</span><span class="up">+₹6.5 cr</span></div>
+    <div class="row"><span class="t">16:00</span><span>Must keep with central bank</span><span>₹15.0 cr</span></div>
+    <div class="row gap"><span class="t">16:00</span><span><strong>Shortfall</strong></span><span class="down"><strong>−₹15.0 cr</strong></span></div>
+  </div>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Four o'clock on a Friday</a></li>
+    <li><a href="#what"><span>01</span>Money that sleeps, money that's short</a></li>
+    <li><a href="#call"><span>02</span>The call money market</a></li>
+    <li><a href="#repo"><span>03</span>Repo: a loan against a pledge</a></li>
+    <li><a href="#rbi"><span>04</span>The central bank's window</a></li>
+    <li><a href="#why"><span>05</span>Why the whole system runs short</a></li>
+    <li><a href="#tbills"><span>06</span>Treasury bills</a></li>
+    <li><a href="#cp"><span>07</span>Sunrise's commercial paper</a></li>
+    <li><a href="#cd"><span>08</span>Certificates of deposit</a></li>
+    <li><a href="#liquid"><span>09</span>Ananya's liquid fund</a></li>
+    <li><a href="#ladder"><span>10</span>The ladder of short rates</a></li>
+    <li><a href="#policy"><span>11</span>From the central bank to your loan</a></li>
+    <li><a href="#freeze"><span>12</span>When the plumbing froze</a></li>
+    <li><a href="#players"><span>13</span>The money market at scale</a></li>
+    <li><a href="#you"><span>14</span>The money market for you</a></li>
+    <li><a href="#rules"><span>15</span>Mr. Iyer's rules</a></li>
+    <li><a href="#epilogue"><span>16</span>Monday morning</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>Borrowing until tomorrow</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Four o'clock on a Friday</h2></header>
+  <div class="prose">
+    <p>Mr. Iyer has run the treasury at the Kesarpur Cooperative Bank for eleven years. It's the same bank that bought Meera's bridge bond in the first story. His job is not to choose who gets loans. His job is to make sure that, at every moment, the bank has enough cash.</p>
+    <p>This Friday is difficult. It's the last day of the month, so the whole town is withdrawing salaries. It's also an advance-tax date, and the bank's business customers have sent ₹18 crore to the government. A large loan to a rice mill went out at 2:30. By 4 pm, the bank's account at the central bank has fallen below the minimum it is legally required to keep there.</p>
+    <p>The bank isn't in trouble. It has ₹1,200 crore of loans and investments. But nearly all of that money is tied up: in home loans repayable over twenty years, in government bonds, in the rice mill's new machines. None of it can become cash by 5 pm.</p>
+    <p>Iyer needs ₹15 crore, until Monday. Somewhere in India, another bank has the opposite problem: ₹15 crore it doesn't need until Monday, sitting idle and earning nothing. The place where those two banks find each other is the <strong>money market</strong>.</p>
+  </div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">The bank's balance at the central bank, Friday (₹ crore)</span><button type="button" class="xbtn" id="x-day-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Step chart of the bank's balance falling through Friday below the required ₹15 crore, then jumping back up with an overnight loan at 4:05 pm"><g id="x-day"></g></svg></div>
+    <figcaption>Each step is one of the payments in the ledger above. By 4 pm the balance is ₹15 crore below the legal minimum; the call loan restores it.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Fifth story</span>This follows the bond, mutual fund, stock market and derivatives stories. The cooperative bank, Farida, Lakshmi and Ananya all appear again.</div>
+    <div class="note"><span class="label">Liquidity</span>Having cash available when payments are due. A bank can be solvent (owning more than it owes) and still be illiquid (short of cash today).</div>
+  </aside>
+</section>
+
+<section class="chapter" id="what">
+  <header><span class="label">Chapter 1</span><h2>Money that sleeps, money that's short</h2></header>
+  <div class="prose">
+    <p>Every organisation has the same daily problem as Iyer, just on a different scale. Money comes in and goes out at different times. A company collects payments at month-end but pays wages on the 1st. A town collects property tax in April but spends all year. The government collects most of its tax in a few months and spends every day.</p>
+    <p>So at any moment, some have <em>money that sleeps</em>: cash they won't need for a day, a week or three months. Others have <em>money that's short</em>: a temporary gap. The <strong>money market</strong> is where they lend to each other for short periods, from one day up to one year.</p>
+    <p>It's different from the markets in the earlier stories in four ways:</p>
+    <ul>
+      <li><strong>Short.</strong> Overnight to one year. Bonds and shares are for years or forever.</li>
+      <li><strong>Large.</strong> Deals are usually in crores. It's a wholesale market for banks, companies, funds and governments. Individuals mostly reach it through funds.</li>
+      <li><strong>Safe, mostly.</strong> Lending for a day to a sound bank or the government carries very little risk. Prices barely move, because there's so little time for anything to go wrong.</li>
+      <li><strong>Invisible.</strong> No ticker on the news, no bell ringing. But if it stops working, ATMs, salaries and payments stop too.</li>
+    </ul>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Money market</th><th>Capital market</th></tr></thead>
+        <tbody>
+          <tr><td>Time</td><td>Overnight to 1 year</td><td>More than 1 year, or permanent</td></tr>
+          <tr><td>Purpose</td><td>Managing cash, bridging gaps</td><td>Funding growth: factories, bridges</td></tr>
+          <tr><td>Instruments</td><td>Call money, repo, T-bills, CP, CDs</td><td>Shares, bonds, debentures</td></tr>
+          <tr><td>Main risk</td><td>Running out of cash; rare defaults</td><td>Price swings, defaults</td></tr>
+          <tr><td>Typical players</td><td>Banks, central bank, funds, treasurers</td><td>Companies, governments, all investors</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Money market</span>The market for borrowing and lending for up to one year. Its rates are the shortest-term "price of money" in the economy.</div>
+    <div class="note gold"><span class="label">The plumbing</span>Bankers often call the money market the financial system's plumbing. Nobody notices it until it stops working.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="call">
+  <header><span class="label">Chapter 2</span><h2>The call money market</h2></header>
+  <div class="prose">
+    <p>At 4:05 pm, Iyer logs in to the central bank's dealing screen. It shows banks offering to lend overnight and the rates they're asking. A large private bank in Mumbai offers ₹50 crore at 6.10%. Iyer takes ₹15 crore.</p>
+    <p>This is a <strong>call money</strong> loan: an overnight loan from one bank to another, with no security. The Mumbai bank trusts that a regulated bank will repay tomorrow. Because it's Friday, "overnight" means until the next working day, Monday, so the loan runs for three days.</p>
+  </div>
+  <div class="formula">Interest = Amount × Rate × Days ÷ 365
+         = ₹15,00,00,000 × 6.10% × 3 ÷ 365
+         ≈ ₹75,205</div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">Friday out, Monday back</span><button type="button" class="xbtn" id="x-call-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 220" width="100%" style="min-width:480px" role="img" aria-label="Animation: ₹15 crore moves from a Mumbai bank to the Kesarpur bank on Friday and comes back with interest on Monday"><g id="x-call"></g></svg></div>
+  </figure>
+  <div class="prose">
+    <p>On Monday morning, Iyer's bank repays ₹15 crore plus ₹75,205. For the Mumbai bank, idle money earned ₹75,000 over a weekend. For Iyer, ₹75,000 was a small price for staying within the law and keeping every ATM working.</p>
+    <p>Hundreds of banks do this every afternoon. The average rate on all those overnight loans, weighted by size, is the <strong>weighted average call rate (WACR)</strong>. It's one of the most important numbers in the economy, because it's the rate the central bank is trying to steer (Chapter 4).</p>
+    <p>Loans of 2 to 14 days are called <strong>notice money</strong>, and 15 days to a year, <strong>term money</strong>. Only banks and a few specified institutions can borrow and lend in this unsecured interbank market, and each bank has limits on how much it can borrow.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Why "call"</span>The money is lent "at call": it is repayable almost immediately. It's the shortest loan there is.</div>
+    <div class="note"><span class="label">MIBOR</span>The Mumbai Interbank Offered Rate, a published benchmark for overnight interbank lending. Many swaps and floating-rate products are priced off overnight rates like it.</div>
+    <div class="note risk"><span class="label">Unsecured</span>If the borrowing bank failed overnight, the lender would be an ordinary creditor. That's why rates jump for banks that others start to doubt.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="repo">
+  <header><span class="label">Chapter 3</span><h2>Repo: a loan against a pledge</h2></header>
+  <div class="prose">
+    <p>The next month, call money is expensive and Iyer's limit is used up. He has another option. The bank owns government bonds. He can <em>pledge</em> them to get a loan.</p>
+    <p>It works like a gold loan. Kesarpur families pledge jewellery to a lender, get cash, and pay a bit extra to get the jewellery back. In a <strong>repo</strong> (short for repurchase agreement), the bank sells government securities to a lender today and agrees to buy them back tomorrow at a slightly higher price. The difference is the interest.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>When</th><th>Iyer's bank</th><th>Lender (a mutual fund)</th></tr></thead>
+        <tbody>
+          <tr><td>Today</td><td>Hands over ₹105 crore of government bonds; receives ₹100 crore cash</td><td>Gives ₹100 crore; holds the bonds as security</td></tr>
+          <tr><td>Tomorrow</td><td>Pays ₹100 crore + ₹1,64,384 (6% for one day); gets bonds back</td><td>Gets cash plus interest; returns bonds</td></tr>
+          <tr><td>If the bank fails overnight</td><td>—</td><td>Keeps and sells the bonds. The extra ₹5 crore covers any price fall</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>The ₹5 crore of extra bonds is the haircut: a safety margin for the lender in case bond prices drop.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">A repo, both legs</span>
+      <div class="xseg" role="group" aria-label="Choose the leg" id="x-repo-seg">
+        <button type="button" data-v="0" aria-pressed="true">Today</button>
+        <button type="button" data-v="1" aria-pressed="false">Tomorrow</button>
+      </div></div>
+    <div class="scroll"><svg viewBox="0 0 640 240" width="100%" style="min-width:480px" role="img" aria-label="Animation: today bonds go from the bank to the lender through the clearing corporation and cash comes back; tomorrow the cash plus interest returns and the bonds come home"><g id="x-repo"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="x-repo-note"></p>
+  </figure>
+  <div class="prose">
+    <p>Because the lender holds safe collateral, repo rates are usually a little lower than unsecured call rates, and lenders who aren't banks, like mutual funds and insurers, are happy to take part.</p>
+    <p>In India, most of this happens on <strong>TREPS</strong> (tri-party repo), a system run by the Clearing Corporation of India (CCIL). CCIL sits in the middle like the clearing house in the derivatives story: it holds the collateral, guarantees both sides, and settles the cash. Hundreds of participants trade in it every day without needing to trust each other directly.</p>
+    <p>From the lender's side, the same deal is a <strong>reverse repo</strong>: buying securities today with an agreement to sell them back.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Repo</span>Sell securities now, buy them back later at a fixed higher price. In effect, a secured loan.</div>
+    <div class="note"><span class="label">Haircut</span>Lending less than the collateral's value. Riskier collateral gets a bigger haircut.</div>
+    <div class="note gold"><span class="label">Collateral</span>Mostly government securities and T-bills. That's one reason banks hold so many government bonds: they double as a key to emergency cash.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="rbi">
+  <header><span class="label">Chapter 4</span><h2>The central bank's window</h2></header>
+  <div class="prose">
+    <p>What if every bank is short at once, and no one has spare money to lend? Then there's one lender that can never run out of rupees: the central bank, which creates them. In India, that's the Reserve Bank of India (RBI).</p>
+    <p>The RBI runs a set of facilities called the <strong>liquidity adjustment facility (LAF)</strong>. Together they form a corridor that keeps overnight rates in a narrow band.</p>
+    <ul>
+      <li><strong>The policy repo rate</strong> is the rate at which the RBI lends to banks against government securities, through repo auctions. This is the "repo rate" in the news when the RBI changes rates.</li>
+      <li><strong>The marginal standing facility (MSF)</strong> is the ceiling: a bank can always borrow overnight at repo + 0.25%, even using some of the securities it's required to hold. It's the emergency window, and expensive on purpose.</li>
+      <li><strong>The standing deposit facility (SDF)</strong> is the floor: a bank with spare cash can always park it with the RBI at repo − 0.25%, with no collateral needed.</li>
+    </ul>
+    <p>No bank will lend to another for less than the SDF, because it can earn that risk-free from the RBI. No bank will borrow for more than the MSF, because the RBI will lend at that rate. So the overnight rate stays inside the corridor. Where it sits inside depends on how much spare cash the system has. Try it below. (Rates are illustrative.)</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="liq">System liquidity <output id="liq-out">Balanced</output></label><input id="liq" type="range" min="-3" max="3" step="0.1" value="0"></div>
+    <div class="scroll">
+      <svg viewBox="0 0 600 220" width="100%" style="min-width:420px" role="img" aria-label="Interest rate corridor with the overnight rate moving between floor and ceiling"><g id="corr"></g></svg>
+    </div>
+    <div class="readout">
+      <div><span class="label">Overnight call rate</span><span class="big" id="corr-rate">6.00%</span></div>
+      <div><span class="label">Spread to policy repo</span><span class="big" id="corr-spread">0 bp</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="corr-note"></p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Lender of last resort</span>The central bank's role of lending to sound banks when no one else will, to stop a cash shortage turning into a collapse.</div>
+    <div class="note"><span class="label">Operating target</span>The RBI's monetary policy aims to keep the weighted average call rate close to the policy repo rate. Everything else follows from there.</div>
+    <div class="note gold"><span class="label">Variable rate auctions</span>Besides the standing windows, the RBI holds auctions to add or absorb money for days or weeks when the system has a large shortage or surplus.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="why">
+  <header><span class="label">Chapter 5</span><h2>Why the whole system runs short</h2></header>
+  <div class="prose">
+    <p>Iyer's Friday wasn't just bad luck. Some days, the <em>whole banking system</em> is short of cash at once, for reasons no single bank controls. Money market dealers keep calendars of these days.</p>
+  </div>
+  <div class="cols">
+    <div class="col d"><h3>Tax days</h3><p>On advance tax dates (mid-June, September, December and March) and GST due dates, lakhs of crores move from company bank accounts to the government's account at the RBI. That money leaves the banking system until the government spends it.</p></div>
+    <div class="col d"><h3>Festivals and cash</h3><p>Before Diwali or weddings, people withdraw notes. Cash in wallets is cash no longer in banks.</p></div>
+    <div class="col d"><h3>Defending the rupee</h3><p>When the RBI sells dollars to stop the rupee falling, banks pay it rupees, which drains liquidity. Buying dollars does the reverse.</p></div>
+    <div class="col u"><h3>Government spending</h3><p>When the government pays salaries, pensions and contractors, money flows back into banks and liquidity improves.</p></div>
+    <div class="col m"><h3>Reserve rules</h3><p>Banks must keep a share of deposits as cash with the RBI, the <strong>cash reserve ratio (CRR)</strong>, and a larger share in safe assets like government securities, the <strong>statutory liquidity ratio (SLR)</strong>. Changing CRR is a powerful way for the RBI to add or remove money.</p></div>
+    <div class="col m"><h3>Month and quarter ends</h3><p>Salaries, balance-sheet reporting and bunched payments make month-ends tighter, and banks often hold more cash than usual on those days.</p></div>
+  </div>
+  <div class="prose">
+    <p>Because these swings are predictable, the RBI watches them and runs auctions to add money before tax days and absorb it after big government spending. Its aim is to keep the overnight rate near the policy rate, so that day-to-day plumbing doesn't change the cost of money for everyone else.</p>
+  </div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">A quarter in the life of the system (illustrative)</span><button type="button" class="xbtn" id="x-liq-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:480px" role="img" aria-label="Weekly bars of banking system cash surplus or shortage, dipping on tax and GST weeks, with the overnight rate rising whenever cash is short"><g id="x-liq"></g></svg></div>
+    <figcaption>Bars: spare cash in the banking system each week (₹ lakh crore). Line: the overnight call rate, which rises toward the ceiling whenever cash is short.</figcaption>
+  </figure>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>The instruments</h2></div>
+
+<section class="chapter" id="tbills">
+  <header><span class="label">Chapter 6</span><h2>Treasury bills</h2></header>
+  <div class="prose">
+    <p>Farida, the Kesarpur town treasurer, has the opposite problem from Iyer. In April, the town collects most of its property tax. She has ₹20 crore she won't need until July. Leaving it in a current account earns nothing. Lending it to a company is too risky for public money. She needs somewhere completely safe for three months.</p>
+    <p>She buys <strong>Treasury bills</strong>, or T-bills: short-term loans to the national government. The government sells them every week through auctions run by the RBI, in three lengths: 91 days, 182 days and 364 days.</p>
+    <p>T-bills pay no interest coupon. They're sold at a <strong>discount</strong> and repaid at face value, like the zero-coupon bond in the bond story. At this week's auction, the cut-off price for 91-day bills is ₹98.50 for every ₹100 of face value.</p>
+  </div>
+  <div class="formula">Yield = (Face − Price) ÷ Price × 365 ÷ Days
+      = (100 − 98.50) ÷ 98.50 × 365 ÷ 91
+      ≈ 6.11% a year</div>
+  <div class="prose">
+    <p>Farida pays ₹19.70 crore for ₹20 crore of bills. In July, the government pays her ₹20 crore. The town earns ₹30 lakh, with essentially no risk of default, and she can sell the bills any day if she needs the money early.</p>
+    <p>Try the calculator to see how price and yield are linked.</p>
+  </div>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="T-bill length" id="tb-days">
+      <button type="button" data-v="91" aria-pressed="true">91 days</button>
+      <button type="button" data-v="182" aria-pressed="false">182 days</button>
+      <button type="button" data-v="364" aria-pressed="false">364 days</button>
+    </div>
+    <div class="ctrl"><label for="tb-y">Yield <output id="tb-y-out">6.11%</output></label><input id="tb-y" type="range" min="3" max="10" step="0.01" value="6.11"></div>
+    <div class="readout">
+      <div><span class="label">Price per ₹100</span><span class="big" id="tb-p">₹98.50</span></div>
+      <div><span class="label">Discount per ₹100</span><span class="big" id="tb-d">₹1.50</span></div>
+      <div><span class="label">Farida pays for ₹20 cr</span><span class="big" id="tb-f">₹19.70 cr</span></div>
+    </div>
+  </div>
+  <aside>
+    <div class="note"><span class="label">T-bill</span>A short-term government IOU sold at a discount. The safest rupee instrument there is, and the base for other short-term rates.</div>
+    <div class="note"><span class="label">Cash management bills</span>Very short bills, under 91 days, that the government issues when it has a temporary cash gap of its own.</div>
+    <div class="note gold"><span class="label">You can buy them too</span>Individuals can bid for T-bills through the RBI Retail Direct platform, using non-competitive bids at the auction's average price.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="cp">
+  <header><span class="label">Chapter 7</span><h2>Sunrise's commercial paper</h2></header>
+  <div class="prose">
+    <p>Every April and May, Lakshmi's company, Sunrise Foods, has to buy most of a year's mangoes in eight weeks. It then sells the pickle slowly over the next twelve months. That leaves a gap of about ₹50 crore for roughly three months.</p>
+    <p>Her bank offers a working-capital loan at 9.5%. Her finance head suggests something cheaper. Sunrise is now a large, profitable, listed company with an A1+ short-term rating, the highest. It can borrow directly from investors by issuing <strong>commercial paper (CP)</strong>: an unsecured short-term IOU, sold at a discount, like a T-bill but from a company.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Option for 90 days, ₹50 crore</th><th class="num">Rate</th><th class="num">Interest cost</th></tr></thead>
+        <tbody>
+          <tr><td>Bank working-capital loan</td><td class="num">9.50%</td><td class="num">₹1.17 cr</td></tr>
+          <tr class="hl"><td>Commercial paper (A1+), issued at ₹98.24 per ₹100</td><td class="num">7.25%</td><td class="num">₹0.88 cr</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. Sunrise raises about ₹49.12 crore today and repays ₹50 crore in 90 days, saving about ₹29 lakh compared with the bank loan.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Who buys the CP? Mostly liquid mutual funds (like Ananya's, Chapter 9), and banks and companies with spare cash. They earn more than on T-bills because Sunrise is riskier than the government.</p>
+    <p>There's one important danger. Many companies don't repay CP from profits; they repay maturing CP by issuing new CP, called <strong>rolling over</strong>. That works as long as investors keep buying. If they suddenly stop, as happened to many Indian finance companies in 2018 (Chapter 12), a perfectly profitable company can be unable to repay on the day. That's why companies issuing CP are expected to keep bank credit lines in reserve.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Commercial paper</span>An unsecured, short-term promissory note issued by a company, usually for 7 days to a year, at a discount.</div>
+    <div class="note"><span class="label">Short-term ratings</span>Agencies rate CP on a separate scale: A1+ is the highest, then A1, A2, A3, A4, and D for default.</div>
+    <div class="note risk"><span class="label">Rollover risk</span>The danger that you can't refinance a maturing loan. The shorter your borrowing, the more often you face it.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="cd">
+  <header><span class="label">Chapter 8</span><h2>Certificates of deposit</h2></header>
+  <div class="prose">
+    <p>Banks raise short-term money too. When Iyer's bank wants to lend more in harvest season than its ordinary deposits allow, it can issue a <strong>certificate of deposit (CD)</strong>: a large fixed deposit in tradable form.</p>
+    <p>A normal fixed deposit is a private contract between you and your bank. If you need the money early, you break it and pay a penalty. A CD is issued in large amounts, at a discount, and is <em>tradable</em>: a mutual fund that bought a 6-month CD can sell it to another investor next week, without the bank being involved.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>T-bill</th><th>Commercial paper</th><th>Certificate of deposit</th></tr></thead>
+        <tbody>
+          <tr><td>Issued by</td><td>Government</td><td>Companies, finance firms</td><td>Banks</td></tr>
+          <tr><td>Length</td><td>91, 182, 364 days</td><td>7 days to 1 year</td><td>7 days to 1 year (banks)</td></tr>
+          <tr><td>Form</td><td>Discount</td><td>Discount</td><td>Discount</td></tr>
+          <tr><td>Security</td><td>Government's promise</td><td>None (unsecured)</td><td>Bank's promise</td></tr>
+          <tr><td>Relative yield</td><td>Lowest</td><td>Highest</td><td>In between</td></tr>
+          <tr><td>Main buyers</td><td>Banks, funds, RBI, treasurers</td><td>Liquid funds, banks, companies</td><td>Mutual funds, companies</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Order of yields is typical, not guaranteed. A strong bank's CD can yield less than a weaker company's CP of the same length.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">CD</span>A tradable, discounted deposit certificate issued by a bank, usually in large amounts to institutions.</div>
+    <div class="note gold"><span class="label">Bank funding</span>When banks issue many CDs at rising rates, it often signals that loans are growing faster than deposits, a useful clue about the economy.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="liquid">
+  <header><span class="label">Chapter 9</span><h2>Ananya's liquid fund</h2></header>
+  <div class="prose">
+    <p>Ananya, the nurse from the mutual fund story, keeps her emergency money (six months of expenses) in a <strong>liquid fund</strong>. After the debt fund scare in that story, she wants to know exactly what it holds. She opens the monthly portfolio.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Holding</th><th class="num">Share of fund</th><th>Average days left</th></tr></thead>
+        <tbody>
+          <tr><td>Treasury bills</td><td class="num">28%</td><td>40</td></tr>
+          <tr><td>TREPS / repo (overnight)</td><td class="num">12%</td><td>1</td></tr>
+          <tr><td>Bank certificates of deposit</td><td class="num">27%</td><td>55</td></tr>
+          <tr><td>Commercial paper (A1+ only)</td><td class="num">31%</td><td>50</td></tr>
+          <tr><td>Cash and other</td><td class="num">2%</td><td>—</td></tr>
+          <tr class="total"><td>Fund</td><td class="num">100%</td><td>Average maturity about 42 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative portfolio. Liquid funds can only hold instruments maturing within 91 days.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">Inside Ananya's liquid fund</span><button type="button" class="xbtn" id="x-donut-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 240" width="100%" style="min-width:480px" role="img" aria-label="Donut chart of the liquid fund's holdings: commercial paper, treasury bills, certificates of deposit, overnight repo and cash"><g id="x-donut"></g></svg></div>
+  </figure>
+  <div class="prose">
+    <p>Her liquid fund is a pot of exactly the instruments in this story: lending to the government, to banks, and to strong companies like Sunrise, for a few weeks at a time. Its NAV rises a little nearly every day, as the discounts on those instruments shrink toward face value.</p>
+    <p>Rules protect her. SEBI requires liquid funds to hold only instruments maturing within 91 days, to keep a set minimum in cash, T-bills and government repo so they can always pay redemptions, and to limit how much they put into any one sector. Redemptions are usually paid the next working day, and many funds offer instant redemption of a small amount, up to ₹50,000, to a bank account.</p>
+    <p>An <strong>overnight fund</strong> goes further: it only lends for one day, mostly through TREPS. It earns a little less but has almost no credit or interest-rate risk. Ananya keeps one month's expenses there and the rest in her liquid fund.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Money market funds</span>The general name for funds that hold short-term instruments. In India: overnight, liquid and money market fund categories.</div>
+    <div class="note risk"><span class="label">Not a bank deposit</span>Liquid funds are not insured and can, rarely, lose value if a holding defaults. Check that the CP and CDs held are high quality.</div>
+    <div class="note gold"><span class="label">Exit load</span>Liquid funds charge a small exit load if you redeem within 7 days, to discourage very short in-and-out trading.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="ladder">
+  <header><span class="label">Chapter 10</span><h2>The ladder of short rates</h2></header>
+  <div class="prose">
+    <p>Iyer keeps a sheet on his desk showing today's rates across the money market. Every number on it is linked to every other, and all of them hang from the policy rate.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Instrument</th><th class="num">Illustrative rate</th><th>Why it sits there</th></tr></thead>
+        <tbody>
+          <tr><td>RBI standing deposit facility (floor)</td><td class="num">5.75%</td><td>Risk-free parking at the RBI</td></tr>
+          <tr><td>TREPS / repo (overnight)</td><td class="num">5.90%</td><td>Secured by government bonds</td></tr>
+          <tr class="hl"><td>Policy repo rate</td><td class="num">6.00%</td><td>The RBI's chosen anchor</td></tr>
+          <tr><td>Call money (overnight)</td><td class="num">6.05%</td><td>Unsecured, between banks</td></tr>
+          <tr><td>91-day T-bill</td><td class="num">6.11%</td><td>Government, three months</td></tr>
+          <tr><td>RBI marginal standing facility (ceiling)</td><td class="num">6.25%</td><td>Emergency borrowing, a penalty rate</td></tr>
+          <tr><td>3-month CD, strong bank</td><td class="num">6.60%</td><td>Bank risk, three months</td></tr>
+          <tr><td>3-month CP, A1+ company</td><td class="num">7.25%</td><td>Company risk, unsecured</td></tr>
+          <tr><td>3-month CP, weaker finance company</td><td class="num">8.75%</td><td>More credit risk, less liquidity</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Rates are illustrative. The pattern is real: more time, less collateral and weaker borrowers all add a little to the rate.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Each step on the ladder is a <strong>spread</strong>: the extra pay for some extra risk. Secured is cheaper than unsecured. Government is cheaper than banks, and banks cheaper than companies. Three months costs a little more than overnight. When markets are calm, the spreads are small. When fear rises, the bottom of the ladder barely moves while the top shoots up, because everyone wants to lend only to the safest borrowers. Watching those spreads is how Iyer senses trouble early.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Short end of the curve</span>These rates form the first part of the yield curve from the bond story. The money market sets the short end; the bond market sets the long end.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>The market and the economy</h2></div>
+
+<section class="chapter" id="policy">
+  <header><span class="label">Chapter 11</span><h2>From the central bank to your loan</h2></header>
+  <div class="prose">
+    <p>Inflation is running high. The RBI's Monetary Policy Committee raises the policy repo rate by 0.25%. Here is how that decision travels through the money market to Kesarpur's kitchens.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>When</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>Same day</td><td>The SDF floor and MSF ceiling move up 0.25%. The overnight call and repo rates move with them.</td></tr>
+          <tr><td>Days</td><td>T-bill auction yields, CD and CP rates rise. Liquid funds start earning a little more on new investments.</td></tr>
+          <tr><td>Weeks</td><td>Banks pay more to raise money, so they raise fixed deposit rates. Loans linked to an external benchmark such as the repo rate (most new home loans since 2019) reset at the next reset date.</td></tr>
+          <tr><td>Months</td><td>Rohit's sister's home-loan EMI rises. Sunrise pays more on its CP. Some families and companies delay borrowing and spending.</td></tr>
+          <tr><td>A year or more</td><td>Slower borrowing and spending cool demand, and inflation eases. This is what the RBI was aiming for.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>This chain is called <strong>monetary policy transmission</strong>, and the money market is its first and most important link. If the money market didn't follow the policy rate, the RBI's decisions would have no effect. That's why the RBI spends so much effort keeping overnight rates inside the corridor: a central bank that can't control the overnight rate can't control anything else.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Policy stance</span>Besides changing the rate, the RBI signals its intentions and manages how much liquidity is in the system. A system short of cash pushes rates toward the ceiling, which tightens policy even without a rate change.</div>
+    <div class="note gold"><span class="label">Link to the bond story</span>In the bond story, the "central bank raised rates" and Meera's bond price fell. This chapter shows how that rate rise starts.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="freeze">
+  <header><span class="label">Chapter 12</span><h2>When the plumbing froze</h2></header>
+  <div class="prose">
+    <p>Money markets rarely make the news. When they do, it's usually because they've suddenly stopped working. Each time, the pattern is the same: lenders lose confidence, refuse to roll over short-term loans, and borrowers that looked healthy can't pay what's due tomorrow.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>2008: the fund that broke the buck</strong><span>When Lehman Brothers collapsed in September 2008, the Reserve Primary Fund, a large US money market fund, held Lehman's commercial paper. Its value per unit fell below $1, which money market funds had almost never allowed. Panicked investors pulled hundreds of billions from similar funds within days, and companies that depended on CP suddenly couldn't borrow. The US government guaranteed money market funds to stop the run. In India, the RBI cut reserve ratios and opened special lending windows, including support for mutual funds facing redemptions.</span></div>
+    <div class="risk-row"><strong>2018: IL&amp;FS</strong><span>When the infrastructure lender IL&amp;FS defaulted (it appears in the bond and fund stories), investors stopped buying CP from non-bank finance companies. Many of these firms had funded long-term loans with short-term CP. With rollovers refused, several were squeezed hard and some failed. The lesson: borrowing short to lend long only works while the short-term market stays open.</span></div>
+    <div class="risk-row"><strong>2019: the US repo spike</strong><span>In September 2019, overnight repo rates in the US briefly jumped to around 10% because cash was unexpectedly scarce on a tax and settlement day. The US Federal Reserve had to inject money directly. Even the safest secured market can seize up when cash is short.</span></div>
+    <div class="risk-row"><strong>March 2020: the dash for cash</strong><span>As Covid spread, investors everywhere tried to sell almost everything to hold cash, even safe short-term instruments. Central banks, including the RBI, provided large amounts of liquidity through long-term repo operations and other windows.</span></div>
+  </div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">How a rollover freeze hits a lender</span>
+      <div class="xseg" role="group" aria-label="Market mood" id="x-run-seg">
+        <button type="button" data-v="0" aria-pressed="true">Normal times</button>
+        <button type="button" data-v="1" aria-pressed="false">Panic</button>
+      </div></div>
+    <div class="scroll"><svg viewBox="0 0 660 250" width="100%" style="min-width:520px" role="img" aria-label="Animation: a finance company borrows short-term from funds to lend long-term for homes; in a panic new money stops arriving while repayments keep leaving, and a cash gap opens"><g id="x-run"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="x-run-note"></p>
+  </figure>
+  <div class="prose">
+    <p>The common thread is <strong>maturity mismatch</strong>: borrowing for a day or a month to fund things that last years. Banks, finance companies and some funds all do it, because short-term money is cheaper. It's safe in calm times and dangerous in a panic. That's why regulators now require banks to hold enough high-quality liquid assets to survive a 30-day stress (the <strong>liquidity coverage ratio</strong>), and why central banks act fast when the plumbing freezes.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Run</span>When many lenders or depositors try to get their money out at once, because they fear others will get there first. Runs can topple institutions that would otherwise have survived.</div>
+    <div class="note"><span class="label">Breaking the buck</span>When a money market fund's unit value falls below its stable price. It shows that "cash-like" is not the same as cash.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="players">
+  <header><span class="label">Chapter 13</span><h2>The money market at scale</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. On a typical day, money market deals across India's call, repo and TREPS markets run to several lakh crore rupees, nearly all settled the same day, mostly unseen by anyone outside a few hundred treasury desks.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>The Reserve Bank of India</h3><p>Sets the policy rate, runs the corridor and auctions, sets CRR and SLR, issues T-bills for the government, and regulates most money market instruments.</p></div>
+    <div class="col"><h3>Banks</h3><p>The core participants: borrowing and lending every day to meet reserve rules and customer payments. Large banks are often net lenders; smaller and fast-growing ones are often net borrowers.</p></div>
+    <div class="col"><h3>Primary dealers</h3><p>Firms authorised to bid in government securities auctions and keep the market active, borrowing in call and repo markets to fund their holdings.</p></div>
+    <div class="col g"><h3>Mutual funds and insurers</h3><p>Huge lenders through TREPS, T-bills, CP and CDs. Liquid funds are one of the biggest buyers of CP in India.</p></div>
+    <div class="col g"><h3>Companies and governments</h3><p>Companies borrow through CP and park surplus cash in liquid funds. State governments, towns like Kesarpur and public bodies manage cash through T-bills and deposits.</p></div>
+    <div class="col m"><h3>The infrastructure</h3><p>CCIL clears and guarantees repo and TREPS trades. The RBI's NDS-Call and NDS-OM platforms host dealing. FIMMDA, the industry body for fixed income and money markets, sets market practices.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="you">
+  <header><span class="label">Chapter 14</span><h2>The money market for you</h2></header>
+  <div class="prose">
+    <p>Individuals don't trade call money, but the money market touches every household's savings. Here's where Kesarpur's families keep money they might need soon:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Option</th><th>Access</th><th>Safety</th><th>Return</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>Savings account</td><td>Instant</td><td>Deposit insurance up to ₹5 lakh per bank</td><td>Low</td><td>Day-to-day money</td></tr>
+          <tr><td>Sweep-in FD</td><td>Instant, breaks automatically</td><td>As deposits</td><td>FD rate on idle balance</td><td>Lazy cash in a bank account</td></tr>
+          <tr><td>Overnight fund</td><td>Next working day</td><td>Very high, not insured</td><td>Close to overnight rates</td><td>Very short parking</td></tr>
+          <tr><td>Liquid fund</td><td>Next working day; small amount instantly</td><td>High, not insured</td><td>A bit above overnight</td><td>Emergency fund</td></tr>
+          <tr><td>T-bills via RBI Retail Direct</td><td>Held to maturity, or sold</td><td>Government</td><td>T-bill yield</td><td>Known 3–12 month needs</td></tr>
+          <tr><td>Short fixed deposit</td><td>Penalty to break</td><td>Deposit insurance up to ₹5 lakh per bank</td><td>Fixed</td><td>Known dates, simplicity</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Meera, now in her eighties, keeps her monthly expenses in her savings account and three months' worth in a short FD. Ananya splits her emergency fund between an overnight fund and a liquid fund. Rohit uses a sweep-in account so his salary doesn't sit idle.</p>
+    <p>On tax: in India, interest from deposits and T-bills is added to your income and taxed at your slab rate. Gains from liquid and overnight funds bought after 1 April 2023 are also taxed at your slab rate, whenever you sell. Rules change, so check before comparing.</p>
+  </div>
+  <aside>
+    <div class="note gold"><span class="label">Return of money first</span>For money you may need soon, safety and access matter far more than an extra half percent. Chasing yield with emergency money is how people end up in risky CP.</div>
+    <div class="note"><span class="label">Rates move with policy</span>When the RBI raises rates, overnight and liquid funds start earning more within days; FDs you already hold don't change.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="rules">
+  <header><span class="label">Chapter 15</span><h2>Mr. Iyer's rules</h2></header>
+  <div class="prose">
+    <p>Years later, training his replacement, Iyer writes down what the money market taught him.</p>
+    <ul>
+      <li><strong>Liquidity before profit.</strong> A bank that is solvent but out of cash for one afternoon can still be destroyed. Always know where the next ₹15 crore will come from.</li>
+      <li><strong>Keep the key to the window.</strong> Hold enough government securities to borrow in repo or from the RBI on the worst day.</li>
+      <li><strong>Know the calendar.</strong> Tax days, month-ends, festivals and government payment days are predictable. Plan for them.</li>
+      <li><strong>Don't fund long with short too heavily.</strong> The cheaper short-term money is, the more tempting the mismatch, and the more painful the day it can't be rolled.</li>
+      <li><strong>Never rely on one lender.</strong> Spread borrowing across banks, repo, TREPS and the RBI window.</li>
+      <li><strong>Watch the spreads.</strong> When the gap between government and company rates suddenly widens, someone knows something.</li>
+      <li><strong>Cash-like isn't cash.</strong> Every instrument other than central bank money has some risk, however small.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Asset-liability management</span>A bank's discipline of matching when money comes in with when it must go out. Iyer's treasury reports to an ALM committee every month.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Monday morning</h2></header>
+  <div class="prose">
+    <p>At 9:30 on Monday, government salary payments arrive, and the cooperative bank's account at the RBI climbs back to ₹38 crore. Iyer repays the Mumbai bank's ₹15 crore plus ₹75,205. Neither bank thinks about it again.</p>
+    <p>In the same hour, Farida's T-bills earn another day's interest. Sunrise's commercial paper funds another truckload of mangoes. Ananya's liquid fund NAV ticks up by a fraction of a paisa. The RBI publishes its liquidity numbers, and the overnight rate sits a few basis points from the policy rate, exactly where it should be.</p>
+    <p>None of this was on the news. That's the sign it worked.</p>
+    <p>That is the money market: a market for time measured in days, where cash that would otherwise sleep is lent to someone who is short, for a price set by the central bank's corridor and by trust. And that is why every other market in these stories, bonds, funds, shares and derivatives, depends on it working every single day.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The five stories</span><em>Bonds</em> lend for years. <em>Mutual funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing between all of them, one night at a time.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Six myths about the money market</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">It's the market for money in general.</span><span>It's specifically the market for short-term borrowing and lending, up to a year.</span></div>
+    <div class="myth"><span class="m">A bank short of cash is a failing bank.</span><span>Sound banks borrow overnight all the time. It's how daily payments balance.</span></div>
+    <div class="myth"><span class="m">Liquid funds are the same as savings accounts.</span><span>They're usually very safe, but not insured, and can lose value if a holding defaults.</span></div>
+    <div class="myth"><span class="m">The repo rate is just a headline number.</span><span>It anchors overnight rates, which flow into FD rates, loan EMIs and company borrowing costs.</span></div>
+    <div class="myth"><span class="m">Short-term lending has no risk.</span><span>The 2008 and 2018 episodes showed that rollover and credit risk can strike fast.</span></div>
+    <div class="myth"><span class="m">Higher yield on a liquid fund is free money.</span><span>It usually means more company CP or lower-rated paper. Extra yield always comes from extra risk.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before parking short-term money: a checklist</h2>
+  <ul class="check">
+    <li>I know when I might need this money, to the month.</li>
+    <li>For emergencies, I can reach some of it the same day.</li>
+    <li>I've chosen safety and access before yield.</li>
+    <li>For a liquid fund, I've checked the portfolio: mostly T-bills, repo, strong-bank CDs and A1+ CP.</li>
+    <li>I know any exit load and redemption timing.</li>
+    <li>I've compared after-tax returns, not headline rates.</li>
+    <li>My deposits in any one bank are within the insured limit, or I accept the risk.</li>
+    <li>I understand that rates on floating options will fall when the RBI cuts.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>₹15 crore short at 4 pm</td><td>Liquidity</td><td>Solvent isn't the same as having cash today</td></tr>
+        <tr><td>The Mumbai bank's weekend loan</td><td>Call money, WACR</td><td>Unsecured overnight lending between banks</td></tr>
+        <tr><td>Pledging bonds like jewellery</td><td>Repo, haircut, TREPS</td><td>Secured short-term borrowing</td></tr>
+        <tr><td>The floor and the ceiling</td><td>LAF corridor: SDF, repo, MSF</td><td>The RBI keeps overnight rates in a band</td></tr>
+        <tr><td>Advance-tax Friday</td><td>System liquidity, CRR, SLR</td><td>Big flows drain or add cash for everyone</td></tr>
+        <tr><td>Farida's ₹20 crore</td><td>Treasury bills</td><td>Discounted short-term government IOUs</td></tr>
+        <tr><td>The mango season gap</td><td>Commercial paper</td><td>Strong companies borrow directly, short-term</td></tr>
+        <tr><td>Harvest-season lending</td><td>Certificates of deposit</td><td>Tradable bank deposits</td></tr>
+        <tr><td>Ananya's emergency fund</td><td>Liquid and overnight funds</td><td>Pots of money market instruments</td></tr>
+        <tr><td>Iyer's rate sheet</td><td>Spreads</td><td>Time, collateral and credit each add a little</td></tr>
+        <tr><td>A 0.25% rate rise</td><td>Transmission</td><td>The money market carries policy to the economy</td></tr>
+        <tr><td>2008, 2018, 2019, 2020</td><td>Runs, rollover risk</td><td>Short funding fails fast when trust goes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Call / notice / term money</dt><dd>Unsecured interbank loans: overnight / 2–14 days / 15 days to a year.</dd></div>
+    <div><dt>CCIL</dt><dd>Clearing Corporation of India: clears and guarantees repo and TREPS trades.</dd></div>
+    <div><dt>Certificate of deposit</dt><dd>A tradable, discounted deposit issued by a bank.</dd></div>
+    <div><dt>Collateral</dt><dd>Assets pledged to secure a loan.</dd></div>
+    <div><dt>Commercial paper</dt><dd>Unsecured short-term IOU issued by a company.</dd></div>
+    <div><dt>CRR</dt><dd>Cash reserve ratio: share of deposits banks must keep with the RBI.</dd></div>
+    <div><dt>Discount instrument</dt><dd>Sold below face value, repaid at face; no coupons.</dd></div>
+    <div><dt>Haircut</dt><dd>Lending less than collateral's value, as a safety margin.</dd></div>
+    <div><dt>LAF</dt><dd>Liquidity adjustment facility: the RBI's repo, SDF and related operations.</dd></div>
+    <div><dt>LCR</dt><dd>Liquidity coverage ratio: liquid assets to survive 30 days of stress.</dd></div>
+    <div><dt>Lender of last resort</dt><dd>The central bank's role lending to sound banks in a crisis.</dd></div>
+    <div><dt>Liquid fund</dt><dd>Mutual fund holding instruments maturing within 91 days.</dd></div>
+    <div><dt>Liquidity</dt><dd>Having cash available when needed.</dd></div>
+    <div><dt>Maturity mismatch</dt><dd>Borrowing short-term to fund long-term assets.</dd></div>
+    <div><dt>MIBOR</dt><dd>Benchmark overnight interbank lending rate.</dd></div>
+    <div><dt>MSF</dt><dd>Marginal standing facility: the RBI's emergency overnight lending, the corridor's ceiling.</dd></div>
+    <div><dt>Overnight fund</dt><dd>Mutual fund lending only for one day at a time.</dd></div>
+    <div><dt>Policy repo rate</dt><dd>The RBI's main policy rate for lending to banks.</dd></div>
+    <div><dt>Repo / reverse repo</dt><dd>Selling / buying securities with an agreement to reverse the trade later.</dd></div>
+    <div><dt>Rollover</dt><dd>Repaying maturing debt by issuing new debt.</dd></div>
+    <div><dt>SDF</dt><dd>Standing deposit facility: the RBI's floor rate for parking surplus cash.</dd></div>
+    <div><dt>SLR</dt><dd>Statutory liquidity ratio: share of deposits banks must hold in safe liquid assets.</dd></div>
+    <div><dt>Spread</dt><dd>Difference between two rates, the price of extra risk.</dd></div>
+    <div><dt>T-bill</dt><dd>Treasury bill: short-term government debt sold at a discount.</dd></div>
+    <div><dt>TREPS</dt><dd>Tri-party repo: India's main collateralised overnight market.</dd></div>
+    <div><dt>WACR</dt><dd>Weighted average call rate: the RBI's operating target.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how the money market works. The Kesarpur bank, Mr. Iyer, Sunrise Foods and all rates and figures are fictional and illustrative; policy rates, reserve ratios and rules change over time. It is not investment or tax advice. Check current figures with the RBI, SEBI and official sources before making decisions.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+
+  // Corridor
+  (function(){
+    const s=document.getElementById('liq'), g=document.getElementById('corr');
+    const L=110,R=580,T=20,B=190, lo=5.6, hi=6.4;
+    const Y=v=>B-(v-lo)/(hi-lo)*(B-T);
+    const lines=[[6.25,'MSF ceiling 6.25%','var(--down)'],[6.00,'Policy repo 6.00%','var(--acc)'],[5.75,'SDF floor 5.75%','var(--up)']];
+    g.appendChild(el('rect',{x:L,y:Y(6.25),width:R-L,height:Y(5.75)-Y(6.25),fill:'var(--acc-soft)'}));
+    lines.forEach(([v,t,c])=>{ g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:c,'stroke-width':v===6?2:1.5,'stroke-dasharray':v===6?'':'6 4'})); g.appendChild(el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:c},t.split(' ').slice(-1)[0])); g.appendChild(el('text',{x:R-4,y:Y(v)-6,'text-anchor':'end','font-size':11,fill:c},t.replace(/ [\d.]+%$/,''))); });
+    g.appendChild(el('text',{x:L,y:B+22,'font-size':11,fill:'var(--muted)'},'← Cash shortage'));
+    g.appendChild(el('text',{x:R,y:B+22,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'Cash surplus →'));
+    const dot=el('circle',{r:8,fill:'var(--gold)',stroke:'var(--paper)','stroke-width':2,style:'transition:cx .3s ease, cy .3s ease'}); g.appendChild(dot);
+    const lab=el('text',{'font-size':12,fill:'var(--ink)','text-anchor':'middle'},'Call rate'); g.appendChild(lab);
+    function u(){ const l=+s.value; const rate=6.0-0.24*Math.tanh(l*0.9); const x=L+(l+3)/6*(R-L), y=Y(rate);
+      dot.setAttribute('cx',x); dot.setAttribute('cy',y); lab.setAttribute('x',Math.min(R-30,Math.max(L+30,x))); lab.setAttribute('y',y-14);
+      document.getElementById('liq-out').textContent = Math.abs(l)<0.2?'Balanced': l<0 ? 'Shortage of ₹'+Math.abs(l).toFixed(1)+' lakh cr' : 'Surplus of ₹'+l.toFixed(1)+' lakh cr';
+      document.getElementById('corr-rate').textContent=rate.toFixed(2)+'%';
+      const bp=Math.round((rate-6)*100); document.getElementById('corr-spread').textContent=(bp>0?'+':bp<0?'−':'')+Math.abs(bp)+' bp';
+      document.getElementById('corr-note').textContent = Math.abs(l)<0.2 ? 'With balanced liquidity, the overnight rate sits near the policy repo rate, which is where the RBI wants it.'
+        : l<0 ? 'Banks are short and compete to borrow, so the overnight rate rises toward the MSF ceiling. It can’t go above it, because the RBI will always lend there.'
+        : 'Banks have spare cash and compete to lend, so the overnight rate falls toward the SDF floor. It won’t go below it, because they can always earn that from the RBI.'; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // T-bill calculator
+  (function(){
+    let days=91; const y=document.getElementById('tb-y');
+    function u(){ const r=+y.value/100, p=100/(1+r*days/365);
+      document.getElementById('tb-y-out').textContent=(+y.value).toFixed(2)+'%';
+      document.getElementById('tb-p').textContent='₹'+p.toFixed(2);
+      document.getElementById('tb-d').textContent='₹'+(100-p).toFixed(2);
+      document.getElementById('tb-f').textContent='₹'+(20*p/100).toFixed(2)+' cr'; }
+    document.querySelectorAll('#tb-days button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#tb-days button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); days=+b.dataset.v; u(); }));
+    y.addEventListener('input',u); u();
+  })();
+})();
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function axes(g,o){const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L),Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);o.yt.forEach(v=>{g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:v===0?'var(--muted)':'var(--rule)'}));g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v)));});(o.xt||[]).forEach(v=>g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));return{X,Y};}
+function box(g,x,y,w,h,t,s,f,st){g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:f||'var(--paper)',stroke:st||'var(--rule)','stroke-width':1.5}));g.appendChild(el('text',{x:x+w/2,y:y+h/2-(s?3:-4),'text-anchor':'middle','font-size':12.5,fill:'var(--ink)'},t));if(s)g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s));}
+function mover(g,d,c,dur,r,b,cls){if(reduce)return;const n=el('circle',{r:r||5,fill:c,class:cls||''});n.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(b||0))+'s'}));g.appendChild(n);}
+const T={};
+function clearRun(k,g){(T[k]||[]).forEach(clearTimeout);T[k]=[];g.querySelectorAll('.xs').forEach(n=>n.remove());}
+function seq(k,g,d,c,dur,r,delay){if(reduce)return;const n=el('circle',{r:r||5,fill:c,opacity:0,class:'xs'});const a=el('animateMotion',{dur:dur+'s',path:d,begin:'indefinite',fill:'freeze'});n.appendChild(a);g.appendChild(n);T[k].push(setTimeout(()=>{n.setAttribute('opacity',1);try{a.beginElement();}catch(e){}},delay*1000));}
+function later(k,fn,delay){if(reduce)return;T[k].push(setTimeout(fn,delay*1000));}
+function replay(g,sel,cls,step){g.querySelectorAll(sel).forEach((p,i)=>{p.classList.remove(cls);void p.getBoundingClientRect();p.style.animationDelay=(i*(step||.15))+'s';p.classList.add(cls);});}
+function onView(n,fn){if(reduce||!('IntersectionObserver' in window))return;const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){fn();io.disconnect();}});},{threshold:.35});io.observe(n);}
+function wire(id,g,fn){const b=document.getElementById(id);if(b)b.addEventListener('click',fn);onView(g,fn);}
+
+// Friday balance
+(function(){const g=document.getElementById('x-day');if(!g)return;
+const {X,Y}=axes(g,{L:60,R:610,T:16,B:210,x0:9,x1:17,y0:0,y1:45,yt:[0,15,30,45],yf:v=>'₹'+v,xt:[9,11,13,15,17],xf:v=>v+':00'});
+g.appendChild(el('rect',{x:X(9),y:Y(15),width:X(17)-X(9),height:Y(0)-Y(15),fill:'var(--down-soft)',opacity:.5}));
+g.appendChild(el('line',{x1:X(9),x2:X(17),y1:Y(15),y2:Y(15),stroke:'var(--down)','stroke-width':2,'stroke-dasharray':'6 4'}));
+g.appendChild(el('text',{x:X(9)+6,y:Y(15)-6,'font-size':11,fill:'var(--down)'},'Must keep ₹15 cr'));
+const ev=[[9.5,42],[11,20.5],[13,2.5],[14,9],[14.5,0],[16.08,15],[17,15]];let d='M'+X(9.5)+' '+Y(42);for(let i=1;i<ev.length;i++){d+=' L'+X(ev[i][0])+' '+Y(ev[i-1][1])+' L'+X(ev[i][0])+' '+Y(ev[i][1]);}
+g.appendChild(el('path',{d,fill:'none',stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'dd'}));
+[[11,20.5,'salaries −21.5'],[13,2.5,'advance tax −18'],[14,9,'deposits +6.5'],[14.5,0,'rice mill loan −9']].forEach(([x,y,t],i)=>g.appendChild(el('text',{x:X(x)+6,y:Y(y)+(i%2?-8:16),'font-size':10,fill:'var(--muted)'},t)));
+g.appendChild(el('circle',{cx:X(16.08),cy:Y(15),r:5,fill:'var(--gold)'}));g.appendChild(el('text',{x:X(16.08)-6,y:Y(15)-28,'text-anchor':'end','font-size':11,fill:'var(--gold)'},'4:05 pm call loan +15'));
+wire('x-day-r',g,()=>replay(g,'.dd','xdraw',0));})();
+
+// Call loan
+(function(){const g=document.getElementById('x-call');if(!g)return;
+box(g,30,60,170,70,'Mumbai bank','spare cash','var(--paper)','var(--acc)');box(g,440,60,170,70,'Kesarpur Co-op','₹15 cr short','var(--acc-soft)','var(--acc)');
+g.appendChild(el('line',{x1:200,y1:82,x2:440,y2:82,stroke:'var(--rule)','stroke-width':2}));g.appendChild(el('line',{x1:440,y1:110,x2:200,y2:110,stroke:'var(--rule)','stroke-width':2}));
+g.appendChild(el('text',{x:320,y:72,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Friday 4:05 pm: ₹15 crore, no collateral'));
+g.appendChild(el('text',{x:320,y:128,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Monday: ₹15 crore + ₹75,205'));
+const st=el('text',{x:320,y:190,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'3 days × 6.10% a year on ₹15 crore = ₹75,205');g.appendChild(st);
+function run(){clearRun('call',g);if(reduce)return;st.textContent='Friday: the Mumbai bank lends its spare cash';seq('call',g,'M200 82 L440 82','var(--gold)',1.6,9,0.2);later('call',()=>{st.textContent='Saturday and Sunday: the loan sits; interest builds for 3 days';},2);later('call',()=>{st.textContent='Monday morning: repaid with ₹75,205 interest';},3.6);seq('call',g,'M440 110 L200 110','var(--gold)',1.6,11,3.6);}
+wire('x-call-r',g,run);})();
+
+// Repo legs
+(function(){const g=document.getElementById('x-repo'),note=document.getElementById('x-repo-note');if(!g)return;
+box(g,20,40,170,64,'Kesarpur Co-op','borrower','var(--acc-soft)','var(--acc)');box(g,450,40,170,64,'Mutual fund','lender','var(--paper)','var(--acc)');
+box(g,235,150,170,56,'CCIL (TREPS)','holds bonds, guarantees','var(--paper)','var(--ink)');
+g.appendChild(el('path',{d:'M190 60 L450 60',stroke:'var(--rule)','stroke-width':2,fill:'none'}));g.appendChild(el('path',{d:'M190 86 Q320 230 450 86',stroke:'var(--rule)','stroke-width':2,fill:'none'}));
+const lbl1=el('text',{x:320,y:52,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'');const lbl2=el('text',{x:320,y:232,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'');g.appendChild(lbl1);g.appendChild(lbl2);
+function run(v){clearRun('repo',g);if(v===0){lbl1.textContent='₹100 crore cash →';lbl2.textContent='₹105 crore of government bonds, held by CCIL';note.textContent='Today: the bank pledges ₹105 crore of bonds through CCIL and receives ₹100 crore cash. The extra ₹5 crore is the haircut.';seq('repo',g,'M450 60 L190 60','var(--gold)',1.6,9,0.1);seq('repo',g,'M190 86 Q320 230 450 86','var(--acc)',1.8,8,0.1);}
+else{lbl1.textContent='← ₹100 crore + ₹1,64,384 interest';lbl2.textContent='Bonds released back to the bank';note.textContent='Tomorrow: the bank repays ₹100 crore plus one day’s interest at 6%, and its bonds come back. If it had failed, CCIL would sell the bonds to repay the lender.';seq('repo',g,'M190 60 L450 60','var(--gold)',1.6,10,0.1);seq('repo',g,'M450 86 Q320 230 190 86','var(--acc)',1.8,8,0.1);}}
+document.querySelectorAll('#x-repo-seg button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#x-repo-seg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));run(+b.dataset.v);}));
+run(0);onView(g,()=>run(0));})();
+
+// System liquidity
+(function(){const g=document.getElementById('x-liq');if(!g)return;
+const w=[[1.0,''],[1.2,''],[0.9,''],[-0.4,'GST'],[0.6,''],[0.8,''],[1.1,''],[-0.3,'GST'],[0.7,''],[1.0,''],[-1.5,'Advance tax'],[-0.6,'Quarter end'],[0.9,'Govt spending']];
+const {X,Y}=axes(g,{L:60,R:590,T:20,B:210,x0:0,x1:13,y0:-2,y1:1.5,yt:[-2,-1,0,1],yf:v=>v,xt:[],xf:v=>v});
+const Y2=v=>20+(6.3-v)/0.6*190, W=(590-60)/13;
+[5.75,6.0,6.25].forEach(v=>g.appendChild(el('text',{x:598,y:Y2(v)+4,'font-size':10,fill:'var(--gold)'},v.toFixed(2)+'%')));
+w.forEach(([v,t],i)=>{const x=60+i*W+W*.18,ww=W*.64,y=v>=0?Y(v):Y(0),h=Math.abs(Y(v)-Y(0));g.appendChild(el('rect',{x,y,width:ww,height:h,rx:2,fill:v>=0?'var(--up)':'var(--down)',opacity:.75,class:'lq',style:'transform-origin:'+(x+ww/2)+'px '+Y(0)+'px'}));
+g.appendChild(el('text',{x:x+ww/2,y:226,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'W'+(i+1)));
+if(t)g.appendChild(el('text',{x:x+ww/2,y:v<0?Y(v)+14:Y(v)-6,'text-anchor':'middle','font-size':9.5,fill:v<0?'var(--down)':'var(--up)'},t));});
+const rate=w.map(([v],i)=>[60+(i+.5)*W,Y2(6-0.24*Math.tanh(v*0.9))]);
+g.appendChild(el('path',{d:rate.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' '),fill:'none',stroke:'var(--gold)','stroke-width':2.5,pathLength:1000,class:'lr'}));
+g.appendChild(el('text',{x:60,y:262,'font-size':10.5,fill:'var(--muted)'},'Green: spare cash. Red: shortage. Gold line: overnight rate (right scale).'));
+wire('x-liq-r',g,()=>{replay(g,'.lq','xgy',0.08);replay(g,'.lr','xdraw',0);});})();
+
+// Donut
+(function(){const g=document.getElementById('x-donut');if(!g)return;
+const H=[['Commercial paper (A1+)',31,'var(--down)','~50 days'],['Treasury bills',28,'var(--acc)','~40 days'],['Bank CDs',27,'var(--gold)','~55 days'],['TREPS / repo',12,'var(--up)','1 day'],['Cash and other',2,'var(--muted)','—']];
+const cx=130,cy=120,r=80;g.appendChild(el('circle',{cx,cy,r,fill:'none',stroke:'var(--rule)','stroke-width':34}));
+const arcs=[];let cum=0;H.forEach(([n,v,c])=>{const a=el('circle',{cx,cy,r,fill:'none',stroke:c,'stroke-width':34,pathLength:100,'stroke-dasharray':'0 100','stroke-dashoffset':(25-cum).toString(),class:'xarc'});g.appendChild(a);arcs.push([a,v]);cum+=v;});
+g.appendChild(el('text',{x:cx,y:cy-2,'text-anchor':'middle','font-size':13,fill:'var(--ink)'},'≈ 42 days'));g.appendChild(el('text',{x:cx,y:cy+15,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'average maturity'));
+H.forEach(([n,v,c,d],i)=>{const y=40+i*36;g.appendChild(el('rect',{x:270,y,width:14,height:14,rx:3,fill:c}));g.appendChild(el('text',{x:292,y:y+12,'font-size':12,fill:'var(--ink)'},n));g.appendChild(el('text',{x:620,y:y+12,'text-anchor':'end','font-size':12,fill:'var(--ink)','font-family':'var(--mono)'},v+'% · '+d));});
+function run(){arcs.forEach(([a])=>a.setAttribute('stroke-dasharray','0 100'));setTimeout(()=>arcs.forEach(([a,v])=>a.setAttribute('stroke-dasharray',v+' '+(100-v))),reduce?0:60);}
+if(reduce)arcs.forEach(([a,v])=>a.setAttribute('stroke-dasharray',v+' '+(100-v)));
+wire('x-donut-r',g,run);})();
+
+// Rollover run
+(function(){const g=document.getElementById('x-run'),note=document.getElementById('x-run-note');if(!g)return;
+box(g,20,80,140,64,'Funds & banks','buy its CP','var(--paper)','var(--acc)');box(g,250,60,170,104,'Finance company','borrows for 3 months','var(--acc-soft)','var(--acc)');box(g,520,80,120,64,'Home loans','repaid over 15 yrs','var(--paper)','var(--rule)');
+g.appendChild(el('line',{x1:160,y1:100,x2:250,y2:100,stroke:'var(--rule)','stroke-width':2}));g.appendChild(el('line',{x1:250,y1:126,x2:160,y2:126,stroke:'var(--rule)','stroke-width':2}));g.appendChild(el('line',{x1:420,y1:112,x2:520,y2:112,stroke:'var(--rule)','stroke-width':2}));
+g.appendChild(el('text',{x:205,y:92,'text-anchor':'middle','font-size':10,fill:'var(--up)'},'new CP'));g.appendChild(el('text',{x:205,y:142,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'repay old CP'));
+g.appendChild(el('rect',{x:250,y:190,width:340,height:18,rx:4,fill:'var(--rule)'}));const gap=el('rect',{x:250,y:190,width:0,height:18,rx:4,fill:'var(--down)',style:'transition:width 3s ease'});g.appendChild(gap);
+const gl=el('text',{x:250,y:228,'font-size':11,fill:'var(--down)'},'');g.appendChild(gl);
+const dyn=el('g',{});g.appendChild(dyn);
+function set(v){dyn.innerHTML='';
+if(v===0){mover(dyn,'M160 100 L250 100','var(--up)',1.6,5,0);mover(dyn,'M160 100 L250 100','var(--up)',1.6,5,0.8);mover(dyn,'M250 126 L160 126','var(--muted)',1.6,5,0.4);mover(dyn,'M250 126 L160 126','var(--muted)',1.6,5,1.2);mover(dyn,'M420 112 L520 112','var(--acc)',2.4,5,0);gap.setAttribute('width',0);gl.textContent='';note.textContent='Normal times: maturing CP is repaid with money from new CP. The long home loans are funded by a never-ending chain of short loans.';}
+else{mover(dyn,'M250 126 L160 126','var(--down)',1.2,5,0);mover(dyn,'M250 126 L160 126','var(--down)',1.2,5,0.6);mover(dyn,'M420 112 L520 112','var(--acc)',2.4,5,0);setTimeout(()=>gap.setAttribute('width',300),reduce?0:50);gl.textContent='Cash gap: CP falling due with nothing new coming in';note.textContent='Panic: lenders refuse to buy new CP. Old CP still has to be repaid, but the money is locked in 15-year home loans. A profitable company can default within weeks. This is what hit many finance companies after IL&FS in 2018.';}}
+document.querySelectorAll('#x-run-seg button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#x-run-seg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));set(+b.dataset.v);}));set(0);})();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 05</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="5"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="mango-contract.html" rel="prev"><small>← Previous</small>The Mango Contract</a><a href="remittance.html" rel="next"><small>Next story →</small>The Remittance</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

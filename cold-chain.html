@@ -1,0 +1,797 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Cold Chain</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 11 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html" aria-current="page"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: eleventh story in the Kesarpur series. Storybook column with a ledger margin; wide interludes and animated diagrams of funds, cap tables and exits. Cold petrol-blue accent, amber for money and returns; green/crimson reserved for gain/loss. */
+:root{
+  --bg:#EFF3F4; --paper:#FAFCFC; --ink:#18232A; --muted:#58676E; --rule:#D0DBDE;
+  --acc:#1E6480; --acc-soft:#D8E9EF; --amber:#AC6C08; --amber-soft:#F5E5CB; --leaf:#3F6B3A; --leaf-soft:#E2ECDD; --plum:#6A4A8C; --plum-soft:#E9E1F2;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B0203C; --down-soft:#F6DCE1;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1619; --paper:#162026; --ink:#E2EBEE; --muted:#99AAB1; --rule:#2B3A40;
+  --acc:#86C6DE; --acc-soft:#173040; --amber:#EFB04B; --amber-soft:#382A12; --leaf:#9CC994; --leaf-soft:#1F2D1C; --plum:#C2A6E4; --plum-soft:#2D2340;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1619; --paper:#162026; --ink:#E2EBEE; --muted:#99AAB1; --rule:#2B3A40;
+  --acc:#86C6DE; --acc-soft:#173040; --amber:#EFB04B; --amber-soft:#382A12; --leaf:#9CC994; --leaf-soft:#1F2D1C; --plum:#C2A6E4; --plum-soft:#2D2340;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.amber .label{color:var(--amber)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.a{border-color:var(--amber)} .col.l{border-color:var(--leaf)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)} .col.p{border-color:var(--plum)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.growx{animation:growx .9s ease both} .growy{animation:grow .9s ease both} .pop{animation:pop .5s ease both}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about private markets, in sixteen chapters</span>
+    <h1>The Kesarpur Cold Chain</h1>
+    <p class="lede">Every summer, Kesarpur's farmers watch tomatoes and mangoes rot for lack of cold storage. Meghna, Lakshmi's daughter, has a plan to fix it with solar-powered cold rooms, but no bank will lend to an idea. Follow her company from a laptop to a ₹300 crore valuation, and see the hidden world of money that never touches a stock exchange: angels, venture capital, private equity and private credit.</p>
+    <div class="cast">
+      <span class="chip">Meghna, founder</span>
+      <span class="chip">Mr. Bose, angel</span>
+      <span class="chip">Tara, VC partner</span>
+      <span class="chip">Vikram, PE investor</span>
+      <span class="chip">Harjeet, borrower</span>
+      <span class="chip">Kamala, the great-aunt</span>
+    </div>
+  </div>
+  <figure style="margin:0">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Animated diagram: money flows from pension funds and wealthy investors into private funds, then into companies, and returns years later through exits"><g id="hero"></g></svg>
+  </figure>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Rotting tomatoes</a></li>
+    <li><a href="#what"><span>01</span>What private markets are</a></li>
+    <li><a href="#angel"><span>02</span>The angel returns</a></li>
+    <li><a href="#captable"><span>03</span>The cap table</a></li>
+    <li><a href="#vcfund"><span>04</span>Inside a venture fund</a></li>
+    <li><a href="#powerlaw"><span>05</span>One winner pays for all</a></li>
+    <li><a href="#termsheet"><span>06</span>The term sheet</a></li>
+    <li><a href="#jcurve"><span>07</span>The J-curve</a></li>
+    <li><a href="#returns"><span>08</span>Measuring returns, and fees</a></li>
+    <li><a href="#pe"><span>09</span>The cement company buyout</a></li>
+    <li><a href="#credit"><span>10</span>Private credit</a></li>
+    <li><a href="#exits"><span>11</span>Getting the money out</a></li>
+    <li><a href="#wrong"><span>12</span>When it goes wrong</a></li>
+    <li><a href="#access"><span>13</span>Can ordinary people invest?</a></li>
+    <li><a href="#market"><span>14</span>Private markets at scale</a></li>
+    <li><a href="#view"><span>15</span>Rohit's view</a></li>
+    <li><a href="#epilogue"><span>16</span>Forty villages later</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>Funding a startup</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Rotting tomatoes</h2></header>
+  <div class="prose">
+    <p>Meghna grew up watching her mother Lakshmi build Sunrise Foods from a kitchen into a listed company (the stock market story). She studied engineering, worked three years at a logistics company, and came home with an idea.</p>
+    <p>In Kesarpur, Gopal's farmer group loses up to a third of its tomatoes and soft fruit in hot months because there's nowhere cold to keep them before sale. Meghna wants to put small solar-powered cold rooms in villages, rent space by the crate through an app, and connect stored produce to buyers in cities.</p>
+    <p>She needs about ₹2 crore to build the first ten cold rooms and the software. A bank asks for collateral and three years of profits. She has neither. A startup with an unproven idea can't borrow; it needs investors willing to take the risk of losing everything for the chance of a big win.</p>
+    <p>Those investors don't buy shares on a stock exchange. They invest privately, in companies most people have never heard of. This is the world of <strong>private markets</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Eleventh story</span>This follows the ten earlier stories. Mr. Bose (the angel from the stock market story), Gopal, Harjeet, Lakshmi and Kamala return.</div>
+    <div class="note risk"><span class="label">Who this is for</span>Most private market investments are open only to wealthy and institutional investors. This story explains how they work, not how to get into them.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="what">
+  <header><span class="label">Chapter 1</span><h2>What private markets are</h2></header>
+  <div class="prose">
+    <p><strong>Public markets</strong> are the markets in most of the earlier stories: shares and bonds listed on exchanges, priced every second, open to anyone with a demat account. <strong>Private markets</strong> are investments in companies and assets that aren't listed. They're bought and sold through private negotiations, priced rarely, and usually held for years.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Type</th><th>Invests in</th><th>Story example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Angel investing</strong></td><td>Very young startups, by wealthy individuals</td><td>Mr. Bose's first cheque to Meghna</td></tr>
+          <tr><td><strong>Venture capital (VC)</strong></td><td>Fast-growing startups, by professional funds</td><td>Tara's fund leading Series A</td></tr>
+          <tr><td><strong>Private equity (PE)</strong></td><td>Established companies, often buying control</td><td>Vikram's fund buying the cement company</td></tr>
+          <tr><td><strong>Private credit</strong></td><td>Loans to companies outside banks and bond markets</td><td>Harjeet's expansion loan</td></tr>
+          <tr><td><strong>Real assets</strong></td><td>Infrastructure, property, farmland, held privately</td><td>Toll roads, warehouses</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Public markets</th><th>Private markets</th></tr></thead>
+        <tbody>
+          <tr><td>Price</td><td>Every second, on an exchange</td><td>When a deal happens, or a quarterly estimate</td></tr>
+          <tr><td>Selling</td><td>Any trading day</td><td>Often locked up for 5–12 years</td></tr>
+          <tr><td>Information</td><td>Public, regulated disclosures</td><td>Private, shared with investors only</td></tr>
+          <tr><td>Minimum</td><td>One share or a ₹100 SIP</td><td>Often ₹25 lakh to ₹1 crore or more in India</td></tr>
+          <tr><td>Investor influence</td><td>Usually none</td><td>Board seats, vetoes, active involvement</td></tr>
+          <tr><td>Fees</td><td>Low</td><td>High, often "2 and 20"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Illiquidity</span>Being unable to sell quickly. Investors in private markets expect extra return for accepting it, called the <dfn>illiquidity premium</dfn>. They don't always get it.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="angel">
+  <header><span class="label">Chapter 2</span><h2>The angel returns</h2></header>
+  <div class="prose">
+    <p>Meghna's first call is to Mr. Bose, the retired businessman who backed her mother's pickle company decades ago and made over 20 times his money when Sunrise listed. He now leads a group of angel investors in Kolkata.</p>
+    <div class="say"><b>Mr. Bose</b>"I'm not investing in cold rooms. I'm investing in you, and in a problem big enough that if you solve it, the company could be worth a hundred times what it is today. Most of my startups fail. I need the few winners to be huge."</div>
+    <p>After meeting her three times, visiting a prototype cold room in Gopal's village and calling her old boss, Mr. Bose and four other angels invest ₹1.5 crore. They agree the company is worth ₹6 crore before the money arrives (the pre-money valuation, as in the stock story), so their ₹1.5 crore buys 20% of the ₹7.5 crore post-money company.</p>
+    <p>In India, early investors usually receive <strong>compulsorily convertible preference shares (CCPS)</strong>: shares that come with extra rights now and convert into ordinary shares later. Some very early rounds use convertible notes, which turn into shares at the next funding round's price.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Angel investor</span>A wealthy individual investing personal money in early startups, often adding advice and contacts.</div>
+    <div class="note amber"><span class="label">Angel tax abolished</span>India used to tax some startup investments above "fair value" as income, which deterred angels. The 2024 Union Budget abolished this "angel tax".</div>
+    <div class="note risk"><span class="label">Expect losses</span>Experienced angels typically expect most of their startups to fail or return little. They spread small cheques across many companies.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="captable">
+  <header><span class="label">Chapter 3</span><h2>The cap table</h2></header>
+  <div class="prose">
+    <p>Every startup keeps a <strong>capitalisation table</strong>, or cap table: a record of who owns what. Each new funding round issues new shares, so everyone else's percentage shrinks. That's dilution, from the stock market story. Here's Meghna's company, Kesar Cold Chain, over four years.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Who owns Kesar Cold Chain</span><div class="seg"><button type="button" id="cap-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 680 300" width="100%" style="min-width:540px" role="img" aria-label="Stacked bars showing ownership after each round: founders shrink from 100% to 43% as the angel, employee stock pool, Series A and Series B investors are added"><g id="cap"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--acc)"></i>Founders</span><span><i style="background:var(--amber)"></i>Angels</span><span><i style="background:var(--leaf)"></i>Employee stock pool</span><span><i style="background:var(--plum)"></i>Series A fund</span><span><i style="background:var(--muted)"></i>Series B fund</span></div>
+    <figcaption>Illustrative. The angels' 20% became 10.8% after later rounds, but the company grew from ₹7.5 crore to ₹300 crore, so their stake grew from ₹1.5 crore to ₹32.4 crore on paper.</figcaption>
+  </figure>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Round</th><th class="num">Raised</th><th class="num">Pre-money</th><th class="num">Post-money</th><th class="num">New investor's share</th></tr></thead>
+        <tbody>
+          <tr><td>Angel / seed</td><td class="num">₹1.5 cr</td><td class="num">₹6 cr</td><td class="num">₹7.5 cr</td><td class="num">20%</td></tr>
+          <tr><td>Employee stock pool created</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">10% set aside</td></tr>
+          <tr><td>Series A</td><td class="num">₹15 cr</td><td class="num">₹45 cr</td><td class="num">₹60 cr</td><td class="num">25%</td></tr>
+          <tr><td>Series B</td><td class="num">₹60 cr</td><td class="num">₹240 cr</td><td class="num">₹300 cr</td><td class="num">20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">ESOP pool</span>Shares set aside for employees through stock options. Startups pay lower salaries and offer a share of the upside to attract people.</div>
+    <div class="note"><span class="label">Paper wealth</span>Until there's an exit (Chapter 11), these valuations are estimates. Nobody can easily sell at ₹300 crore.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="vcfund">
+  <header><span class="label">Chapter 4</span><h2>Inside a venture fund</h2></header>
+  <div class="prose">
+    <p>For Series A, Meghna meets Tara, a partner at a venture capital fund that invests in agriculture and supply-chain startups. Tara doesn't invest her own money. She manages money from others.</p>
+  </div>
+  <figure class="fig-card">
+    <span class="label">How a VC fund is built</span>
+    <div class="scroll"><svg viewBox="0 0 900 290" width="100%" style="min-width:760px" role="img" aria-label="Animated diagram: limited partners commit money to a fund run by a general partner, the fund invests in startups, and exits return money that flows back to the limited partners, minus fees and carried interest"><g id="fund"></g></svg></div>
+    <figcaption>Limited partners commit money; the general partner calls it over time, invests it in 20–30 startups, and returns cash when companies are sold or listed, keeping fees and a share of profits.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col a"><h3>Limited partners (LPs)</h3><p>The investors in the fund: pension funds, insurers (like those in the insurance story), university endowments, family offices, wealthy individuals, and government funds of funds. In India, SIDBI's Fund of Funds for Startups, launched in 2016, has invested in many VC funds.</p></div>
+    <div class="col"><h3>General partner (GP)</h3><p>Tara's firm. It finds startups, negotiates deals, sits on boards and helps companies grow. It makes all investment decisions.</p></div>
+    <div class="col m"><h3>The deal</h3><p>LPs commit, say, ₹500 crore for about 10 years. The GP draws it down as needed, typically investing for the first 4–5 years and helping companies grow for the rest. The GP is paid a yearly management fee (often around 2%) and a share of profits (often 20%), called <strong>carried interest</strong>.</p></div>
+  </div>
+  <div class="prose">
+    <p>In India, these funds are registered with SEBI as <strong>alternative investment funds (AIFs)</strong>. Category I includes venture capital and angel funds; Category II includes private equity and private debt funds; Category III includes hedge-fund-like strategies that can use leverage.</p>
+  </div>
+</section>
+
+<section class="chapter" id="powerlaw">
+  <header><span class="label">Chapter 5</span><h2>One winner pays for all</h2></header>
+  <div class="prose">
+    <p>Tara's fund invests ₹5 crore each in 20 startups. She knows most will disappoint. Venture returns follow a <strong>power law</strong>: a tiny number of huge winners produce almost all the profit. Change how many big winners the fund finds and watch the whole fund's result.</p>
+  </div>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="Number of big winners" id="pl-seg">
+      <button type="button" data-v="0" aria-pressed="false">No big winner</button>
+      <button type="button" data-v="1" aria-pressed="true">One 30× winner</button>
+      <button type="button" data-v="2" aria-pressed="false">Two 30× winners</button>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Bars for 20 startup investments showing how much each returned, most at zero"><g id="pl"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Invested</span><span class="big">₹100 cr</span></div>
+      <div><span class="label">Returned</span><span class="big" id="pl-ret">₹235 cr</span></div>
+      <div><span class="label">Fund multiple (before fees)</span><span class="big" id="pl-mult">2.35×</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="pl-note"></p>
+  </div>
+  <div class="prose">
+    <p>This is why VCs ask every founder, "Could this be enormous?" A safe business that might return 3× isn't interesting to them; only companies that could return the whole fund are. It's also why VC-backed companies are pushed to grow fast, sometimes too fast.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Power law</span>A pattern where a few outcomes are vastly larger than all the rest combined. Venture returns, book sales and city sizes follow it.</div>
+    <div class="note amber"><span class="label">Unicorn</span>A private startup valued at over $1 billion. India passed 100 unicorns in 2022.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="termsheet">
+  <header><span class="label">Chapter 6</span><h2>The term sheet</h2></header>
+  <div class="prose">
+    <p>Tara sends Meghna a <strong>term sheet</strong>: a short document listing the deal's key terms before lawyers write the full agreements. Mr. Bose helps her read it. The valuation is in the first line, but other clauses can matter as much.</p>
+    <ul>
+      <li><strong>Valuation and amount:</strong> ₹15 crore at ₹45 crore pre-money.</li>
+      <li><strong>Liquidation preference:</strong> if the company is sold, investors get their money back first, before founders and employees.</li>
+      <li><strong>Board seat:</strong> Tara joins the board.</li>
+      <li><strong>Protective provisions:</strong> investor approval needed for big decisions like selling the company or raising more money.</li>
+      <li><strong>Anti-dilution:</strong> if a future round is at a lower price, investors' shares are partly adjusted to protect them.</li>
+      <li><strong>Vesting:</strong> founders' and employees' shares are earned over time, usually four years, so someone who leaves early doesn't keep everything.</li>
+    </ul>
+    <p>The liquidation preference is the one founders most often misunderstand. Try different sale prices for the company after Series B and see who gets what. Series A and B each have a "1× non-participating" preference: each can take either its money back or its share of the sale, whichever is more.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="lp">Company sold for <output id="lp-out">₹150 cr</output></label><input id="lp" type="range" min="20" max="1000" step="10" value="150"></div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Bars showing how sale proceeds are split between Series B, Series A, angels, employees and founders"><g id="lpchart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="lp-note"></p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Headline vs. reality</span>A high valuation with harsh terms (2× or "participating" preferences) can leave founders and employees with little even in a decent sale.</div>
+    <div class="note"><span class="label">Due diligence</span>Before signing, investors check finances, contracts, legal issues and technology. Founders should check their investors too.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="jcurve">
+  <header><span class="label">Chapter 7</span><h2>The J-curve</h2></header>
+  <div class="prose">
+    <p>Tara's fund looks terrible for its first few years. A pension fund that committed ₹100 crore keeps sending money as the fund calls it, pays fees, and sees some startups fail early, while the winners take years to grow. Only later, when companies are sold or listed, does money come back. Plotted over time, the investor's cumulative cash looks like the letter J.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">An LP's cash, ₹ crore (illustrative)</span><div class="seg"><button type="button" id="j-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:480px" role="img" aria-label="Bars of yearly cash in and out for a fund investor and a J-shaped line of cumulative cash, negative for six years before turning strongly positive"><g id="jc"></g></svg></div>
+    <figcaption>Bars: money sent to the fund (down) or received from it (up) each year. Line: running total. Breaking even took about 8 years; at the end the investor got back about 1.9× the ₹80 crore actually called.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Capital call</span>The fund asking LPs to send part of their commitment. LPs must keep cash ready, sometimes for years.</div>
+    <div class="note amber"><span class="label">Vintage year</span>The year a fund starts investing. Funds that invest at market peaks often do worse, so investors spread commitments across years.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="returns">
+  <header><span class="label">Chapter 8</span><h2>Measuring returns, and fees</h2></header>
+  <div class="prose">
+    <p>Private funds report returns differently from mutual funds, and the numbers need careful reading.</p>
+    <ul>
+      <li><strong>TVPI</strong> (total value to paid-in): everything returned plus the estimated value of what's still held, divided by money invested. Part of it is just an estimate.</li>
+      <li><strong>DPI</strong> (distributions to paid-in): only the cash actually returned. "DPI is the only number you can spend," as investors say.</li>
+      <li><strong>IRR</strong>: the yearly return accounting for the timing of each cash flow, like XIRR in the fund story. IRR can look flattering if money is returned early, even if the total multiple is modest.</li>
+    </ul>
+    <p>Then there are fees. A fund charging "2 and 20" takes a 2% yearly management fee and 20% of profits as carried interest (usually after investors earn a minimum return, the <strong>hurdle</strong>). Here's how a strong gross return shrinks for the investor.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="fee">Gross multiple on money invested in companies <output id="fee-out">3.0×</output></label><input id="fee" type="range" min="0.5" max="6" step="0.1" value="3"></div>
+    <div class="scroll"><svg viewBox="0 0 640 220" width="100%" style="min-width:480px" role="img" aria-label="Waterfall from ₹100 crore committed through fees and carried interest to the investor's net return"><g id="feechart"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Investor gets back</span><span class="big" id="fee-lp">₹212 cr</span></div>
+      <div><span class="label">Net multiple</span><span class="big" id="fee-net">2.12×</span></div>
+      <div><span class="label">Paid to the manager</span><span class="big" id="fee-gp">₹48 cr</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)">Simplified: ₹100 crore fund, 2% fees for 10 years (₹20 crore), so ₹80 crore is invested in companies; 20% carry on profit above the ₹100 crore committed. Real funds differ in fee schedules and hurdles.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Stale marks</span>Unlisted holdings are valued by the fund itself, often quarterly. In a falling market, they can stay high for a long time, making private funds look smoother than they really are.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>Private equity, credit and exits</h2></div>
+
+<section class="chapter" id="pe">
+  <header><span class="label">Chapter 9</span><h2>The cement company buyout</h2></header>
+  <div class="prose">
+    <p>Venture capital funds young companies. <strong>Private equity</strong> usually buys into established ones. Remember the struggling cement company from the bond and stock stories, the one with junk-rated bonds? It's now profitable but badly run. Its founding family wants to retire.</p>
+    <p>Vikram's private equity fund buys the whole company for ₹1,000 crore, 8 times its yearly operating profit (EBITDA) of ₹125 crore. It pays with ₹400 crore of the fund's money and ₹600 crore borrowed against the company itself. This is a <strong>leveraged buyout (LBO)</strong>.</p>
+    <p>Over five years, the fund brings in new managers, cuts waste, upgrades a kiln, and uses the company's cash to repay half the debt. Then it sells. How much the fund makes depends on how much profit grows and what the next buyer will pay.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="lbo-g">Yearly profit growth <output id="lbo-g-out">6%</output></label><input id="lbo-g" type="range" min="-8" max="15" step="1" value="6"></div>
+      <div class="ctrl"><label for="lbo-m">Sale price, times profit <output id="lbo-m-out">8×</output></label><input id="lbo-m" type="range" min="5" max="12" step="0.5" value="8"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Stacked bars of debt and equity at purchase and at sale, showing how the fund's equity grows or shrinks"><g id="lbo"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Fund's equity at sale</span><span class="big" id="lbo-eq">₹1,038 cr</span></div>
+      <div><span class="label">Multiple on ₹400 cr</span><span class="big" id="lbo-x">2.6×</span></div>
+      <div><span class="label">Yearly return (IRR)</span><span class="big" id="lbo-irr">21%</span></div>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Three engines drive a buyout's return: growing profit, paying down debt, and selling at a higher multiple than you paid. The borrowed money amplifies all three, just like Ananya's home loan in the real estate story. If profits fall, the debt can sink the company. Buyouts have saved many badly run businesses, and broken some with too much debt.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">EBITDA</span>Earnings before interest, tax, depreciation and amortisation: a rough measure of cash profit from operations, from the stock story.</div>
+    <div class="note"><span class="label">Growth equity</span>Not every PE deal is a buyout. Many Indian PE funds take minority stakes in growing profitable firms, without heavy debt.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="credit">
+  <header><span class="label">Chapter 10</span><h2>Private credit</h2></header>
+  <div class="prose">
+    <p>Harjeet, the petrol pump owner, wants to open a highway truck stop with fuel, food, rest rooms and EV charging. He needs ₹12 crore. Iyer's cooperative bank can lend only ₹4 crore; it's too big and unusual for them. Harjeet's business is too small to issue bonds like Kesarpur's council did.</p>
+    <p>A <strong>private credit</strong> fund lends him the rest: ₹8 crore for five years at about 13%, higher than a bank's rate. In return, Harjeet gets speed and flexibility. The fund protects itself with <strong>covenants</strong>, like those in the bridge bond: limits on further borrowing, minimum cash cover, and quarterly accounts.</p>
+    <p>Private credit has grown fast worldwide as banks have become more cautious. Investors like it for its higher yields. The risks are those of the debt fund in the mutual fund story, without the daily price: if borrowers struggle, losses may surface only when a loan defaults.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Direct lending</span>A fund lending directly to a company, without a bank or public bond market in between.</div>
+    <div class="note"><span class="label">Venture debt</span>Loans to VC-backed startups, often with a small equity sweetener. Meghna uses some to fund cold rooms without giving up more shares.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="exits">
+  <header><span class="label">Chapter 11</span><h2>Getting the money out</h2></header>
+  <div class="prose">
+    <p>Private investors only make real money when they can sell. That's called an <strong>exit</strong>, and it can take 5–10 years or more. There are four main routes.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Four ways out</span><div class="seg"><button type="button" id="exit-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 680 260" width="100%" style="min-width:540px" role="img" aria-label="Diagram of a startup with four exit routes: IPO on the stock market, sale to a larger company, secondary sale to another investor, or shutdown"><g id="exitchart"></g></svg></div>
+    <figcaption>Most venture-backed companies end in a sale or a shutdown, not an IPO.</figcaption>
+  </figure>
+  <div class="prose">
+    <ul>
+      <li><strong>IPO:</strong> listing on the stock exchange, like Sunrise in the stock story. Investors can then sell shares in the market, usually after a lock-in.</li>
+      <li><strong>Sale to a strategic buyer:</strong> a larger company buys the startup. In 2018, Walmart bought a 77% stake in Flipkart for about $16 billion, one of India's largest startup exits.</li>
+      <li><strong>Secondary sale:</strong> an investor sells its stake to another investor, such as a later-stage fund, without the company listing.</li>
+      <li><strong>Shutdown:</strong> the company fails; investors usually get nothing.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Lock-in</span>After an IPO, early investors and founders are usually barred from selling for a period, to stop a flood of shares hitting the market.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="wrong">
+  <header><span class="label">Chapter 12</span><h2>When it goes wrong</h2></header>
+  <div class="prose">
+    <p>Private markets have their own ways to fail, often hidden for longer because there's no daily price.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Down rounds</strong><span>Raising money at a lower valuation than the last round. Existing investors and employees are diluted, and anti-dilution clauses shift more value to investors. After the cheap-money boom of 2021, many startups faced down rounds or couldn't raise at all.</span></div>
+    <div class="risk-row"><strong>Growth at any cost</strong><span>Funding pushes startups to grow fast, sometimes by burning cash on discounts and ads. When funding dries up, they shrink or close.</span></div>
+    <div class="risk-row"><strong>Governance failures</strong><span>Edtech company Byju's was valued at about $22 billion in 2022. It then faced delayed accounts, auditor and board resignations, lawsuits from lenders and insolvency proceedings, and its value collapsed. Private companies face less public scrutiny than listed ones.</span></div>
+    <div class="risk-row"><strong>Too much debt</strong><span>Buyouts that borrow too much can fail if profits dip, leaving lenders and employees to absorb losses.</span></div>
+    <div class="risk-row"><strong>Fraud</strong><span>Without public disclosure, inflated revenues or fake customers can go unnoticed until a funding round's due diligence, or a collapse.</span></div>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Survivorship again</span>You hear about the unicorns. Thousands of startups that quietly closed don't make headlines.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>Who can invest, and should they?</h2></div>
+
+<section class="chapter" id="access">
+  <header><span class="label">Chapter 13</span><h2>Can ordinary people invest?</h2></header>
+  <div class="prose">
+    <p>Mostly, no. Indian rules deliberately keep private markets for investors who can afford to lose money and wait years.</p>
+    <ul>
+      <li><strong>AIFs</strong> usually require a minimum investment of ₹1 crore per investor.</li>
+      <li><strong>Portfolio management services (PMS)</strong> require ₹50 lakh.</li>
+      <li><strong>Angel funds and accredited investor routes</strong> are aimed at people with high income or large net worth, verified under SEBI's accredited investor framework.</li>
+    </ul>
+    <p>Ordinary investors get indirect exposure in other ways: by buying shares of companies after they list, through mutual funds that own those listed companies, or through pension and insurance money that invests in private funds on their behalf.</p>
+    <h3 class="sub-h">Kamala's "pre-IPO" shares</h3>
+    <p>Kamala, true to form, gets a WhatsApp message: "Buy unlisted shares of a famous startup before its IPO! Guaranteed 3× on listing." The seller asks for payment to a personal account and promises to "transfer the shares later".</p>
+    <p>Rohit stops her. Unlisted shares sold through messages, with promises of guaranteed listing gains and payments to individuals, are a common fraud. Even genuine unlisted shares can be hard to verify and sell, with no guarantee the company will ever list, or list at a higher price. SEBI has warned investors about unregulated platforms and offers of unlisted securities.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Red flags</span>"Guaranteed" listing gains, urgency, payments to personal accounts, no demat transfer, sellers you can't verify.</div>
+    <div class="note"><span class="label">Employees</span>Startup employees often hold ESOPs. These can be valuable, but are illiquid and taxed in specific ways. Some companies organise buybacks for employees.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>Private markets at scale</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. Globally, private equity, venture, private credit and private infrastructure funds manage many trillions of dollars, and many companies now stay private for much longer than they used to. India has become one of the world's largest startup ecosystems.</p>
+  </div>
+  <div class="cols">
+    <div class="col a"><h3>Who supplies the money</h3><p>Global pension funds, sovereign wealth funds, insurers, endowments, family offices and, increasingly, Indian institutions and wealthy families. Foreign investors have funded most of India's large startup rounds.</p></div>
+    <div class="col"><h3>Who manages it</h3><p>Global PE firms, Indian and international VC funds, private credit funds, and angel networks. Many Indian startups have also been backed by large technology companies.</p></div>
+    <div class="col l"><h3>Government role</h3><p>SEBI regulates AIFs and accredited investors. The Startup India programme, the government's fund of funds through SIDBI, and the 2024 removal of angel tax aim to make startup funding easier.</p></div>
+    <div class="col p"><h3>Cycles</h3><p>Private markets boom when money is cheap. Startup funding in India hit a record in 2021, then fell sharply as interest rates rose worldwide, the so-called funding winter.</p></div>
+    <div class="col m"><h3>Link to public markets</h3><p>Many recent Indian IPOs are of VC- and PE-backed companies. Public market investors often buy the shares that private investors are selling.</p></div>
+    <div class="col d"><h3>Concerns</h3><p>High fees, opaque valuations, conflicts of interest, and the risk that ordinary savers are offered private products they can't fully assess.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="view">
+  <header><span class="label">Chapter 15</span><h2>Rohit's view</h2></header>
+  <div class="prose">
+    <p>Rohit asks Tara, over coffee, whether he should try to invest in startups. Her honest answer surprises him.</p>
+    <div class="say"><b>Tara</b>"Not yet, and maybe never. Even professionals with full-time teams and access to the best deals often fail to beat a simple index fund after fees. If you ever have enough money that you could lose a crore without it mattering, then think about a small slice, through a good fund, spread across years. Until then, own the companies after they list."</div>
+    <p>His rules, if he ever does:</p>
+    <ul>
+      <li>Only money he won't need for 10 years and could lose entirely.</li>
+      <li>A small share of his total wealth, after everything in the earlier stories is in place.</li>
+      <li>Through SEBI-registered funds with long track records, or as part of a reputable angel network that spreads money across many startups.</li>
+      <li>Read net returns and DPI, not headline valuations or gross IRR.</li>
+      <li>Never through WhatsApp offers, "pre-IPO" schemes or unverified sellers.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Patience</span>Private investing rewards those who can wait a decade and lose individual bets without panic. That's rarer than it sounds.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Forty villages later</h2></header>
+  <div class="prose">
+    <p>Six years after her first cold room, Kesar Cold Chain runs storage in forty villages across three districts. Gopal's group now loses less than 5% of its tomatoes instead of a third, and sells in cities at better prices. Meghna still owns over 40% of the company and is preparing for a listing.</p>
+    <p>Mr. Bose's angel group invested in twelve startups that year. Seven have closed. Three are alive but small. One was sold for about what they put in. And one, Meghna's, is worth more than all the others combined, many times over. "That," he says, "is the whole game."</p>
+    <p>Vikram's fund sold the cement company to a larger cement group after five years, for about 2.5 times its money. Harjeet's truck stop opened on time and is repaying its private loan ahead of schedule. Kamala didn't buy the "pre-IPO" shares.</p>
+    <p>That is what private markets are: investments in companies and assets that don't trade on any exchange, from a startup's first cheque to a billion-rupee buyout. And that is how they work: patient, expensive, high-risk money that builds new companies and remakes old ones, managed by professionals for investors who can afford to wait, and to lose.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The eleven stories</span><em>Bonds</em> lend. <em>Funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing. <em>Forex</em> crosses borders. <em>Commodities</em> price real goods. <em>Real estate</em> builds homes. <em>Crypto</em> tests trust. <em>Insurance</em> protects. <em>Private markets</em> build what doesn't exist yet.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Seven myths about private markets</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Private investments are safer because prices don't jump around.</span><span>They're only priced less often. The risk is there; you just don't see it daily.</span></div>
+    <div class="myth"><span class="m">A high valuation means the founders are rich.</span><span>Until an exit, it's on paper, and preferences can put investors first in a sale.</span></div>
+    <div class="myth"><span class="m">VCs pick winners most of the time.</span><span>Most of their investments fail; a few winners carry the fund.</span></div>
+    <div class="myth"><span class="m">Private equity always beats the stock market.</span><span>After fees and with honest marks, many funds don't.</span></div>
+    <div class="myth"><span class="m">IRR tells you how much you made.</span><span>IRR measures speed, not size. Check multiples and cash returned.</span></div>
+    <div class="myth"><span class="m">"Pre-IPO" shares always rise on listing.</span><span>Many IPOs list below private prices, and some companies never list.</span></div>
+    <div class="myth"><span class="m">Every startup will become a unicorn.</span><span>Most startups close within a few years.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before any private investment: a checklist</h2>
+  <ul class="check">
+    <li>My emergency fund, insurance and core investments are already in place.</li>
+    <li>I can lock this money away for 7–12 years.</li>
+    <li>I could lose it all without real harm.</li>
+    <li>It's through a SEBI-registered AIF, PMS or reputable angel network.</li>
+    <li>I understand all fees: management fee, carry, hurdle, expenses.</li>
+    <li>I've seen the manager's past funds' DPI and net returns, not just paper values.</li>
+    <li>I'm spreading commitments across companies and years.</li>
+    <li>I'm not acting on an unsolicited "pre-IPO" or "guaranteed" offer.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>The bank said no</td><td>Why private markets exist</td><td>Risky ideas need equity, not loans</td></tr>
+        <tr><td>Mr. Bose's ₹1.5 crore</td><td>Angel investing, CCPS</td><td>Early bets on people and big problems</td></tr>
+        <tr><td>43% from 100%</td><td>Cap table, dilution, ESOPs</td><td>Smaller slices of a much bigger pie</td></tr>
+        <tr><td>Tara's fund</td><td>LPs, GPs, 2 and 20, AIFs</td><td>Managers investing others' money for fees and carry</td></tr>
+        <tr><td>One 30× winner</td><td>Power law</td><td>A few winners pay for many failures</td></tr>
+        <tr><td>Who gets what in a sale</td><td>Liquidation preference</td><td>Terms matter as much as valuation</td></tr>
+        <tr><td>Eight years to break even</td><td>J-curve</td><td>Money goes out long before it comes back</td></tr>
+        <tr><td>3× gross, 2.1× net</td><td>TVPI, DPI, IRR, fees</td><td>Read net cash returns, not headlines</td></tr>
+        <tr><td>The cement buyout</td><td>Private equity, LBO</td><td>Debt amplifies improvement, and failure</td></tr>
+        <tr><td>Harjeet's truck stop</td><td>Private credit</td><td>Loans beyond banks, at higher rates</td></tr>
+        <tr><td>Four ways out</td><td>Exits</td><td>No exit, no real money</td></tr>
+        <tr><td>Kamala's WhatsApp offer</td><td>Access and fraud</td><td>Private markets are mostly closed to retail, and scams fill the gap</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Accredited investor</dt><dd>An investor meeting income or net worth thresholds, verified under SEBI's framework.</dd></div>
+    <div><dt>AIF</dt><dd>Alternative investment fund registered with SEBI.</dd></div>
+    <div><dt>Angel investor</dt><dd>An individual investing personal money in early startups.</dd></div>
+    <div><dt>Cap table</dt><dd>A record of who owns a company's shares.</dd></div>
+    <div><dt>Capital call</dt><dd>A fund requesting committed money from its investors.</dd></div>
+    <div><dt>Carried interest</dt><dd>The manager's share of profits, often 20%.</dd></div>
+    <div><dt>CCPS</dt><dd>Compulsorily convertible preference shares, common in Indian startup rounds.</dd></div>
+    <div><dt>Down round</dt><dd>Raising money at a lower valuation than before.</dd></div>
+    <div><dt>DPI</dt><dd>Cash distributed divided by cash paid in.</dd></div>
+    <div><dt>Due diligence</dt><dd>Investigating a company before investing.</dd></div>
+    <div><dt>EBITDA</dt><dd>Earnings before interest, tax, depreciation and amortisation.</dd></div>
+    <div><dt>ESOP</dt><dd>Employee stock option plan.</dd></div>
+    <div><dt>Exit</dt><dd>Selling an investment: IPO, sale or secondary.</dd></div>
+    <div><dt>GP / LP</dt><dd>General partner (manager) / limited partner (investor).</dd></div>
+    <div><dt>Hurdle rate</dt><dd>Minimum return investors get before carry is paid.</dd></div>
+    <div><dt>IRR</dt><dd>Annualised return accounting for timing of cash flows.</dd></div>
+    <div><dt>J-curve</dt><dd>The early negative, then rising, pattern of fund returns.</dd></div>
+    <div><dt>LBO</dt><dd>Leveraged buyout: buying a company largely with debt.</dd></div>
+    <div><dt>Liquidation preference</dt><dd>Investors' right to be repaid first in a sale.</dd></div>
+    <div><dt>Management fee</dt><dd>Yearly fee paid to a fund manager, often around 2%.</dd></div>
+    <div><dt>Post-money / pre-money</dt><dd>Company value after / before new money.</dd></div>
+    <div><dt>Power law</dt><dd>A few outcomes dwarf all the rest combined.</dd></div>
+    <div><dt>Private credit</dt><dd>Lending by funds rather than banks or public bonds.</dd></div>
+    <div><dt>Secondary sale</dt><dd>One investor selling a private stake to another.</dd></div>
+    <div><dt>Term sheet</dt><dd>Summary of an investment's key terms.</dd></div>
+    <div><dt>TVPI</dt><dd>Total value (cash + estimated holdings) divided by paid-in.</dd></div>
+    <div><dt>Unicorn</dt><dd>A private startup valued at over $1 billion.</dd></div>
+    <div><dt>Vesting</dt><dd>Earning shares or options gradually over time.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how private markets work. Meghna, Kesar Cold Chain, the funds and all valuations and returns are fictional and illustrative. Minimum investments, AIF rules and taxes change. It is not investment, legal or tax advice. Private investments are high-risk and illiquid; consult qualified advisers and check current SEBI rules before investing.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const cr=n=>'₹'+(Math.round(n*10)/10).toLocaleString('en-IN')+' cr';
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mover(g,d,color,dur,r,begin){ if(reduce) return; const grp=el('g',{}); grp.appendChild(el('circle',{r:r||5,fill:color})); grp.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(begin||0))+'s'})); g.appendChild(grp); }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  function arrow(g,x1,y1,x2,y2,color){ g.appendChild(el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':2})); const a=Math.atan2(y2-y1,x2-x1), s=8; g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*0.6*Math.sin(a),y2-s*Math.sin(a)-s*0.6*Math.cos(a)],[x2-s*Math.cos(a)-s*0.6*Math.sin(a),y2-s*Math.sin(a)+s*0.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:color})); }
+  function replayClass(g,sel,cls,step){ g.querySelectorAll(sel).forEach((p,i)=>{ p.classList.remove(cls); void p.getBoundingClientRect(); p.style.animationDelay=(i*(step||0.15))+'s'; p.classList.add(cls); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+  function seg(id,cb){ document.querySelectorAll('#'+id+' button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#'+id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); cb(b.dataset.v); })); }
+  function wire(btn,g,fn){ document.getElementById(btn).addEventListener('click',fn); onView(g,fn); }
+
+  // Hero
+  (function(){
+    const g=document.getElementById('hero');
+    g.appendChild(el('rect',{x:0,y:0,width:440,height:300,rx:8,fill:'var(--paper)'}));
+    [['Pension funds',30],['Insurers',80],['Family offices',130],['Wealthy investors',180]].forEach(([t,y])=>{ g.appendChild(el('rect',{x:14,y,width:110,height:34,rx:6,fill:'var(--amber-soft)',stroke:'var(--amber)'})); g.appendChild(el('text',{x:69,y:y+21,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},t)); mover(g,'M124 '+(y+17)+' L180 125','var(--amber)',2.4,4,y/80); });
+    g.appendChild(el('rect',{x:180,y:95,width:90,height:60,rx:8,fill:'var(--acc)'}));
+    g.appendChild(el('text',{x:225,y:122,'text-anchor':'middle','font-size':12,fill:'var(--paper)'},'Private'));
+    g.appendChild(el('text',{x:225,y:138,'text-anchor':'middle','font-size':12,fill:'var(--paper)'},'fund'));
+    [['Cold rooms',40],['Cement',95],['Truck stop',150],['Startups',205]].forEach(([t,y],i)=>{ g.appendChild(el('rect',{x:316,y,width:110,height:34,rx:6,fill:'var(--acc-soft)',stroke:'var(--acc)'})); g.appendChild(el('text',{x:371,y:y+21,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},t)); mover(g,'M270 125 L316 '+(y+17),'var(--acc)',2.4,4,0.3+i*0.5); });
+    g.appendChild(el('path',{d:'M371 245 Q225 300 69 220',fill:'none',stroke:'var(--leaf)','stroke-width':1.5,'stroke-dasharray':'4 4'}));
+    mover(g,'M371 245 Q225 300 69 220','var(--leaf)',4,5,1);
+    g.appendChild(el('text',{x:225,y:290,'text-anchor':'middle','font-size':10,fill:'var(--leaf)'},'Returns come back years later, after exits'));
+    g.appendChild(el('text',{x:14,y:18,'font-size':10,fill:'var(--muted)'},'INVESTORS'));
+    g.appendChild(el('text',{x:316,y:28,'font-size':10,fill:'var(--muted)'},'COMPANIES'));
+  })();
+
+  // Cap table
+  (function(){
+    const g=document.getElementById('cap');
+    const rows=[['Founding',[100,0,0,0,0]],['After angels',[80,20,0,0,0]],['After ESOP pool',[72,18,10,0,0]],['After Series A',[54,13.5,7.5,25,0]],['After Series B',[43.2,10.8,6,20,20]]];
+    const cols=['var(--acc)','var(--amber)','var(--leaf)','var(--plum)','var(--muted)'];
+    const L=130,R=660;
+    rows.forEach(([n,v],i)=>{ const y=16+i*54; g.appendChild(el('text',{x:L-10,y:y+24,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+      let x=L; const grp=el('g',{class:'cb',style:'transform-origin:'+L+'px '+(y+18)+'px'});
+      v.forEach((p,j)=>{ if(!p) return; const w=p/100*(R-L); grp.appendChild(el('rect',{x,y,width:w,height:36,fill:cols[j],opacity:.88,stroke:'var(--paper)'})); if(w>34) grp.appendChild(el('text',{x:x+w/2,y:y+23,'text-anchor':'middle','font-size':11,fill:'var(--paper)'},p+'%')); x+=w; });
+      g.appendChild(grp); });
+    wire('cap-replay',g,()=>replayClass(g,'.cb','growx',0.25));
+  })();
+
+  // Fund structure
+  (function(){
+    const g=document.getElementById('fund');
+    ['Pension fund','Insurer','Family office','Fund of funds'].forEach((t,i)=>box(g,10,20+i*62,140,46,t,'LP','var(--amber-soft)','var(--amber)'));
+    box(g,270,95,170,80,'VC fund','GP: Tara’s firm · 10 years','var(--acc-soft)','var(--acc)');
+    const cos=['Kesar Cold Chain','Farm app','Drone sprayer','Seed startup','+ 16 more'];
+    cos.forEach((t,i)=>box(g,560,10+i*54,150,42,t,null,i===0?'var(--leaf-soft)':'var(--paper)',i===0?'var(--leaf)':'var(--rule)'));
+    for(let i=0;i<4;i++){ arrow(g,152,43+i*62,266,135,'var(--amber)'); mover(g,'M80 '+(43+i*62)+' L355 135','var(--amber)',2.6,4,i*0.5); }
+    for(let i=0;i<5;i++){ arrow(g,442,135,556,31+i*54,'var(--acc)'); }
+    mover(g,'M355 135 L635 31','var(--acc)',2.2,4,0.8);
+    box(g,760,110,120,60,'Exit','IPO or sale','var(--leaf-soft)','var(--leaf)');
+    arrow(g,712,31,758,128,'var(--leaf)');
+    g.appendChild(el('path',{d:'M820 170 Q500 300 80 260',fill:'none',stroke:'var(--leaf)','stroke-width':1.5,'stroke-dasharray':'5 4'}));
+    mover(g,'M820 170 Q500 300 80 260','var(--leaf)',4.5,6,1.5);
+    g.appendChild(el('text',{x:450,y:252,'text-anchor':'middle','font-size':11,fill:'var(--leaf)'},'Cash back to LPs, minus 2% fees and 20% carry'));
+    g.appendChild(el('text',{x:208,y:88,'text-anchor':'middle','font-size':10,fill:'var(--amber)'},'commitments, called over time'));
+  })();
+
+  // Power law
+  (function(){
+    const g=document.getElementById('pl'); let wins=1;
+    function draw(){ const outs=[]; const zeros=wins===0?11:10, threes=wins===0?4:5-wins; for(let i=0;i<zeros;i++) outs.push(0); for(let i=0;i<5;i++) outs.push(1); for(let i=0;i<threes;i++) outs.push(3); for(let i=0;i<wins;i++) outs.push(30);
+      const ret=outs.reduce((a,b)=>a+b*5,0), mult=ret/100;
+      document.getElementById('pl-ret').textContent='₹'+ret+' cr'; const m=document.getElementById('pl-mult'); m.textContent=mult.toFixed(2)+'×'; m.className='big '+(mult>=1?'up':'down');
+      document.getElementById('pl-note').textContent = wins===0 ? 'Without a big winner, the fund loses money even though four of its companies tripled.' : wins===1 ? 'One company returned ₹150 crore, more than the other 19 combined. That single bet made the fund.' : 'Two big winners make an outstanding fund. Finding them is the whole job.';
+      g.innerHTML=''; const L=50,R=620,T=16,B=210, mx=32, Y=v=>B-v/mx*(B-T), W=(R-L)/20;
+      [0,1,3,10,30].forEach(v=>{ g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-6,y:Y(v)+4,'text-anchor':'end','font-size':10,fill:'var(--muted)'},v+'×')); });
+      outs.forEach((v,i)=>{ const x=L+i*W+W*0.15, w=W*0.7, h=Math.max(2,B-Y(v)); g.appendChild(el('rect',{x,y:B-h,width:w,height:h,rx:2,fill:v===0?'var(--down)':v>=30?'var(--amber)':'var(--acc)',opacity:.85,class:'pb',style:'transform-origin:'+(x+w/2)+'px '+B+'px'})); });
+      g.appendChild(el('text',{x:L,y:B+18,'font-size':10,fill:'var(--muted)'},'20 startups, ₹5 crore each. Red: lost everything. Blue: 1× or 3×. Gold: 30×.'));
+      if(!reduce) replayClass(g,'.pb','growy',0.04); }
+    seg('pl-seg',v=>{wins=+v;draw();}); draw();
+  })();
+
+  // Liquidation preference
+  (function(){
+    const s=document.getElementById('lp'), g=document.getElementById('lpchart');
+    const pct={B:20,A:20,angel:10.8,esop:6,founders:43.2}, pref={B:60,A:15};
+    function waterfall(V){ let rem=V; const out={B:0,A:0,angel:0,esop:0,founders:0}; let converting=new Set(['B','A','angel','esop','founders']); let takingPref=new Set();
+      for(let iter=0;iter<4;iter++){ let r=V; takingPref.forEach(k=>{ const p=Math.min(pref[k],r); r-=p; }); let totPct=0; converting.forEach(k=>totPct+=pct[k]);
+        let changed=false; ['B','A'].forEach(k=>{ if(converting.has(k)){ const share=r*pct[k]/totPct; if(share<pref[k]){ converting.delete(k); takingPref.add(k); changed=true; } } }); if(!changed) break; }
+      let r=V; ['B','A'].forEach(k=>{ if(takingPref.has(k)){ const p=Math.min(pref[k],r); out[k]=p; r-=p; } });
+      let totPct=0; converting.forEach(k=>totPct+=pct[k]); converting.forEach(k=>out[k]=r*pct[k]/totPct); return {out,takingPref}; }
+    function u(){ const V=+s.value; document.getElementById('lp-out').textContent='₹'+V+' cr';
+      const {out,takingPref}=waterfall(V); g.innerHTML='';
+      const rows=[['Series B fund','B','var(--muted)'],['Series A fund','A','var(--plum)'],['Angels','angel','var(--amber)'],['Employees (ESOPs)','esop','var(--leaf)'],['Founders','founders','var(--acc)']];
+      const L=160,R=560, mx=Math.max(V*0.45,70), sc=(R-L)/mx;
+      rows.forEach(([n,k,c],i)=>{ const y=10+i*42, w=out[k]*sc; g.appendChild(el('text',{x:L-10,y:y+20,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+        g.appendChild(el('rect',{x:L,y:y+5,width:Math.max(1,Math.min(R-L+60,w)),height:24,rx:3,fill:c,opacity:.88,style:'transition:width .3s ease'}));
+        const tag= (k==='A'||k==='B') ? (takingPref.has(k)?' (takes money back)':' (converts to shares)') : ' ('+(out[k]/V*100).toFixed(0)+'%)';
+        g.appendChild(el('text',{x:L+Math.min(R-L+60,w)+6,y:y+22,'font-size':11,fill:'var(--ink)'},cr(out[k])+tag)); });
+      const fpct=out.founders/V*100;
+      document.getElementById('lp-note').textContent = V<75 ? 'At ₹'+V+' crore, the sale barely covers the investors’ ₹75 crore of preferences. Founders and employees get '+(out.founders+out.esop<0.5?'nothing':'very little')+'.' : takingPref.size ? 'Some investors prefer their money back over their percentage, so founders get '+fpct.toFixed(0)+'% of the sale instead of their 43.2% stake.' : 'The sale is high enough that every investor converts to shares, and everyone gets their ownership percentage. Founders get '+cr(out.founders)+'.'; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // J-curve
+  (function(){
+    const g=document.getElementById('jc');
+    const flows=[-20,-20,-20,-15,-5,5,20,40,50,40], cum=[]; flows.reduce((a,b,i)=>{ cum[i]=a+b; return a+b; },0);
+    const L=60,R=620,T=16,B=240, lo=-90, hi=160, Y=v=>B-(v-lo)/(hi-lo)*(B-T), W=(R-L)/10;
+    [-80,-40,0,40,80,120,160].forEach(v=>{ g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:v===0?'var(--muted)':'var(--rule)'})); g.appendChild(el('text',{x:L-6,y:Y(v)+4,'text-anchor':'end','font-size':10,fill:'var(--muted)'},v)); });
+    flows.forEach((f,i)=>{ const x=L+i*W+W*0.2, w=W*0.6, y=f>=0?Y(f):Y(0), h=Math.abs(Y(f)-Y(0)); g.appendChild(el('rect',{x,y,width:w,height:h,rx:2,fill:f>=0?'var(--up)':'var(--down)',opacity:.6})); g.appendChild(el('text',{x:x+w/2,y:B+16,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Yr '+(i+1))); });
+    const pts=cum.map((c,i)=>[L+i*W+W/2,Y(c)]);
+    g.appendChild(el('path',{d:pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' '),fill:'none',stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'jl','stroke-linejoin':'round'}));
+    pts.forEach(p=>g.appendChild(el('circle',{cx:p[0],cy:p[1],r:3.5,fill:'var(--acc)'})));
+    g.appendChild(el('text',{x:pts[4][0],y:pts[4][1]+20,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Low point −₹80 cr'));
+    g.appendChild(el('text',{x:pts[9][0]-4,y:pts[9][1]-10,'text-anchor':'end','font-size':11,fill:'var(--up)'},'+₹75 cr net'));
+    wire('j-replay',g,()=>replayClass(g,'.jl','draw',0));
+  })();
+
+  // Fees
+  (function(){
+    const s=document.getElementById('fee'), g=document.getElementById('feechart');
+    function u(){ const m=+s.value; document.getElementById('fee-out').textContent=m.toFixed(1)+'×';
+      const invested=80, fees=20, proceeds=invested*m, profit=Math.max(0,proceeds-100), carry=profit*0.2, lp=proceeds-carry;
+      document.getElementById('fee-lp').textContent=cr(lp); const n=document.getElementById('fee-net'); n.textContent=(lp/100).toFixed(2)+'×'; n.className='big '+(lp>=100?'up':'down');
+      document.getElementById('fee-gp').textContent=cr(fees+carry);
+      g.innerHTML=''; const L=170,R=620, mx=Math.max(proceeds,100)*1.05, sc=(R-L)/mx;
+      const rows=[['Committed by investor',100,'var(--amber)'],['Management fees',-fees,'var(--down)'],['Invested in companies',invested,'var(--acc)'],['Gross proceeds',proceeds,'var(--acc)'],['Carried interest',-carry,'var(--down)'],['Investor gets back',lp,lp>=100?'var(--up)':'var(--down)']];
+      rows.forEach(([nm,v,c],i)=>{ const y=8+i*34, w=Math.abs(v)*sc; g.appendChild(el('text',{x:L-10,y:y+18,'text-anchor':'end','font-size':11,fill:'var(--ink)'},nm));
+        g.appendChild(el('rect',{x:L,y:y+4,width:Math.max(1,w),height:20,rx:3,fill:c,opacity:.85,style:'transition:width .3s ease'}));
+        g.appendChild(el('text',{x:L+w+6,y:y+19,'font-size':11,fill:'var(--ink)'},(v<0?'−':'')+cr(Math.abs(v)))); }); }
+    s.addEventListener('input',u); u();
+  })();
+
+  // LBO
+  (function(){
+    const gS=document.getElementById('lbo-g'), mS=document.getElementById('lbo-m'), g=document.getElementById('lbo');
+    function u(){ const gr=+gS.value/100, mult=+mS.value; const e5=125*Math.pow(1+gr,5), ev=e5*mult, debt=300, eq=Math.max(0,ev-debt), x=eq/400, irr=x>0?Math.pow(x,1/5)-1:-1;
+      document.getElementById('lbo-g-out').textContent=(gr>=0?'':'−')+Math.abs(+gS.value)+'%'; document.getElementById('lbo-m-out').textContent=mult+'×';
+      document.getElementById('lbo-eq').textContent='₹'+Math.round(eq).toLocaleString('en-IN')+' cr';
+      const xe=document.getElementById('lbo-x'); xe.textContent=x.toFixed(2)+'×'; xe.className='big '+(x>=1?'up':'down');
+      const ie=document.getElementById('lbo-irr'); ie.textContent=(irr<=-1?'−100':(irr*100).toFixed(0))+'%'; ie.className='big '+(irr>=0?'up':'down');
+      g.innerHTML=''; const B=220, sc=180/Math.max(1600,ev), W=120;
+      const bar=(x,d,e,label,sub)=>{ const hd=d*sc, he=e*sc; g.appendChild(el('rect',{x,y:B-hd,width:W,height:hd,fill:'var(--muted)',opacity:.6})); if(hd>16) g.appendChild(el('text',{x:x+W/2,y:B-hd/2+4,'text-anchor':'middle','font-size':11,fill:'var(--paper)'},'Debt ₹'+Math.round(d)));
+        g.appendChild(el('rect',{x,y:B-hd-he,width:W,height:he,fill:e>=400?'var(--up)':'var(--acc)',opacity:.85})); if(he>16) g.appendChild(el('text',{x:x+W/2,y:B-hd-he/2+4,'text-anchor':'middle','font-size':11,fill:'var(--paper)'},'Equity ₹'+Math.round(e)));
+        g.appendChild(el('text',{x:x+W/2,y:B+16,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},label)); g.appendChild(el('text',{x:x+W/2,y:B+30,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); };
+      g.appendChild(el('line',{x1:40,x2:600,y1:B,y2:B,stroke:'var(--muted)'}));
+      bar(120,600,400,'Buy: ₹1,000 cr','8 × ₹125 cr profit'); bar(380,debt,eq,'Sell: ₹'+Math.round(ev).toLocaleString('en-IN')+' cr',mult+' × ₹'+Math.round(e5)+' cr profit');
+      arrow(g,250,120,370,120,'var(--muted)'); g.appendChild(el('text',{x:310,y:110,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'5 years'));
+    }
+    [gS,mS].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Exits
+  (function(){
+    const g=document.getElementById('exitchart');
+    box(g,270,100,140,56,'Startup','after 5–10 years','var(--acc-soft)','var(--acc)');
+    const ex=[[30,20,'IPO','list on exchange','var(--leaf-soft)','var(--leaf)'],[510,20,'Sale','to a bigger company','var(--leaf-soft)','var(--leaf)'],[30,190,'Secondary','to another investor','var(--amber-soft)','var(--amber)'],[510,190,'Shutdown','investors lose','var(--down-soft)','var(--down)']];
+    ex.forEach(([x,y,t,s,f,st],i)=>{ const grp=el('g',{class:'ex',style:'transform-origin:'+(x+70)+'px '+(y+25)+'px'}); grp.appendChild(el('rect',{x,y,width:140,height:50,rx:8,fill:f,stroke:st,'stroke-width':1.5})); grp.appendChild(el('text',{x:x+70,y:y+22,'text-anchor':'middle','font-size':13,fill:'var(--ink)'},t)); grp.appendChild(el('text',{x:x+70,y:y+38,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s)); g.appendChild(grp);
+      const sx=i%2?410:270, sy=i<2?110:146, tx=i%2?x:x+140, ty=y+25; arrow(g,sx,sy,tx,ty,st); });
+    wire('exit-replay',g,()=>replayClass(g,'.ex','pop',0.3));
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 11</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="11"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="safety-net.html" rel="prev"><small>← Previous</small>The Safety Net</a><a href="index.html" rel="next"><small>Return home</small>Back to the series</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

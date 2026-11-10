@@ -1,0 +1,1002 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Pickle Share</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 03 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html" aria-current="page"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: third story in the Kesarpur series. Storybook column with a ledger margin; wide interludes span the full width. Plum accent; green/red reserved for price up/down. */
+:root{
+  --bg:#F3F2F4; --paper:#FCFBFC; --ink:#211C24; --muted:#625A68; --rule:#D9D3DD;
+  --acc:#6A3D74; --acc-soft:#EBE0EE; --coin:#AE7008; --coin-soft:#F5E7CB;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B3413A; --down-soft:#F5DEDB;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141117; --paper:#1D1921; --ink:#ECE6EF; --muted:#A79DAD; --rule:#352E3B;
+  --acc:#CFA3D8; --acc-soft:#33243A; --coin:#EFB44C; --coin-soft:#392C13;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F08C80; --down-soft:#3E201D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141117; --paper:#1D1921; --ink:#ECE6EF; --muted:#A79DAD; --rule:#352E3B;
+  --acc:#CFA3D8; --acc-soft:#33243A; --coin:#EFB44C; --coin-soft:#392C13;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F08C80; --down-soft:#3E201D; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.ticker{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.ticker .sym{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ticker .sym b{font-family:var(--mono);font-size:1rem;letter-spacing:.06em}
+.ticker .px{font-family:var(--mono);font-size:2.2rem;font-variant-numeric:tabular-nums}
+.ticker svg{width:100%;height:auto;display:block}
+.ticker .row{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.coin .label{color:var(--coin)}
+.note.risk .label{color:var(--down)}
+.note.good .label{color:var(--up)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.45rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+/* Order book */
+.book{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.book table{font-size:.85rem}
+.book td{padding:6px 8px;position:relative}
+.book .side-h{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.book .bid .side-h{color:var(--up)} .book .ask .side-h{color:var(--down)}
+.book tr.filled td{background:var(--down-soft);text-decoration:line-through;color:var(--muted)}
+.book tr.part td{background:var(--down-soft)}
+
+/* Ownership bars */
+.own{display:flex;flex-direction:column;gap:10px}
+.own-row{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center;font-size:.85rem}
+.own-bar{display:flex;height:26px;border-radius:4px;overflow:hidden}
+.own-bar span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.68rem;color:var(--paper);white-space:nowrap;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.c{border-color:var(--coin)} .col.u{border-color:var(--up)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+  .book{grid-template-columns:1fr}
+  .own-row{grid-template-columns:1fr;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+.xfig{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;margin:8px 0}
+.xfig figcaption{font-size:.85rem;color:var(--muted)}
+.xhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.xbtn,.xseg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.xseg{display:flex;flex-wrap:wrap;gap:6px}
+.xseg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+.xdraw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:xdraw 2.2s ease forwards}
+@keyframes xdraw{to{stroke-dashoffset:0}}
+@keyframes xgx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes xpp{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.xgx{animation:xgx .9s ease both}.xpop{animation:xpp .4s ease both}
+@media (prefers-reduced-motion:reduce){.xdraw,.xgx,.xpop{animation:none!important;stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about the stock market, in sixteen chapters</span>
+    <h1>The Kesarpur Pickle Share</h1>
+    <p class="lede">A woman starts making mango pickle in her kitchen. Twenty years later, strangers across the country own pieces of her company and trade them every second. Follow those pieces from the first jar to the stock exchange, and you will understand how the stock market works.</p>
+    <div class="cast">
+      <span class="chip">Lakshmi, founder</span>
+      <span class="chip">Kamala, the great-aunt</span>
+      <span class="chip">Mr. Bose, angel investor</span>
+      <span class="chip">Neha, analyst</span>
+      <span class="chip">Rohit, Kamala's grandson</span>
+      <span class="chip">Ananya, nurse</span>
+    </div>
+  </div>
+  <div class="ticker" aria-label="Example share price card for the fictional Sunrise Foods">
+    <div class="sym"><b>SUNRISE · NSE</b><span class="label">Fictional company</span></div>
+    <div class="sym"><span class="px">₹184.25</span><span class="mono up">▲ 2.41 (1.33%)</span></div>
+    <svg viewBox="0 0 400 120" role="img" aria-label="Small price chart rising over the day"><g id="spark"></g></svg>
+    <div class="row"><span>Open 182.00</span><span>High 185.10</span><span>Low 181.24</span><span>Vol 42 lakh</span></div>
+  </div>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Mango pickle in a steel drum</a></li>
+    <li><a href="#share"><span>01</span>What a share is</a></li>
+    <li><a href="#funding"><span>02</span>From kitchen to company</a></li>
+    <li><a href="#ipo"><span>03</span>Going public</a></li>
+    <li><a href="#exchange"><span>04</span>Inside the exchange</a></li>
+    <li><a href="#price"><span>05</span>Why the price moves</a></li>
+    <li><a href="#accounts"><span>06</span>Reading the company's books</a></li>
+    <li><a href="#value"><span>07</span>What is a share worth?</a></li>
+    <li><a href="#rewards"><span>08</span>Dividends, bonuses, splits</a></li>
+    <li><a href="#index"><span>09</span>Sensex, Nifty and indices</a></li>
+    <li><a href="#players"><span>10</span>Who is on the other side</a></li>
+    <li><a href="#cycles"><span>11</span>Bulls, bears and bubbles</a></li>
+    <li><a href="#kamala"><span>12</span>Kamala's expensive lessons</a></li>
+    <li><a href="#rules"><span>13</span>Guarding a fair market</a></li>
+    <li><a href="#economy"><span>14</span>The market and the economy</a></li>
+    <li><a href="#invest"><span>15</span>How Rohit invests</a></li>
+    <li><a href="#epilogue"><span>16</span>Twenty years of pickle</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>A company is born</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Mango pickle in a steel drum</h2></header>
+  <div class="prose">
+    <p>Lakshmi lives in Kesarpur, three streets from the bridge. Her mango pickle is famous: neighbours, then relatives in other cities, then strangers who heard about it, kept asking for jars. In the first year she sold ₹2 lakh worth from her kitchen, mixed in a steel drum.</p>
+    <p>By the fifth year the kitchen was a rented shed, there were twelve women working with her, and the shops of three districts stocked her jars under the name <em>Sunrise</em>. Sales were ₹3 crore a year. Big supermarket chains wanted to stock Sunrise across the state. To supply them, Lakshmi would need a real factory, delivery vans, and a year's worth of mangoes bought in season. That would cost about ₹50 lakh, and later much more.</p>
+    <p>She went to the bank. The bank would lend some money, but wanted her house as security and repayment starting in six months, before the factory would even be running. She thought about the Kesarpur council and its bridge bonds, but bonds need a long track record and steady income to cover fixed interest. A young, fast-growing business doesn't have that.</p>
+    <p>What Lakshmi needed was someone willing to share the risk: money that didn't have to be repaid on a fixed date, from someone who would be paid only if Sunrise did well. That kind of money is called <strong>equity</strong>, and the pieces it comes in are called <strong>shares</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Third story</span>This continues <em>The Kesarpur Bridge Bond</em> and <em>The Kesarpur Common Pot</em>. In the bond story, the town borrowed. Here, a company sells ownership. Kamala, who bought cement shares in the bond story, appears again.</div>
+    <div class="note"><span class="label">Debt vs. equity</span>A lender (bond, loan) is promised fixed payments and gets nothing extra if the business booms. An owner (share) is promised nothing, but gets a cut of everything the business ever earns.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="share">
+  <header><span class="label">Chapter 1</span><h2>What a share is</h2></header>
+  <div class="prose">
+    <p>First, Lakshmi's accountant tells her to turn Sunrise from a home business into a <strong>company</strong>: Sunrise Foods Private Limited. This sounds like paperwork, but it changes three important things.</p>
+    <ul>
+      <li><strong>The company becomes its own legal person.</strong> It can own the factory, sign contracts, borrow money and be sued, separately from Lakshmi.</li>
+      <li><strong>Ownership is divided into shares.</strong> The company starts with 10,00,000 shares. Lakshmi and her husband own all of them. Whoever owns shares owns that fraction of the company: its factory, its brand, its recipes and its future profits.</li>
+      <li><strong>Liability is limited.</strong> If the company fails and owes money, its lenders can take the company's assets, but not Lakshmi's house. Shareholders can lose what they put in, but no more.</li>
+    </ul>
+    <p>Owning a share gives you three kinds of rights:</p>
+    <ul>
+      <li><strong>A share of profits.</strong> When the company decides to pay out part of its profit, each share gets an equal part. This payout is a <strong>dividend</strong>.</li>
+      <li><strong>A vote.</strong> Shareholders elect the board of directors and vote on big decisions like mergers. One share, one vote. Owning more than half the shares means control.</li>
+      <li><strong>A claim on what is left.</strong> If the company is ever sold or closed, shareholders get whatever remains after everyone else, lenders, suppliers, employees and taxes, has been paid.</li>
+    </ul>
+    <p>That last point is crucial. Shareholders come <em>last</em>. In bad times, they may get nothing. In good times, there is no limit to what they can get, because everything left after paying the fixed claims belongs to them. That is why shares are riskier than bonds, and why, over long periods, they have usually paid more.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Share = stock = equity</span>The words are used almost interchangeably. A <dfn>share</dfn> is one unit of ownership; <dfn>stock</dfn> often means shares in general; <dfn>equity</dfn> means ownership capital.</div>
+    <div class="note"><span class="label">Face value</span>Shares have a nominal face value, often ₹1, ₹2, ₹5 or ₹10. Unlike a bond's face value, it says almost nothing about what the share is worth. It's an accounting number.</div>
+    <div class="note"><span class="label">Private vs. public</span>A <dfn>private limited</dfn> company's shares can't be offered to the public and are hard to sell. A <dfn>public limited</dfn> company listed on a stock exchange has shares anyone can buy or sell.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="funding">
+  <header><span class="label">Chapter 2</span><h2>From kitchen to company</h2></header>
+  <div class="prose">
+    <p>Mr. Bose, a retired businessman from Kolkata, tasted Sunrise pickle at a wedding and asked to meet Lakshmi. He is an <strong>angel investor</strong>: someone who puts personal money into very young companies.</p>
+    <p>They argue about one number: what is Sunrise worth today? Lakshmi says ₹3 crore. Mr. Bose says ₹1.5 crore, because most young food companies fail. They settle on ₹2 crore. That's the <strong>pre-money valuation</strong>, the company's value before his money arrives.</p>
+    <p>Mr. Bose invests ₹50 lakh. The company is now worth ₹2 crore + ₹50 lakh = ₹2.5 crore (the <strong>post-money valuation</strong>). His ₹50 lakh is 20% of that. To give him 20%, the company issues 2,50,000 <em>new</em> shares at ₹20 each. Lakshmi still has her 10,00,000 shares, but they are now 80% of a larger total.</p>
+    <p>Three years later, with the factory running and sales at ₹30 crore, a <strong>venture capital (VC)</strong> fund invests ₹10 crore at a ₹40 crore pre-money valuation. The same arithmetic applies again: 3,12,500 new shares at ₹320 each, for 20% of the company.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Stage</th><th class="num">Price per share</th><th class="num">Company value</th><th class="num">Total shares</th><th class="num">Lakshmi owns</th></tr></thead>
+        <tbody>
+          <tr><td>Founding</td><td class="num">—</td><td class="num">—</td><td class="num">10,00,000</td><td class="num">100%</td></tr>
+          <tr><td>Angel: ₹50 lakh</td><td class="num">₹20</td><td class="num">₹2.5 cr</td><td class="num">12,50,000</td><td class="num">80%</td></tr>
+          <tr><td>VC: ₹10 crore</td><td class="num">₹320</td><td class="num">₹50 cr</td><td class="num">15,62,500</td><td class="num">64%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="panel">
+    <span class="label">Who owns Sunrise at each stage</span>
+    <div class="own" id="own"></div>
+    <div class="legend"><span><i style="background:var(--acc)"></i>Lakshmi &amp; family</span><span><i style="background:var(--coin)"></i>Mr. Bose (angel)</span><span><i style="background:var(--muted)"></i>VC fund</span><span><i style="background:var(--up)"></i>Public</span></div>
+  </div>
+  <div class="prose">
+    <p>Lakshmi's slice shrank from 100% to 64%. This is <strong>dilution</strong>. But the company grew much faster. Her 64% of ₹50 crore is worth ₹32 crore, far more than her 100% of a kitchen business was worth. And Mr. Bose's 16% stake, bought for ₹50 lakh, is now worth ₹8 crore on paper.</p>
+    <p>On paper is the key phrase. Neither of them can easily sell. There is no market for shares in a private pickle company. Mr. Bose's money is stuck until something lets him sell: a bigger company buying Sunrise, or Sunrise listing on the stock exchange. That second path is the next chapter.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Valuation</span>What a company is worth as a whole. Value per share × number of shares = valuation. Early on it is mostly a negotiation about the future.</div>
+    <div class="note risk"><span class="label">Dilution</span>New shares make each existing share a smaller fraction of the company. It's fine if the new money grows the company enough; harmful if it doesn't.</div>
+    <div class="note coin"><span class="label">Why VCs take the risk</span>Most of a VC fund's companies fail or barely return the money. They need one or two huge winners to pay for all the losses. That's why they want big stakes in fast-growing firms.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="ipo">
+  <header><span class="label">Chapter 3</span><h2>Going public</h2></header>
+  <div class="prose">
+    <p>Seven years after the angel round, Sunrise sells in five states. Its profit is ₹30 crore a year. It wants ₹150 crore for three new factories. The VC fund, which promised its own investors their money back within ten years, wants to sell part of its stake. Both needs point the same way: an <strong>initial public offering (IPO)</strong>, the first time a company sells shares to the general public, followed by <strong>listing</strong> on a stock exchange.</p>
+    <p>The process takes about a year:</p>
+    <ul>
+      <li><strong>Becoming a public company.</strong> Sunrise Foods Private Limited becomes Sunrise Foods Limited. It appoints independent directors, sets up an audit committee and tightens its accounting.</li>
+      <li><strong>A share split.</strong> Each share is split into 32, so the 15,62,500 shares become 5 crore shares, each worth about ₹10 at the VC's price. Nothing changes in value; there are just more, smaller slices, which suit small investors.</li>
+      <li><strong>The draft offer document.</strong> Merchant bankers write a Draft Red Herring Prospectus (DRHP), hundreds of pages long: the business, its risks, its accounts, its legal cases, how the money will be used. It is filed with SEBI and published for comments.</li>
+      <li><strong>Roadshows.</strong> Lakshmi and her finance head meet big fund managers in Mumbai, explaining the business and answering hard questions.</li>
+      <li><strong>The price band.</strong> The bankers suggest ₹114 to ₹120 per share. At ₹120, the existing 5 crore shares value the company at ₹600 crore, or 20 times its yearly profit.</li>
+    </ul>
+    <p>The IPO has two parts. In the <strong>fresh issue</strong>, the company creates 1.25 crore new shares and sells them, raising ₹150 crore for the factories. In the <strong>offer for sale</strong>, the VC sells 50 lakh of its existing shares for ₹60 crore. That money goes to the VC, not the company.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>IPO portion</th><th class="num">Share of issue</th><th class="num">Times subscribed</th></tr></thead>
+        <tbody>
+          <tr><td>Qualified institutional buyers (mutual funds, insurers, banks, foreign funds)</td><td class="num">50%</td><td class="num">62×</td></tr>
+          <tr><td>Non-institutional (wealthy individuals, companies)</td><td class="num">15%</td><td class="num">55×</td></tr>
+          <tr><td>Retail individuals (up to ₹2 lakh)</td><td class="num">35%</td><td class="num">18×</td></tr>
+          <tr class="total"><td>Overall</td><td class="num">100%</td><td class="num">42×</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. The split between investor groups follows SEBI's rules for a profitable company. When applications exceed shares, retail shares are allotted by lottery, one lot per lucky applicant.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <span class="label">Where the IPO money goes</span>
+    <div class="scroll"><svg viewBox="0 0 640 240" width="100%" style="min-width:480px" role="img" aria-label="Animated diagram: money from institutions, wealthy investors and retail investors flows into the IPO; ₹150 crore goes to Sunrise Foods for factories and ₹60 crore goes to the VC fund selling shares"><g id="x-ipo"></g></svg></div>
+    <figcaption>Only the fresh issue reaches the company. Money from the offer for sale goes to the existing shareholder who sold, here the VC fund.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Kamala, now 70 and still fond of shares, applies for one lot: 120 shares at ₹120, which is ₹14,400. Her bank only <em>blocks</em> the money in her account; it is debited only if she gets shares. With 18 retail applications for every lot available, she is lucky. Her friend is not, and her blocked money is released.</p>
+    <p>Three working days after the IPO closes, Sunrise <strong>lists</strong> on the NSE and BSE. At 10 am on listing day, after a special pre-open auction, its first price is ₹150, 25% above the issue price. By the close it is ₹141. Kamala's 120 shares are worth ₹16,920.</p>
+    <p>Lakshmi rings the ceremonial bell at the exchange. Her family now owns 51.2% of Sunrise, worth about ₹450 crore at the listing-day close. The public owns 28%. And thousands of strangers, like Kamala, now own a piece of a pickle company from Kesarpur.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Primary market</span>The IPO is the primary market: the company sells new shares and gets the money. After listing, shares trade on the secondary market, and the company receives nothing from those trades.</div>
+    <div class="note"><span class="label">ASBA</span>"Application supported by blocked amount": your money stays in your account but is blocked until allotment. Most retail IPO applications are now made through UPI.</div>
+    <div class="note risk"><span class="label">Grey market</span>Unofficial trading in IPO shares before listing, quoted as a "grey market premium". It isn't regulated and is often wrong. Treat it as rumour.</div>
+    <div class="note risk"><span class="label">Listing gains</span>Some IPOs list far above their price; many fall below it later. An IPO is often priced when the company and sellers think the timing is best for <em>them</em>.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>The market at work</h2></div>
+
+<section class="chapter" id="exchange">
+  <header><span class="label">Chapter 4</span><h2>Inside the exchange</h2></header>
+  <div class="prose">
+    <p>A month after listing, Kamala's grandson Rohit, a 24-year-old software engineer in Bengaluru, decides to buy Sunrise shares. To do it he needs three accounts: a <strong>bank account</strong> for money, a <strong>trading account</strong> with a stockbroker to place orders, and a <strong>demat account</strong> to hold shares electronically, like a bank account for shares. Most brokers open the last two together, online, after KYC.</p>
+    <p>He opens his broker's app at 11 am on a Tuesday. The market is open from 9:15 am to 3:30 pm on weekdays. He sees the <strong>order book</strong>: everyone who currently wants to buy (bids) and sell (asks) Sunrise, and at what prices.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl">
+      <label for="qty">Rohit places a market order to buy <output id="qty-out">500 shares</output></label>
+      <input id="qty" type="range" min="100" max="4800" step="100" value="500">
+    </div>
+    <div class="book">
+      <div class="bid"><span class="side-h">Bids · buyers waiting</span>
+        <table><thead><tr><th class="num">Qty</th><th class="num">Price</th></tr></thead><tbody id="bids"></tbody></table></div>
+      <div class="ask"><span class="side-h">Asks · sellers waiting</span>
+        <table><thead><tr><th class="num">Price</th><th class="num">Qty</th></tr></thead><tbody id="asks"></tbody></table></div>
+    </div>
+    <div class="readout">
+      <div><span class="label">Average price paid</span><span class="big" id="ob-avg">₹141.23</span></div>
+      <div><span class="label">Total cost</span><span class="big" id="ob-cost">₹70,615</span></div>
+      <div><span class="label">New last-traded price</span><span class="big" id="ob-last">₹141.25</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="ob-note"></p>
+  </div>
+  <div class="prose">
+    <p>A <strong>market order</strong> says "buy now at whatever price the sellers are asking". It is filled against the cheapest asks first, then the next cheapest, and so on. A small order barely moves the price. A big one eats through several levels of the book and pushes the last-traded price up. Try moving the slider: this is how buying pressure literally raises a price.</p>
+    <p>A <strong>limit order</strong> says "buy, but only at ₹141.00 or less". If no seller is asking that little, the order joins the bids and waits. Rohit uses a limit order, because he doesn't want surprises.</p>
+    <p>When a buyer and seller match, the trade happens in a fraction of a second, but the money and shares take a little longer to move. The exchange's <strong>clearing corporation</strong> steps in between them, guaranteeing that the buyer gets shares and the seller gets money even if one side defaults. On the next working day (T+1), the shares arrive in Rohit's demat account, held at a <strong>depository</strong> (NSDL or CDSL), and the money reaches the seller.</p>
+  </div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">From tap to demat: one trade</span><button type="button" class="xbtn" id="x-settle-r">Place the order again</button></div>
+    <div class="scroll"><svg viewBox="0 0 760 270" width="100%" style="min-width:620px" role="img" aria-label="Animated diagram of a share trade: buy and sell orders meet at the exchange, the clearing corporation guarantees the trade, and the next day shares reach the buyer's demat account and money reaches the seller"><g id="x-settle"></g></svg></div>
+    <figcaption>The match takes a fraction of a second on the trade day (T). The swap of shares and money is completed on T+1.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">The exchanges</span>India's main stock exchanges are the <dfn>BSE</dfn>, founded in 1875 and Asia's oldest, and the <dfn>NSE</dfn>, which began trading in 1994 and brought fully electronic, screen-based trading.</div>
+    <div class="note"><span class="label">Bid–ask spread</span>The gap between the best bid and the best ask (here 10 paise). Busy, popular shares have tiny spreads; rarely traded shares have wide ones, which is a hidden cost.</div>
+    <div class="note"><span class="label">T+1</span>Trade day plus one working day. India moved all shares to T+1 settlement by January 2023, one of the fastest in the world.</div>
+    <div class="note coin"><span class="label">Costs of a trade</span>Brokerage, securities transaction tax (STT), exchange charges, GST and stamp duty. Small per trade, but they add up for frequent traders.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="price">
+  <header><span class="label">Chapter 5</span><h2>Why the price moves</h2></header>
+  <div class="prose">
+    <p>Nobody sets the price of a Sunrise share. Not Lakshmi, not the exchange, not SEBI. The price is simply the last price at which a willing buyer and a willing seller agreed. When more people want to buy than sell at the current price, buyers have to offer more and the price rises. When more want to sell, the price falls.</p>
+    <p>But <em>why</em> do people want to buy or sell? Mostly because they are guessing about the future. A share is a claim on all of the company's future profits, so its price reflects what people <em>expect</em> those profits to be, and how sure they are.</p>
+    <p>Here is one month in Sunrise's life:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Day</th><th>News</th><th class="num">Price</th><th class="num">Change</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Quiet day</td><td class="num">₹141</td><td class="num">—</td></tr>
+          <tr><td>4</td><td>A large supermarket chain signs a national deal</td><td class="num">₹156</td><td class="num up">+10.6%</td></tr>
+          <tr><td>9</td><td>Unseasonal rain damages the mango crop; raw material costs will rise</td><td class="num">₹146</td><td class="num down">−6.4%</td></tr>
+          <tr><td>15</td><td>The whole market falls 3% on global fears; Sunrise falls with it</td><td class="num">₹141</td><td class="num down">−3.4%</td></tr>
+          <tr><td>22</td><td>Quarterly results: profit up 40%, but analysts expected 50%</td><td class="num">₹135</td><td class="num down">−4.3%</td></tr>
+          <tr><td>30</td><td>A big mutual fund discloses it has bought 2%</td><td class="num">₹144</td><td class="num up">+6.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. Notice day 22: profit rose sharply, but the price fell, because the market had expected even more.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">One month of Sunrise's share price</span><button type="button" class="xbtn" id="x-news-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Line chart of Sunrise's share price over thirty days, jumping and dropping at five news events"><g id="x-news"></g></svg></div>
+    <figcaption>Each marker is a piece of news from the table above. Between events, the price wanders with the market.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Day 22 surprises Rohit. Profit up 40% and the share falls? This is the most important idea about share prices: <strong>prices move on surprises, not on news</strong>. Good results that everyone expected are already in the price. What moves it is the gap between what happened and what was expected.</p>
+    <p>Day 15 shows the other big lesson. Nothing changed at Sunrise, but its price fell because the <em>whole market</em> fell. Some of every share's movement comes from the company itself, and some from the market's mood. In the short run, mood often dominates. In the long run, profits do. The investor Benjamin Graham put it this way: in the short run the market is a voting machine; in the long run, it is a weighing machine.</p>
+    <p><strong>Market capitalisation</strong> is the price times all the shares: at ₹144, Sunrise's market cap is ₹144 × 6.25 crore shares = ₹900 crore. That is what the market, at that moment, thinks the whole company is worth.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Market cap</span>Share price × total shares. It is used to group companies: large caps (top 100 in India), mid caps (101–250) and small caps (the rest).</div>
+    <div class="note"><span class="label">Free float</span>Shares actually available to trade. Lakshmi's family's 51.2% rarely trades, so Sunrise's free float is about half its shares.</div>
+    <div class="note"><span class="label">Volume</span>How many shares traded. A big move on high volume says many people agree; a big move on tiny volume may mean little.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="accounts">
+  <header><span class="label">Chapter 6</span><h2>Reading the company's books</h2></header>
+  <div class="prose">
+    <p>Rohit's friend Neha works as an equity analyst at a brokerage. She tells him that before buying any share, he should read three statements that every listed company publishes every quarter and in full each year. Here they are for Sunrise, three years after listing, simplified.</p>
+  </div>
+  <div class="cols">
+    <div class="col">
+      <span class="label">1 · Profit and loss</span>
+      <h3>Did it make money this year?</h3>
+      <table>
+        <tbody>
+          <tr><td>Revenue (sales)</td><td class="num">400</td></tr>
+          <tr><td>Raw materials (mangoes, oil, jars)</td><td class="num">−220</td></tr>
+          <tr><td>Employees</td><td class="num">−50</td></tr>
+          <tr><td>Other expenses</td><td class="num">−55</td></tr>
+          <tr class="hl"><td>EBITDA (operating profit)</td><td class="num">75</td></tr>
+          <tr><td>Depreciation</td><td class="num">−10</td></tr>
+          <tr><td>Interest</td><td class="num">−5</td></tr>
+          <tr><td>Tax</td><td class="num">−15</td></tr>
+          <tr class="total"><td>Net profit</td><td class="num">45</td></tr>
+        </tbody>
+      </table>
+      <span style="font-size:.85rem;color:var(--muted)">₹ crore. Profit margin: 45 ÷ 400 = 11%.</span>
+    </div>
+    <div class="col">
+      <span class="label">2 · Balance sheet</span>
+      <h3>What does it own and owe?</h3>
+      <table>
+        <tbody>
+          <tr><td>Factories and machines</td><td class="num">200</td></tr>
+          <tr><td>Inventory (pickle, mangoes)</td><td class="num">60</td></tr>
+          <tr><td>Money owed by shops</td><td class="num">50</td></tr>
+          <tr><td>Cash</td><td class="num">90</td></tr>
+          <tr class="total"><td>Total assets</td><td class="num">400</td></tr>
+          <tr><td>Loans</td><td class="num">30</td></tr>
+          <tr><td>Money owed to suppliers</td><td class="num">20</td></tr>
+          <tr class="total"><td>Shareholders' equity</td><td class="num">350</td></tr>
+        </tbody>
+      </table>
+      <span style="font-size:.85rem;color:var(--muted)">Assets − liabilities = equity. Low debt: loans are under 10% of equity.</span>
+    </div>
+    <div class="col">
+      <span class="label">3 · Cash flow</span>
+      <h3>Where did the cash actually go?</h3>
+      <table>
+        <tbody>
+          <tr><td>From operations</td><td class="num">55</td></tr>
+          <tr><td>Investing (new factory)</td><td class="num">−40</td></tr>
+          <tr><td>Financing: dividends paid</td><td class="num">−11.25</td></tr>
+          <tr><td>Financing: loans repaid</td><td class="num">−3.75</td></tr>
+          <tr class="total"><td>Change in cash</td><td class="num">0</td></tr>
+        </tbody>
+      </table>
+      <span style="font-size:.85rem;color:var(--muted)">Profit can be faked with accounting; cash is much harder to fake. Healthy companies turn most profit into cash.</span>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Neha's quick health check for Sunrise: sales and profit are growing, margins are steady, debt is low, and operating cash flow (₹55 crore) is higher than profit (₹45 crore), which is a good sign that the profit is real. She also reads the parts most beginners skip: the notes to the accounts, the auditor's report, the list of related-party transactions (deals with the founder's family), and the shareholding pattern, which shows whether the promoters have pledged their shares as security for loans.</p>
+    <p>One warning sign she always looks for: profit growing fast while cash flow from operations stays flat or falls. That can mean customers aren't actually paying, or that something is being dressed up. In 2009, the founder of Satyam Computer Services confessed that he had inflated the company's cash balance by thousands of crores over years, one of India's biggest accounting frauds.</p>
+  </div>
+</section>
+
+<section class="chapter" id="value">
+  <header><span class="label">Chapter 7</span><h2>What is a share worth?</h2></header>
+  <div class="prose">
+    <p>Sunrise shares trade at ₹180. Is that cheap or expensive? Neha teaches Rohit the basic yardsticks, using the statements from Chapter 6. Sunrise has 6.25 crore shares.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Measure</th><th>How to calculate</th><th class="num">Sunrise</th><th>What it tells you</th></tr></thead>
+        <tbody>
+          <tr><td>EPS</td><td>Net profit ÷ shares</td><td class="num">₹7.20</td><td>Profit earned for each share</td></tr>
+          <tr><td>P/E ratio</td><td>Price ÷ EPS</td><td class="num">25.0</td><td>Rupees paid for ₹1 of yearly profit</td></tr>
+          <tr><td>Book value per share</td><td>Equity ÷ shares</td><td class="num">₹56</td><td>Accounting net worth per share</td></tr>
+          <tr><td>P/B ratio</td><td>Price ÷ book value</td><td class="num">3.2</td><td>Premium over accounting value</td></tr>
+          <tr><td>ROE</td><td>Net profit ÷ equity</td><td class="num">12.9%</td><td>How well it uses shareholders' money</td></tr>
+          <tr><td>Dividend yield</td><td>Dividend ÷ price</td><td class="num">1.0%</td><td>Cash return from dividends alone</td></tr>
+          <tr><td>Debt to equity</td><td>Loans ÷ equity</td><td class="num">0.09</td><td>How much it depends on borrowing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>A P/E of 25 means buyers are paying ₹25 for every ₹1 of this year's profit. Put the other way round, the earnings yield is 1 ÷ 25 = 4%, less than a government bond pays. Why would anyone accept that? Because they expect profit to <em>grow</em>. If Sunrise's profit grows 20% a year, it doubles in about four years, and today's price would be only about 12 times that future profit.</p>
+    <p>So the price depends on two things: the earnings, and how much the market is willing to pay for them, the P/E. The P/E is where mood lives. When investors are hopeful, they pay 40 times earnings; when frightened, 12. Try it below.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="eps">Earnings per share <output id="eps-out">₹7.20</output></label><input id="eps" type="range" min="2" max="20" step="0.1" value="7.2"></div>
+      <div class="ctrl"><label for="pe">P/E the market will pay <output id="pe-out">25×</output></label><input id="pe" type="range" min="8" max="60" step="1" value="25"></div>
+    </div>
+    <div class="readout">
+      <div><span class="label">Share price</span><span class="big" id="v-price">₹180.00</span></div>
+      <div><span class="label">Market cap</span><span class="big" id="v-mcap">₹1,125 cr</span></div>
+      <div><span class="label">Change from ₹180</span><span class="big" id="v-chg">0.0%</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="v-note"></p>
+  </div>
+  <div class="prose">
+    <p>The more rigorous method is a <strong>discounted cash flow (DCF)</strong> valuation: estimate all the cash the company will produce in future years and discount it back to today, exactly as the bond story discounted coupons. The difference is that a bond's cash flows are promised, while a company's are guesses. Small changes in the guesses, like growth of 15% instead of 20%, change the answer hugely. That's why two careful analysts can value the same share at ₹120 and ₹250.</p>
+    <p>A useful habit is a <strong>margin of safety</strong>: buy only when the price is comfortably below your estimate of value, so that if you're somewhat wrong, you don't lose much.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Compare like with like</span>A P/E only means something against the company's own history, its competitors, and its growth. A fast-growing consumer brand naturally trades at a higher P/E than a slow-growing steel maker.</div>
+    <div class="note coin"><span class="label">PEG ratio</span>P/E divided by expected earnings growth (in %). Sunrise: 25 ÷ 20 = 1.25. A rough check of whether growth justifies the price.</div>
+    <div class="note risk"><span class="label">Value trap</span>A low P/E isn't automatically cheap. Sometimes the market is correctly expecting profits to fall.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="rewards">
+  <header><span class="label">Chapter 8</span><h2>Dividends, bonuses, splits</h2></header>
+  <div class="prose">
+    <p>Shareholders make money in two ways. <strong>Capital gains</strong>: selling for more than you paid. And <strong>dividends</strong>: a share of profits paid out in cash. Sunrise's board decides to pay ₹1.80 a share this year, a quarter of its profit, and keep the rest to build factories. Kamala's 120 shares earn her ₹216.</p>
+    <p>A company that keeps profits and reinvests them well grows faster, so its share price should rise instead. Young, fast-growing companies often pay little or no dividend; mature companies with fewer growth opportunities pay out more.</p>
+    <p>Over the years, Sunrise does several other things to its shares. These are called <strong>corporate actions</strong>.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Action</th><th>What happens</th><th>Kamala's 120 shares at ₹200</th><th>Does she gain?</th></tr></thead>
+        <tbody>
+          <tr><td>Dividend ₹1.80</td><td>Cash paid per share</td><td>Gets ₹216; price drops by about ₹1.80 on the ex-date</td><td>Cash in hand, taxed as income</td></tr>
+          <tr><td>Bonus 1:1</td><td>One free share for each held, from reserves</td><td>240 shares at about ₹100</td><td>No. Same ₹24,000 value, more pieces</td></tr>
+          <tr><td>Split 1:5</td><td>Each share split into five (face value ₹10 → ₹2)</td><td>600 shares at about ₹40</td><td>No. Same value, more pieces</td></tr>
+          <tr><td>Rights issue</td><td>Offer to buy new shares, usually at a discount, in proportion to holdings</td><td>Right to buy, e.g., 1 new share for every 10 held</td><td>Only if she pays; ignoring it dilutes her</td></tr>
+          <tr><td>Buyback</td><td>Company buys its own shares back</td><td>May sell some to the company at a premium</td><td>Remaining shareholders own a bigger slice</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>To receive a dividend, bonus or rights, you must own the share before the ex-date and appear on the company's list on the record date.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">More slices, same pizza</span>
+      <div class="xseg" role="group" aria-label="Corporate action" id="x-pz-seg">
+        <button type="button" data-v="0" aria-pressed="true">Original</button>
+        <button type="button" data-v="1" aria-pressed="false">After 1:1 bonus</button>
+        <button type="button" data-v="2" aria-pressed="false">After 1:5 split</button>
+      </div></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="A pizza cut into more and more slices while the total value of Kamala's holding stays ₹24,000"><g id="x-pz"></g></svg></div>
+    <figcaption>Kamala's holding is worth ₹24,000 in every case. Bonuses and splits change the number of pieces, not the size of the pizza.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Kamala is excited about the bonus. "Free shares!" Rohit explains: cutting a pizza into sixteen slices instead of eight doesn't give you more pizza. Bonuses and splits make shares look cheaper and easier to trade, which can help a little with demand, but they don't create value. Only profits do.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Total return</span>Price change + dividends. Over long periods, reinvested dividends make up a meaningful part of share market returns. Indices like the Nifty 50 also have a "total return" version that includes them.</div>
+    <div class="note"><span class="label">Ex-date</span>The first day a buyer no longer gets the declared dividend or bonus. The price usually adjusts down on that day.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="index">
+  <header><span class="label">Chapter 9</span><h2>Sensex, Nifty and indices</h2></header>
+  <div class="prose">
+    <p>On the evening news, Kamala hears: "The Sensex rose 400 points today." Sunrise isn't in the Sensex. So what is it?</p>
+    <p>An <strong>index</strong> is a scoreboard for a group of shares. It combines their prices into a single number, so you can see how the group did. The two most famous in India are:</p>
+    <ul>
+      <li><strong>Sensex</strong>: 30 large, actively traded companies on the BSE. Launched in 1986, with its base set at 100 for 1978–79.</li>
+      <li><strong>Nifty 50</strong>: 50 large companies on the NSE, launched in 1996 with a base of 1,000.</li>
+    </ul>
+    <p>Both are weighted by <strong>free-float market cap</strong>: bigger companies count for more, and only shares actually available to trade are counted. A 5% jump in the largest bank moves the index far more than a 5% jump in a smaller member.</p>
+    <p>Here is how a tiny three-company index would work:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Company</th><th class="num">Free-float value, base day</th><th class="num">Free-float value, today</th><th class="num">Change</th></tr></thead>
+        <tbody>
+          <tr><td>A big bank</td><td class="num">₹6,000 cr</td><td class="num">₹6,900 cr</td><td class="num up">+15%</td></tr>
+          <tr><td>An IT company</td><td class="num">₹3,000 cr</td><td class="num">₹3,300 cr</td><td class="num up">+10%</td></tr>
+          <tr><td>Sunrise Foods</td><td class="num">₹1,000 cr</td><td class="num">₹1,300 cr</td><td class="num up">+30%</td></tr>
+          <tr class="total"><td>Total</td><td class="num">₹10,000 cr</td><td class="num">₹11,500 cr</td><td class="num up">+15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>If the index was set at 1,000 on the base day, today it reads 1,000 × 11,500 ÷ 10,000 = 1,150. Sunrise rose the most but, being smallest, moved the index the least.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">How the index moves</span><button type="button" class="xbtn" id="x-idx-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 220" width="100%" style="min-width:480px" role="img" aria-label="Stacked bars of three companies' free-float values on the base day and today, with the index counting up from 1,000 to 1,150"><g id="x-idx"></g></svg></div>
+    <figcaption>The index is the total length of the bar compared with the base day. The bank, the biggest block, drives most of the move.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Indices matter for more than the news. They are the <strong>benchmark</strong> that fund managers are judged against, and index funds and ETFs simply buy every company in them. When a company is added to the Nifty 50, index funds must buy it, which often lifts its price for a while. Beyond the headline indices there are hundreds of others: mid-cap and small-cap indices, sector indices for banks, IT or pharma, and broad ones like the Nifty 500 that cover most of the market.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Points vs. percent</span>"The Sensex rose 400 points" sounds huge but means little alone. At a level of 80,000, 400 points is 0.5%. Always think in percentages.</div>
+    <div class="note"><span class="label">Rebalancing</span>Index committees review membership regularly, replacing companies that have shrunk with ones that have grown. The index itself evolves; the Sensex of today holds very different companies from the Sensex of 1986.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="players">
+  <header><span class="label">Chapter 10</span><h2>Who is on the other side</h2></header>
+  <div class="prose">
+    <p>Every time Rohit buys a share, someone sells it to him. Every time he sells, someone buys. It's worth asking who those people are, and why they think the opposite trade is a good idea.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Promoters</h3><p>Founders and their families, like Lakshmi. They usually hold large, steady stakes. Their buying, selling, or pledging of shares is closely watched because they know the company best. Their holdings are disclosed every quarter.</p></div>
+    <div class="col c"><h3>Domestic institutions (DIIs)</h3><p>Indian mutual funds, insurance companies like LIC, pension funds and banks. Fed by monthly SIPs and premiums, they bring steady money into the market and have become a counterweight when foreign investors sell.</p></div>
+    <div class="col c"><h3>Foreign investors (FPIs)</h3><p>Global funds investing in Indian shares. Their money can move in and out quickly with global interest rates, the dollar and risk appetite, which can swing the whole market and the rupee.</p></div>
+    <div class="col u"><h3>Retail investors</h3><p>Individuals like Rohit and Kamala. Their numbers in India have grown enormously since 2020, helped by easy online accounts. Many invest for years; many others trade for days.</p></div>
+    <div class="col d"><h3>Traders and speculators</h3><p>People and firms trying to profit from short-term price moves: day traders, futures and options traders. They add liquidity, but most individual traders lose money (Chapter 12).</p></div>
+    <div class="col m"><h3>Algorithms and market makers</h3><p>Computer programs that trade automatically, some in microseconds. Market makers stand ready to buy and sell, earning the spread. A large share of trades in busy shares now involve algorithms.</p></div>
+  </div>
+  <div class="prose">
+    <p>When Rohit buys Sunrise because he believes it will grow for ten years, the seller might be a foreign fund that needs cash because its own investors are withdrawing, a trader who bought last week and wants a quick profit, or a fund manager who thinks Sunrise is over-priced. One of them will turn out to be right. The market is where all those different views and needs meet and are turned into a single price.</p>
+  </div>
+</section>
+
+<section class="chapter" id="cycles">
+  <header><span class="label">Chapter 11</span><h2>Bulls, bears and bubbles</h2></header>
+  <div class="prose">
+    <p>Here is Sunrise's share price over its first twenty years as a listed company. Like almost every share, it did not go up in a straight line.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 640 300" width="100%" style="min-width:520px" role="img" aria-label="Line chart of the fictional Sunrise share price over twenty years with two crashes">
+        <g id="hist"></g>
+      </svg>
+    </div>
+    <figcaption>Illustrative. The value of one share bought at listing, adjusted for the later bonus and split: from ₹141 to over ₹1,800 in twenty years, about 13.7% a year, with two falls of more than 40% along the way. Log scale, so equal heights mean equal percentage moves.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>A <strong>bull market</strong> is a long period of rising prices, when optimism feeds on itself. A <strong>bear market</strong> is a fall of 20% or more from a peak, when fear feeds on itself. A <strong>correction</strong> is a smaller fall, of 10–20%.</p>
+    <p>In Year 6, a frenzy for anything to do with "packaged foods" swept the market. New food companies with no profits listed at 80 times sales. Sunrise's P/E rose to 70. People who had never invested opened accounts because their neighbours were making money. That's a <strong>bubble</strong>: prices far beyond any reasonable estimate of value, driven by the expectation that someone else will pay even more. It burst in Year 7. Sunrise fell 52%, though its profits kept growing. Many newer food companies fell 90% or disappeared.</p>
+    <p>In Year 12, a global financial crisis hit. Everything fell, good and bad companies alike. Sunrise fell 45% in five months. Three years later it had recovered all of it.</p>
+    <p>Indian investors have lived through real versions of this many times: the 1992 crash after the Harshad Mehta securities scam; the dot-com bubble of 2000; 2008, when the Sensex fell more than 60% from its January peak to October; and March 2020, when Covid fears drove it down nearly 40% in about two months, before it recovered to new highs within the year.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Circuit breakers</span>To slow panic, Indian exchanges halt all trading if the Sensex or Nifty falls 10%, 15% or 20% in a day. Individual shares also have daily price bands (such as 5%, 10% or 20%), beyond which they can't trade that day.</div>
+    <div class="note"><span class="label">Volatility</span>How much a price swings. Small companies are usually more volatile than large ones; single shares more than indices.</div>
+    <div class="note good"><span class="label">Recovery</span>Broad markets have historically recovered from every crash, sometimes in months, sometimes in years. Individual companies sometimes never do.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="kamala">
+  <header><span class="label">Chapter 12</span><h2>Kamala's expensive lessons</h2></header>
+  <div class="prose">
+    <p>Kamala has owned shares for forty years. She has made money, and she has made every mistake in the book. She tells Rohit about them, one by one, so he doesn't have to repeat them.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>The hot tip</strong><span>A WhatsApp group promised a small company would "go 5×". She bought. So did thousands of others, while the people who started the rumour quietly sold to them. The share fell 80%. This is a pump-and-dump scheme, and it is illegal, but the money rarely comes back.</span></div>
+    <div class="risk-row"><strong>Borrowed money</strong><span>In the Year 6 bubble she bought on margin, using borrowed money. When prices fell, her broker demanded more money (a margin call). She couldn't pay, so her shares were sold at the bottom. Borrowing magnifies losses as well as gains.</span></div>
+    <div class="risk-row"><strong>Futures and options</strong><span>She tried trading options for quick profits. A few big wins, then steady losses. SEBI's own study of individual F&amp;O traders in India found that about 93% lost money over three years to March 2024.</span></div>
+    <div class="risk-row"><strong>Everything in one share</strong><span>She once had most of her savings in one cement company. When it ran into trouble, her savings halved. Owning many companies, or an index fund, protects against one failure.</span></div>
+    <div class="risk-row"><strong>Selling winners, keeping losers</strong><span>She sold Sunrise at ₹200 for a quick profit and kept a falling share "until it comes back". It never did. Investors hate admitting a loss, so they hold losers too long and sell winners too early.</span></div>
+    <div class="risk-row"><strong>Following the crowd</strong><span>She bought when everyone was excited and prices were high, and sold when everyone was afraid and prices were low, which is exactly backwards.</span></div>
+    <div class="risk-row"><strong>Checking every day</strong><span>Watching prices daily made every dip feel like a disaster and pushed her into needless trades, each with costs and taxes.</span></div>
+  </div>
+  <div class="prose">
+    <div class="say"><b>Kamala</b>"The companies were never the problem, beta. I was the problem. The market rewarded me when I sat still and punished me when I got clever."</div>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Investing vs. trading</span>An investor buys part of a business to hold for years, expecting it to grow. A trader buys a price, hoping to sell it to someone else soon for more. Both are legal; the odds are very different.</div>
+    <div class="note risk"><span class="label">Derivatives</span>Futures and options are contracts based on a share or index price. They let you take large positions with little money, which means large losses with little money too.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="rules">
+  <header><span class="label">Chapter 13</span><h2>Guarding a fair market</h2></header>
+  <div class="prose">
+    <p>A stock market only works if people trust that the game isn't rigged. If insiders could trade on secrets, or companies could lie in their accounts, ordinary investors would stay away and companies like Sunrise couldn't raise money. In India, the guardian is <strong>SEBI</strong>, the Securities and Exchange Board of India, along with the exchanges themselves.</p>
+    <p>Here is one case from Sunrise's history. A week before Sunrise announced that it was being bought by a large food company, a manager in its finance team told his brother-in-law. The brother-in-law bought ₹40 lakh of Sunrise shares. When the deal was announced, the shares jumped 30%.</p>
+    <p>The exchange's surveillance software flagged the unusual buying just before the news. SEBI investigated, traced the phone calls and family link, and found <strong>insider trading</strong>: trading on important information that the public doesn't have. The brother-in-law had to give up his profits plus a heavy penalty, and both were barred from the market.</p>
+    <p>The rules that protect Rohit include:</p>
+    <ul>
+      <li><strong>Disclosure.</strong> Listed companies must publish quarterly results, annual reports and any price-sensitive news promptly to everyone at once, through the exchange.</li>
+      <li><strong>Insider rules.</strong> Directors and employees with access to secrets can't trade during "closed windows" around results, and must report their trades.</li>
+      <li><strong>No manipulation.</strong> Spreading false rumours, circular trading to fake volume, or front-running clients' orders are all offences.</li>
+      <li><strong>Surveillance.</strong> Exchanges put suspicious shares under extra monitoring, demand higher margins, or restrict trading.</li>
+      <li><strong>Corporate governance.</strong> Independent directors, audit committees and limits on deals with related parties.</li>
+      <li><strong>Investor protection.</strong> Your shares sit in your own demat account, not your broker's. If a broker fails, exchanges have investor protection funds, and SEBI's SCORES portal handles complaints.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Price-sensitive information</span>Results, mergers, big contracts, management changes, fund-raising. Anything that would likely move the share price must be announced publicly before anyone can trade on it.</div>
+    <div class="note risk"><span class="label">Unregistered advisers</span>Only SEBI-registered investment advisers and research analysts may give paid stock advice. Social-media "finfluencers" selling tips without registration are a common source of losses.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>The market and you</h2></div>
+
+<section class="chapter wide" id="economy">
+  <header><span class="label">Chapter 14</span><h2>The market and the economy</h2></header>
+  <div class="prose">
+    <p>Is the stock market just a casino where people bet on prices? No, though parts of it can feel like one. Its real job is in the story you just read: it moved money from savers like Kamala into a company that used it to build factories, hire 2,000 people, and buy mangoes from thousands of farmers.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Raising capital</h3><p>IPOs and later share issues let growing companies raise money without unaffordable loans. Without a market where those shares can later be sold, angels and VCs like Mr. Bose would be far less willing to fund young companies.</p></div>
+    <div class="col"><h3>Sharing ownership</h3><p>Ordinary people can own pieces of the country's most successful businesses and share in their growth, instead of only the founders and the rich.</p></div>
+    <div class="col"><h3>Pricing and signalling</h3><p>Share prices are a constant vote on which companies are using money well. A high valuation makes it cheap for a good company to raise more; a falling price is pressure on bad managers.</p></div>
+    <div class="col c"><h3>Wealth effect</h3><p>When markets rise, people who own shares feel richer and tend to spend more; when markets crash, they cut back. The market feeds back into the economy.</p></div>
+    <div class="col c"><h3>Interest rates</h3><p>From the bond story: when interest rates rise, safe bonds pay more and future company profits are worth less today, so share prices often fall. Falling rates tend to help shares.</p></div>
+    <div class="col m"><h3>Market ≠ economy</h3><p>The market looks ahead, so it often rises before the economy recovers and falls before it weakens. It is also dominated by large listed companies, while most jobs are in small, unlisted ones. The two can move apart for long stretches.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="invest">
+  <header><span class="label">Chapter 15</span><h2>How Rohit invests</h2></header>
+  <div class="prose">
+    <p>Combining Neha's analysis, Kamala's lessons, and his cousin Ananya's mutual fund experience (from <em>The Common Pot</em>), Rohit settles on a plan.</p>
+    <p><strong>The core: an index fund.</strong> Most of his monthly investment goes into a Nifty 50 index fund through a SIP. It's cheap, diversified, and needs no stock picking. He knows from Chapter 6 of the fund story that most active funds trail their index over long periods.</p>
+    <p><strong>The satellite: a few shares he understands.</strong> About 15% of his investments go into five or six companies whose businesses he can explain in two sentences and whose accounts he has read, including Sunrise. No single company is more than 5% of his total. He reviews them each quarter when results come out, not each day.</p>
+    <p><strong>The rules he writes for himself:</strong></p>
+    <ul>
+      <li>Only money he won't need for at least five years goes into shares. Emergency money stays in a bank and a liquid fund.</li>
+      <li>No borrowed money, no tips, no F&amp;O.</li>
+      <li>Before buying any share, write down why, and what would make him sell. Sell only if that reason changes, not because the price did.</li>
+      <li>Keep investing through crashes.</li>
+      <li>Rebalance once a year if shares have grown far beyond his planned mix.</li>
+    </ul>
+    <h3 class="sub-h">Tax on shares in India</h3>
+    <p>Tax rules change often, so treat this as how the system worked under the rules announced in July 2024. Listed shares held 12 months or less: short-term gains taxed at 20%. Held longer: long-term gains above ₹1.25 lakh a year taxed at 12.5%. Dividends are added to income and taxed at your slab rate. Securities transaction tax (STT) is charged on every trade. Check the latest rules before you sell.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Core and satellite</span>A low-cost diversified core for most of the money, with a small satellite of individual picks. The core protects against your own mistakes; the satellite lets you learn.</div>
+    <div class="note"><span class="label">Styles</span><dfn>Value</dfn> investors buy cheap shares; <dfn>growth</dfn> investors pay up for fast growers; <dfn>quality</dfn> investors want strong, steady businesses; <dfn>index</dfn> investors buy everything. Each has had long good and bad periods.</div>
+    <div class="note coin"><span class="label">Time in the market</span>Missing just a handful of the best days in a decade can sharply cut long-run returns, and those days often come right after the worst ones. Staying invested beats trying to jump in and out.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Twenty years of pickle</h2></header>
+  <div class="prose">
+    <p>Twenty years after listing, Sunrise Foods sells pickles, chutneys and spice mixes in twenty countries. Lakshmi, now in her seventies, is chairperson. Her daughter runs the company. Two thousand people work in its factories, and its mango orders keep thousands of farming families in business.</p>
+    <p>Kamala's 120 IPO shares, after a 1:1 bonus and a 1:5 split, are now 1,200 shares trading at about ₹184 each, worth about ₹2.2 lakh, plus years of dividends, from ₹14,400 invested.</p><p>After the split, Sunrise's market cap is far larger than the ₹900 crore of its early years, because the company itself has grown many times over. She sold half of them twice in panics and bought back higher both times. Had she simply held, she would have had more. She laughs about it now.</p>
+    <p>Rohit, at 44, has a portfolio mostly in index funds, with a few shares he still follows each quarter. He has lived through two crashes without selling.</p>
+    <p>That is what a share is: a small piece of a real business, entitled to a slice of everything it will ever earn, and last in line if things go wrong. And that is what the stock market is: the place where millions of people with different hopes, fears and time horizons buy and sell those pieces every second, and in doing so decide what every company is worth.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The three stories</span>The <em>bond</em> lent money for a fixed return. The <em>mutual fund</em> pooled savings so ordinary people could own many investments. The <em>share</em> made them owners. Together they are how savings become bridges, factories and jobs.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Eight myths about the stock market</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">It's gambling.</span><span>Trading on tips and derivatives can be. Owning a spread of profitable businesses for years is ownership, and has historically been rewarded.</span></div>
+    <div class="myth"><span class="m">A ₹50 share is cheaper than a ₹5,000 share.</span><span>Price per share says nothing. Compare P/E, growth and quality. A ₹50 share can be far more expensive.</span></div>
+    <div class="myth"><span class="m">You need a lot of money to start.</span><span>You can buy a single share, or start an index fund SIP with a few hundred rupees.</span></div>
+    <div class="myth"><span class="m">It has fallen so much, it must go back up.</span><span>Prices have no memory. A share that fell 80% can fall another 80%.</span></div>
+    <div class="myth"><span class="m">Good company = good investment.</span><span>Only at the right price. A great company bought at a bubble price can lose money for a decade.</span></div>
+    <div class="myth"><span class="m">IPOs always give quick profits.</span><span>Many list below their issue price or fall after the first day. Read the prospectus, not the excitement.</span></div>
+    <div class="myth"><span class="m">Experts can predict the market.</span><span>No one reliably predicts short-term moves. Plans that need accurate predictions usually fail.</span></div>
+    <div class="myth"><span class="m">Bonus shares make you richer.</span><span>They cut the same pie into more slices. Only profit growth creates value.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before you buy a share: a checklist</h2>
+  <ul class="check">
+    <li>I can explain what the company does and how it makes money.</li>
+    <li>I've read its last annual report, including the notes and the auditor's report.</li>
+    <li>Sales, profit and operating cash flow have grown together over several years.</li>
+    <li>Debt is manageable, and promoters haven't pledged much of their stake.</li>
+    <li>I've compared its P/E with its history, its peers and its growth.</li>
+    <li>I know why I'm buying, and what would make me sell.</li>
+    <li>It's money I won't need for at least five years.</li>
+    <li>No single share is too large a part of my savings.</li>
+    <li>I'm not acting on a tip, a rumour, or fear of missing out.</li>
+    <li>I'm not using borrowed money.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>The bank wanted her house</td><td>Debt vs. equity</td><td>Young companies need owners who share risk</td></tr>
+        <tr><td>Sunrise Foods Pvt Ltd</td><td>Shares, limited liability</td><td>Ownership in slices; you can't lose more than you put in</td></tr>
+        <tr><td>Mr. Bose and the VC</td><td>Valuation, dilution</td><td>New owners make old slices smaller but the pie bigger</td></tr>
+        <tr><td>₹114–120 price band</td><td>IPO, listing</td><td>Selling shares to the public for the first time</td></tr>
+        <tr><td>Rohit's market order</td><td>Order book, bid–ask, T+1</td><td>Prices come from buyers and sellers meeting</td></tr>
+        <tr><td>Profit up 40%, price down</td><td>Expectations</td><td>Prices move on surprises, not news</td></tr>
+        <tr><td>Neha's three statements</td><td>P&amp;L, balance sheet, cash flow</td><td>Profit, worth, and real cash</td></tr>
+        <tr><td>P/E of 25</td><td>Valuation ratios</td><td>Price = earnings × what the market will pay</td></tr>
+        <tr><td>Kamala's "free" bonus</td><td>Corporate actions</td><td>More slices isn't more pizza</td></tr>
+        <tr><td>"Sensex up 400 points"</td><td>Indices</td><td>Scoreboards weighted by company size</td></tr>
+        <tr><td>Year 6 frenzy</td><td>Bubbles and crashes</td><td>Prices can detach from value, then snap back</td></tr>
+        <tr><td>Kamala's mistakes</td><td>Behaviour, leverage, F&amp;O</td><td>The biggest risk is usually the investor</td></tr>
+        <tr><td>The brother-in-law</td><td>Insider trading, SEBI</td><td>Fair rules make the market trustworthy</td></tr>
+        <tr><td>Rohit's plan</td><td>Core and satellite</td><td>Index core, a few understood picks, long patience</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Bear / bull market</dt><dd>A fall of 20%+ from a peak / a long rise.</dd></div>
+    <div><dt>Bid / ask</dt><dd>Highest price a buyer offers / lowest price a seller accepts.</dd></div>
+    <div><dt>Blue chip</dt><dd>A large, well-established, financially strong company.</dd></div>
+    <div><dt>Bonus issue</dt><dd>Free extra shares to existing holders; value unchanged.</dd></div>
+    <div><dt>Book value</dt><dd>Shareholders' equity per share in the accounts.</dd></div>
+    <div><dt>Circuit breaker</dt><dd>An automatic trading halt after a large fall.</dd></div>
+    <div><dt>Demat account</dt><dd>Electronic account that holds your shares.</dd></div>
+    <div><dt>Dilution</dt><dd>Existing holders' share shrinking as new shares are issued.</dd></div>
+    <div><dt>Dividend</dt><dd>Part of profit paid to shareholders in cash.</dd></div>
+    <div><dt>EPS</dt><dd>Earnings per share: net profit ÷ shares.</dd></div>
+    <div><dt>Ex-date / record date</dt><dd>Cut-off dates for receiving dividends or bonuses.</dd></div>
+    <div><dt>F&amp;O</dt><dd>Futures and options: derivative contracts on shares or indices.</dd></div>
+    <div><dt>Free float</dt><dd>Shares available for public trading.</dd></div>
+    <div><dt>Index</dt><dd>A number tracking a group of shares, like the Nifty 50.</dd></div>
+    <div><dt>Insider trading</dt><dd>Trading on important non-public information; illegal.</dd></div>
+    <div><dt>IPO</dt><dd>Initial public offering: first sale of shares to the public.</dd></div>
+    <div><dt>Limit / market order</dt><dd>Trade only at a set price or better / trade now at the best available price.</dd></div>
+    <div><dt>Margin</dt><dd>Borrowing from a broker to buy shares.</dd></div>
+    <div><dt>Market cap</dt><dd>Share price × total shares.</dd></div>
+    <div><dt>P/E ratio</dt><dd>Price ÷ earnings per share.</dd></div>
+    <div><dt>Promoter</dt><dd>The founder or controlling group of a company.</dd></div>
+    <div><dt>Rights issue</dt><dd>Offer of new shares to existing holders, usually at a discount.</dd></div>
+    <div><dt>ROE</dt><dd>Return on equity: profit ÷ shareholders' equity.</dd></div>
+    <div><dt>Share split</dt><dd>Dividing each share into several; value unchanged.</dd></div>
+    <div><dt>Stock exchange</dt><dd>A regulated marketplace for shares, like the NSE and BSE.</dd></div>
+    <div><dt>T+1</dt><dd>Settlement one working day after the trade.</dd></div>
+    <div><dt>Volatility</dt><dd>How much a price swings up and down.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how the stock market works. Lakshmi, Sunrise Foods and every figure about them are fictional and illustrative. It is not investment or tax advice. Rules and taxes change, so check official sources or consult a SEBI-registered adviser before investing.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+  const fmt2 = n => '₹' + n.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+
+  // Hero sparkline (deterministic)
+  (function(){
+    const g=document.getElementById('spark'); const pts=[]; let v=1818;
+    for(let i=0;i<60;i++){ v += Math.sin(i*0.7)*4 + Math.cos(i*1.3)*3 + 0.45; pts.push(v); }
+    const min=Math.min(...pts)-4,max=Math.max(...pts)+4;
+    const X=i=>i/(pts.length-1)*400, Y=p=>110-(p-min)/(max-min)*100;
+    const d=pts.map((p,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(p).toFixed(1)).join(' ');
+    g.appendChild(el('path',{d:d+' L400 120 L0 120 Z',fill:'var(--up-soft)'}));
+    g.appendChild(el('path',{d:d,fill:'none',stroke:'var(--up)','stroke-width':2}));
+    g.appendChild(el('circle',{cx:400-3,cy:Y(pts[pts.length-1]),r:3.5,fill:'var(--up)'}));
+  })();
+
+  // Ownership bars
+  (function(){
+    const box=document.getElementById('own');
+    const rows=[['Founding',[100,0,0,0]],['After angel',[80,20,0,0]],['After VC',[64,16,20,0]],['After IPO',[51.2,12.8,8,28]]];
+    const cols=['var(--acc)','var(--coin)','var(--muted)','var(--up)'];
+    rows.forEach(([n,v])=>{ const r=document.createElement('div'); r.className='own-row';
+      let h='<span class="mono">'+n+'</span><div class="own-bar">';
+      v.forEach((p,i)=>{ if(p>0) h+='<span style="width:'+p+'%;background:'+cols[i]+'">'+(p>=8?p+'%':'')+'</span>'; });
+      r.innerHTML=h+'</div>'; box.appendChild(r); });
+  })();
+
+  // Order book
+  (function(){
+    const asks=[[141.20,300],[141.25,500],[141.40,800],[141.50,1200],[141.80,2000]];
+    const bids=[[141.10,400],[141.05,600],[141.00,1500],[140.90,900],[140.75,2500]];
+    const bt=document.getElementById('bids'), at=document.getElementById('asks'), q=document.getElementById('qty');
+    bids.forEach(([p,n])=>{ const tr=document.createElement('tr'); tr.innerHTML='<td class="num">'+n.toLocaleString('en-IN')+'</td><td class="num up">'+p.toFixed(2)+'</td>'; bt.appendChild(tr); });
+    const arows=asks.map(([p,n])=>{ const tr=document.createElement('tr'); tr.innerHTML='<td class="num down">'+p.toFixed(2)+'</td><td class="num">'+n.toLocaleString('en-IN')+'</td>'; at.appendChild(tr); return tr; });
+    function u(){ let left=+q.value, cost=0, last=0;
+      asks.forEach(([p,n],i)=>{ const take=Math.min(left,n); cost+=take*p; left-=take; if(take>0) last=p;
+        arows[i].className = take===0 ? '' : (take===n ? 'filled' : 'part'); });
+      const qty=+q.value;
+      document.getElementById('qty-out').textContent=qty.toLocaleString('en-IN')+' shares';
+      document.getElementById('ob-avg').textContent=fmt2(cost/qty);
+      document.getElementById('ob-cost').textContent=fmt(cost);
+      document.getElementById('ob-last').textContent=fmt2(last);
+      const moved=((last/141.15-1)*100);
+      document.getElementById('ob-note').textContent='The order used up '+arows.filter(r=>r.className).length+' price level'+(arows.filter(r=>r.className).length>1?'s':'')+' of sellers. The last-traded price is now '+moved.toFixed(2)+'% above the mid-price before the order.';
+    }
+    q.addEventListener('input',u); u();
+  })();
+
+  // Valuation
+  (function(){
+    const e=document.getElementById('eps'), p=document.getElementById('pe');
+    function u(){ const eps=+e.value, pe=+p.value, price=eps*pe, chg=(price/180-1)*100;
+      document.getElementById('eps-out').textContent='₹'+eps.toFixed(2);
+      document.getElementById('pe-out').textContent=pe+'×';
+      document.getElementById('v-price').textContent=fmt2(price);
+      document.getElementById('v-mcap').textContent='₹'+Math.round(price*6.25).toLocaleString('en-IN')+' cr';
+      const c=document.getElementById('v-chg'); c.textContent=(chg>=0?'+':'−')+Math.abs(chg).toFixed(1)+'%'; c.className='big '+(chg>0.05?'up':chg<-0.05?'down':'');
+      let n; if(pe>=40) n='A P/E this high means buyers expect years of fast growth. If growth disappoints, the P/E can fall and take the price with it, even while profits rise.';
+      else if(pe<=12) n='A P/E this low means the market is pessimistic. Either it is right and profits will shrink, or this is a bargain.';
+      else n='Price = earnings per share × P/E. Profits can rise and the price still fall, if the P/E shrinks faster.';
+      document.getElementById('v-note').textContent=n; }
+    [e,p].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // 20-year history chart (log scale)
+  (function(){
+    const g=document.getElementById('hist');
+    const data=[141,155,168,180,230,330,520,250,300,370,440,520,640,352,430,560,700,920,1200,1500,1842];
+    const L=64,R=620,T=20,B=250, lo=Math.log(100), hi=Math.log(2200);
+    const X=i=>L+i/(data.length-1)*(R-L), Y=v=>B-(Math.log(v)-lo)/(hi-lo)*(B-T);
+    [100,200,500,1000,2000].forEach(v=>{ g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'₹'+v.toLocaleString('en-IN'))); });
+    [0,5,10,15,20].forEach(i=> g.appendChild(el('text',{x:X(i),y:B+20,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Yr '+i)));
+    // shade crashes
+    [[6,7],[12,13]].forEach(([a,b])=> g.appendChild(el('rect',{x:X(a),y:T,width:X(b)-X(a),height:B-T,fill:'var(--down-soft)'})));
+    const d=data.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+    g.appendChild(el('path',{d:d,fill:'none',stroke:'var(--acc)','stroke-width':2.5,'stroke-linejoin':'round'}));
+    g.appendChild(el('circle',{cx:X(20),cy:Y(1842),r:4.5,fill:'var(--acc)'}));
+    g.appendChild(el('text',{x:X(20)-8,y:Y(1842)-10,'text-anchor':'end','font-size':12,fill:'var(--ink)'},'₹1,842'));
+    g.appendChild(el('text',{x:X(0)+6,y:Y(141)+18,'font-size':12,fill:'var(--ink)'},'₹141'));
+    g.appendChild(el('text',{x:X(6.5),y:T+14,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Bubble bursts −52%'));
+    g.appendChild(el('text',{x:X(12.5),y:T+14,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Crisis −45%'));
+  })();
+})();
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function axes(g,o){const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L),Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);o.yt.forEach(v=>{g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'}));g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v)));});(o.xt||[]).forEach(v=>g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));return{X,Y};}
+function box(g,x,y,w,h,t,s,f,st){g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:f||'var(--paper)',stroke:st||'var(--rule)','stroke-width':1.5}));g.appendChild(el('text',{x:x+w/2,y:y+h/2-(s?3:-4),'text-anchor':'middle','font-size':12.5,fill:'var(--ink)'},t));if(s)g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s));}
+function arrow(g,x1,y1,x2,y2,c){g.appendChild(el('line',{x1,y1,x2,y2,stroke:c,'stroke-width':2}));const a=Math.atan2(y2-y1,x2-x1),s=8;g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*.6*Math.sin(a),y2-s*Math.sin(a)-s*.6*Math.cos(a)],[x2-s*Math.cos(a)-s*.6*Math.sin(a),y2-s*Math.sin(a)+s*.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:c}));}
+function mover(g,d,c,dur,r,b){if(reduce)return;const n=el('circle',{r:r||5,fill:c});n.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(b||0))+'s'}));g.appendChild(n);}
+const T={};
+function clearRun(k,g){(T[k]||[]).forEach(clearTimeout);T[k]=[];g.querySelectorAll('.xs').forEach(n=>n.remove());}
+function seq(k,g,d,c,dur,r,delay){if(reduce)return;const n=el('circle',{r:r||5,fill:c,opacity:0,class:'xs'});const a=el('animateMotion',{dur:dur+'s',path:d,begin:'indefinite',fill:'freeze'});n.appendChild(a);g.appendChild(n);T[k].push(setTimeout(()=>{n.setAttribute('opacity',1);try{a.beginElement();}catch(e){}},delay*1000));}
+function later(k,fn,delay){if(reduce)return;T[k].push(setTimeout(fn,delay*1000));}
+function replay(g,sel,cls,step){g.querySelectorAll(sel).forEach((p,i)=>{p.classList.remove(cls);void p.getBoundingClientRect();p.style.animationDelay=(i*(step||.15))+'s';p.classList.add(cls);});}
+function onView(n,fn){if(reduce||!('IntersectionObserver' in window))return;const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){fn();io.disconnect();}});},{threshold:.35});io.observe(n);}
+function wire(id,g,fn){const b=document.getElementById(id);if(b)b.addEventListener('click',fn);onView(g,fn);}
+
+// IPO flow
+(function(){const g=document.getElementById('x-ipo');if(!g)return;
+[['Institutions','50% · 62× subscribed',20],['Wealthy investors','15% · 55×',90],['Retail investors','35% · 18×',160]].forEach(([t,s,y])=>{box(g,10,y,150,50,t,s,'var(--coin-soft)','var(--coin)');arrow(g,162,y+25,226,120,'var(--muted)');mover(g,'M85 '+(y+25)+' L295 120','var(--coin)',2.2,4,y/90);});
+box(g,230,90,130,60,'IPO','₹210 crore raised','var(--acc-soft)','var(--acc)');
+box(g,450,30,180,54,'Sunrise Foods','fresh issue ₹150 cr → factories','var(--up-soft)','var(--up)');
+box(g,450,150,180,54,'VC fund','offer for sale ₹60 cr','var(--paper)','var(--rule)');
+arrow(g,362,110,446,60,'var(--up)');arrow(g,362,130,446,176,'var(--muted)');
+mover(g,'M295 120 L540 57','var(--up)',2.4,6,0);mover(g,'M295 120 L540 57','var(--up)',2.4,6,1.2);mover(g,'M295 120 L540 177','var(--coin)',2.4,5,0.6);
+g.appendChild(el('text',{x:320,y:232,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Then 6.25 crore shares start trading on NSE and BSE'));})();
+
+// Settlement
+(function(){const g=document.getElementById('x-settle');if(!g)return;
+box(g,10,20,120,50,'Rohit','buyer','var(--acc-soft)','var(--acc)');box(g,165,20,120,50,'His broker');box(g,320,20,120,50,'Exchange','orders matched','var(--paper)','var(--acc)');box(g,475,20,120,50,'Seller’s broker');box(g,630,20,120,50,'Seller','',null,null);
+box(g,320,115,120,50,'Clearing corp.','guarantees both','var(--paper)','var(--ink)');box(g,165,200,120,50,'Depository','NSDL / CDSL');box(g,475,200,120,50,'Seller’s bank');
+[[130,45,165,45],[285,45,320,45],[475,45,440,45],[630,45,595,45],[380,70,380,115],[350,165,240,200],[410,165,520,200]].forEach(([a,b,c,d])=>g.appendChild(el('line',{x1:a,y1:b,x2:c,y2:d,stroke:'var(--rule)','stroke-width':2})));
+g.appendChild(el('path',{d:'M165 225 Q60 225 70 72',fill:'none',stroke:'var(--rule)','stroke-width':2}));
+const st=el('text',{x:380,y:264,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'Shares reach Rohit’s demat account on T+1');g.appendChild(st);
+const steps=[[0,'M70 45 L380 45','var(--acc)',6,'T, 11:00 am: Rohit’s buy order travels to the exchange'],[0,'M690 45 L380 45','var(--down)',6,''],[1.8,'M380 70 L380 115','var(--ink)',6,'Matched in a fraction of a second. The clearing corporation now guarantees both sides'],[3.6,'M380 165 L225 200 Q60 225 70 72','var(--acc)',7,'T+1: shares move through the depository into Rohit’s demat account'],[3.6,'M380 165 L535 200','var(--coin)',7,'']];
+function run(){clearRun('st',g);if(reduce)return;steps.forEach(([t,d,c,r,lab])=>{seq('st',g,d,c,t>3?2:1.4,r,t);if(lab)later('st',()=>{st.textContent=lab;},t);});later('st',()=>{st.textContent='Done: Rohit has the shares, the seller has the money.';},6);}
+wire('x-settle-r',g,run);})();
+
+// News month
+(function(){const g=document.getElementById('x-news');if(!g)return;
+const A=[[1,141],[4,156],[9,146],[15,141],[22,135],[30,144]];const pts=[];
+for(let d=1;d<=30;d++){let k=0;while(k<A.length-2&&d>A[k+1][0])k++;const [d0,v0]=A[k],[d1,v1]=A[k+1];const t=(d-d0)/(d1-d0);const v=(d===d1||d===d0)?(d===d0?v0:v1):v0+(v1-v0)*t+1.4*Math.sin(d*1.9);pts.push([d,v]);}
+const {X,Y}=axes(g,{L:60,R:610,T:16,B:210,x0:1,x1:30,y0:125,y1:165,yt:[130,140,150,160],yf:v=>'₹'+v,xt:[1,5,10,15,20,25,30],xf:v=>'Day '+v});
+g.appendChild(el('path',{d:pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' '),fill:'none',stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'nw','stroke-linejoin':'round'}));
+const ev=[[4,156,'Supermarket deal',-1,'var(--up)'],[9,146,'Rain hits mangoes',1,'var(--down)'],[15,141,'Whole market falls',1,'var(--down)'],[22,135,'Results below hopes',1,'var(--down)'],[30,144,'Fund buys 2%',-1,'var(--up)']];
+ev.forEach(([d,v,t,s,c])=>{g.appendChild(el('circle',{cx:X(d),cy:Y(v),r:5,fill:c}));g.appendChild(el('text',{x:X(d)+(d>25?-6:0),y:Y(v)+(s<0?-10:20),'text-anchor':d>25?'end':'middle','font-size':10.5,fill:c},t));});
+wire('x-news-r',g,()=>replay(g,'.nw','xdraw',0));})();
+
+// Pizza
+(function(){const g=document.getElementById('x-pz');if(!g)return;
+const S=[{n:6,sh:120,p:200,t:'Original'},{n:12,sh:240,p:100,t:'After 1:1 bonus'},{n:30,sh:600,p:40,t:'After 1:5 split'}];
+const cx=150,cy=130,r=100;g.appendChild(el('circle',{cx,cy,r,fill:'var(--coin-soft)',stroke:'var(--coin)','stroke-width':3}));
+const lines=el('g',{});g.appendChild(lines);
+const t1=el('text',{x:310,y:80,'font-size':13,fill:'var(--muted)'},'');const t2=el('text',{x:310,y:118,'font-size':22,fill:'var(--ink)','font-family':'var(--mono)'},'');const t3=el('text',{x:310,y:150,'font-size':13,fill:'var(--muted)'},'');const t4=el('text',{x:310,y:192,'font-size':18,fill:'var(--up)'},'Value: ₹24,000');
+[t1,t2,t3,t4].forEach(x=>g.appendChild(x));
+function set(i){const s=S[i];lines.innerHTML='';for(let k=0;k<s.n;k++){const a=k/s.n*2*Math.PI;const l=el('line',{x1:cx,y1:cy,x2:cx+r*Math.cos(a),y2:cy+r*Math.sin(a),stroke:'var(--coin)','stroke-width':s.n>20?1:2,class:'pl',style:'transform-origin:'+cx+'px '+cy+'px'});lines.appendChild(l);}
+if(!reduce)replay(lines,'.pl','xpop',0.02);
+t1.textContent=s.t;t2.textContent=s.sh+' shares × ₹'+s.p;t3.textContent='each slice here = 20 shares';}
+document.querySelectorAll('#x-pz-seg button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#x-pz-seg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));set(+b.dataset.v);}));set(0);})();
+
+// Index
+(function(){const g=document.getElementById('x-idx');if(!g)return;
+const L=110,R=560,sc=(R-L)/12000;const cols=['var(--acc)','var(--coin)','var(--up)'],names=['Bank','IT','Sunrise'];
+[['Base day',[6000,3000,1000],40],['Today',[6900,3300,1300],120]].forEach(([n,v,y])=>{g.appendChild(el('text',{x:L-10,y:y+26,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));let x=L;
+v.forEach((w,i)=>{const ww=w*sc;g.appendChild(el('rect',{x,y,width:ww,height:40,fill:cols[i],opacity:.85,stroke:'var(--paper)',class:'ib',style:'transform-origin:'+L+'px '+(y+20)+'px'}));if(ww>40)g.appendChild(el('text',{x:x+ww/2,y:y+25,'text-anchor':'middle','font-size':11,fill:'var(--paper)'},names[i]));x+=ww;});
+g.appendChild(el('text',{x:x+8,y:y+25,'font-size':11,fill:'var(--muted)'},'₹'+(v.reduce((a,b)=>a+b,0)/1000).toFixed(1)+'k cr'));});
+const idx=el('text',{x:600,y:110,'text-anchor':'end','font-size':26,fill:'var(--ink)','font-family':'var(--mono)'},'1,150');g.appendChild(idx);g.appendChild(el('text',{x:600,y:130,'text-anchor':'end','font-size':10,fill:'var(--muted)'},'INDEX'));
+g.appendChild(el('text',{x:L,y:200,'font-size':10.5,fill:'var(--muted)'},'Bank +₹900 cr, IT +₹300 cr, Sunrise +₹300 cr: the bank adds 9 of the 15% gain'));
+function run(){replay(g,'.ib','xgx',0.12);if(reduce)return;const t0=performance.now();const tick=n=>{const p=Math.min(1,(n-t0)/1600);idx.textContent=Math.round(1000+150*p).toLocaleString('en-IN');if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);}
+wire('x-idx-r',g,run);})();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 03</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="3"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="common-pot.html" rel="prev"><small>← Previous</small>The Common Pot</a><a href="mango-contract.html" rel="next"><small>Next story →</small>The Mango Contract</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

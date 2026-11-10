@@ -1,0 +1,1110 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Common Pot</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 02 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html" aria-current="page"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: companion to the bridge-bond story. A storybook column with a ledger margin; wide interludes span the full width. Green "pot" accent instead of river blue. */
+:root{
+  --bg:#F2F4F0; --paper:#FBFCFA; --ink:#1A2420; --muted:#58675F; --rule:#D0DAD3;
+  --pot:#2F6B4F; --pot-soft:#DCEBE2; --coin:#B07207; --coin-soft:#F5E7CB; --risk:#B0433A; --risk-soft:#F4DEDA; --sky:#3B5E93; --sky-soft:#DFE7F3;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1613; --paper:#16211C; --ink:#E2EBE5; --muted:#9BAAA1; --rule:#2C3C34;
+  --pot:#86CBA6; --pot-soft:#1B3027; --coin:#EFB44C; --coin-soft:#392C13; --risk:#EE8A7B; --risk-soft:#3D1F1B; --sky:#9AB7EC; --sky-soft:#1D2C44; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1613; --paper:#16211C; --ink:#E2EBE5; --muted:#9BAAA1; --rule:#2C3C34;
+  --pot:#86CBA6; --pot-soft:#1B3027; --coin:#EFB44C; --coin-soft:#392C13; --risk:#EE8A7B; --risk-soft:#3D1F1B; --sky:#9AB7EC; --sky-soft:#1D2C44; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--pot)}
+:focus-visible{outline:2px solid var(--pot);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero canvas,.hero svg{width:100%;height:auto;display:block;max-width:100%}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--pot)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--pot)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--pot)}
+.note.coin .label{color:var(--coin)}
+.note.risk .label{color:var(--risk)}
+.note.sky .label{color:var(--sky)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--risk-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--pot)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.45rem;font-variant-numeric:tabular-nums}
+.split{display:flex;height:22px;border-radius:4px;overflow:hidden;background:var(--pot-soft)}
+.split span{display:block;height:100%;transition:width .35s ease}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+/* Structure diagram */
+.org{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.org .box{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px;font-size:.88rem;line-height:1.5;display:flex;flex-direction:column;gap:4px;min-width:0}
+.org .box b{font-family:var(--display);font-weight:400;font-size:1.02rem}
+.org .box .label{font-size:.65rem}
+.org .reg{grid-column:1 / -1;background:var(--sky-soft);border-color:var(--sky)}
+.org .core{background:var(--pot-soft);border-color:var(--pot)}
+.org .inv{grid-column:1 / -1;background:var(--coin-soft);border-color:var(--coin)}
+.org .arrow{grid-column:1 / -1;text-align:center;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+
+/* Wide grids */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--pot);padding-top:12px}
+.col.c{border-color:var(--coin)} .col.r{border-color:var(--risk)} .col.s{border-color:var(--sky)}
+.col h3{font-size:1.2rem}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.type{border-top:2px solid var(--pot);padding-top:10px;display:flex;flex-direction:column;gap:4px;font-size:.92rem;line-height:1.55}
+.type h3{font-size:1.08rem}
+.type .rk{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted)}
+.family{display:flex;flex-direction:column;gap:12px;padding-top:18px}
+.family > h3{font-size:1.4rem}
+.family.eq > h3{color:var(--coin)} .family.debt > h3{color:var(--sky)} .family.hyb > h3{color:var(--pot)} .family.oth > h3{color:var(--muted)}
+.family.eq .type{border-color:var(--coin)} .family.debt .type{border-color:var(--sky)} .family.oth .type{border-color:var(--muted)}
+
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--risk)}
+
+/* Factsheet */
+.fs{background:var(--paper);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.fs-head{background:var(--pot);color:var(--paper);padding:14px 18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline}
+.fs-head h3{font-size:1.25rem}
+.fs-head span{font-family:var(--mono);font-size:.75rem}
+.fs-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px}
+.fs-body > div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;font-size:.86rem}
+.kv span:nth-child(even){font-family:var(--mono);text-align:right}
+.sector{display:grid;grid-template-columns:110px minmax(0,1fr) 44px;gap:8px;align-items:center;font-size:.8rem}
+.sector .t{height:8px;background:var(--pot-soft);border-radius:2px;overflow:hidden}
+.sector .t i{display:block;height:100%;background:var(--pot)}
+.sector span:last-child{font-family:var(--mono);text-align:right}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--risk)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--pot);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+  .org{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--pot);border-color:var(--pot);color:var(--paper)}
+.xfig{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;margin:8px 0}
+.xfig figcaption{font-size:.85rem;color:var(--muted)}
+.xhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.xbtn,.xseg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.xseg{display:flex;flex-wrap:wrap;gap:6px}
+.xseg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.xdraw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:xdraw 2.2s ease forwards}
+@keyframes xdraw{to{stroke-dashoffset:0}}
+@keyframes xgy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.xgy{animation:xgy .9s ease both}
+@media (prefers-reduced-motion:reduce){.xdraw,.xgy{animation:none!important;stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about mutual funds, in sixteen chapters</span>
+    <h1>The Kesarpur Common Pot</h1>
+    <p class="lede">Fifteen years after the bridge was built, Meera's granddaughter has a salary, a little left over each month, and no idea where to put it. This is the story of how a pot of pooled savings works, from one nurse's ₹5,000 to the whole mutual fund market.</p>
+    <div class="cast">
+      <span class="chip">Ananya, nurse</span>
+      <span class="chip">Meera, her grandmother</span>
+      <span class="chip">Ravi, fund manager</span>
+      <span class="chip">Dev, distributor</span>
+      <span class="chip">Sister Thomas, head nurse</span>
+      <span class="chip">Kamala, the great-aunt</span>
+    </div>
+  </div>
+  <svg viewBox="0 0 400 260" role="img" aria-label="A drawing of many small coins flowing into one pot, and the pot holding a spread of company shares and bonds">
+    <rect x="0" y="0" width="400" height="260" fill="var(--paper)" rx="6"/>
+    <g id="hero-coins"></g>
+    <path d="M120 130 Q120 230 200 230 Q280 230 280 130 Z" fill="var(--pot)"/>
+    <rect x="110" y="120" width="180" height="16" rx="4" fill="var(--ink)"/>
+    <g id="hero-slices"></g>
+    <text x="200" y="200" text-anchor="middle" font-size="13" fill="var(--paper)">NAV ₹10.65</text>
+    <text x="20" y="250" font-size="11" fill="var(--muted)">MANY SAVERS · ONE PORTFOLIO</text>
+  </svg>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Five thousand rupees and a problem</a></li>
+    <li><a href="#pot"><span>01</span>The nurses' pot</a></li>
+    <li><a href="#structure"><span>02</span>Who guards the pot</a></li>
+    <li><a href="#nav"><span>03</span>Units and NAV</a></li>
+    <li><a href="#menu"><span>04</span>The menu of funds</a></li>
+    <li><a href="#manager"><span>05</span>A day with the fund manager</a></li>
+    <li><a href="#passive"><span>06</span>Active or passive</a></li>
+    <li><a href="#cost"><span>07</span>The price of the pot</a></li>
+    <li><a href="#sip"><span>08</span>Ananya's SIP</a></li>
+    <li><a href="#compound"><span>09</span>Time does the heavy lifting</a></li>
+    <li><a href="#factsheet"><span>10</span>Reading a factsheet</a></li>
+    <li><a href="#crash"><span>11</span>The year the market fell</a></li>
+    <li><a href="#debtfund"><span>12</span>When a debt fund broke</a></li>
+    <li><a href="#tax"><span>13</span>Taking money out, and tax</a></li>
+    <li><a href="#market"><span>14</span>The mutual fund market</a></li>
+    <li><a href="#plan"><span>15</span>A plan for three generations</a></li>
+    <li><a href="#epilogue"><span>16</span>Twenty years on</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>The pot is built</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Five thousand rupees and a problem</h2></header>
+  <div class="prose">
+    <p>Ananya is the granddaughter whose nursing fees Meera paid by selling her bridge bond. She is now twenty-five and a staff nurse at the Kesarpur district hospital, on the far side of the bridge her town once borrowed to build. She earns ₹40,000 a month. After rent, food, a little sent home and a little spent on herself, about ₹5,000 is left over.</p>
+    <p>She knows that money in a savings account at 3% barely keeps up with prices. She has heard that over long periods company shares have grown much faster. But she has three problems.</p>
+    <ul>
+      <li><strong>Too little money to spread.</strong> A single share of a big bank costs well over ₹1,000. With ₹5,000 she could own pieces of maybe three companies. If one of them fails, she loses a third of her savings.</li>
+      <li><strong>No time.</strong> She works twelve-hour shifts. She can't read annual reports, follow quarterly results or watch prices all day.</li>
+      <li><strong>No training.</strong> She can read a patient's chart in seconds, but not a balance sheet.</li>
+    </ul>
+    <p>Her great-aunt Kamala, who once bought cement shares instead of bonds, tells her to pick "good companies". Her grandmother Meera tells her to avoid anything she doesn't understand. Both are right, and neither tells her what to do.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Companion story</span>This continues <em>The Kesarpur Bridge Bond</em>. You don't need to have read it, but bonds come back in Chapters 4, 12 and 15, because many mutual funds hold bonds.</div>
+    <div class="note"><span class="label">The small saver's problem</span>Diversification, expertise and time all cost more than a small saver has. Every mutual fund in the world exists to solve these three problems at once.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="pot">
+  <header><span class="label">Chapter 1</span><h2>The nurses' pot</h2></header>
+  <div class="prose">
+    <p>In the staff canteen, Ananya mentions her problem. It turns out two hundred other nurses, ward boys and technicians have the same one. The head nurse, Sister Thomas, has an idea.</p>
+    <div class="say"><b>Sister Thomas</b>"Alone, each of us can buy three companies. Together, two hundred of us with ₹5,000 each have ₹10 lakh. That's enough to own forty companies. We hire one person who knows what they're doing to choose them, and we share whatever happens, in proportion to what we each put in."</div>
+    <p>That is the whole idea of a mutual fund: <strong>many people pool their money, a professional invests it in a spread of shares, bonds or both, and each person owns a slice of the whole pot</strong>. Gains and losses are shared in exact proportion.</p>
+    <p>Then the doubts start. Who holds the money? What stops the person running it from spending it on themselves, or buying shares in a cousin's company? How do you know what your slice is worth? What if you need your money back and everyone else wants to stay? What if a hundred new people want to join next month at a different price?</p>
+    <p>Pots like this, run on trust between colleagues, have collapsed many times in history. Somebody ran off with the money, or the books were wrong, or the early members were paid with the latecomers' money. Sister Thomas's idea is right, but it needs rules, guards and a fair way to count. That is what the next three chapters are about.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Ananya alone</th><th>The pot</th></tr></thead>
+        <tbody>
+          <tr><td>Money to invest</td><td class="num">₹5,000</td><td class="num">₹10,00,000</td></tr>
+          <tr><td>Number of companies</td><td>About 3</td><td>40 or more, plus bonds if wanted</td></tr>
+          <tr><td>If one company goes to zero</td><td>Loses about a third</td><td>Loses about 2.5%</td></tr>
+          <tr><td>Who researches</td><td>Ananya, between shifts</td><td>A full-time professional team</td></tr>
+          <tr><td>Trading costs</td><td>Higher per rupee</td><td>Lower, because orders are large</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>The three things a pot buys: diversification, expertise, and lower costs per rupee from size.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <span class="label">Many savers, one pot, forty companies</span>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Animated diagram: money flows from many nurses into one pot, and from the pot into forty companies"><g id="x-pool"></g></svg></div>
+    <figcaption>Each nurse's ₹5,000 becomes a tiny slice of forty companies. If one company fails, it costs each of them about 2.5%, not a third.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Definition</span>A <dfn>mutual fund</dfn> is a pool of money from many investors, managed by professionals and invested in securities such as shares and bonds. Each investor owns <dfn>units</dfn> of the pool.</div>
+    <div class="note"><span class="label">Mutual means shared</span>Everyone in the pot shares the same returns. Nobody gets a guaranteed amount. That is the key difference from Meera's bond, where the return was a fixed promise.</div>
+    <div class="note coin"><span class="label">Diversification</span>Owning many investments so no single one can do much damage. It reduces the risk of any one company failing, but it can't remove the risk of the whole market falling.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="structure">
+  <header><span class="label">Chapter 2</span><h2>Who guards the pot</h2></header>
+  <div class="prose">
+    <p>Sister Thomas writes to a cousin who works in finance in Mumbai. He explains that a real mutual fund is built so that <em>no single party ever has both the money and the power to move it unchecked</em>. In India, the structure is laid down by the market regulator, SEBI. Each role exists to guard against a particular way the pot could go wrong.</p>
+  </div>
+  <div class="org" role="group" aria-label="The structure of a mutual fund">
+    <div class="box reg"><span class="label">Regulator</span><b>SEBI</b><span>Writes the rules, registers every fund, sets limits on costs and risks, inspects, and punishes wrongdoing.</span></div>
+    <div class="arrow">↓ registers and supervises everyone below</div>
+    <div class="box"><span class="label">Founder</span><b>Sponsor</b><span>The company that sets up the fund, puts in its own capital, and must meet SEBI's tests for track record and net worth. Like the promoter of a company.</span></div>
+    <div class="box core"><span class="label">Owner on paper</span><b>Trust &amp; trustees</b><span>The fund is legally a trust. Its assets belong to the trust for the benefit of unitholders, not to the sponsor or manager. Trustees, many of them independent, watch the manager for the investors.</span></div>
+    <div class="box"><span class="label">The manager</span><b>Asset management company (AMC)</b><span>Hired by the trustees to run the money: research, buying, selling. Earns a fee. Can decide what to buy, but never holds the money itself.</span></div>
+    <div class="box"><span class="label">Safe keeping</span><b>Custodian</b><span>A separate bank that actually holds the shares and bonds and settles trades. The AMC gives orders; the custodian carries them out.</span></div>
+    <div class="box"><span class="label">Record keeping</span><b>Registrar (RTA)</b><span>Keeps the list of every investor and how many units they own, and processes purchases and redemptions. In India, mostly CAMS and KFintech.</span></div>
+    <div class="box"><span class="label">Checking</span><b>Auditors</b><span>Independent accountants who check the fund's books every year, separately from the AMC's own accounts.</span></div>
+    <div class="arrow">↓ invest and redeem through</div>
+    <div class="box inv"><span class="label">You</span><b>Investors (unitholders)</b><span>Buy units directly from the AMC, or through a distributor, adviser, broker or app. Your units are held in your own name in the registrar's records, or in your demat account.</span></div>
+  </div>
+  <div class="prose">
+    <p>Here is why this matters. Suppose the AMC that manages Ananya's fund goes bankrupt. Her money is <strong>not</strong> part of the AMC's assets. It sits with the custodian, owned by the trust on behalf of unitholders. The trustees would simply hire a different AMC to manage it. The risk that remains is the one she signed up for: the investments themselves going up or down.</p>
+    <p>SEBI's rules add more guards. A fund can't put more than a set share of its money into a single company. It must publish its full portfolio regularly and its unit price every business day. Managers and their staff must report their own trades. And every advertisement must carry the line you have probably heard said very fast at the end of a radio ad: <em>mutual fund investments are subject to market risks, read all scheme-related documents carefully.</em></p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Separation</span>The one who decides (AMC), the one who holds (custodian), the one who records (registrar), and the one who watches (trustees) are separate. No single party can make your money disappear.</div>
+    <div class="note"><span class="label">Scheme documents</span>Every fund publishes a <dfn>Scheme Information Document (SID)</dfn> with its objective, strategy, risks and costs, and a short <dfn>Key Information Memorandum (KIM)</dfn>. The "read all scheme-related documents" line refers to these.</div>
+    <div class="note sky"><span class="label">KYC</span>Before investing you complete <dfn>Know Your Customer</dfn> checks once (PAN, address, photo). It's valid across all fund houses.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="nav">
+  <header><span class="label">Chapter 3</span><h2>Units and NAV</h2></header>
+  <div class="prose">
+    <p>The pot needs a fair way to count. The answer is <strong>units</strong>. On the first day, the fund sells units at ₹10 each. Two hundred people put in ₹5,000 each, ₹10 lakh in total, and receive 500 units each. The fund has 1,00,000 units.</p>
+    <p>A month later, the shares in the pot have moved. Some went up, some down. Every evening, after the market closes, the fund adds up what everything it owns is worth, takes away what it owes, and divides by the number of units. That figure is the <strong>net asset value per unit</strong>, the NAV.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>The pot, at the end of day 30</th><th class="num">₹</th></tr></thead>
+        <tbody>
+          <tr><td>40 company shares, at today's closing prices</td><td class="num">10,45,000</td></tr>
+          <tr><td>Cash in the bank</td><td class="num">20,000</td></tr>
+          <tr><td>Dividends announced but not yet received</td><td class="num">3,000</td></tr>
+          <tr><td>Less: management fees and expenses owed</td><td class="num">−1,500</td></tr>
+          <tr><td>Less: shares bought, not yet paid for</td><td class="num">−1,500</td></tr>
+          <tr class="total"><td>Net assets</td><td class="num">10,65,000</td></tr>
+          <tr><td>Units outstanding</td><td class="num">1,00,000</td></tr>
+          <tr class="total"><td>NAV per unit</td><td class="num">10.65</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="formula">NAV = (Market value of everything owned − Everything owed) ÷ Units outstanding
+    = 10,65,000 ÷ 1,00,000 = ₹10.65</div>
+  <div class="prose">
+    <p>Ananya's 500 units are now worth 500 × ₹10.65 = ₹5,325. Nobody had to work out her share separately. Units do it automatically.</p>
+    <p>Now a new nurse, Joseph, wants to join with ₹5,000. He doesn't get units at ₹10. He gets them at today's NAV: ₹5,000 ÷ 10.65 = <span class="num">469.484</span> units. The fund takes his ₹5,000 in cash, issues new units, and buys more shares. Nobody already in the pot gains or loses from his joining. If Ananya leaves, the reverse happens: the fund pays her 500 × NAV, cancels her units, and sells shares if it needs the cash. This is an <strong>open-ended</strong> fund: units are created and cancelled every day at NAV.</p>
+    <p>Move the slider to see what a market move does to the pot.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl">
+      <label for="mkt">Change in the value of the fund's shares <output id="mkt-out">0%</output></label>
+      <input id="mkt" type="range" min="-30" max="30" step="1" value="0">
+    </div>
+    <div class="readout">
+      <div><span class="label">Net assets</span><span class="big" id="na">₹10,65,000</span></div>
+      <div><span class="label">NAV per unit</span><span class="big" id="navv">₹10.65</span></div>
+      <div><span class="label">Ananya's 500 units</span><span class="big" id="mine">₹5,325</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)">Cash, dividends due and amounts owed stay the same; only the shares move. The number of units doesn't change when the market moves, only their value.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">NAV</span>The value of one unit. Published every business day. In an open-ended fund you always buy and sell at NAV (minus any exit load, Chapter 7).</div>
+    <div class="note sky"><span class="label">Cut-off time</span>Your order gets the NAV of the day only if it reaches the fund, with the money, before the cut-off (3 pm for most funds on business days). Otherwise you get the next day's NAV. This stops anyone buying at yesterday's price after seeing today's news.</div>
+    <div class="note"><span class="label">Open vs. closed</span>An <dfn>open-ended</dfn> fund issues and redeems units any day. A <dfn>closed-ended</dfn> fund sells units once, for a fixed term, and you can only exit early by selling on a stock exchange, often below NAV. An <dfn>interval</dfn> fund opens for redemptions at set intervals.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>What goes in the pot</h2></div>
+
+<section class="chapter wide" id="menu">
+  <header><span class="label">Chapter 4</span><h2>The menu of funds</h2></header>
+  <div class="prose">
+    <p>Ananya opens a fund app and finds more than a thousand schemes. It looks like chaos, but there is a simple order underneath. In 2017 SEBI made every fund house fit each scheme into a defined category with a clear rule, and allowed only one scheme per category per fund house, with a few exceptions. The first question is always: <em>what does the pot hold?</em></p>
+  </div>
+
+  <div class="family eq">
+    <h3>Equity funds: mostly company shares</h3>
+    <p style="max-width:68ch;font-size:.97rem">For goals at least five to seven years away. Highest long-run growth, largest falls. Size categories follow a fixed list: India's top 100 listed companies by market value are large caps, 101 to 250 are mid caps, the rest small caps.</p>
+    <div class="types">
+      <div class="type"><h3>Large cap</h3><span>At least 80% in the top 100 companies. Steadier, well-researched firms.</span><span class="rk">Very high risk, lowest within equity</span></div>
+      <div class="type"><h3>Mid cap</h3><span>At least 65% in companies 101–250. Faster growth, sharper falls.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Small cap</h3><span>At least 65% in companies beyond 250. Biggest swings; can fall 50% in a bad year.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Flexi cap &amp; multi cap</h3><span>Flexi cap: any mix of sizes. Multi cap: at least 25% each in large, mid and small.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Large &amp; mid cap</h3><span>At least 35% each in large and mid caps.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Value, contra, dividend yield</h3><span>Styles: cheap shares, out-of-favour shares, or high-dividend shares.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Focused</h3><span>At most 30 stocks. Bigger bets on fewer ideas.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Sectoral &amp; thematic</h3><span>One industry (banking, pharma) or theme (manufacturing, consumption). Highly concentrated.</span><span class="rk">Very high risk, often the highest</span></div>
+      <div class="type"><h3>ELSS (tax saver)</h3><span>Equity fund with a 3-year lock-in, which qualifies for a tax deduction under the old tax regime.</span><span class="rk">Very high risk</span></div>
+    </div>
+  </div>
+
+  <div class="family debt">
+    <h3>Debt funds: mostly bonds and loans</h3>
+    <p style="max-width:68ch;font-size:.97rem">Pots of bonds like Kesarpur's. Categories are defined by how long the bonds last (duration, from the bond story) or by their credit quality. The two risks are the same as for bonds: interest-rate risk and credit risk.</p>
+    <div class="types">
+      <div class="type"><h3>Overnight &amp; liquid</h3><span>Loans lasting one day (overnight) or up to 91 days (liquid). For parking money and emergency funds.</span><span class="rk">Low to low-moderate risk</span></div>
+      <div class="type"><h3>Ultra short, low &amp; money market</h3><span>Bonds lasting a few months to a year.</span><span class="rk">Low to moderate risk</span></div>
+      <div class="type"><h3>Short &amp; medium duration</h3><span>Duration of 1–3 years and 3–4 years. More rate sensitivity, slightly more yield.</span><span class="rk">Moderate risk</span></div>
+      <div class="type"><h3>Long duration &amp; gilt</h3><span>Long bonds, or government bonds only (gilt). No default risk on gilts, but big swings when rates move.</span><span class="rk">Moderate risk, high rate sensitivity</span></div>
+      <div class="type"><h3>Corporate bond &amp; banking/PSU</h3><span>Mostly AA+ and above company bonds, or bonds of banks and public-sector firms.</span><span class="rk">Moderate risk</span></div>
+      <div class="type"><h3>Credit risk</h3><span>At least 65% in bonds rated below AA. Higher yield for Dhoolgarh-style risk.</span><span class="rk">Moderately high to high risk</span></div>
+      <div class="type"><h3>Dynamic bond</h3><span>The manager changes duration based on views on rates.</span><span class="rk">Moderate risk</span></div>
+      <div class="type"><h3>Target maturity</h3><span>Holds bonds maturing in one year, then closes. Behaves much like holding a bond to maturity.</span><span class="rk">Low to moderate risk</span></div>
+    </div>
+  </div>
+
+  <div class="family hyb">
+    <h3>Hybrid funds: both in one pot</h3>
+    <div class="types">
+      <div class="type"><h3>Aggressive hybrid</h3><span>65–80% shares, the rest bonds.</span><span class="rk">Very high risk</span></div>
+      <div class="type"><h3>Conservative hybrid</h3><span>10–25% shares, mostly bonds.</span><span class="rk">Moderately high risk</span></div>
+      <div class="type"><h3>Balanced advantage</h3><span>Shifts between shares and bonds by a valuation model: more shares when cheap, fewer when expensive.</span><span class="rk">Varies</span></div>
+      <div class="type"><h3>Multi-asset</h3><span>At least three asset classes, such as shares, bonds and gold.</span><span class="rk">Varies</span></div>
+      <div class="type"><h3>Arbitrage</h3><span>Profits from small price gaps between the cash and futures markets. Low risk, liquid-fund-like returns.</span><span class="rk">Low risk</span></div>
+      <div class="type"><h3>Equity savings</h3><span>A mix of shares, arbitrage and bonds.</span><span class="rk">Moderate risk</span></div>
+    </div>
+  </div>
+
+  <div class="family oth">
+    <h3>Other kinds</h3>
+    <div class="types">
+      <div class="type"><h3>Index funds</h3><span>Copy an index, such as the 50 largest companies, instead of picking. Very low cost (Chapter 6).</span></div>
+      <div class="type"><h3>ETFs</h3><span>Index funds whose units trade on the stock exchange during the day, like a share. You need a demat account.</span></div>
+      <div class="type"><h3>Fund of funds</h3><span>A fund that invests in other funds, including international funds and gold ETFs.</span></div>
+      <div class="type"><h3>Solution-oriented</h3><span>Retirement and children's funds, with a lock-in of five years or until a set age.</span></div>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top:12px">
+    <h3 class="sub-h">The riskometer</h3>
+    <p>Every scheme must display a riskometer, a dial with six levels, updated every month based on what the fund actually holds. Each fund is also compared with a <strong>benchmark</strong>: the index it is trying to beat, such as a top-100 index for a large-cap fund.</p>
+  </div>
+  <div class="panel" style="max-width:640px">
+    <svg viewBox="0 0 420 240" width="100%" role="img" aria-label="Riskometer dial with six levels from low to very high">
+      <g id="rmeter"></g>
+    </svg>
+    <div class="seg" role="group" aria-label="Choose a fund type" id="rm-buttons">
+      <button type="button" data-l="0" aria-pressed="false">Overnight</button>
+      <button type="button" data-l="1" aria-pressed="false">Liquid</button>
+      <button type="button" data-l="2" aria-pressed="false">Gilt</button>
+      <button type="button" data-l="3" aria-pressed="false">Conservative hybrid</button>
+      <button type="button" data-l="4" aria-pressed="false">Credit risk</button>
+      <button type="button" data-l="5" aria-pressed="true">Small cap</button>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="manager">
+  <header><span class="label">Chapter 5</span><h2>A day with the fund manager</h2></header>
+  <div class="prose">
+    <p>Ananya chooses a flexi cap fund run by a fund house in Pune. Its manager is Ravi. Ananya will never meet him, but here is roughly what his day looks like.</p>
+    <p><strong>7:30 am.</strong> Ravi reads overnight news: US markets, oil prices, the rupee, and a cement company's results announced late last night.</p>
+    <p><strong>8:30 am.</strong> Morning meeting with eight analysts, each covering an industry. The banking analyst thinks loan growth is slowing. The pharma analyst has visited a factory and is impressed. They argue. Ravi listens and asks what would prove each of them wrong.</p>
+    <p><strong>9:15 am.</strong> The market opens. Ravi has decided to sell a quarter of the fund's holding in one bank and add to the pharma company. He does not press buttons himself. He gives the order to the fund's dealing desk, who split it into small pieces through the day so the fund's large order doesn't push the price against it.</p>
+    <p><strong>11:00 am.</strong> A call with a company's management, along with thirty other investors. Ravi asks about debt, about the founder's plans to take money out, and about why a competitor is growing faster.</p>
+    <p><strong>2:00 pm.</strong> A risk review. The compliance team checks that no single stock is above SEBI's limits, that the fund still fits its category rules, and that the portfolio's risk is within the fund's own limits. Cash flows matter too: this month, SIP money is arriving faster than redemptions, so Ravi has fresh cash to invest each day.</p>
+    <p><strong>After 3:30 pm.</strong> The market closes. The fund's accountants value every holding at its closing price, and the NAV is published that evening.</p>
+    <p>Ravi's job comes down to three decisions: <em>which</em> companies to own (stock selection), <em>how much</em> of each (position sizing), and <em>when</em> to change his mind (discipline). His results are judged against the benchmark, after costs, over years, not days.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Investment process</span>Good fund houses write down how they pick stocks: growth, value, quality, or a mix. Consistency matters: a manager who changes style every year is hard to judge and hard to trust.</div>
+    <div class="note"><span class="label">Portfolio turnover</span>How much of the fund is bought and sold each year. High turnover means more trading costs and often more short-term thinking.</div>
+    <div class="note risk"><span class="label">Manager risk</span>If a star manager leaves, the fund you bought may behave differently. Factsheets name the manager and how long they've run the fund.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="passive">
+  <header><span class="label">Chapter 6</span><h2>Active or passive</h2></header>
+  <div class="prose">
+    <p>Ananya's colleague Joseph took a different path. He bought an <strong>index fund</strong>, which has no Ravi. It simply holds the companies in a chosen index, such as the 50 largest, in the same proportions as the index, and changes only when the index changes.</p>
+    <p>Joseph's argument goes like this. The whole market is made up of all investors. Before costs, the average rupee invested must earn the market's return, because together they <em>are</em> the market. Active managers as a group charge more and trade more. So, after costs, the average actively managed rupee must earn <em>less</em> than the market. Some managers beat it, but it's hard to know in advance which ones, and few keep doing it for long.</p>
+    <p>The evidence supports Joseph more often than not. Regular studies comparing funds with their benchmarks, such as S&amp;P's SPIVA reports, have found that over periods of five to ten years most actively managed large-cap funds in India and the US trail their index after costs. The picture is more mixed for mid and small caps, where markets are less thoroughly researched.</p>
+    <p>Ananya's argument for her flexi cap fund: a good manager can avoid obviously over-priced or badly run companies that an index must hold, and can move between large, mid and small companies. She is willing to pay more for the chance of doing better, and accepts that she might do worse.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Active fund</th><th>Index fund / ETF</th></tr></thead>
+        <tbody>
+          <tr><td>Goal</td><td>Beat the benchmark</td><td>Match the benchmark</td></tr>
+          <tr><td>Who decides</td><td>A manager and analysts</td><td>The index rules</td></tr>
+          <tr><td>Typical yearly cost (direct plan)</td><td>About 0.5–1.2%</td><td>About 0.1–0.3%</td></tr>
+          <tr><td>Main risk beyond the market</td><td>The manager gets it wrong</td><td>Tracking error: small gaps from the index</td></tr>
+          <tr><td>Best for</td><td>Those who choose managers carefully and review them</td><td>Those who want low cost and simplicity</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Cost ranges are typical, not limits. Check each fund's current expense ratio.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Index</span>A list of companies chosen by fixed rules, used to measure a market. An index fund owns the list.</div>
+    <div class="note"><span class="label">Tracking error</span>How much an index fund's return differs from its index, due to costs, cash and timing. Lower is better.</div>
+    <div class="note sky"><span class="label">History</span>The first index fund for ordinary investors was launched in the US in 1976 by John Bogle at Vanguard. Critics called it "un-American". Today passive funds hold a large and fast-growing share of fund money worldwide, and in India.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="cost">
+  <header><span class="label">Chapter 7</span><h2>The price of the pot</h2></header>
+  <div class="prose">
+    <p>Ravi, his analysts, the custodian, the registrar, the auditors and the trustees all have to be paid. That money comes out of the pot, a tiny slice every day. The yearly total, as a share of the fund's assets, is the <strong>total expense ratio (TER)</strong>. It is already deducted from the NAV, so you never see a bill. That makes it easy to ignore.</p>
+    <p>Ananya meets Dev, a distributor at her bank branch. He is friendly and helpful and offers to set everything up. What he doesn't stress is that every fund has two versions:</p>
+    <ul>
+      <li>A <strong>regular plan</strong>, bought through a distributor like Dev. Part of the expense ratio is paid to the distributor as commission, every year, for as long as you hold.</li>
+      <li>A <strong>direct plan</strong>, bought straight from the fund house or a direct platform. Same fund, same manager, same holdings, but no commission, so a lower expense ratio and a higher NAV over time.</li>
+    </ul>
+    <p>The difference is often around 0.5% to 1% a year. That sounds tiny. Here is what it does to a ₹5,000 monthly SIP, if the fund earns 13% a year before costs.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Years</th><th class="num">Direct plan (0.5% cost → 12.5%)</th><th class="num">Regular plan (1.5% cost → 11.5%)</th><th class="num">Difference</th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td class="num">₹11,96,907</td><td class="num">₹11,27,721</td><td class="num">₹69,186</td></tr>
+          <tr><td>20</td><td class="num">₹53,47,598</td><td class="num">₹46,69,833</td><td class="num">₹6,77,765</td></tr>
+          <tr><td>30</td><td class="num">₹1,97,41,567</td><td class="num">₹1,57,95,422</td><td class="num">₹39,46,145</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. A 1% yearly difference in cost, over 30 years, takes about a fifth of the final value. Costs compound just like returns.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">The same SIP, two plans, 30 years</span><button type="button" class="xbtn" id="x-cost-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Two growth curves for a ₹5,000 monthly SIP, direct plan pulling ahead of regular plan, with the gap shaded"><g id="x-cost"></g></svg></div>
+    <figcaption>The red area is money lost to the extra 1% a year. It stays small for a decade and then widens fast, because costs compound like returns.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Dev's advice still has value for some people. A good distributor or adviser can stop you making expensive mistakes, such as panic-selling in a crash, which can cost far more than 1%. The point is to know what you are paying, and decide whether it's worth it. In India you can also hire a SEBI-registered investment adviser who charges you a fee directly and recommends direct plans.</p>
+    <h3 class="sub-h">Other costs</h3>
+    <ul>
+      <li><strong>Exit load.</strong> A charge if you redeem early, often 1% if you leave an equity fund within a year. It discourages short-term trading that harms long-term holders. Not every fund has one.</li>
+      <li><strong>Stamp duty.</strong> A tiny government levy on purchases (0.005% in India).</li>
+      <li><strong>Trading costs</strong> inside the fund: brokerage and price impact when Ravi buys and sells. These are not in the TER, but they reduce returns. High turnover means more of them.</li>
+      <li><strong>Taxes</strong> on gains, covered in Chapter 13.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note coin"><span class="label">Expense ratio</span>The fund's yearly running cost as a percentage of assets. SEBI caps it, and the cap falls as a fund grows larger. Always compare funds' TER in the same category.</div>
+    <div class="note"><span class="label">Direct vs. regular</span>Same fund, two NAVs. The direct plan's NAV is always a little higher because less has been taken out. Direct plans were introduced in India in 2013.</div>
+    <div class="note"><span class="label">No entry load</span>Indian funds have not been allowed to charge an entry fee since 2009, so your whole investment goes in at NAV, apart from stamp duty.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>Ananya invests</h2></div>
+
+<section class="chapter" id="sip">
+  <header><span class="label">Chapter 8</span><h2>Ananya's SIP</h2></header>
+  <div class="prose">
+    <p>Ananya doesn't have a big lump sum. She has ₹5,000 every month. So she sets up a <strong>systematic investment plan</strong>, a SIP: on the 5th of every month, ₹5,000 moves automatically from her bank account into her fund, and she receives units at that day's NAV.</p>
+    <p>Her first year turns out to be wild. The market falls hard and then recovers. Watch what happens to the number of units her fixed ₹5,000 buys.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Month</th><th class="num">NAV</th><th class="num">Invested</th><th class="num">Units bought</th><th class="num">Total units</th></tr></thead>
+        <tbody id="sip-tbody"></tbody>
+      </table>
+    </div>
+    <figcaption>When the NAV is low, the same ₹5,000 buys more units. Her average cost per unit ends up below the average NAV.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">NAV falls, units rise</span><button type="button" class="xbtn" id="x-sip-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Line of NAV over twelve months dipping to 10 in month five, with bars of units bought each month tallest at the bottom"><g id="x-sip"></g></svg></div>
+    <figcaption>Bars: units bought each month (left scale). Line: NAV (right scale). The deepest dip buys the most units.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Over twelve months, she invests ₹60,000 and collects <span class="num">3,952.471</span> units. The <em>average NAV</em> over the year was ₹16.00. But her <em>average cost</em> per unit was only ₹60,000 ÷ 3,952.471 = <span class="num">₹15.18</span>, because she automatically bought more units when they were cheap. This is called <strong>rupee cost averaging</strong>.</p>
+    <p>At the end of the year, at NAV ₹22, her units are worth <span class="num">₹86,954</span>. Had she put all ₹60,000 in at once in month 1, at ₹20, she would have 3,000 units worth ₹66,000.</p>
+    <p>That doesn't mean a SIP always wins. In a market that rises steadily, a lump sum invested early usually ends up ahead, simply because more money is invested for longer. The real strengths of a SIP are different: it matches how people actually earn (monthly), it removes the impossible job of guessing the right day, and it turns a falling market from a frightening event into a sale.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">SIP</span>A fixed amount invested at regular intervals, usually monthly, by automatic debit. Many funds accept SIPs from ₹500 or even ₹100 a month.</div>
+    <div class="note coin"><span class="label">Step-up SIP</span>Raising the SIP amount each year, say by 10%, as salary grows. It makes a big difference to the final amount.</div>
+    <div class="note"><span class="label">STP and SWP</span>A <dfn>systematic transfer plan</dfn> moves money gradually from one fund to another (say, a lump sum parked in a liquid fund into an equity fund over a year). A <dfn>systematic withdrawal plan</dfn> pays out a fixed amount every month (Chapter 15).</div>
+  </aside>
+</section>
+
+<section class="chapter" id="compound">
+  <header><span class="label">Chapter 9</span><h2>Time does the heavy lifting</h2></header>
+  <div class="prose">
+    <p>Meera, a retired mathematics teacher, can't resist working out where Ananya's SIP might lead. She explains <strong>compounding</strong>: returns earn returns. In the early years, almost all of Ananya's money is what she put in. In the later years, most of it is growth on growth.</p>
+    <p>She also gives Ananya the single most important number: <em>when you start</em>. If Ananya invests ₹5,000 a month from age 25 to 60, at 12% a year, she ends up with about <span class="num">₹3.25 crore</span>. If she waits until 35, and invests the same amount until 60, she ends up with about <span class="num">₹95 lakh</span>. Ten extra years at the start more than triples the result, even though she would have invested only ₹6 lakh more.</p>
+    <p>Try it yourself. The return is an assumption, not a promise: equity funds have had good and bad decades.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="sip-amt">Monthly SIP <output id="sip-amt-out">₹5,000</output></label><input id="sip-amt" type="range" min="500" max="50000" step="500" value="5000"></div>
+      <div class="ctrl"><label for="sip-yrs">Years <output id="sip-yrs-out">20</output></label><input id="sip-yrs" type="range" min="1" max="40" step="1" value="20"></div>
+      <div class="ctrl"><label for="sip-ret">Yearly return after costs <output id="sip-ret-out">12%</output></label><input id="sip-ret" type="range" min="4" max="16" step="0.5" value="12"></div>
+    </div>
+    <div class="readout">
+      <div><span class="label">You invest</span><span class="big" id="c-inv">₹12,00,000</span></div>
+      <div><span class="label">Growth</span><span class="big" id="c-gain">₹37,95,740</span></div>
+      <div><span class="label">Final value</span><span class="big" id="c-fv">₹49,95,740</span></div>
+    </div>
+    <div class="split" aria-hidden="true"><span id="sp-inv" style="background:var(--muted)"></span><span id="sp-gain" style="background:var(--pot)"></span></div>
+    <div class="legend"><span><i style="background:var(--muted)"></i>What you put in</span><span><i style="background:var(--pot)"></i>Growth from compounding</span></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="c-note"></p>
+  </div>
+  <div class="formula">Future value of a monthly SIP = P × [((1 + i)ⁿ − 1) ÷ i] × (1 + i)
+
+P = monthly amount   i = yearly return ÷ 12   n = number of months</div>
+  <aside>
+    <div class="note"><span class="label">Rule of 72</span>Divide 72 by the yearly return to estimate how many years money takes to double. At 12%, about 6 years. At 6%, about 12.</div>
+    <div class="note risk"><span class="label">A warning</span>Calculators like this assume a smooth return every year. Real returns arrive unevenly: some years −30%, some +40%. The average can still be similar, but the ride is very different.</div>
+    <div class="note sky"><span class="label">Inflation</span>₹50 lakh in 20 years won't buy what ₹50 lakh buys today. At 6% inflation, it would be worth about ₹15.6 lakh in today's money.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="factsheet">
+  <header><span class="label">Chapter 10</span><h2>Reading a factsheet</h2></header>
+  <div class="prose">
+    <p>Every month, every fund publishes a <strong>factsheet</strong>: a one- or two-page summary of what it holds, how it has done and how risky it has been. Ananya learns to read one. Here is her fund's, simplified. The fund is fictional.</p>
+  </div>
+  <div class="fs">
+    <div class="fs-head"><h3>Riverbank Flexi Cap Fund · Direct, Growth</h3><span>Factsheet · month-end</span></div>
+    <div class="fs-body">
+      <div>
+        <span class="label">Fund facts</span>
+        <div class="kv">
+          <span>Category</span><span>Flexi cap</span>
+          <span>Benchmark</span><span>Broad 500-stock index</span>
+          <span>Fund size (AUM)</span><span>₹8,400 cr</span>
+          <span>NAV</span><span>₹48.62</span>
+          <span>Expense ratio, direct</span><span>0.62%</span>
+          <span>Expense ratio, regular</span><span>1.70%</span>
+          <span>Exit load</span><span>1% within 1 yr</span>
+          <span>Manager since</span><span>7 years</span>
+          <span>Riskometer</span><span>Very high</span>
+        </div>
+      </div>
+      <div>
+        <span class="label">Returns (yearly, CAGR)</span>
+        <table>
+          <thead><tr><th></th><th class="num">Fund</th><th class="num">Index</th></tr></thead>
+          <tbody>
+            <tr><td>1 year</td><td class="num">9.8%</td><td class="num">11.2%</td></tr>
+            <tr><td>3 years</td><td class="num">15.4%</td><td class="num">14.1%</td></tr>
+            <tr><td>5 years</td><td class="num">16.9%</td><td class="num">15.0%</td></tr>
+            <tr><td>Since start</td><td class="num">14.6%</td><td class="num">13.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <span class="label">Risk measures (3 years)</span>
+        <div class="kv">
+          <span>Standard deviation</span><span>13.8%</span>
+          <span>Beta</span><span>0.92</span>
+          <span>Sharpe ratio</span><span>0.62</span>
+          <span>Portfolio turnover</span><span>32%</span>
+          <span>Number of stocks</span><span>54</span>
+          <span>Top 10 holdings</span><span>46%</span>
+        </div>
+        <span class="label" style="margin-top:6px">Sectors</span>
+        <div id="sectors" style="display:flex;flex-direction:column;gap:6px"></div>
+      </div>
+    </div>
+  </div>
+  <div class="cols" style="margin-top:12px">
+    <div class="col"><h3>CAGR</h3><p>Compound annual growth rate: the steady yearly rate that would turn the start value into the end value. ₹1 lakh growing to ₹2 lakh in 6 years is a CAGR of 12.25%, even if the actual years went up and down.</p></div>
+    <div class="col"><h3>XIRR</h3><p>For SIPs, each instalment has been invested for a different time, so CAGR doesn't work. XIRR is the yearly return that accounts for every dated cash flow. Fund statements show XIRR for your own investments.</p></div>
+    <div class="col"><h3>Rolling returns</h3><p>Point-to-point returns depend heavily on start and end dates. Rolling returns look at every 3- or 5-year period in history, so you can see how often the fund beat its index, not just once.</p></div>
+    <div class="col c"><h3>Standard deviation</h3><p>How much returns swing around their average. 13.8% means a typical year could be roughly 14 points above or below average. Higher means a bumpier ride.</p></div>
+    <div class="col c"><h3>Beta</h3><p>How much the fund moves with the market. A beta of 0.92 means that when the index moves 10%, the fund has tended to move about 9.2%.</p></div>
+    <div class="col c"><h3>Sharpe ratio</h3><p>Return earned above a safe rate, per unit of risk. (Fund return − risk-free rate) ÷ standard deviation. Higher is better. A fund returning 14% with 7% risk-free and 16% SD has a Sharpe of 0.44.</p></div>
+    <div class="col s"><h3>Alpha</h3><p>Return beyond what the fund's beta would predict from the market's move. Positive alpha is evidence of the manager adding value, though it can also be luck over short periods.</p></div>
+    <div class="col s"><h3>AUM</h3><p>Assets under management: the size of the fund. Too small can mean higher costs. Very large can make it harder for a mid- or small-cap fund to buy enough of small companies.</p></div>
+    <div class="col s"><h3>Concentration and overlap</h3><p>How much is in the top 10 stocks and sectors. If you own three funds, check how many of the same stocks they hold. Owning five funds that all own the same 30 companies is not diversification.</p></div>
+  </div>
+  <div class="prose">
+    <p>Ananya's reading of her own fund: it lagged the index over the past year, but has beaten it over three and five years, with less volatility than the market (beta below 1). The manager has been there seven years, so those results are his. Costs are reasonable for an active fund. She decides one bad year isn't a reason to leave.</p>
+  </div>
+</section>
+
+<section class="chapter" id="crash">
+  <header><span class="label">Chapter 11</span><h2>The year the market fell</h2></header>
+  <div class="prose">
+    <p>Go back to Ananya's first year in Chapter 8. By month 5, the NAV had halved from ₹20 to ₹10. Her ₹25,000 invested was worth only ₹17,778, down 29%. News channels were full of red arrows. People in the hospital canteen were talking about selling.</p>
+    <p>Here are three versions of what Ananya could have done.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>What Ananya did in month 5</th><th class="num">Invested</th><th class="num">Value at month 12</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Panicked: stopped the SIP and sold everything at NAV ₹10</td><td class="num">₹25,000</td><td class="num">₹17,778</td><td>Loss of ₹7,222, made permanent</td></tr>
+          <tr><td>Froze: stopped the SIP but kept her units</td><td class="num">₹25,000</td><td class="num">₹39,111</td><td>Gain of ₹14,111</td></tr>
+          <tr><td>Stayed the course: kept the SIP going</td><td class="num">₹60,000</td><td class="num">₹86,954</td><td>Gain of ₹26,954, with cheap units bought at the bottom</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Same fund, same market. The difference is entirely behaviour.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">Three Ananyas, one year</span><button type="button" class="xbtn" id="x-crash-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Three lines of portfolio value through a crash: selling at the bottom stays flat at a loss, freezing recovers, continuing the SIP ends highest"><g id="x-crash"></g></svg></div>
+    <figcaption>All three are identical until month 5. What happens next depends only on what Ananya does.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Ananya kept going, mostly because Meera told her a story about a bridge bond whose price fell when rates rose, but which still paid every rupee in the end. The analogy isn't perfect, because shares have no maturity date and no promised payout. But the lesson holds: <strong>a fall in price is not a loss until you sell</strong>, and selling at the bottom turns a temporary fall into a permanent one.</p>
+    <p>Studies of fund investors keep finding the same thing: the average investor earns noticeably less than the funds they invest in, because they buy after prices have risen and sell after they've fallen. This is called the <strong>behaviour gap</strong>. The most valuable thing a SIP does may be to take those decisions away from you.</p>
+    <p>This doesn't mean "never sell". If your goal is a year away, money should not have been in equity to begin with. If a fund has changed its strategy, or lagged its index for years under a new manager, selling can be right. The question to ask is: <em>has anything changed about why I bought this, apart from the price?</em></p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Drawdown</span>The fall from a peak to a low. Equity funds have had drawdowns of 30–60% in severe crashes. Before investing, ask yourself whether you could watch half your money vanish on paper without selling.</div>
+    <div class="note"><span class="label">Market risk</span>Diversification protects you from one company failing. It does not protect you from the whole market falling. Only time, and the right asset mix, help with that.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="debtfund">
+  <header><span class="label">Chapter 12</span><h2>When a debt fund broke</h2></header>
+  <div class="prose">
+    <p>Ananya also kept her emergency savings, ₹1.5 lakh, in a debt fund that a colleague recommended because it paid about 2% more than others in its category. She didn't look closely at why.</p>
+    <p>The reason was in the portfolio: it held bonds from lower-rated companies, including ₹6 crore of bonds from a real-estate company rated A. One day, that company missed a payment. Its bonds were downgraded to D, the same as Dhoolgarh's in the bond story.</p>
+    <p>Three things happened at once. The fund had to value those bonds near zero, so its NAV fell 4% in a day, a shocking move for a debt fund. Investors who heard first rushed to redeem. And the fund had to sell its <em>good</em> bonds to pay them, because nobody would buy the bad ones, leaving remaining investors with a pot that was a little worse each day.</p>
+    <p>SEBI's rules offered a remedy called <strong>side pocketing</strong>. The fund split the defaulted bonds into a separate pocket. Everyone holding units on that day received matching units in the side pocket. The main fund, now holding only good bonds, carried on normally and could be redeemed. If the defaulted company ever paid anything, it would go to side-pocket holders, so people who rushed out later couldn't take the good assets and leave the bad ones behind.</p>
+    <p>Ananya lost about 4% of her emergency fund on paper, and got about half of that back two years later when the company's debts were restructured. Her lesson: a debt fund is a pot of bonds, and it carries every bond risk from the first story: interest-rate risk, credit risk and liquidity risk.</p>
+  </div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">How a side pocket works</span>
+      <div class="xseg" role="group" aria-label="Choose a stage" id="x-side-seg">
+        <button type="button" data-v="0" aria-pressed="true">Before</button>
+        <button type="button" data-v="1" aria-pressed="false">Default hits</button>
+        <button type="button" data-v="2" aria-pressed="false">Side pocket</button>
+      </div></div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="A fund of ten bonds; one defaults and is moved into a separate side pocket"><g id="x-side"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="x-side-note"></p>
+  </figure>
+  <div class="risks">
+    <div class="risk-row"><strong>Credit risk</strong><span>Bonds in the fund are downgraded or default. Check the share of the fund below AAA, and avoid credit-risk funds for emergency money.</span></div>
+    <div class="risk-row"><strong>Interest-rate risk</strong><span>Rates rise, bond prices fall, NAV falls. A fund's modified duration tells you how much: a duration of 6 means about a 6% fall for a 1% rise in rates.</span></div>
+    <div class="risk-row"><strong>Liquidity risk</strong><span>The fund can't sell its bonds quickly enough to meet redemptions without big price cuts.</span></div>
+    <div class="risk-row"><strong>Concentration risk</strong><span>Too much in one issuer or group. Check the top holdings.</span></div>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Real events</span>In 2018 the IL&amp;FS default hit several Indian debt funds. In April 2020, Franklin Templeton wound up six Indian debt schemes holding lower-rated bonds, freezing about ₹25,000 crore of investors' money. Most of it was eventually returned over the following years, but investors waited a long time.</div>
+    <div class="note"><span class="label">YTM of a debt fund</span>Factsheets show the portfolio's yield to maturity. A much higher YTM than similar funds usually means more credit risk or longer duration. The extra yield always comes from somewhere.</div>
+    <div class="note coin"><span class="label">Emergency money</span>Keep it in very safe, short options: savings, fixed deposits, overnight or liquid funds. Not in funds chasing extra yield.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="tax">
+  <header><span class="label">Chapter 13</span><h2>Taking money out, and tax</h2></header>
+  <div class="prose">
+    <p>Five years in, Ananya wants ₹2 lakh for a deposit on a flat. To <strong>redeem</strong>, she places a request through her app. She gets that day's NAV if she's before the cut-off, minus any exit load, and the money reaches her bank in a few working days for equity funds, and usually the next working day for liquid funds.</p>
+    <h3 class="sub-h">Growth or IDCW</h3>
+    <p>When she started, she had to choose between two options. In the <strong>growth</strong> option, all gains stay in the fund and show up as a rising NAV. In the <strong>IDCW</strong> option (income distribution cum capital withdrawal, formerly called "dividend"), the fund pays out money from time to time. The name was changed because these payouts are not extra income: they come <em>out of your own NAV</em>, which drops by the same amount. For most long-term investors, growth is simpler and more tax-efficient.</p>
+    <h3 class="sub-h">How gains were taxed in India</h3>
+    <p>Tax rules for funds have changed several times in recent years, so treat this as a picture of how the system works rather than current advice. Under the rules announced in July 2024:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Fund type</th><th>Held 12 months or less</th><th>Held more than 12 months</th></tr></thead>
+        <tbody>
+          <tr><td>Equity funds (65%+ in Indian shares)</td><td>Short-term gain: 20%</td><td>Long-term gain: 12.5% on gains above ₹1.25 lakh in a year</td></tr>
+          <tr><td>Debt funds bought on or after 1 April 2023</td><td colspan="2">Gains added to your income and taxed at your slab rate, however long you hold</td></tr>
+          <tr><td>IDCW payouts (any fund)</td><td colspan="2">Added to your income and taxed at your slab rate</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Simplified, and subject to change. Hybrid and other funds have their own rules depending on how much they hold in shares. Check the latest rules or ask a tax professional.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Ananya's example: she redeems equity fund units with a long-term gain of ₹2 lakh, and has no other long-term equity gains that year. The first ₹1.25 lakh of gains is tax-free. She pays 12.5% on the remaining ₹75,000, which is <span class="num">₹9,375</span>.</p>
+    <p>Two practical details. Units are treated as sold <strong>first in, first out</strong>: her oldest units go first, which helps since they're most likely to qualify as long-term. And each SIP instalment counts as a separate purchase with its own date, so a SIP started 13 months ago has only one instalment that is long-term.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Redemption</span>Selling units back to the fund at NAV. The fund cancels them and pays you. There is no buyer to find, which is the convenience of an open-ended fund.</div>
+    <div class="note coin"><span class="label">ELSS</span>Equity-linked savings schemes carry a 3-year lock-in for each instalment. Under the old tax regime they qualify for a deduction under Section 80C. The new regime, now the default, doesn't offer it.</div>
+    <div class="note sky"><span class="label">Statements</span>A <dfn>consolidated account statement (CAS)</dfn> each month lists all your fund holdings across fund houses, with values and transactions.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part four</span><h2>The pot in the wider world</h2></div>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>The mutual fund market</h2></header>
+  <div class="prose">
+    <p>Zoom out from Ananya's single SIP. Millions of SIPs like hers, each on a different day of the month, add up to a steady river of money flowing into Indian markets every month. That river is the <strong>mutual fund market</strong>: the fund houses that make funds, the people who sell them, the investors who buy them, and the rules that hold it together.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>The makers</h3><p>About forty-five fund houses (AMCs) in India, from bank-owned giants to small independent firms. A handful of the largest manage over half of all the money. They compete on returns, costs, brand and the number of distributors selling their funds.</p></div>
+    <div class="col"><h3>The sellers</h3><p>Distributors (registered with AMFI, the industry body, and holding an ARN code), banks, brokers, online platforms and apps, and fee-only investment advisers registered with SEBI. Direct plans and apps have made it possible to invest with no one in between.</p></div>
+    <div class="col"><h3>The buyers</h3><p>Individual investors, increasingly from small towns like Kesarpur, plus companies parking spare cash in liquid funds, and wealthy families. Retail investors hold most of the equity fund money; companies hold much of the liquid and debt money.</p></div>
+    <div class="col s"><h3>The rule-makers</h3><p>SEBI writes and enforces the regulations. AMFI is the industry association: it registers distributors, publishes industry data, and runs investor awareness campaigns like the "Mutual Funds Sahi Hai" adverts.</p></div>
+    <div class="col s"><h3>The plumbing</h3><p>Registrars (CAMS, KFintech), custodians, depositories (NSDL, CDSL) for demat units, stock exchanges, which also run fund order platforms, and payment systems that make SIP debits automatic.</p></div>
+    <div class="col c"><h3>Why it matters to everyone</h3><p>Steady SIP inflows mean Indian companies are less dependent on foreign investors, who can pull money out suddenly. Debt funds lend to companies by buying their bonds and short-term paper. The industry now holds a meaningful share of all Indian listed shares.</p></div>
+  </div>
+  <div class="prose">
+    <h3 class="sub-h">A short history</h3>
+    <p>The idea is old. Pooled investment trusts appeared in the Netherlands and Britain in the 1700s and 1800s. The first modern open-ended fund, buying and selling units at net asset value every day, began in Boston in 1924. In India, the government set up the Unit Trust of India in 1963, and for decades it was the only mutual fund. Public-sector banks were allowed in from 1987 and private fund houses from 1993, the same year the first SEBI mutual fund regulations were written; the current regulations date from 1996. UTI's flagship scheme, US-64, ran into a crisis in 2001 because it had promised returns its investments couldn't support, a lesson in why funds today aren't allowed to promise returns. The industry has since grown many times over, helped by direct plans, online KYC and the spread of SIPs.</p>
+    <h3 class="sub-h">How a mutual fund compares with other ways to invest</h3>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table style="min-width:760px">
+        <thead><tr><th></th><th>Mutual fund</th><th>Buying shares yourself</th><th>PMS</th><th>AIF</th><th>ULIP</th><th>Fixed deposit</th></tr></thead>
+        <tbody>
+          <tr><td>Minimum</td><td>₹100–500</td><td>One share</td><td>₹50 lakh</td><td>₹1 crore</td><td>Varies</td><td>Small</td></tr>
+          <tr><td>Who decides</td><td>Fund manager</td><td>You</td><td>Manager, in your own account</td><td>Manager, often with complex strategies</td><td>Insurer's fund manager</td><td>Fixed by bank</td></tr>
+          <tr><td>Diversification</td><td>High</td><td>Depends on you</td><td>Medium, 15–30 stocks</td><td>Varies</td><td>Medium to high</td><td>None needed</td></tr>
+          <tr><td>Costs</td><td>Capped, disclosed</td><td>Brokerage only</td><td>Higher, often with profit share</td><td>Higher</td><td>Several layers, mixed with insurance</td><td>None visible</td></tr>
+          <tr><td>Liquidity</td><td>Usually daily</td><td>Daily</td><td>Daily, with exit fees</td><td>Often locked for years</td><td>5-year lock-in</td><td>Penalty to break</td></tr>
+          <tr><td>Return</td><td>Market-linked</td><td>Market-linked</td><td>Market-linked</td><td>Market-linked</td><td>Market-linked</td><td>Fixed</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>PMS = portfolio management service; AIF = alternative investment fund; ULIP = unit-linked insurance plan. Minimums are SEBI's thresholds at the time of writing.</figcaption>
+  </figure>
+</section>
+
+<section class="chapter" id="plan">
+  <header><span class="label">Chapter 15</span><h2>A plan for three generations</h2></header>
+  <div class="prose">
+    <p>One Sunday, three generations sit around Meera's kitchen table: Meera, now 82; Ananya, now 30; and Ananya's newborn son. Meera makes them do what she made her students do: write down the goal before choosing the method.</p>
+    <p><strong>Rule one: match the pot to the time.</strong> Money needed within three years shouldn't be in equity, because a crash could hit just when it's needed. Money needed in ten years or more can ride out crashes, and has the most to gain from equity's long-run growth.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Goal</th><th>When</th><th>Where</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Emergency fund, 6 months of expenses</td><td>Any day</td><td>Savings account + liquid or overnight fund</td><td>Safe, available in a day</td></tr>
+          <tr><td>Flat deposit</td><td>2–3 years</td><td>Short-duration or target-maturity debt fund, or FD</td><td>Low swings, known timeline</td></tr>
+          <tr><td>Son's education</td><td>18 years</td><td>Equity index fund + flexi cap SIP, moving to debt in the last 3–4 years</td><td>Long time to grow, then protect</td></tr>
+          <tr><td>Ananya's retirement</td><td>30 years</td><td>Mostly equity, with some debt that grows as she ages</td><td>Longest horizon, needs growth that beats inflation</td></tr>
+          <tr><td>Meera's monthly income</td><td>Now</td><td>Conservative hybrid or debt fund with an SWP</td><td>Steady payouts, limited swings</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. A real plan depends on income, other savings, insurance and how much risk each person can stomach.</figcaption>
+  </figure>
+  <div class="prose">
+    <p><strong>Rule two: decide the mix, then rebalance.</strong> Ananya chooses 70% equity, 30% debt for her retirement money. If a great year pushes equity to 80%, she moves some back to debt; after a crash, she moves some from debt into equity. Rebalancing forces her to sell some of whatever has risen and buy some of whatever has fallen, the opposite of what fear and greed suggest.</p>
+    <p><strong>Rule three: keep it simple.</strong> Two to four funds can cover almost any plan: perhaps an index fund, a flexi cap fund, a short-duration debt fund and a liquid fund. Owning twelve funds usually means owning the same companies twelve times, with more paperwork.</p>
+    <p><strong>Rule four: income in retirement.</strong> Meera sets up a <strong>systematic withdrawal plan</strong>: ₹8,000 on the 1st of each month from her conservative hybrid fund. If the fund earns more than she withdraws over time, her capital lasts; if she withdraws too much, it runs down. She sets the withdrawal at about 5% a year of her capital, leaving room for bad years.</p>
+    <p><strong>Rule five: insurance first.</strong> Before investing for growth, Ananya buys simple term life insurance and health insurance, so a hospital bill or the worst case doesn't force her to sell at a bad time.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Asset allocation</span>How you split money between equity, debt, gold and cash. Research suggests it explains most of the ups and downs in a portfolio, more than which particular funds you choose.</div>
+    <div class="note coin"><span class="label">Glide path</span>Gradually moving from equity to debt as a goal approaches, so a late crash can't wreck it. Some retirement funds do this automatically.</div>
+    <div class="note sky"><span class="label">Review, don't fiddle</span>Check once or twice a year: Is the mix right? Is each fund still doing its job against its benchmark and category? Otherwise, leave it alone.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Twenty years on</h2></header>
+  <div class="prose">
+    <p>Ananya is now 45 and runs the nursing staff at the hospital, the job Sister Thomas once had. Her SIP started at ₹5,000 and rose with each pay rise. She lived through three big market falls and stopped her SIP in none of them. She switched funds twice: once when a manager left and the fund drifted from its stated style, and once to move her son's education money into debt as his college years approached.</p>
+    <p>The pot that started as a canteen conversation turned out to have everything Sister Thomas wanted: one share of a thousand decisions made by professionals, guarded by a structure in which no one could run off with the money, priced fairly every evening, and open to anyone with a few hundred rupees.</p>
+    <p>It also carried every risk the nurses feared: markets that fall, managers who get things wrong, costs that compound quietly, and bonds that don't pay. A mutual fund doesn't remove those risks. It shares them, spreads them, and makes them visible, so that an ordinary saver can take them on knowingly.</p>
+    <p>That is a mutual fund: a common pot, fairly divided. And the mutual fund market is the system that lets millions of people like Ananya own a small piece of their country's companies and bonds, and grow along with them.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The two stories together</span>In the bond story, Kesarpur borrowed to build a bridge. In this one, savers pool money to own companies and bonds. Mutual funds connect the two: many debt funds hold exactly the kind of bonds Meera once bought.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Eight myths about mutual funds</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">A lower NAV is cheaper.</span><span>NAV is just the value of one slice. ₹10 units and ₹500 units in identical funds grow by the same percentage. A new fund at ₹10 is not a bargain.</span></div>
+    <div class="myth"><span class="m">Mutual funds only invest in shares.</span><span>Many hold only bonds, money-market loans, or gold. Check what's in the pot.</span></div>
+    <div class="myth"><span class="m">Debt funds are as safe as an FD.</span><span>They carry interest-rate, credit and liquidity risk (Chapter 12), and they aren't insured.</span></div>
+    <div class="myth"><span class="m">A SIP guarantees profit.</span><span>A SIP is a way of investing, not a product. It averages your cost; it doesn't stop the market falling.</span></div>
+    <div class="myth"><span class="m">More funds mean more diversification.</span><span>Several funds in the same category often hold the same stocks. Two or three well-chosen funds can be more diversified than ten.</span></div>
+    <div class="myth"><span class="m">Last year's top fund will win next year.</span><span>Top rankings change often. Look at long, rolling records, costs and process, not a single year.</span></div>
+    <div class="myth"><span class="m">IDCW is free extra income.</span><span>Payouts come out of your own NAV, and are taxed at your slab rate.</span></div>
+    <div class="myth"><span class="m">You need a lot of money to start.</span><span>Many funds accept SIPs from ₹100–500 a month.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before you invest: a checklist</h2>
+  <ul class="check">
+    <li>I know what this money is for, and when I'll need it.</li>
+    <li>I have an emergency fund and health insurance in place first.</li>
+    <li>The fund's category matches my timeline (equity only for 5+ years).</li>
+    <li>I've read the riskometer and the fund's objective in the SID or KIM.</li>
+    <li>I've compared its expense ratio with others in the category, and chosen direct or regular knowingly.</li>
+    <li>I've looked at 3-, 5- and 10-year and rolling returns against its benchmark, not just last year.</li>
+    <li>For a debt fund, I've checked credit quality, duration and YTM.</li>
+    <li>I know the exit load and lock-in, if any.</li>
+    <li>I won't check the NAV every day, and I won't sell just because the market fell.</li>
+    <li>I'll review once or twice a year and rebalance if my mix drifts.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Ananya's ₹5,000 problem</td><td>Why funds exist</td><td>Diversification, expertise and time for small savers</td></tr>
+        <tr><td>The nurses' pot</td><td>Pooling</td><td>Many investors share one portfolio in proportion</td></tr>
+        <tr><td>Sponsor, trustees, AMC, custodian</td><td>Fund structure</td><td>The one who decides never holds the money</td></tr>
+        <tr><td>NAV ₹10.65</td><td>Units and NAV</td><td>Net assets ÷ units, priced every day</td></tr>
+        <tr><td>A thousand schemes</td><td>SEBI categories, riskometer</td><td>Every fund fits a defined box with a risk label</td></tr>
+        <tr><td>Ravi's day</td><td>Active management</td><td>Choosing which stocks, how much, and when</td></tr>
+        <tr><td>Joseph's index fund</td><td>Passive investing</td><td>Match the market at very low cost</td></tr>
+        <tr><td>Dev at the bank</td><td>TER, direct vs. regular</td><td>Small yearly costs compound into large sums</td></tr>
+        <tr><td>₹5,000 on the 5th</td><td>SIP, rupee cost averaging</td><td>Fixed amounts buy more units when prices are low</td></tr>
+        <tr><td>Starting at 25 vs. 35</td><td>Compounding</td><td>Time matters more than amount</td></tr>
+        <tr><td>The factsheet</td><td>CAGR, XIRR, SD, beta, Sharpe</td><td>Return, risk and return per unit of risk</td></tr>
+        <tr><td>Month 5, NAV ₹10</td><td>Behaviour gap</td><td>Selling in a panic turns falls into losses</td></tr>
+        <tr><td>The side pocket</td><td>Debt fund risks</td><td>A fund of bonds has every bond risk</td></tr>
+        <tr><td>₹9,375 tax</td><td>Redemption, growth vs. IDCW, tax</td><td>What you keep is what matters</td></tr>
+        <tr><td>Meera's kitchen table</td><td>Asset allocation, SWP, rebalancing</td><td>Match the pot to the goal and the time</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>AMC</dt><dd>Asset management company: the firm that manages the fund's money.</dd></div>
+    <div><dt>AMFI</dt><dd>The industry association of Indian mutual funds; registers distributors.</dd></div>
+    <div><dt>AUM</dt><dd>Assets under management: the total size of a fund or fund house.</dd></div>
+    <div><dt>Benchmark</dt><dd>The index a fund is measured against.</dd></div>
+    <div><dt>Beta</dt><dd>How much a fund moves when the market moves.</dd></div>
+    <div><dt>CAGR</dt><dd>Steady yearly growth rate between two values.</dd></div>
+    <div><dt>Custodian</dt><dd>The bank that holds the fund's securities.</dd></div>
+    <div><dt>Cut-off time</dt><dd>The deadline for getting a given day's NAV.</dd></div>
+    <div><dt>Direct / regular plan</dt><dd>Without / with distributor commission built into costs.</dd></div>
+    <div><dt>ETF</dt><dd>Exchange-traded fund: an index fund traded on the stock exchange.</dd></div>
+    <div><dt>Exit load</dt><dd>A fee for redeeming before a set period.</dd></div>
+    <div><dt>Expense ratio (TER)</dt><dd>Yearly running cost of the fund as a share of assets.</dd></div>
+    <div><dt>Growth / IDCW</dt><dd>Gains stay in the NAV / are paid out from the NAV.</dd></div>
+    <div><dt>Index fund</dt><dd>A fund that copies an index instead of picking stocks.</dd></div>
+    <div><dt>NAV</dt><dd>Net asset value per unit, published daily.</dd></div>
+    <div><dt>NFO</dt><dd>New fund offer: the first sale of a new scheme's units.</dd></div>
+    <div><dt>Open / closed-ended</dt><dd>Units issued and redeemed daily / sold once for a fixed term.</dd></div>
+    <div><dt>Rebalancing</dt><dd>Restoring your chosen mix after markets move it.</dd></div>
+    <div><dt>Riskometer</dt><dd>A six-level dial showing a fund's risk, updated monthly.</dd></div>
+    <div><dt>Rolling returns</dt><dd>Returns over every period of a given length, to judge consistency.</dd></div>
+    <div><dt>RTA</dt><dd>Registrar and transfer agent: keeps investor records.</dd></div>
+    <div><dt>Sharpe ratio</dt><dd>Return above a safe rate, per unit of volatility.</dd></div>
+    <div><dt>Side pocket</dt><dd>A separate portion holding troubled bonds, to protect remaining investors.</dd></div>
+    <div><dt>SID / KIM</dt><dd>The fund's full and summary offer documents.</dd></div>
+    <div><dt>SIP / STP / SWP</dt><dd>Regular investing / transferring / withdrawing.</dd></div>
+    <div><dt>Standard deviation</dt><dd>How widely returns swing around the average.</dd></div>
+    <div><dt>Tracking error</dt><dd>How far an index fund's return strays from its index.</dd></div>
+    <div><dt>Units</dt><dd>Your slices of the fund; value = units × NAV.</dd></div>
+    <div><dt>XIRR</dt><dd>Yearly return accounting for the dates of every investment.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how mutual funds work. Ananya, Ravi, the Riverbank fund and all the figures in the story are fictional and illustrative. It is not investment or tax advice. Rules, costs and taxes change, so check current scheme documents and official sources, or consult a SEBI-registered adviser, before investing.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+
+  // Hero: coins and slices
+  (function(){
+    const g=document.getElementById('hero-coins');
+    const pts=[[40,30],[90,20],[150,40],[210,18],[270,36],[330,24],[370,50],[60,70],[120,78],[250,72],[310,82],[180,64]];
+    pts.forEach(([x,y],i)=>{ g.appendChild(el('circle',{cx:x,cy:y,r:9,fill:'var(--coin)',opacity:(0.55+0.4*((i%3)/2)).toFixed(2)})); g.appendChild(el('line',{x1:x,y1:y+10,x2:200+(x-200)*0.35,y2:116,stroke:'var(--coin)','stroke-width':1,opacity:.35})); });
+    const s=document.getElementById('hero-slices');
+    const cols=['var(--coin-soft)','var(--pot-soft)','var(--sky-soft)','var(--paper)'];
+    for(let i=0;i<8;i++) s.appendChild(el('rect',{x:135+i*16.5,y:146,width:12,height:24-((i*7)%14),rx:2,fill:cols[i%4]}));
+  })();
+
+  // NAV slider
+  (function(){
+    const s=document.getElementById('mkt');
+    function u(){ const m=+s.value; const shares=1045000*(1+m/100); const net=shares+20000+3000-3000; const nav=net/100000;
+      document.getElementById('mkt-out').textContent=(m>0?'+':m<0?'−':'')+Math.abs(m)+'%';
+      document.getElementById('na').textContent=fmt(net);
+      document.getElementById('navv').textContent='₹'+nav.toFixed(2);
+      document.getElementById('mine').textContent=fmt(nav*500); }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Riskometer
+  (function(){
+    const g=document.getElementById('rmeter');
+    const names=['Low','Low to moderate','Moderate','Moderately high','High','Very high'];
+    const cols=['var(--pot)','var(--pot)','var(--coin)','var(--coin)','var(--risk)','var(--risk)'];
+    const ops=[.45,.8,.5,.85,.6,1];
+    const cx=210,cy=200,R=165,r=105;
+    const pt=(a,rad)=>[cx+rad*Math.cos(a),cy-rad*Math.sin(a)];
+    names.forEach((n,i)=>{
+      const a0=Math.PI-(i*Math.PI/6), a1=Math.PI-((i+1)*Math.PI/6);
+      const [x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R),[x2,y2]=pt(a1,r),[x3,y3]=pt(a0,r);
+      g.appendChild(el('path',{d:`M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${r} ${r} 0 0 0 ${x3} ${y3} Z`,fill:cols[i],opacity:ops[i],stroke:'var(--paper)','stroke-width':2}));
+    });
+    const lab=el('text',{x:cx,y:cy+30,'text-anchor':'middle','font-size':15,fill:'var(--ink)'},'');
+    g.appendChild(lab);
+    g.appendChild(el('text',{x:cx-R,y:cy+18,'text-anchor':'start','font-size':10,fill:'var(--muted)'},'LOW'));
+    g.appendChild(el('text',{x:cx+R,y:cy+18,'text-anchor':'end','font-size':10,fill:'var(--muted)'},'VERY HIGH'));
+    const needle=el('g',{style:'transition:transform .5s ease;transform-origin:'+cx+'px '+cy+'px'});
+    needle.appendChild(el('line',{x1:cx,y1:cy,x2:cx-R+20,y2:cy,stroke:'var(--ink)','stroke-width':3,'stroke-linecap':'round'}));
+    needle.appendChild(el('circle',{cx:cx,cy:cy,r:8,fill:'var(--ink)'}));
+    g.appendChild(needle);
+    function set(l){ const deg=(l+0.5)*30; needle.style.transform='rotate('+deg+'deg)'; lab.textContent=names[l]+' risk'; }
+    document.querySelectorAll('#rm-buttons button').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('#rm-buttons button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); set(+b.dataset.l); }));
+    set(5);
+  })();
+
+  // SIP table
+  (function(){
+    const navs=[20,18,15,12,10,12,14,16,15,18,20,22]; let tot=0; const tb=document.getElementById('sip-tbody');
+    navs.forEach((n,i)=>{ const u=5000/n; tot+=u; const tr=document.createElement('tr'); if(n===10) tr.className='hl';
+      tr.innerHTML='<td>'+(i+1)+'</td><td class="num">₹'+n.toFixed(2)+'</td><td class="num">₹5,000</td><td class="num">'+u.toFixed(3)+'</td><td class="num">'+tot.toFixed(3)+'</td>'; tb.appendChild(tr); });
+    const tr=document.createElement('tr'); tr.className='total';
+    tr.innerHTML='<td colspan="2">Total</td><td class="num">₹60,000</td><td class="num"></td><td class="num">'+tot.toFixed(3)+'</td>'; tb.appendChild(tr);
+  })();
+
+  // SIP calculator
+  (function(){
+    const a=document.getElementById('sip-amt'),y=document.getElementById('sip-yrs'),r=document.getElementById('sip-ret');
+    const fv=(P,rr,yy)=>{const i=rr/12,n=yy*12;return P*((Math.pow(1+i,n)-1)/i)*(1+i);};
+    function u(){ const P=+a.value,Y=+y.value,R=+r.value/100; const v=fv(P,R,Y), inv=P*12*Y, g=v-inv, v1=fv(P,R-0.01,Y);
+      document.getElementById('sip-amt-out').textContent=fmt(P);
+      document.getElementById('sip-yrs-out').textContent=Y;
+      document.getElementById('sip-ret-out').textContent=(+r.value)+'%';
+      document.getElementById('c-inv').textContent=fmt(inv);
+      document.getElementById('c-gain').textContent=fmt(g);
+      document.getElementById('c-fv').textContent=fmt(v);
+      document.getElementById('sp-inv').style.width=(inv/v*100)+'%';
+      document.getElementById('sp-gain').style.width=(g/v*100)+'%';
+      document.getElementById('c-note').textContent='Growth is '+Math.round(g/v*100)+'% of the final value. With 1% higher yearly costs, the final value would be '+fmt(v1)+', which is '+fmt(v-v1)+' less.'; }
+    [a,y,r].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Sectors
+  (function(){
+    const s=[['Banks & finance',28],['IT services',12],['Consumer',11],['Healthcare',10],['Industrials',9],['Energy',7],['Others',17],['Cash',6]];
+    const box=document.getElementById('sectors');
+    s.forEach(([n,v])=>{ const d=document.createElement('div'); d.className='sector'; d.innerHTML='<span>'+n+'</span><span class="t"><i style="width:'+(v/30*100)+'%"></i></span><span>'+v+'%</span>'; box.appendChild(d); });
+  })();
+})();
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fmt=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+function axes(g,o){const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L),Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);o.yt.forEach(v=>{g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'}));g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v)));});(o.xt||[]).forEach(v=>g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));return{X,Y};}
+const pd=(pts,X,Y)=>pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+function line(g,pts,X,Y,a){const e=el('path',Object.assign({d:pd(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},a));g.appendChild(e);return e;}
+function mover(g,d,c,dur,r,b){if(reduce)return;const n=el('circle',{r:r||5,fill:c});n.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(b||0))+'s'}));g.appendChild(n);}
+function replay(g,sel,cls,step){g.querySelectorAll(sel).forEach((p,i)=>{p.classList.remove(cls);void p.getBoundingClientRect();p.style.animationDelay=(i*(step||.15))+'s';p.classList.add(cls);});}
+function onView(n,fn){if(reduce||!('IntersectionObserver' in window))return;const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){fn();io.disconnect();}});},{threshold:.35});io.observe(n);}
+function wire(id,g,fn){const b=document.getElementById(id);if(b)b.addEventListener('click',fn);onView(g,fn);}
+
+// Pool
+(function(){const g=document.getElementById('x-pool');if(!g)return;
+const nur=[];for(let r=0;r<5;r++)for(let c=0;c<4;c++){const x=30+c*28,y=40+r*32;nur.push([x,y]);g.appendChild(el('circle',{cx:x,cy:y,r:9,fill:'var(--coin)',opacity:.85}));}
+g.appendChild(el('text',{x:72,y:222,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'200 nurses'));g.appendChild(el('text',{x:72,y:237,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'× ₹5,000 each'));
+const co=[];for(let r=0;r<5;r++)for(let c=0;c<8;c++){const x=440+c*24,y=36+r*34;co.push([x,y]);g.appendChild(el('rect',{x,y,width:18,height:18,rx:3,fill:'var(--sky)',opacity:(.5+((r*8+c)%5)*.1).toFixed(2)}));}
+[0,9,18,27,39,13,30,4].forEach(i=>g.appendChild(el('line',{x1:300,y1:120,x2:co[i][0]+9,y2:co[i][1]+9,stroke:'var(--rule)'})));
+g.appendChild(el('circle',{cx:300,cy:120,r:56,fill:'var(--pot)'}));g.appendChild(el('text',{x:300,y:116,'text-anchor':'middle','font-size':13,fill:'var(--paper)'},'The pot'));g.appendChild(el('text',{x:300,y:134,'text-anchor':'middle','font-size':11,fill:'var(--paper)'},'₹10 lakh'));
+g.appendChild(el('text',{x:530,y:222,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'40 companies'));g.appendChild(el('text',{x:530,y:237,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'each about 2.5% of the pot'));
+[0,5,10,15,19,7].forEach((i,k)=>mover(g,'M'+nur[i][0]+' '+nur[i][1]+' L300 120','var(--coin)',2.2,4,k*0.37));
+[0,9,18,27,39,13,30,4].forEach((i,k)=>mover(g,'M300 120 L'+(co[i][0]+9)+' '+(co[i][1]+9),'var(--pot)',2.4,4,k*0.3));})();
+
+// Cost of costs
+(function(){const g=document.getElementById('x-cost');if(!g)return;
+const fv=(P,r,y)=>{if(!y)return 0;const i=r/12,n=y*12;return P*((Math.pow(1+i,n)-1)/i)*(1+i);};
+const d=[],rg=[];for(let y=0;y<=30;y++){d.push([y,fv(5000,.125,y)/1e5]);rg.push([y,fv(5000,.115,y)/1e5]);}
+const {X,Y}=axes(g,{L:70,R:600,T:16,B:210,x0:0,x1:30,y0:0,y1:200,yt:[0,50,100,150,200],yf:v=>'₹'+v+'L',xt:[0,5,10,15,20,25,30],xf:v=>'Yr '+v});
+g.appendChild(el('path',{d:pd(d,X,Y)+' '+rg.slice().reverse().map(p=>'L'+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ')+' Z',fill:'var(--risk-soft)'}));
+line(g,d,X,Y,{stroke:'var(--pot)','stroke-width':3,pathLength:1000,class:'cl'});line(g,rg,X,Y,{stroke:'var(--muted)','stroke-width':3,pathLength:1000,class:'cl'});
+g.appendChild(el('text',{x:X(30)-6,y:Y(d[30][1])-8,'text-anchor':'end','font-size':11,fill:'var(--pot)'},'Direct ₹1.97 cr'));
+g.appendChild(el('text',{x:X(30)-6,y:Y(rg[30][1])+18,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'Regular ₹1.58 cr'));
+g.appendChild(el('text',{x:X(22),y:Y(95),'text-anchor':'middle','font-size':11,fill:'var(--risk)'},'gap ≈ ₹39 lakh'));
+wire('x-cost-r',g,()=>replay(g,'.cl','xdraw',0.3));})();
+
+// SIP units vs NAV
+(function(){const g=document.getElementById('x-sip');if(!g)return;
+const navs=[20,18,15,12,10,12,14,16,15,18,20,22];const L=60,R=580,TT=16,B=210,W=(R-L)/12,X=i=>L+(i+.5)*W,Y1=v=>B-v/550*(B-TT),Y2=v=>B-v/25*(B-TT);
+[0,250,500].forEach(v=>{g.appendChild(el('line',{x1:L,x2:R,y1:Y1(v),y2:Y1(v),stroke:'var(--rule)'}));g.appendChild(el('text',{x:L-8,y:Y1(v)+4,'text-anchor':'end','font-size':10,fill:'var(--sky)'},v));});
+[0,10,20].forEach(v=>g.appendChild(el('text',{x:R+8,y:Y2(v)+4,'font-size':10,fill:'var(--coin)'},'₹'+v)));
+navs.forEach((n,i)=>{const u=5000/n,x=X(i)-W*.3,w=W*.6;g.appendChild(el('rect',{x,y:Y1(u),width:w,height:B-Y1(u),rx:2,fill:'var(--sky)',opacity:.7,class:'sb',style:'transform-origin:'+X(i)+'px '+B+'px'}));
+g.appendChild(el('text',{x:X(i),y:B+16,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'M'+(i+1)));});
+const pts=navs.map((n,i)=>[i,n]);g.appendChild(el('path',{d:pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y2(p[1]).toFixed(1)).join(' '),fill:'none',stroke:'var(--coin)','stroke-width':3,pathLength:1000,class:'nl'}));
+pts.forEach(p=>g.appendChild(el('circle',{cx:X(p[0]),cy:Y2(p[1]),r:3.5,fill:'var(--coin)'})));
+g.appendChild(el('text',{x:X(4),y:Y1(500)-8,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'500 units at ₹10'));
+const run=()=>{replay(g,'.sb','xgy',0.08);replay(g,'.nl','xdraw',0);};wire('x-sip-r',g,run);})();
+
+// Crash paths
+(function(){const g=document.getElementById('x-crash');if(!g)return;
+const navs=[20,18,15,12,10,12,14,16,15,18,20,22];let u=0;const stay=[],frz=[],pan=[],inv=[];
+navs.forEach((n,i)=>{const m=i+1;u+=5000/n;stay.push([m,u*n]);frz.push([m,m<=5?u*n:1777.778*n]);pan.push([m,m<=5?u*n:17777.78]);inv.push([m,5000*m]);});
+const {X,Y}=axes(g,{L:70,R:600,T:16,B:210,x0:1,x1:12,y0:0,y1:90000,yt:[0,30000,60000,90000],yf:v=>'₹'+(v/1000)+'k',xt:[1,3,5,7,9,12],xf:v=>'Month '+v});
+line(g,inv,X,Y,{stroke:'var(--muted)','stroke-width':1.5,'stroke-dasharray':'4 4'});
+line(g,pan,X,Y,{stroke:'var(--risk)','stroke-width':3,pathLength:1000,class:'cr'});line(g,frz,X,Y,{stroke:'var(--sky)','stroke-width':3,pathLength:1000,class:'cr'});line(g,stay,X,Y,{stroke:'var(--pot)','stroke-width':3,pathLength:1000,class:'cr'});
+g.appendChild(el('line',{x1:X(5),x2:X(5),y1:16,y2:210,stroke:'var(--risk)','stroke-dasharray':'3 4'}));g.appendChild(el('text',{x:X(5)+6,y:28,'font-size':11,fill:'var(--risk)'},'Bottom: NAV ₹10'));
+g.appendChild(el('text',{x:X(12)-6,y:Y(86954)-8,'text-anchor':'end','font-size':11,fill:'var(--pot)'},'Kept SIP: ₹86,954'));
+g.appendChild(el('text',{x:X(12)-6,y:Y(39111)-8,'text-anchor':'end','font-size':11,fill:'var(--sky)'},'Stopped SIP, held: ₹39,111'));
+g.appendChild(el('text',{x:X(12)-6,y:Y(17778)+16,'text-anchor':'end','font-size':11,fill:'var(--risk)'},'Sold at bottom: ₹17,778'));
+g.appendChild(el('text',{x:X(9),y:Y(45000)-6,'font-size':10,fill:'var(--muted)'},'money put in (SIP)'));
+wire('x-crash-r',g,()=>replay(g,'.cr','xdraw',0.35));})();
+
+// Side pocket
+(function(){const g=document.getElementById('x-side'),note=document.getElementById('x-side-note');if(!g)return;
+g.appendChild(el('rect',{x:20,y:30,width:330,height:190,rx:10,fill:'var(--pot-soft)',stroke:'var(--pot)','stroke-width':1.5}));
+g.appendChild(el('text',{x:36,y:52,'font-size':12,fill:'var(--ink)'},'Main debt fund'));
+const nav=el('text',{x:334,y:52,'text-anchor':'end','font-size':12,fill:'var(--ink)'},'NAV ₹100.00');g.appendChild(nav);
+const pocket=el('g',{style:'transition:opacity .5s ease'});pocket.appendChild(el('rect',{x:420,y:30,width:200,height:190,rx:10,fill:'var(--risk-soft)',stroke:'var(--risk)','stroke-width':1.5,'stroke-dasharray':'6 4'}));
+pocket.appendChild(el('text',{x:436,y:52,'font-size':12,fill:'var(--ink)'},'Side pocket'));
+const ptxt=el('text',{x:520,y:200,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'units given to every holder that day');pocket.appendChild(ptxt);g.appendChild(pocket);
+const bonds=[];for(let r=0;r<2;r++)for(let c=0;c<5;c++){const x=46+c*58,y=76+r*64;const b=el('g',{style:'transition:transform .9s ease'});const rc=el('rect',{x,y,width:44,height:44,rx:6,fill:'var(--pot)',opacity:.85,style:'transition:fill .4s ease'});b.appendChild(rc);b.appendChild(el('text',{x:x+22,y:y+27,'text-anchor':'middle','font-size':10,fill:'var(--paper)'},r*5+c===9?'A-rated':'AAA'));g.appendChild(b);bonds.push([b,rc]);}
+function set(s){const[bad,rc]=[bonds[9][0],bonds[9][1]];
+if(s===0){rc.setAttribute('fill','var(--pot)');bad.style.transform='translate(0px,0px)';pocket.style.opacity=.25;nav.textContent='NAV ₹100.00';note.textContent='Ten bonds, all paying. One of them is a lower-rated real-estate company’s bond, about 4% of the fund.';}
+if(s===1){rc.setAttribute('fill','var(--risk)');bad.style.transform='translate(0px,0px)';pocket.style.opacity=.25;nav.textContent='NAV ₹96.00';note.textContent='The real-estate company defaults. The fund marks that bond near zero; NAV drops 4%. Investors who rush out would be paid from the good bonds, leaving the rest with the bad one.';}
+if(s===2){rc.setAttribute('fill','var(--risk)');bad.style.transform='translate(270px,-24px)';pocket.style.opacity=1;nav.textContent='NAV ₹96.00';note.textContent='The defaulted bond moves to a side pocket. Everyone holding units that day gets matching side-pocket units. The main fund, now all good bonds, carries on; any later recovery goes to side-pocket holders.';}}
+document.querySelectorAll('#x-side-seg button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#x-side-seg button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));set(+b.dataset.v);}));set(0);})();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 02</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="2"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="bridge-bond.html" rel="prev"><small>← Previous</small>The Bridge Bond</a><a href="pickle-share.html" rel="next"><small>Next story →</small>The Pickle Share</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

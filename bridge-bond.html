@@ -1,0 +1,1270 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Bridge Bond</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 01 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html" aria-current="page"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: a storybook column with a ledger margin; definitions sit in the margin on wide screens and inline on phones. Wide interludes span the full width. */
+:root{
+  --bg:#F1F4F3; --paper:#FBFCFB; --ink:#17232A; --muted:#55666E; --rule:#CFD9DA;
+  --river:#2A4F86; --river-soft:#DDE6F3; --coin:#B87503; --coin-soft:#F6E8CC; --risk:#B2443A; --risk-soft:#F4DEDA;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E161B; --paper:#152129; --ink:#E3EBEC; --muted:#9AAAB0; --rule:#2B3C45;
+  --river:#94B4EE; --river-soft:#1C2E47; --coin:#F0B54A; --coin-soft:#3A2D12; --risk:#EE8A7B; --risk-soft:#3D1F1B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E161B; --paper:#152129; --ink:#E3EBEC; --muted:#9AAAB0; --rule:#2B3C45;
+  --river:#94B4EE; --river-soft:#1C2E47; --coin:#F0B54A; --coin-soft:#3A2D12; --risk:#EE8A7B; --risk-soft:#3D1F1B; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--river)}
+:focus-visible{outline:2px solid var(--river);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+
+/* Contents */
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--river)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--river)}
+
+/* Chapters */
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+/* Ledger notes */
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--river)}
+.note.coin .label{color:var(--coin)}
+.note.risk .label{color:var(--risk)}
+.note dfn{font-style:normal;font-weight:600}
+
+/* Certificate */
+.cert{margin-block:8px;background:var(--paper);border:1px solid var(--river);border-radius:4px;padding:6px}
+.cert-in{border:1px dashed var(--river);padding:22px 22px 18px;display:flex;flex-direction:column;gap:14px}
+.cert h3{font-size:1.45rem;color:var(--river);text-align:center}
+.cert .sub{text-align:center;font-size:.85rem;color:var(--muted)}
+.cert dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 20px;margin:0}
+.cert dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cert dd{margin:0;font-family:var(--mono);font-size:1.02rem}
+.coupons{display:flex;gap:6px;flex-wrap:wrap;border-top:1px dashed var(--rule);padding-top:12px}
+.coupons span{flex:1 1 80px;border:1px dashed var(--coin);color:var(--coin);font-family:var(--mono);font-size:.72rem;text-align:center;padding:6px 4px;border-radius:3px;background:var(--coin-soft)}
+
+/* Figures */
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+
+/* Tables */
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+
+/* Interactive panels */
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.panel .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--river)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-family:var(--mono);font-size:.75rem;padding:2px 9px;border-radius:999px}
+.pill.prem{background:var(--coin-soft);color:var(--coin)}
+.pill.disc{background:var(--risk-soft);color:var(--risk)}
+.pill.par{background:var(--river-soft);color:var(--river)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--river);border-color:var(--river);color:var(--paper)}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar{display:grid;grid-template-columns:76px minmax(0,1fr) 72px;gap:10px;align-items:center;font-size:.85rem}
+.bar .track{height:14px;background:var(--river-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;border-radius:3px;transition:width .4s ease}
+.bar .v{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+
+/* Wide-section grids */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0}
+.col h3{font-size:1.2rem}
+.col .who{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.col.b{border-top:3px solid var(--river);padding-top:12px}
+.col.s{border-top:3px solid var(--coin);padding-top:12px}
+.col.f{border-top:3px solid var(--muted);padding-top:12px}
+
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.type{border-top:2px solid var(--river);padding-top:10px;display:flex;flex-direction:column;gap:4px;font-size:.93rem;line-height:1.55}
+.type h3{font-size:1.1rem}
+
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:160px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--risk)}
+
+/* Capital stack */
+.stack{display:flex;flex-direction:column;gap:4px}
+.stack div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:10px 14px;border-radius:4px;font-size:.92rem}
+.stack span:last-child{font-family:var(--mono);font-size:.75rem}
+.stack .l1{background:var(--river);color:var(--paper)}
+.stack .l2{background:var(--river-soft);color:var(--ink)}
+.stack .l3{background:var(--paper);border:1px solid var(--rule)}
+.stack .l4{background:var(--coin-soft);color:var(--ink)}
+.stack .l5{background:var(--coin);color:var(--paper)}
+
+/* Ladder */
+.ladder{display:flex;flex-direction:column;gap:8px}
+.rung{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;align-items:center;font-size:.85rem}
+.rung .lane{position:relative;height:26px;background:var(--river-soft);border-radius:4px}
+.rung .seg-b{position:absolute;top:0;bottom:0;left:0;background:var(--river);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:var(--paper);font-family:var(--mono);font-size:.72rem;white-space:nowrap}
+.years-axis{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.years-axis div:last-child{display:flex;justify-content:space-between}
+
+/* Myths, glossary */
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--risk)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+.xfig{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;margin:8px 0}
+.xfig figcaption{font-size:.85rem;color:var(--muted)}
+.xhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.xbtn,.xseg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.xseg{display:flex;flex-wrap:wrap;gap:6px}
+.xseg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.xdraw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:xdraw 2.2s ease forwards}
+@keyframes xdraw{to{stroke-dashoffset:0}}
+@keyframes xgy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes xgx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes xpp{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.xgy{animation:xgy .9s ease both}.xgx{animation:xgx .9s ease both}.xpop{animation:xpp .5s ease both}
+@media (prefers-reduced-motion:reduce){.xdraw,.xgy,.xgx,.xpop{animation:none!important;stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about bonds, in sixteen chapters</span>
+    <h1>The Kesarpur Bridge Bond</h1>
+    <p class="lede">A small town needs a bridge, a retired teacher has savings, and a piece of paper connects them. Follow that paper from the day it is printed to the day it is repaid, and you will understand the bond market, from the first rupee to the whole economy.</p>
+    <div class="cast">
+      <span class="chip">Meera, retired teacher</span>
+      <span class="chip">Kamala, her sister</span>
+      <span class="chip">Farida, town treasurer</span>
+      <span class="chip">Bhavna, credit analyst</span>
+      <span class="chip">Arjun, bond dealer</span>
+      <span class="chip">Suresh, a worried father</span>
+    </div>
+  </div>
+  <svg viewBox="0 0 400 260" role="img" aria-label="A drawing of an arched bridge over a river">
+    <rect x="0" y="0" width="400" height="260" fill="var(--paper)" rx="6"/>
+    <path d="M0 190 Q100 175 200 190 T400 190 V260 H0Z" fill="var(--river-soft)"/>
+    <path d="M0 205 Q100 192 200 205 T400 205" fill="none" stroke="var(--river)" stroke-width="1.2" opacity=".5"/>
+    <path d="M0 222 Q100 210 200 222 T400 222" fill="none" stroke="var(--river)" stroke-width="1.2" opacity=".35"/>
+    <rect x="20" y="120" width="360" height="12" fill="var(--ink)"/>
+    <path d="M40 132 Q120 60 200 132 Q280 60 360 132" fill="none" stroke="var(--ink)" stroke-width="4"/>
+    <g stroke="var(--ink)" stroke-width="1.5">
+      <line x1="80" y1="98" x2="80" y2="120"/><line x1="120" y1="88" x2="120" y2="120"/><line x1="160" y1="98" x2="160" y2="120"/>
+      <line x1="240" y1="98" x2="240" y2="120"/><line x1="280" y1="88" x2="280" y2="120"/><line x1="320" y1="98" x2="320" y2="120"/>
+    </g>
+    <rect x="192" y="132" width="16" height="62" fill="var(--ink)"/>
+    <rect x="30" y="132" width="16" height="62" fill="var(--ink)"/>
+    <rect x="354" y="132" width="16" height="62" fill="var(--ink)"/>
+    <circle cx="330" cy="46" r="18" fill="var(--coin)"/>
+    <text x="330" y="51" text-anchor="middle" font-size="14" fill="var(--paper)">₹</text>
+    <text x="20" y="34" font-size="11" fill="var(--muted)">KESARPUR · 5-YEAR · 8%</text>
+  </svg>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>The river that ate the bridge</a></li>
+    <li><a href="#dilemma"><span>01</span>The treasurer's four choices</a></li>
+    <li><a href="#paper"><span>02</span>A promise printed on paper</a></li>
+    <li><a href="#issue"><span>03</span>The day the bonds were sold</a></li>
+    <li><a href="#meera"><span>04</span>Meera lends to her town</a></li>
+    <li><a href="#rating"><span>05</span>The analyst's grade</a></li>
+    <li><a href="#kamala"><span>06</span>Kamala buys shares instead</a></li>
+    <li><a href="#secondary"><span>07</span>Meera needs her money back</a></li>
+    <li><a href="#seesaw"><span>08</span>The see-saw</a></li>
+    <li><a href="#yield"><span>09</span>What the buyer really earns</a></li>
+    <li><a href="#duration"><span>10</span>Why long bonds tremble more</a></li>
+    <li><a href="#inflation"><span>11</span>The thief called inflation</a></li>
+    <li><a href="#default"><span>12</span>The trouble at Dhoolgarh</a></li>
+    <li><a href="#market"><span>13</span>A whole market of promises</a></li>
+    <li><a href="#economy"><span>14</span>How bonds move the economy</a></li>
+    <li><a href="#ladder"><span>15</span>Meera's ladder</a></li>
+    <li><a href="#maturity"><span>16</span>Maturity day</a></li>
+    <li><a href="#myths"><span>+</span>Six myths, and a glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>The promise is made</h2></div>
+
+<!-- Prologue -->
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>The river that ate the bridge</h2></header>
+  <div class="prose">
+    <p>Kesarpur is a town of about forty thousand people on the bank of a wide, brown river. On the other bank are the wholesale vegetable market, the district hospital and the railway station. For sixty years an old iron bridge joined the two halves of the town.</p>
+    <p>One monsoon, the river rose higher than anyone could remember. By morning, the middle span of the old bridge was gone.</p>
+    <p>Life slowed down at once. Farmers paid boatmen to carry their vegetables across, and lost a fifth of their income to the fares. Ambulances took a 40-kilometre detour, so a trip that had taken six minutes now took fifty. Children reached school an hour late. Shops on the station side lost half their customers.</p>
+    <p>Everyone agreed that Kesarpur needed a new bridge, and the engineers said it would cost <span class="num">₹10 crore</span> (₹100 million) and take two years to build. Once open, a small toll on trucks and buses would bring in about <span class="num">₹1.6 crore</span> a year.</p>
+    <p>The town council had a problem. Its treasury held about <span class="num">₹1 crore</span>. The bridge was needed now. The money to pay for it would arrive only slowly, over many years, through tolls and taxes.</p>
+    <p>That mismatch, between money needed <em>today</em> and money that arrives <em>later</em>, is where every bond in the world begins.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Why start here</span>Every bond begins with someone who needs money now and expects to have money later. A bridge that charges a toll is a classic case: it costs a lot up front and earns slowly for decades.</div>
+    <div class="note"><span class="label">The other side</span>There are also people with the opposite problem: money today, and needs later. Retirees, pension funds and insurers all want a safe place to store money that pays a steady return. A bond matches these two groups.</div>
+  </aside>
+</section>
+
+<!-- Chapter 1 -->
+<section class="chapter" id="dilemma">
+  <header><span class="label">Chapter 1</span><h2>The treasurer's four choices</h2></header>
+  <div class="prose">
+    <p>The town treasurer, Farida, laid out four options in front of the council.</p>
+    <p><strong>Option one: raise taxes.</strong> Collect the ₹9 crore from residents this year. Families still recovering from the flood could not pay it. It was also unfair that today's residents would pay the whole cost of a bridge their grandchildren would use for fifty years.</p>
+    <p><strong>Option two: take a bank loan.</strong> One bank offered to lend the money, but at 11% interest, with the right to raise the rate later and strict conditions on how the town spent its money. A single lender is also a single point of failure: if that bank got into trouble itself, it might demand repayment early.</p>
+    <p><strong>Option three: sell a share of the bridge.</strong> A private company offered to pay for the bridge in exchange for owning it and keeping all the tolls forever. That is <em>equity</em>: the investor becomes an owner and shares in the profits. The council refused. A public bridge should belong to the public, and giving away decades of tolls for a one-time payment was a bad deal.</p>
+    <p><strong>Option four: borrow from the public.</strong> Instead of one big loan from one bank, Kesarpur could take thousands of small loans from thousands of people. Each lender would receive a written promise saying exactly how much interest they would get, when, and when they would get their money back. The town would keep the bridge. The lenders would never own it; they would only be owed money.</p>
+    <div class="say"><b>Farida</b>"We cut the big loan into small, identical pieces, and we print the terms on each piece. Anyone with ₹10,000 can lend to the town. That printed promise is called a bond. And because the pieces are identical, anyone who holds one can sell it to someone else."</div>
+    <p>The council voted for option four.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Choice</th><th>Who provides money</th><th>What they get</th><th>Problem for Kesarpur</th></tr></thead>
+        <tbody>
+          <tr><td>Raise taxes</td><td>Today's residents</td><td>Nothing back</td><td>Too heavy, unfair across generations</td></tr>
+          <tr><td>Bank loan</td><td>One bank</td><td>Interest, set by the bank</td><td>Expensive, one powerful lender</td></tr>
+          <tr><td>Sell ownership (equity)</td><td>A company</td><td>Ownership and all future tolls</td><td>Town loses the bridge's income forever</td></tr>
+          <tr><td><strong>Issue bonds (debt)</strong></td><td>Thousands of lenders</td><td>Fixed interest, then money back</td><td>Must pay on time, every time</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Definition</span>A <dfn>bond</dfn> is a loan split into standard pieces. The borrower (the <dfn>issuer</dfn>) sells the pieces to lenders (the <dfn>bondholders</dfn>) and promises fixed payments in return.</div>
+    <div class="note"><span class="label">Debt vs. equity</span>There are only two basic ways to raise money: borrow it (<dfn>debt</dfn>, such as bonds and loans) or sell ownership (<dfn>equity</dfn>, such as shares). Lenders get a fixed promise; owners get whatever is left over.</div>
+    <div class="note"><span class="label">Bond vs. bank loan</span>A bank loan stays between one borrower and one bank. A bond can be <em>bought and sold</em> by strangers. That one difference is what creates a bond <em>market</em>.</div>
+  </aside>
+</section>
+
+<!-- Chapter 2 -->
+<section class="chapter" id="paper">
+  <header><span class="label">Chapter 2</span><h2>A promise printed on paper</h2></header>
+  <div class="prose">
+    <p>Farida's team spent a month on the details. They needed ₹10 crore, so they would issue <span class="num">10,000</span> bonds of <span class="num">₹10,000</span> each. Each one would pay 8% interest a year for five years. Here is what one bond said.</p>
+  </div>
+  <div class="cert" role="group" aria-label="Illustration of the Kesarpur bond certificate">
+    <div class="cert-in">
+      <span class="label" style="text-align:center">Kesarpur Municipal Council · Bridge Bond · No. 04127</span>
+      <h3>Kesarpur 8% Bridge Bond, 5 years</h3>
+      <p class="sub">The Council promises to pay the holder of this bond the amounts below, from the revenue of the town and the bridge toll.</p>
+      <dl>
+        <div><dt>Face value</dt><dd>₹10,000</dd></div>
+        <div><dt>Coupon rate</dt><dd>8% a year</dd></div>
+        <div><dt>Coupon payment</dt><dd>₹800 each year</dd></div>
+        <div><dt>Issue date</dt><dd>1 April, Year 0</dd></div>
+        <div><dt>Maturity date</dt><dd>1 April, Year 5</dd></div>
+        <div><dt>Security</dt><dd>Toll revenue, in escrow</dd></div>
+        <div><dt>Ranking</dt><dd>Senior, secured</dd></div>
+        <div><dt>Early repayment</dt><dd>Not allowed</dd></div>
+        <div><dt>Trustee</dt><dd>District Trustee Co.</dd></div>
+      </dl>
+      <div class="coupons" aria-label="Five detachable coupons">
+        <span>Coupon 1 · ₹800</span><span>Coupon 2 · ₹800</span><span>Coupon 3 · ₹800</span><span>Coupon 4 · ₹800</span><span>Coupon 5 · ₹800</span>
+      </div>
+    </div>
+  </div>
+  <div class="prose">
+    <p>The little boxes at the bottom are why interest on a bond is called a <strong>coupon</strong>. In the old days, paper bonds had real coupons printed on them. Each year the holder cut one off with scissors and took it to the bank to collect the interest. The paper is digital now, held in electronic accounts called demat accounts, but the word stayed.</p>
+    <p>Every line on the certificate is a decision that affects how risky the bond is.</p>
+    <ul>
+      <li><strong>Security, in escrow.</strong> The toll money goes into a separate bank account that the council cannot spend freely. Coupons are paid from it first. This makes the promise much stronger than a bare "we will pay".</li>
+      <li><strong>Senior, secured.</strong> If the town ever got into trouble, these bondholders would be first in line for the toll money, ahead of the town's other creditors.</li>
+      <li><strong>No early repayment.</strong> The town cannot pay back early just because rates fall. Lenders are guaranteed their 8% for the full five years.</li>
+      <li><strong>Trustee.</strong> Ten thousand lenders cannot each watch the council. A trustee company does it for them: it checks that the escrow is funded, that promises are kept, and it acts on behalf of all bondholders if they are not.</li>
+    </ul>
+    <p>The full rulebook, about eighty pages long, also lists <strong>covenants</strong>: extra promises the council makes for the life of the bond. Kesarpur promised not to borrow more than ₹5 crore of new debt against the toll, to publish audited accounts every year, and to keep the bridge insured.</p>
+    <p>Notice what the bond does <em>not</em> say. It does not make Meera an owner of the bridge. It does not give her a vote on the council. It does not pay her more if the toll earns a lot. A bond is a fixed promise and nothing else. That is its weakness (no upside) and its strength (it is predictable).</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Face value (par)</span>The amount repaid at the end, here ₹10,000. Interest is calculated on this number, whatever price the bond later trades at.</div>
+    <div class="note coin"><span class="label">Coupon</span>Coupon rate × face value = 8% × ₹10,000 = <span class="num">₹800</span> a year. Many real bonds pay it in two halves, ₹400 every six months. Because the first ₹400 can earn interest for the rest of the year, semi-annual 8% is worth about <span class="num">8.16%</span> a year.</div>
+    <div class="note"><span class="label">Maturity</span>The date the loan ends and the face value comes back. Bonds run from a few weeks (Treasury bills) to 30 or 40 years. Some never mature at all.</div>
+    <div class="note"><span class="label">Covenant</span>A promise in the bond's rulebook (the <dfn>indenture</dfn> or offer document) that limits what the issuer can do, to protect lenders. Breaking one can count as a default even if every coupon is paid.</div>
+  </aside>
+</section>
+
+<!-- Chapter 3: issuance -->
+<section class="chapter" id="issue">
+  <header><span class="label">Chapter 3</span><h2>The day the bonds were sold</h2></header>
+  <div class="prose">
+    <p>A town council does not know how to sell ten thousand bonds by itself. Farida needed help, and in the bond world that help comes from a small team of specialists.</p>
+    <ul>
+      <li>A <strong>merchant bank</strong> (the arranger) designed the bond, wrote the offer document, and found investors.</li>
+      <li>A <strong>credit rating agency</strong> graded the town's ability to pay (Chapter 5).</li>
+      <li>A <strong>trustee</strong> agreed to represent the bondholders.</li>
+      <li>A <strong>registrar</strong> kept the official list of who owned each bond, so coupons went to the right people.</li>
+      <li>A <strong>stock exchange</strong> agreed to list the bonds, so they could be traded after the sale.</li>
+    </ul>
+    <p>The biggest question was the coupon. Set it too high and the town wastes money for five years. Set it too low and nobody buys. So the merchant bank ran a <strong>book build</strong>. For three days, big investors (pension funds, insurance companies, banks) submitted bids saying how much they wanted to lend and the lowest rate they would accept.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Rate investors asked for</th><th class="num">Amount bid at that rate or lower</th><th>Enough to fill ₹10 crore?</th></tr></thead>
+        <tbody>
+          <tr><td>7.70%</td><td class="num">₹2.5 crore</td><td>No</td></tr>
+          <tr><td>7.85%</td><td class="num">₹6.0 crore</td><td>No</td></tr>
+          <tr><td><strong>8.00%</strong></td><td class="num"><strong>₹13.0 crore</strong></td><td><strong>Yes, 1.3 times over</strong></td></tr>
+          <tr><td>8.20%</td><td class="num">₹21.0 crore</td><td>Yes, 2.1 times over</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>The order book. The lowest rate at which the whole ₹10 crore was covered became the coupon, called the cut-off. Each bid in this table includes every bid at lower rates.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">Watching the book fill up</span><button type="button" class="xbtn" id="x-book-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Animated bars of bids at each interest rate growing until the 8 percent bar crosses the 10 crore line"><g id="x-book"></g></svg></div>
+    <figcaption>As investors bid over three days, the bars grow. The first rate whose bids cross the ₹10 crore line sets the coupon.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>At 8.00%, investors wanted ₹13 crore of bonds when only ₹10 crore were on offer. The issue was <strong>oversubscribed</strong> 1.3 times. Farida set the coupon at 8.00%. A slice of the issue was kept aside for ordinary residents like Meera, who could apply for as little as one bond without bidding at all.</p>
+    <p>Fees for the bank, agency, trustee and lawyers came to about 1% of the money raised. Two weeks later, Kesarpur had about ₹9.9 crore in its account, and the bonds were listed on the exchange.</p>
+    <p>Governments sell bonds a little differently. In India, the central bank (RBI) runs regular <strong>auctions</strong> of government bonds on the government's behalf. Big institutions bid competitively. Small investors can place a <em>non-competitive</em> bid: they don't name a rate, and they get bonds at the average rate the auction produces.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Primary market</span>Everything in this chapter happens in the <dfn>primary market</dfn>: new bonds sold by the issuer, with the money going to the issuer.</div>
+    <div class="note"><span class="label">Public vs. private</span>Kesarpur made a <dfn>public issue</dfn>, open to anyone. Many companies instead do a <dfn>private placement</dfn>, selling to a handful of large investors. It is faster and cheaper, but ordinary investors can't take part.</div>
+    <div class="note"><span class="label">Why the rate is not a choice</span>Farida could not just pick 6%. The market sets the price of money. The issuer only finds out what that price is, through the book or the auction.</div>
+  </aside>
+</section>
+
+<!-- Chapter 4 -->
+<section class="chapter" id="meera">
+  <header><span class="label">Chapter 4</span><h2>Meera lends to her town</h2></header>
+  <div class="prose">
+    <p>Meera taught mathematics at the Kesarpur girls' school for thirty-one years. She has ₹10,000 in a savings account earning 3%. She has walked across the old bridge to the market every week of her life.</p>
+    <p>She reads the bond terms twice and does a calculation in the margin of her newspaper. Then she applies for one bond through her bank, and three weeks later bond No. 04127 appears in her demat account.</p>
+    <p>Here is the deal from Meera's side, year by year. Money leaving her pocket points down, money coming back points up, and both are drawn to the same scale.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 640 270" width="100%" style="min-width:520px" role="img" aria-label="Cash flow timeline: minus 10,000 rupees in year 0, plus 800 in years 1 to 4, plus 10,800 in year 5">
+        <line x1="30" y1="135" x2="625" y2="135" stroke="var(--muted)" stroke-width="1"/>
+        <g id="cf"></g>
+      </svg>
+    </div>
+    <figcaption>Meera's cash flows. She pays ₹10,000 once and receives ₹800 four times, then ₹10,800 (the last coupon plus her ₹10,000 back) at maturity. Total received: ₹14,000.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Her margin calculation: five coupons of ₹800 make ₹4,000 of interest, and the ₹10,000 comes back at the end. She ends up with ₹14,000. In her savings account, the same money would have earned about ₹1,600 over five years.</p>
+    <p>Then she does a second calculation, because she is a mathematics teacher. What if she doesn't spend the coupons, and instead lends each ₹800 out again at 8%? Then the interest earns interest, and after five years she would have <span class="num">₹14,693</span>, which is exactly ₹10,000 × 1.08<sup>5</sup>. That extra ₹693 is <strong>compounding</strong>, and it depends on being able to reinvest at 8%. If rates fall, she can't, and her real total will be a little lower. Chapter 12 calls this reinvestment risk.</p>
+    <p>The town gets its money too. Ten thousand lenders, mostly pension funds, insurers and banks, plus about two thousand residents like Meera, have bought all 10,000 bonds. Construction begins.</p>
+  </div>
+  <aside>
+    <div class="note coin"><span class="label">Who buys bonds</span>Individuals like Meera are a small part of the market. Most bonds are bought by banks, pension funds, insurance companies, mutual funds and foreign investors, because they must meet their own future promises (pensions, insurance claims, deposits) and need steady, predictable income to do it.</div>
+    <div class="note"><span class="label">Fixed income</span>Bonds are also called <dfn>fixed income</dfn>, because the payments are fixed in advance. You know on day one exactly what you will receive and when, as long as the issuer pays.</div>
+  </aside>
+</section>
+
+<!-- Chapter 5 -->
+<section class="chapter" id="rating">
+  <header><span class="label">Chapter 5</span><h2>The analyst's grade</h2></header>
+  <div class="prose">
+    <p>Before the bonds went on sale, an investor at a pension fund asked the obvious question: <em>how sure are we that Kesarpur will pay?</em></p>
+    <p>Investors do not want to audit every town themselves, so the council hired a credit rating agency. The agency sent an analyst, Bhavna. For three weeks she studied the town from every side.</p>
+    <ul>
+      <li><strong>Ability to pay.</strong> The toll should bring in about ₹1.6 crore a year. The coupons cost ₹80 lakh a year. So the toll covers the interest about two times over. Bankers call this the <em>debt service coverage ratio</em>, and 2.0 is comfortable.</li>
+      <li><strong>Existing debt.</strong> Kesarpur owed only ₹2 crore from an old water project. Low debt means more room if things go wrong.</li>
+      <li><strong>Track record.</strong> The council had never missed a payment in forty years, and its tax collection was above the state average.</li>
+      <li><strong>Structure.</strong> The escrow account and the trustee made the promise stronger than the town's general credit.</li>
+      <li><strong>Bad scenarios.</strong> What if truck traffic fell 30% in a recession? Coverage would drop to 1.4, still enough. What if another flood closed the bridge for a year? Then the town's general taxes would have to pay, and that would be tight.</li>
+    </ul>
+    <div class="say"><b>Bhavna</b>"The town collects its taxes, its old debts are small, and the toll alone should cover the coupons twice. But it is a single town with a single big project on a river that floods. AA, with a stable outlook. Very strong, but not the strongest."</div>
+    <p>That grade helped decide the interest rate. The safest borrower in the country is the national government, because it can tax the whole nation and its central bank issues the currency. When Kesarpur issued, government bonds of the same length paid about 7%. Kesarpur, a bit riskier, had to offer 8%. A struggling cement company nearby with a BB rating was paying 12%.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Borrower</th><th>Rating</th><th class="num">5-year rate</th><th class="num">Spread</th></tr></thead>
+        <tbody>
+          <tr><td>National government</td><td>Sovereign</td><td class="num">7.0%</td><td class="num">0 bp</td></tr>
+          <tr><td>Big, stable power company</td><td>AAA</td><td class="num">7.5%</td><td class="num">50 bp</td></tr>
+          <tr><td>Kesarpur Municipal Council</td><td>AA</td><td class="num">8.0%</td><td class="num">100 bp</td></tr>
+          <tr><td>Mid-sized textile firm</td><td>A</td><td class="num">9.0%</td><td class="num">200 bp</td></tr>
+          <tr><td>Dhoolgarh Municipal Council</td><td>BB</td><td class="num">11.0%</td><td class="num">400 bp</td></tr>
+          <tr><td>Struggling cement company</td><td>BB−</td><td class="num">12.0%</td><td class="num">500 bp</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative rates in the story's world. The riskier the borrower, the more it must pay. The extra amount over the government rate is the credit spread, measured in basis points (bp); 100 bp = 1%.</figcaption>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">The price of risk</span><button type="button" class="xbtn" id="x-spread-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Stacked bars: every borrower pays the 7 percent government rate plus a credit spread that grows as the rating falls"><g id="x-spread"></g></svg></div>
+    <figcaption>Blue: the government's 7% that every borrower must at least match. Red: the extra spread each borrower pays for its risk.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>A rating is not fixed for life. Bhavna's agency would review Kesarpur every year. If the town's finances weakened, the agency might first change the <strong>outlook</strong> to negative, a warning, and later <strong>downgrade</strong> the bond. A downgrade makes the bond's price fall, because buyers now demand a higher yield. A downgrade from BBB to BB is especially painful: the bond drops out of investment grade, many pension funds are no longer allowed to hold it, and they all have to sell at once. Such bonds are called <em>fallen angels</em>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The rating scale</span><span class="num">AAA</span> highest safety · <span class="num">AA</span> high · <span class="num">A</span> adequate · <span class="num">BBB</span> moderate, the lowest <dfn>investment grade</dfn>. Below that: <span class="num">BB, B, C</span> are <dfn>high-yield</dfn> or <dfn>junk</dfn>, and <span class="num">D</span> means in default.</div>
+    <div class="note"><span class="label">Credit spread</span>The extra yield over a government bond of the same maturity. It is the price of the risk. When investors get nervous, spreads widen; when they feel safe, spreads narrow.</div>
+    <div class="note"><span class="label">Real agencies</span>Globally: S&amp;P, Moody's, Fitch. In India: CRISIL, ICRA, CARE, India Ratings and others. A rating is an opinion, not a guarantee, and the issuer usually pays for it, which is a known conflict of interest.</div>
+  </aside>
+</section>
+
+<!-- Chapter 6: wide -->
+<section class="chapter wide" id="kamala">
+  <header><span class="label">Chapter 6</span><h2>Kamala buys shares instead</h2></header>
+  <div class="prose">
+    <p>Meera's younger sister Kamala thinks bonds are boring. She puts her ₹10,000 into <em>shares</em> of the cement company, the same company paying 12% on its bonds. "Why accept a fixed 8%," she says, "when the company could double in value?"</p>
+    <p>Both sisters have given money to someone. The difference is what they are owed in return. Here is how the next five years could go for each of them, in three different worlds.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>What happens</th><th>Meera's Kesarpur bond</th><th>Kamala's cement shares</th><th>A cement company bond</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Boom</strong>: a highway is built nearby, cement sales triple</td><td>₹800 a year, then ₹10,000. Exactly as promised. No extra.</td><td>Profits soar, dividends rise, shares might be worth ₹30,000.</td><td>₹1,200 a year, then ₹10,000. No share in the boom.</td></tr>
+          <tr><td><strong>Normal</strong>: steady years</td><td>₹800 a year, then ₹10,000.</td><td>Maybe ₹14,000 to ₹16,000, with big swings along the way.</td><td>₹1,200 a year, then ₹10,000.</td></tr>
+          <tr><td><strong>Bust</strong>: the company fails</td><td>Unaffected. A different borrower.</td><td>Shareholders are paid last. Probably ₹0.</td><td>Bondholders are paid before shareholders. Might recover ₹3,000 to ₹5,000.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>A bondholder trades away the upside in exchange for priority and predictability. A shareholder accepts the risk of losing everything in exchange for unlimited upside.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col b">
+      <span class="who" style="color:var(--river)">Bonds</span>
+      <h3>You are a lender</h3>
+      <p>Your return is fixed and contractual. Missing a payment is a default with legal consequences. You come before owners if things go wrong. Prices move mainly with interest rates and credit quality. Best for steady income, known future needs, and calming a portfolio.</p>
+    </div>
+    <div class="col s">
+      <span class="who" style="color:var(--coin)">Shares</span>
+      <h3>You are an owner</h3>
+      <p>Your return depends on profits and on what other investors will pay. Dividends can be cut at any time without breaking any law. You are last in line. Over long periods shares have usually beaten bonds, but with far bigger falls along the way. Best for long-term growth.</p>
+    </div>
+    <div class="col f">
+      <span class="who" style="color:var(--muted)">Fixed deposit</span>
+      <h3>You are a depositor</h3>
+      <p>Close to a bond, but a contract with one bank, not tradable. The rate is fixed and there is no price that moves daily; breaking it early costs a small penalty. In India, deposits are insured up to ₹5 lakh per depositor per bank. Simple and safe, but you can't sell it to anyone else.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <h3 class="sub-h">The line of claims</h3>
+    <p>When a company fails, its remaining money is paid out in strict order. This order is called the <strong>capital structure</strong>, and it is why bonds are safer than shares of the same company.</p>
+  </div>
+  <div class="stack" aria-label="Order of claims from first paid to last paid">
+    <div class="l1"><span>Secured lenders: bank loans and bonds backed by specific assets</span><span>Paid first</span></div>
+    <div class="l2"><span>Senior unsecured bonds</span><span>Second</span></div>
+    <div class="l3"><span>Subordinated bonds, which agreed in advance to wait behind other debt</span><span>Third</span></div>
+    <div class="l4"><span>Preference shares</span><span>Fourth</span></div>
+    <div class="l5"><span>Ordinary shares, like Kamala's</span><span>Paid last, whatever is left</span></div>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="x-rec">Money recovered when the company fails <output id="x-rec-out">₹60 cr</output></label><input id="x-rec" type="range" min="0" max="150" step="5" value="60"></div>
+    <div class="scroll"><svg viewBox="0 0 640 240" width="100%" style="min-width:480px" role="img" aria-label="Bars filling in order of seniority as recovered money increases"><g id="x-claims"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="x-rec-note"></p>
+  </div>
+  <div class="prose">
+    <p>Most sensible investors, the sisters eventually agree, hold some of both. Bonds provide the steady floor; shares provide the growth. How much of each depends on how soon you need the money and how much of a fall you can bear without panic.</p>
+  </div>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>The promise is traded</h2></div>
+
+<!-- Chapter 7 -->
+<section class="chapter" id="secondary">
+  <header><span class="label">Chapter 7</span><h2>Meera needs her money back</h2></header>
+  <div class="prose">
+    <p>Two years pass. Meera has collected two coupons, ₹1,600 so far. Then her granddaughter gets into a nursing college in Pune, and the fees are due next month. Meera needs her ₹10,000 now, not in three years.</p>
+    <p>She cannot ask the council for it. The bond says Year 5, and the money is already a bridge pier. But a bond is a piece of paper that can change hands. She can <strong>sell it to someone else</strong>, and the town will simply pay the remaining coupons and the face value to whoever holds it on each payment date.</p>
+    <p>This is where Arjun comes in. Arjun works as a dealer at a bond brokerage in the district town. All day he buys bonds from people who want cash and sells them to people who want bonds. He keeps a list of prices on his screen.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Bond</th><th>Rating</th><th class="num">Bid</th><th class="num">Ask</th><th class="num">Yield</th></tr></thead>
+        <tbody>
+          <tr><td>7.00% Government, 3 yrs left</td><td>Sovereign</td><td class="num">94.92</td><td class="num">94.96</td><td class="num">9.00%</td></tr>
+          <tr><td>7.50% Power Co., 3 yrs left</td><td>AAA</td><td class="num">94.94</td><td class="num">95.02</td><td class="num">9.50%</td></tr>
+          <tr><td><strong>8.00% Kesarpur, 3 yrs left</strong></td><td>AA</td><td class="num"><strong>94.98</strong></td><td class="num"><strong>95.08</strong></td><td class="num"><strong>10.00%</strong></td></tr>
+          <tr><td>11.00% Dhoolgarh, 3 yrs left</td><td>BB</td><td class="num">94.00</td><td class="num">94.30</td><td class="num">13.50%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Arjun's screen. Prices are quoted per ₹100 of face value, so 95.03 means ₹9,503 for a ₹10,000 bond. Bid is what a dealer will pay you; ask is what you pay a dealer.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Meera notices three things. First, every bond on the list is trading <em>below</em> 100. Second, the yields are all higher than the coupons. Third, the riskier the bond, the wider the gap between bid and ask, because Arjun takes more risk holding a bond that is hard to resell.</p>
+    <div class="say"><b>Arjun</b>"I can take your Kesarpur bond, Meera-ji. But I can't pay you ten thousand for it. Rates have gone up two percent since you bought it. The fair price is about nine thousand five hundred."</div>
+    <p>Meera is a mathematics teacher, and she wants to know why. The answer is the most important idea in the whole bond market, so it gets its own chapter. For the rest of the story we will use the fair middle price, ₹9,503, and assume Arjun charged her a small separate fee.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Secondary market</span>Trading between investors after the first sale. The issuer receives nothing from these trades. Most bond trading is <dfn>over the counter</dfn>: dealers and big investors trade directly or on electronic platforms, rather than on a stock-exchange screen. In India, government bonds trade mostly on the RBI's NDS-OM platform.</div>
+    <div class="note"><span class="label">Bid–ask spread</span>The gap between the buying and selling price. It is the dealer's income and your cost of trading. Government bonds have tiny spreads; small or risky bonds have wide ones.</div>
+    <div class="note"><span class="label">Basis point</span>One hundredth of a percent: 1 bp = 0.01%. Rates rising from 8% to 10% is a rise of 200 bp. Bond people talk in basis points because small moves matter on large amounts.</div>
+    <div class="note"><span class="label">Liquidity</span>How easily you can sell without a big price cut. Government bonds are very liquid. A small town's bonds may take days to sell.</div>
+  </aside>
+</section>
+
+<!-- Chapter 8 -->
+<section class="chapter" id="seesaw">
+  <header><span class="label">Chapter 8</span><h2>The see-saw</h2></header>
+  <div class="prose">
+    <p>Over the two years, prices across the country rose fast. To cool inflation, the central bank raised interest rates. Now new 3-year bonds from borrowers like Kesarpur pay <strong>10%</strong>, which is ₹1,000 a year on ₹10,000.</p>
+    <p>Look at it from a buyer's side. A new bond pays ₹1,000 a year. Meera's old bond pays only ₹800 a year. Nobody will pay the full ₹10,000 for the old one when the same money buys a better new one. Her bond's coupon is fixed, so the only thing that can adjust is its <em>price</em>. The price falls until the old bond earns the same 10% as the new ones.</p>
+    <p>To find that price, Arjun asks: what is each future payment worth today, if money can earn 10% elsewhere? A rupee you receive in a year is worth less than a rupee today, because today's rupee could be lent out and grow. At 10%, ₹1 next year is worth ₹1 ÷ 1.10 = 91 paise today. This idea is called <strong>present value</strong>, and it is how every bond in the world is priced.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Payment</th><th>When</th><th class="num">Amount</th><th>Discount at 10%</th><th class="num">Worth today</th></tr></thead>
+        <tbody>
+          <tr><td>Coupon 3</td><td>in 1 year</td><td class="num">₹800</td><td class="mono">÷ 1.10</td><td class="num">₹727.27</td></tr>
+          <tr><td>Coupon 4</td><td>in 2 years</td><td class="num">₹800</td><td class="mono">÷ 1.10²</td><td class="num">₹661.16</td></tr>
+          <tr><td>Coupon 5 + face value</td><td>in 3 years</td><td class="num">₹10,800</td><td class="mono">÷ 1.10³</td><td class="num">₹8,114.20</td></tr>
+          <tr class="total"><td colspan="4">Fair price of Meera's bond</td><td class="num">₹9,502.63</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>A bond's price is the sum of its future payments, each discounted at today's market rate.</figcaption>
+  </figure>
+  <div class="formula">Price = C/(1+r) + C/(1+r)² + … + (C + F)/(1+r)ⁿ
+
+C = yearly coupon   F = face value   r = market rate   n = years left</div>
+  <div class="prose">
+    <p>So Meera gets about ₹9,503. She is ₹497 short of face value. She did nothing wrong, and the town did nothing wrong; the world's interest rates moved.</p>
+    <p>Check that the buyer is treated fairly. Whoever pays ₹9,503 gets ₹800, ₹800 and ₹10,800. That works out to exactly a 10% return, the same as a brand-new bond. The lower price makes up for the lower coupon. The market has made the old bond and the new bond equally attractive, which is what a fair price means.</p>
+    <p>If rates had <em>fallen</em> to 6% instead, her ₹800 coupon would look generous next to new bonds paying ₹600, and buyers would compete for it. Its price would rise to about <span class="num">₹10,535</span>, and she would sell at a profit.</p>
+    <p>Move the slider and watch the see-saw.</p>
+  </div>
+
+  <div class="panel" id="seesaw-panel">
+    <div class="controls">
+      <div class="ctrl">
+        <label for="rate">Market interest rate <output id="rate-out">10%</output></label>
+        <input id="rate" type="range" min="2" max="16" step="0.25" value="10">
+      </div>
+      <div class="ctrl">
+        <label for="years">Years left until maturity <output id="years-out">3</output></label>
+        <input id="years" type="range" min="1" max="30" step="1" value="3">
+      </div>
+    </div>
+    <svg viewBox="0 0 600 170" width="100%" role="img" aria-label="See-saw: interest rate on one end, bond price on the other">
+      <polygon points="300,150 280,170 320,170" fill="var(--muted)"/>
+      <g id="plank" style="transition:transform .35s ease;transform-origin:300px 148px">
+        <rect x="60" y="142" width="480" height="8" rx="3" fill="var(--ink)"/>
+        <rect x="60" y="92" width="130" height="48" rx="6" fill="var(--river-soft)" stroke="var(--river)"/>
+        <text x="125" y="112" text-anchor="middle" font-size="12" fill="var(--river)">INTEREST RATE</text>
+        <text x="125" y="130" text-anchor="middle" font-size="15" fill="var(--ink)" id="ss-rate">10%</text>
+        <rect x="410" y="92" width="130" height="48" rx="6" fill="var(--coin-soft)" stroke="var(--coin)"/>
+        <text x="475" y="112" text-anchor="middle" font-size="12" fill="var(--coin)">BOND PRICE</text>
+        <text x="475" y="130" text-anchor="middle" font-size="15" fill="var(--ink)" id="ss-price">₹9,503</text>
+      </g>
+    </svg>
+    <div class="readout">
+      <div><span class="label">Price of the 8% bond</span><span class="big" id="r-price">₹9,503</span></div>
+      <div><span class="label">Change vs ₹10,000</span><span class="big" id="r-chg">−5.0%</span></div>
+      <div><span class="label">Trades at</span><span><span class="pill disc" id="r-pill">Discount</span></span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="r-note"></p>
+  </div>
+
+  <aside>
+    <div class="note"><span class="label">The golden rule</span>Interest rates up → existing bond prices down. Interest rates down → existing bond prices up. They always move in opposite directions.</div>
+    <div class="note coin"><span class="label">Premium, par, discount</span>A bond priced above face value trades at a <dfn>premium</dfn>, at face value it trades at <dfn>par</dfn>, and below face value it trades at a <dfn>discount</dfn>.</div>
+    <div class="note"><span class="label">The key point</span>If Meera had not needed to sell, the rate rise would not have cost her a rupee. She would still have collected every ₹800 and her ₹10,000 at maturity. Price swings matter only to someone who sells before maturity, or who could have earned more elsewhere.</div>
+    <div class="note"><span class="label">Pull to par</span>As maturity gets closer, a bond's price drifts back toward face value, because the final ₹10,000 is less and less far away. Set years left to 1 on the slider and see how close to ₹10,000 it stays.</div>
+  </aside>
+</section>
+
+<!-- Chapter 9 -->
+<section class="chapter" id="yield">
+  <header><span class="label">Chapter 9</span><h2>What the buyer really earns</h2></header>
+  <div class="prose">
+    <p>Arjun buys Meera's bond for ₹9,503 and sells it the same afternoon to the Kesarpur Cooperative Bank. The bank's manager asks only one question: <em>"What's the yield?"</em> In the bond market, people quote yields more often than prices, because yield answers the question buyers actually care about: what return will I get?</p>
+    <p>There are several ways to measure it, and they give different answers.</p>
+    <p><strong>Current yield</strong> is the yearly coupon divided by the price you pay. ₹800 ÷ ₹9,503 = <span class="num">8.42%</span>. It's quick, but it leaves something out.</p>
+    <p>The bank paid ₹9,503 but will receive ₹10,000 at maturity. That extra ₹497 is profit too, spread over three years. <strong>Yield to maturity (YTM)</strong> counts everything: every coupon, the gain or loss back to face value, and the timing of each payment. It is the single interest rate that makes all future payments add up to today's price. For this bond, it is exactly <span class="num">10%</span>, the rate we used to price it.</p>
+    <p>Finding the YTM exactly takes trial and error, or a calculator. But there is a good shortcut:</p>
+  </div>
+  <div class="formula">YTM ≈ (C + (F − P) ÷ n) ÷ ((F + P) ÷ 2)
+
+    = (800 + (10,000 − 9,503) ÷ 3) ÷ ((10,000 + 9,503) ÷ 2)
+    = (800 + 166) ÷ 9,751
+    ≈ 9.90%   (exact answer: 10.00%)</div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Measure</th><th>What it counts</th><th class="num">Meera's bond at ₹9,503</th></tr></thead>
+        <tbody>
+          <tr><td>Coupon rate</td><td>Coupon ÷ face value. Fixed forever.</td><td class="num">8.00%</td></tr>
+          <tr><td>Current yield</td><td>Coupon ÷ price paid</td><td class="num">8.42%</td></tr>
+          <tr><td>Yield to maturity</td><td>Coupons + gain to face value + timing</td><td class="num">10.00%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Three numbers about the same bond. When people say "bond yields rose today", they almost always mean yield to maturity.</figcaption>
+  </figure>
+  <div class="prose">
+    <h3 class="sub-h">Yield to call, and yield to worst</h3>
+    <p>Some bonds let the issuer repay early. Suppose a different bond pays 8%, has three years left, and trades at ₹10,535 because rates have fallen to 6%. Its YTM is 6%. But the fine print says the issuer can repay it in one year at ₹10,100. If rates are low, it surely will. Then the buyer gets ₹800 + ₹10,100 = ₹10,900 in one year for ₹10,535 paid, a return of only <span class="num">3.46%</span>. That is its <strong>yield to call</strong>. Careful investors always look at the <strong>yield to worst</strong>, the lowest of all the possible yields, because issuers will choose whatever is best for themselves.</p>
+    <h3 class="sub-h">Price and yield, drawn</h3>
+    <p>Here is the price of a 10-year, 8% bond at every yield from 2% to 16%. It is not a straight line. It bends.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 600 300" width="100%" style="min-width:460px" role="img" aria-label="Curved line showing bond price falling as yield rises, with a straight tangent line at 8 percent">
+        <g id="pyc"></g>
+      </svg>
+    </div>
+    <figcaption>Price of a 10-year 8% bond (solid curve) against yield. The dashed line is the straight-line estimate from duration at 8%. The curve always sits above the line: that bend is called convexity.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>This shows the see-saw again: higher yield, lower price. It also shows something subtler. When yields fall, the price rises <em>faster</em>; when yields rise, the price falls <em>more slowly</em>. That bend, called <strong>convexity</strong>, works in the holder's favour, and investors will pay a little extra for bonds with more of it.</p>
+    <p>This is also why the evening news says "bond yields rose" on a day when bond prices fell. Yield and price are the same see-saw described from opposite ends. A higher yield <em>is</em> a lower price.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Rule of thumb</span>Discount bond: YTM &gt; current yield &gt; coupon rate. Premium bond: coupon rate &gt; current yield &gt; YTM. At par, all three are equal.</div>
+    <div class="note"><span class="label">Accrued interest</span>If a bond is sold halfway between coupon dates, the buyer also pays the seller the interest earned so far. The quoted <dfn>clean price</dfn> leaves it out; the <dfn>dirty price</dfn> you actually pay includes it.</div>
+    <div class="note"><span class="label">YTM's hidden assumption</span>YTM assumes you hold to maturity, the issuer pays everything, and each coupon is reinvested at the same yield. Break any of those and your real return will differ.</div>
+  </aside>
+</section>
+
+<!-- Chapter 10 -->
+<section class="chapter" id="duration">
+  <header><span class="label">Chapter 10</span><h2>Why long bonds tremble more</h2></header>
+  <div class="prose">
+    <p>The cooperative bank's manager has a nephew who studies finance. Over dinner, he draws a picture on a napkin.</p>
+    <p>Imagine four 8% bonds, all priced at ₹10,000, that mature in 1, 5, 10 and 30 years. Now the market rate moves. How much does each price change?</p>
+  </div>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="Choose a change in interest rates">
+      <button type="button" data-shift="1" aria-pressed="true">Rates +1%</button>
+      <button type="button" data-shift="2" aria-pressed="false">Rates +2%</button>
+      <button type="button" data-shift="-1" aria-pressed="false">Rates −1%</button>
+      <button type="button" data-shift="-2" aria-pressed="false">Rates −2%</button>
+    </div>
+    <div class="bars" id="dur-bars"></div>
+    <p style="font-size:.9rem;color:var(--muted)">Each bond pays an 8% coupon and starts at ₹10,000. Bar length shows the size of the price change.</p>
+  </div>
+  <div class="prose">
+    <p>The 1-year bond barely moves. If you are stuck with a below-market coupon for only one year, you lose very little. The 30-year bond swings by more than 10%, because you are locked into the old rate for three decades and most of its value sits in payments far in the future, where discounting bites hardest. Try the −1% and +1% buttons: the gain when rates fall is bigger than the loss when they rise. That is convexity again.</p>
+    <p>Bond people measure this sensitivity with <strong>duration</strong>. It has two meanings that turn out to be closely linked.</p>
+    <p><strong>Duration as time.</strong> Macaulay duration is the average time until you get your money, with each payment weighted by its share of the bond's value. Here it is for the original 5-year Kesarpur bond, at an 8% yield:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Year</th><th class="num">Payment</th><th class="num">Worth today at 8%</th><th class="num">Share of price</th><th class="num">Year × worth</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="num">₹800</td><td class="num">₹740.74</td><td class="num">7.4%</td><td class="num">740.74</td></tr>
+          <tr><td>2</td><td class="num">₹800</td><td class="num">₹685.87</td><td class="num">6.9%</td><td class="num">1,371.74</td></tr>
+          <tr><td>3</td><td class="num">₹800</td><td class="num">₹635.07</td><td class="num">6.4%</td><td class="num">1,905.20</td></tr>
+          <tr><td>4</td><td class="num">₹800</td><td class="num">₹588.02</td><td class="num">5.9%</td><td class="num">2,352.10</td></tr>
+          <tr><td>5</td><td class="num">₹10,800</td><td class="num">₹7,350.30</td><td class="num">73.5%</td><td class="num">36,751.49</td></tr>
+          <tr class="total"><td>Total</td><td class="num"></td><td class="num">₹10,000.00</td><td class="num">100%</td><td class="num">43,121.27</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Macaulay duration = 43,121 ÷ 10,000 = 4.31 years. Less than 5, because some money (the coupons) arrives earlier.</figcaption>
+  </figure>
+  <div class="prose">
+    <p><strong>Duration as sensitivity.</strong> Divide Macaulay duration by (1 + yield) and you get <em>modified duration</em>: 4.31 ÷ 1.08 = <span class="num">3.99</span>. This says: for every 1% change in rates, the price moves about 3.99% in the other direction. For the 10-year 8% bond, modified duration is about 6.7, which is why the dashed line in the previous chapter's chart is as steep as it is.</p>
+    <div class="formula">% price change ≈ − modified duration × change in yield
+
+10-year bond, rates +1%:  −6.71 × 1% ≈ −6.7%   (actual: −6.4%)</div>
+    <p>Three things raise duration: a <strong>longer maturity</strong>, a <strong>lower coupon</strong> (more of the value waits until the end), and a <strong>lower yield</strong>. A zero-coupon bond has duration equal to its maturity, the maximum possible.</p>
+    <p>This is why, when rates jump, people holding long bonds feel it most. A bank that put customer deposits into long government bonds can show huge losses on paper even though nobody has defaulted. If depositors then rush to withdraw, the bank may be forced to sell those bonds at the low price, turning paper losses into real ones. That chain of events has caused real bank failures.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Duration</span>The weighted average time until you get your money back, and an estimate of price sensitivity. Longer maturity, lower coupon and lower yield all mean higher duration.</div>
+    <div class="note"><span class="label">Using it</span>An investor who expects rates to fall buys long-duration bonds to gain the most. One who fears rising rates sticks to short bonds, which barely move. Debt mutual funds publish their duration so you can see how sensitive they are.</div>
+    <div class="note coin"><span class="label">Matching</span>A pension fund that must pay ₹1 crore in 10 years can buy bonds with a 10-year duration. If rates rise, the bonds fall in price, but the coupons are reinvested at higher rates, and the two effects roughly cancel. This is called <dfn>immunisation</dfn>.</div>
+  </aside>
+</section>
+
+<!-- Chapter 11: inflation & tax -->
+<section class="chapter" id="inflation">
+  <header><span class="label">Chapter 11</span><h2>The thief called inflation</h2></header>
+  <div class="prose">
+    <p>Back in Year 1, Meera received her first ₹800 coupon and went to the market to buy her usual month of groceries. They cost more than the year before. Prices had risen 6%.</p>
+    <p>Her bond pays 8%, but money itself is losing value. What she can actually <em>buy</em> with her return has grown far less than 8%.</p>
+    <div class="formula">Real return = (1 + nominal return) ÷ (1 + inflation) − 1
+            = 1.08 ÷ 1.06 − 1
+            ≈ 1.89% a year</div>
+    <p>The 8% printed on the bond is the <strong>nominal</strong> return. The 1.89% is the <strong>real</strong> return, the increase in buying power. And it gets worse once tax is counted.</p>
+    <p>Bond interest is usually taxed as ordinary income. If Meera's income puts her in a 30% tax bracket, she keeps only 70% of each coupon: 8% × 0.7 = 5.6%. Against 6% inflation, her real return after tax is <span class="num">1.056 ÷ 1.06 − 1 ≈ −0.38%</span>. Every payment arrives on time, and she is still slowly getting poorer.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Step</th><th class="num">Yearly return</th></tr></thead>
+        <tbody>
+          <tr><td>Coupon printed on the bond (nominal)</td><td class="num">8.00%</td></tr>
+          <tr><td>After 30% tax</td><td class="num">5.60%</td></tr>
+          <tr><td>After 6% inflation, before tax (real)</td><td class="num">1.89%</td></tr>
+          <tr class="total"><td>After tax and inflation</td><td class="num">−0.38%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. The return that matters is what is left after tax and inflation.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>This is why inflation is the bondholder's oldest enemy. A shareholder's company can raise its prices when inflation rises. A bondholder's coupon is fixed forever. It is also why central banks raise rates when inflation climbs: lenders demand a higher nominal rate to keep their real return positive, and the whole bond market reprices.</p>
+    <p>There are defences. <strong>Inflation-indexed bonds</strong> raise their principal in line with prices, so the coupon grows too. <strong>Tax-free bonds</strong>, issued in India by some public sector companies in the 2010s, pay interest that isn't taxed, so their lower coupon can beat a taxable one for investors in high brackets. Tax rules for bonds and debt funds change often, so always check the current rules before comparing.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Nominal vs. real</span>The <dfn>nominal</dfn> rate is the number printed on the bond. The <dfn>real</dfn> rate subtracts inflation. Real rates can be negative, and for long stretches in many countries they have been.</div>
+    <div class="note"><span class="label">Breakeven inflation</span>If a normal 10-year bond yields 7% and an inflation-indexed one yields 2% plus inflation, the market expects about 5% inflation. That gap is the <dfn>breakeven</dfn>, and central banks watch it closely.</div>
+    <div class="note coin"><span class="label">Comparing fairly</span>To compare a tax-free bond with a taxable one, divide the tax-free rate by (1 − your tax rate). A 6% tax-free bond equals 8.57% taxable for someone paying 30%.</div>
+  </aside>
+</section>
+
+<!-- Chapter 12 -->
+<section class="chapter" id="default">
+  <header><span class="label">Chapter 12</span><h2>The trouble at Dhoolgarh</h2></header>
+  <div class="prose">
+    <p>Forty kilometres upstream lies Dhoolgarh, a town that also issued bonds that year: ₹10,000 bonds paying 11%, to build a grand market complex. Its rating was BB. Investors chasing the higher coupon bought them eagerly. "Three percent more than Kesarpur," people said, "for a town just up the river."</p>
+    <p>The warning signs were there for anyone who looked:</p>
+    <ul>
+      <li>Dhoolgarh already owed more than three years of its tax income, and was borrowing to pay interest on old loans.</li>
+      <li>Its audited accounts came out six months late two years running.</li>
+      <li>The market complex was built without a study showing traders wanted to move there.</li>
+      <li>Its bonds had no escrow and no dedicated revenue: just a general promise to pay.</li>
+    </ul>
+    <p>The complex sat half empty. In Year 2, the rating agency changed Dhoolgarh's outlook to negative. Its bond price slipped from ₹9,800 to ₹9,400 as cautious holders sold. The market was smelling trouble before it arrived. In Year 3, Dhoolgarh announced that it could not pay that year's coupon.</p>
+    <p>This is a <strong>default</strong>: the issuer has broken the promise printed on the bond. Prices of Dhoolgarh bonds collapsed overnight to ₹4,000. Buyers were no longer valuing the coupons. They were guessing how much they might eventually recover.</p>
+    <p>The trustee called a meeting of bondholders and took over negotiations. Two paths were possible. In a <strong>restructuring</strong>, bondholders agree to accept less, perhaps a lower coupon, a later maturity, or a cut in face value (a <em>haircut</em>), in exchange for the town surviving and paying something. In a <strong>liquidation</strong>, assets are sold and the money is split by seniority. A town can't really be shut down, so Dhoolgarh restructured.</p>
+    <p>Dhoolgarh had two kinds of bonds. The <em>secured</em> ones were backed by the market complex's rent, so those holders had first claim on that money. The <em>unsecured</em> ones stood further back. After two years of talks, secured bondholders recovered about 70 paise per rupee and unsecured ones about 35 paise.</p>
+    <p>Meanwhile, the trouble touched Kesarpur too, even though Kesarpur had done nothing wrong. Nervous investors briefly demanded higher yields from <em>all</em> small-town bonds, and Kesarpur's price dipped for a few weeks before recovering. That is <strong>contagion</strong>, and it is what "spreads widening" looks like in real life.</p>
+    <p>Default is the risk everyone thinks of first, but it is only one of several.</p>
+  </div>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">Two towns' bonds, price per ₹10,000</span><button type="button" class="xbtn" id="x-dhool-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Kesarpur's bond price stays near 10,000 with a small dip, while Dhoolgarh's slides, then crashes to 4,000 at default, ending at 7,000 for secured and 3,500 for unsecured holders"><g id="x-dhool"></g></svg></div>
+    <figcaption>Illustrative. Dhoolgarh's price slid before the default as the market smelled trouble. Kesarpur dipped briefly from contagion and recovered.</figcaption>
+  </figure>
+  <div class="risks">
+    <div class="risk-row"><strong>Interest-rate risk</strong><span>Rates rise, so your bond's price falls if you need to sell early. This is what happened to Meera in Chapter 8. The longer the duration, the bigger this risk.</span></div>
+    <div class="risk-row"><strong>Credit / default risk</strong><span>The issuer pays late, pays less, or does not pay. Includes <em>downgrade risk</em>: the price falls when the rating is cut, even with no default. Higher coupons are the compensation for taking it.</span></div>
+    <div class="risk-row"><strong>Inflation risk</strong><span>Rising prices shrink what your fixed coupons can buy (Chapter 11). Worst for long bonds with low coupons.</span></div>
+    <div class="risk-row"><strong>Liquidity risk</strong><span>You want to sell and there are few buyers, so you have to accept a much lower price. Small issuers, unrated bonds and unusual structures carry more of it.</span></div>
+    <div class="risk-row"><strong>Reinvestment risk</strong><span>Rates fall, and the coupons you receive (or your money at maturity) can only be reinvested at lower rates, so your total return comes in below the YTM you expected.</span></div>
+    <div class="risk-row"><strong>Call risk</strong><span>The issuer repays early when rates fall, so you lose a high coupon just when it is most valuable (Chapter 9).</span></div>
+    <div class="risk-row"><strong>Currency risk</strong><span>If you buy a bond in another currency, a fall in that currency can wipe out the interest you earn.</span></div>
+    <div class="risk-row"><strong>Concentration risk</strong><span>Putting all your savings in one issuer's bonds. Spreading across many issuers means one Dhoolgarh can't sink you.</span></div>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Default</span>Failure to pay interest or principal on time, or breaking other key terms. After a default, bonds trade on expected <dfn>recovery</dfn>, the share of face value holders expect to get back.</div>
+    <div class="note risk"><span class="label">Seniority</span>Who gets paid first. Secured bondholders come before unsecured ones, and all bondholders come before shareholders (Chapter 6).</div>
+    <div class="note risk"><span class="label">Real defaults</span>High ratings do not make defaults impossible. In India in 2018, the infrastructure lender IL&amp;FS defaulted while still carrying top ratings shortly before. Its collapse spread fear across the whole corporate bond market and debt mutual funds.</div>
+    <div class="note risk"><span class="label">The lesson</span>Dhoolgarh's 11% was never a free extra 3%. It was payment for a real chance of loss. Higher yield always means higher risk somewhere.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>The promise in the wider world</h2></div>
+
+<!-- Chapter 13 -->
+<section class="chapter" id="market">
+  <header><span class="label">Chapter 13</span><h2>A whole market of promises</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. Every day, governments, states, cities, banks and companies all over the world issue bonds, and investors trade enormous amounts of existing ones. Together, that is the <strong>bond market</strong>, also called the debt market or fixed-income market. Worldwide, the total value of bonds outstanding is larger than the total value of all listed shares.</p>
+    <p>It has the same two halves you have already seen. In the <strong>primary market</strong>, Kesarpur sells new bonds and receives the money. In the <strong>secondary market</strong>, Meera sells to Arjun, Arjun sells to the bank, and Kesarpur receives nothing. Secondary prices still matter to the town, though: if its old bonds trade at high yields, its next project will cost more to borrow for.</p>
+    <p>The biggest borrower in almost every country is the government itself. When a government spends more than it collects in taxes, it covers the gap, its <em>fiscal deficit</em>, mainly by issuing bonds. Those government bonds become the foundation of the whole market: the safest asset, the benchmark against which everything else is priced, and the thing banks hold to stay liquid.</p>
+    <h3 class="sub-h">The yield curve</h3>
+    <p>Line up the government's bonds from the shortest to the longest and plot each one's yield. The result is the <strong>yield curve</strong>, one of the most watched charts in economics.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 600 260" width="100%" style="min-width:460px" role="img" aria-label="Yield curve chart with normal, flat and inverted curves">
+        <g id="yc"></g>
+      </svg>
+    </div>
+    <figcaption>Illustrative curves. Normal (solid): longer loans pay more. Flat (dotted): all maturities pay about the same. Inverted (dashed): short loans pay more, which has often come before a recession.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Why is the curve normally upward? Two reasons. First, lenders want extra pay, a <em>term premium</em>, for tying money up longer and taking more interest-rate risk. Second, the long end reflects where people expect short-term rates to be in the future. If everyone expects the central bank to raise rates, long yields are higher still.</p>
+    <p>When investors expect the economy to weaken and the central bank to <em>cut</em> rates, long yields fall below short ones and the curve <em>inverts</em>. In several countries, an inverted curve has come before most recessions of the past fifty years, though not every inversion has been followed by one.</p>
+    <h3 class="sub-h">Suresh and the zero-coupon bond</h3>
+    <p>Suresh, a bus conductor in Kesarpur, has a three-year-old daughter. He wants ₹10,000 waiting for her in ten years, and he doesn't want small coupons every year that he would probably spend.</p>
+    <p>Arjun sells him a <strong>zero-coupon bond</strong>. It pays no coupons at all. It is sold at a deep discount and repays the full ₹10,000 at maturity. At an 8% yield over ten years, it costs <span class="num">₹4,632</span> today. The whole return is the gap between what he pays and what he gets. And there is no reinvestment risk, because there are no coupons to reinvest. The 8% is locked in, as long as he holds it to the end.</p>
+    <h3 class="sub-h">The many kinds of bonds</h3>
+  </div>
+  <div class="types">
+    <div class="type"><h3>Government bonds</h3><span>Issued by the national government (in India, G-Secs; very short ones are Treasury bills). The benchmark for every other rate.</span></div>
+    <div class="type"><h3>State &amp; municipal bonds</h3><span>Issued by states (in India, SDLs) and cities, like Kesarpur, to fund roads, water and public works.</span></div>
+    <div class="type"><h3>Corporate bonds</h3><span>Companies borrowing for factories, expansion or refinancing. In India often called debentures or NCDs. Rates depend heavily on rating.</span></div>
+    <div class="type"><h3>Zero-coupon</h3><span>No coupons. Bought at a discount and repaid at face value. Highest duration for its maturity.</span></div>
+    <div class="type"><h3>Floating-rate</h3><span>The coupon resets with a benchmark rate, so the price barely moves when rates change.</span></div>
+    <div class="type"><h3>Inflation-indexed</h3><span>Principal or coupon rises with inflation, protecting buying power.</span></div>
+    <div class="type"><h3>Convertible</h3><span>A corporate bond the holder can swap for company shares. A lower coupon in exchange for upside.</span></div>
+    <div class="type"><h3>Callable &amp; puttable</h3><span>Callable: the issuer can repay early. Puttable: the holder can demand early repayment. Each option has a price.</span></div>
+    <div class="type"><h3>Perpetual</h3><span>No maturity date. Pays coupons for as long as it exists. Banks use them to build capital.</span></div>
+    <div class="type"><h3>Green &amp; social bonds</h3><span>Money earmarked for environmental or social projects, such as solar parks or clean transport.</span></div>
+    <div class="type"><h3>Asset-backed</h3><span>Bonds paid from a pool of loans, such as car loans or home loans, bundled together.</span></div>
+    <div class="type"><h3>Foreign-currency bonds</h3><span>Borrowing in dollars or euros to reach global investors, at the risk of currency swings.</span></div>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Who's in the market</span><dfn>Issuers</dfn> (governments, companies), <dfn>investors</dfn> (banks, insurers, pension and mutual funds, individuals, foreigners), <dfn>dealers</dfn> who make prices, and <dfn>regulators</dfn> (in India, RBI for government bonds and SEBI for corporate bonds).</div>
+    <div class="note coin"><span class="label">Zero-coupon math</span>Price = ₹10,000 ÷ 1.08¹⁰ = ₹10,000 ÷ 2.1589 = <span class="num">₹4,632</span>.</div>
+    <div class="note"><span class="label">The benchmark</span>The 10-year government bond yield is the single most quoted number in most bond markets. It is the "price of money" for the long term.</div>
+  </aside>
+</section>
+
+<!-- Chapter 14: economy (wide) -->
+<section class="chapter wide" id="economy">
+  <header><span class="label">Chapter 14</span><h2>How bonds move the economy</h2></header>
+  <div class="prose">
+    <p>Kesarpur's bond is tiny. But the government bond market behind it is the plumbing of the whole economy. When yields there move, the effects travel everywhere. Here is the chain, step by step, from the day the central bank raised rates in Chapter 8.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 1000 150" width="100%" style="min-width:760px" role="img" aria-label="Chain: central bank raises rates, government bond yields rise, loan and deposit rates rise, borrowing and spending slow, inflation cools">
+        <g id="chain"></g>
+      </svg>
+    </div>
+    <figcaption>How a rate rise travels from the central bank through the bond market into everyday life. Economists call this monetary policy transmission.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col b">
+      <h3>Central banks</h3>
+      <p>The central bank sets the short-term policy rate directly. It also buys and sells government bonds in the open market. Buying bonds pushes their prices up and yields down, and puts money into the banking system; selling does the opposite. In crises, central banks have bought huge amounts of bonds to hold long rates down. This is called quantitative easing.</p>
+    </div>
+    <div class="col b">
+      <h3>Your loans and deposits</h3>
+      <p>Banks price home loans, car loans and fixed deposits off the rates in the bond market. When government bond yields rise, a family borrowing for a house pays more each month, and a saver opening a fixed deposit earns more. Meera's sister, who had just taken a home loan, saw her EMI rise within months.</p>
+    </div>
+    <div class="col b">
+      <h3>Government budgets</h3>
+      <p>When yields rise, the government pays more interest on every new bond it sells. Large deficits mean more bonds to sell, which can push yields up further and make borrowing dearer for companies too. Economists call that crowding out. A government that loses investors' trust can see its borrowing costs jump sharply.</p>
+    </div>
+    <div class="col s">
+      <h3>Stock prices</h3>
+      <p>When safe bonds pay 7.5%, shares must offer a lot to compete. When bonds pay only 4%, investors move into shares. So rising bond yields often weigh on stock prices, especially for companies whose profits lie far in the future. Kamala noticed her cement shares fell the week rates jumped.</p>
+    </div>
+    <div class="col s">
+      <h3>Currency and foreign money</h3>
+      <p>Higher yields attract foreign investors, who must buy rupees to buy rupee bonds, and that tends to support the currency. In 2024, Indian government bonds were added to a major global bond index for the first time, bringing in foreign buyers who track that index.</p>
+    </div>
+    <div class="col f">
+      <h3>An early warning system</h3>
+      <p>Because millions of professionals trade bonds every day, prices adjust quickly to new information. Widening credit spreads warn of stress, an inverted yield curve warns of slowdown, and rising breakeven inflation warns of price pressure. Many economists watch the bond market more closely than the stock market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Chapter 15: ladder (wide) -->
+<section class="chapter wide" id="ladder">
+  <header><span class="label">Chapter 15</span><h2>Meera's ladder</h2></header>
+  <div class="prose">
+    <p>After selling her bond at a ₹497 loss, Meera sat down with her notebook and worked out what had gone wrong. The bond was fine. The mistake was the <em>timing</em>: she had put money she might need soon into a single bond that matured later. If you have to sell before maturity, you are at the mercy of whatever rates happen to be.</p>
+    <p>A few years later she inherits ₹50,000 and does it differently. Instead of one five-year bond, she buys five bonds of ₹10,000 each, maturing in 1, 2, 3, 4 and 5 years. This is a <strong>bond ladder</strong>.</p>
+  </div>
+  <div class="panel">
+    <div class="ladder" id="ladder-vis"></div>
+    <div class="years-axis"><div></div><div><span>Now</span><span>Yr 1</span><span>Yr 2</span><span>Yr 3</span><span>Yr 4</span><span>Yr 5</span></div></div>
+    <p style="font-size:.9rem;color:var(--muted)">Each rung is a ₹10,000 bond. Every year one matures at full face value. Meera can spend it, or reinvest it in a new 5-year bond at the top of the ladder at whatever rate is then available.</p>
+  </div>
+  <div class="cols">
+    <div class="col b"><h3>Never a forced sale</h3><p>Every year, ₹10,000 comes back at face value. If the college fees come due again, she uses the rung that matures, without selling anything at a bad price.</p></div>
+    <div class="col b"><h3>Rates stop being scary</h3><p>If rates rise, the maturing rung is reinvested at the new, higher rate. If rates fall, the other four rungs keep earning the older, higher rates. She never has to guess which way rates will go.</p></div>
+    <div class="col b"><h3>Risk is spread</h3><p>With five different issuers on five rungs, one problem bond hurts only a fifth of her savings. She now checks ratings and avoids anything she doesn't understand.</p></div>
+  </div>
+  <div class="prose">
+    <h3 class="sub-h">Other ways to build with bonds</h3>
+    <p><strong>Bullet:</strong> all bonds mature around one date, matching a single big expense, like Suresh's daughter's college fees in ten years. <strong>Barbell:</strong> some very short bonds for safety and some very long ones for higher yield, with nothing in the middle. <strong>Matching:</strong> pick bonds whose maturities line up with known future bills, the way pension funds do.</p>
+    <p><strong>Bonds or a bond fund?</strong> A debt mutual fund holds hundreds of bonds, which spreads default risk and lets you invest small amounts. But a fund never matures. It keeps replacing bonds, so its value goes up and down with rates forever, according to its duration, and there is no date when you are guaranteed your money back. Some <em>target maturity funds</em> fix that by holding bonds that all mature in one year and then closing. Individual bonds held to maturity give certainty; funds give convenience and diversification.</p>
+  </div>
+</section>
+
+<!-- Chapter 16 -->
+<section class="chapter" id="maturity">
+  <header><span class="label">Chapter 16</span><h2>Maturity day</h2></header>
+  <div class="prose">
+    <p>On 1 April, Year 5, the cooperative bank that bought bond No. 04127 receives ₹10,800 from the Kesarpur Municipal Council: the fifth coupon and the original ₹10,000. The registrar removes the bond from its list. The trustee files its final report. The promise has been kept, and the bond ceases to exist.</p>
+    <p>Add up the whole life of that one piece of paper:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Who</th><th class="num">Paid</th><th class="num">Received</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Meera (Years 0–2)</td><td class="num">₹10,000</td><td class="num">₹1,600 + ₹9,503</td><td>₹1,103 gain in two years, about 5.4% a year. Less than hoped, but cash exactly when needed.</td></tr>
+          <tr><td>Arjun (one afternoon)</td><td class="num">₹9,503</td><td class="num">₹9,503 + fee</td><td>A small dealer's fee for providing liquidity.</td></tr>
+          <tr><td>Cooperative bank (Years 2–5)</td><td class="num">₹9,503</td><td class="num">₹12,400</td><td>A 10% yield to maturity.</td></tr>
+          <tr><td>Kesarpur Council</td><td class="num">₹14,000 over 5 yrs</td><td class="num">₹10,000 up front</td><td>Paid 8% a year, no more, no less, whatever the price did.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <figure class="xfig">
+    <div class="xhead"><span class="label">The life of bond No. 04127</span><button type="button" class="xbtn" id="x-life-r">Replay</button></div>
+    <div class="scroll"><svg viewBox="0 0 660 262" width="100%" style="min-width:520px" role="img" aria-label="Animation of money moving between the council, Meera, Arjun and the cooperative bank over five years"><g id="x-life"></g></svg></div>
+    <figcaption>Blue: the loan and the bond itself. Gold: coupons and sale money. The big blue dot at the end is the final ₹10,800.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>And the town has a bridge. Farmers cross it with their carts at dawn. The ambulance takes six minutes to reach the hospital instead of fifty. The toll collected at its gate paid for the very coupons that made it possible.</p>
+    <p>That is what a bond is: a promise that lets money waiting in one place build something useful in another. And that is what the bond market is: the place where millions of such promises are created, priced, traded and, nearly always, kept.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Notice</span>The issuer's cost never changed after issue. All the drama of prices and yields was between investors, reflecting the changing value of a fixed promise.</div>
+    <div class="note"><span class="label">Refinancing</span>Many issuers don't repay from savings at maturity. They issue new bonds to repay old ones, called <dfn>rolling over</dfn>. That works only while investors trust them, which is why a sudden loss of trust can be so dangerous.</div>
+  </aside>
+</section>
+
+<!-- Myths & glossary -->
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Six myths about bonds</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Bonds can't lose money.</span><span>They can, in four ways: rates rise and you sell early (Meera), the issuer defaults (Dhoolgarh), inflation outruns the coupon, or you can't find a buyer.</span></div>
+    <div class="myth"><span class="m">A higher coupon means a better bond.</span><span>The price adjusts to the coupon. What matters is the yield you get for the price you pay, and the risk behind it.</span></div>
+    <div class="myth"><span class="m">Government bonds are risk-free.</span><span>Default risk is very low in your own currency, but a long government bond can still drop 10% or more in price when rates jump.</span></div>
+    <div class="myth"><span class="m">A rating is a guarantee.</span><span>It's an opinion that can lag reality. Highly rated issuers have defaulted with little warning from their ratings.</span></div>
+    <div class="myth"><span class="m">A bond fund works like a bond.</span><span>Most funds never mature, so there's no date when your money is guaranteed back at face value. Their value moves with rates indefinitely.</span></div>
+    <div class="myth"><span class="m">Falling bond prices mean someone defaulted.</span><span>Usually it just means interest rates rose. Nobody broke a promise; the value of an old fixed promise changed.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>The town needs ₹10 crore</td><td>Issuer, debt vs. equity</td><td>Borrow (bonds) or sell ownership (shares)</td></tr>
+        <tr><td>The printed promise</td><td>Bond, face value, coupon, maturity</td><td>A standard, tradable piece of a loan</td></tr>
+        <tr><td>Escrow, trustee, covenants</td><td>Security and protection</td><td>Terms that make the promise stronger</td></tr>
+        <tr><td>The order book at 8%</td><td>Primary market, book building</td><td>The market, not the issuer, sets the rate</td></tr>
+        <tr><td>Bhavna's AA</td><td>Credit rating &amp; spread</td><td>Riskier borrowers must pay more</td></tr>
+        <tr><td>Kamala's shares</td><td>Capital structure</td><td>Lenders are paid before owners</td></tr>
+        <tr><td>Arjun's screen</td><td>Secondary market, bid–ask</td><td>Investors trade existing bonds</td></tr>
+        <tr><td>Rates rise, price falls to ₹9,503</td><td>Present value, the see-saw</td><td>Rates and bond prices move opposite ways</td></tr>
+        <tr><td>"What's the yield?"</td><td>YTM, yield to call, convexity</td><td>Total return if held to the end</td></tr>
+        <tr><td>The napkin drawing</td><td>Duration</td><td>Longer bonds swing more with rates</td></tr>
+        <tr><td>Groceries cost 6% more</td><td>Real return, tax</td><td>What's left after inflation and tax</td></tr>
+        <tr><td>Dhoolgarh stops paying</td><td>Default, recovery, contagion</td><td>Broken promises; secured holders first</td></tr>
+        <tr><td>Suresh's ₹4,632</td><td>Zero-coupon bond</td><td>No coupons; bought cheap, repaid at par</td></tr>
+        <tr><td>The line of government bonds</td><td>Yield curve</td><td>Yields across maturities; inversion is a warning</td></tr>
+        <tr><td>The sister's EMI rises</td><td>Monetary transmission</td><td>Bond yields set the price of all borrowing</td></tr>
+        <tr><td>Meera's five rungs</td><td>Bond ladder</td><td>Stagger maturities so you never sell under pressure</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Accrued interest</dt><dd>Interest earned since the last coupon date, paid by the buyer to the seller in a trade.</dd></div>
+    <div><dt>Basis point (bp)</dt><dd>0.01%. A move from 7.00% to 7.25% is 25 bp.</dd></div>
+    <div><dt>Bid / ask</dt><dd>The price a dealer will pay you / the price a dealer will sell to you.</dd></div>
+    <div><dt>Call option</dt><dd>The issuer's right to repay a bond before maturity.</dd></div>
+    <div><dt>Clean / dirty price</dt><dd>Quoted price without / with accrued interest.</dd></div>
+    <div><dt>Convexity</dt><dd>The curve in the price–yield relationship; prices rise faster than they fall.</dd></div>
+    <div><dt>Coupon</dt><dd>The fixed interest payment, as a rate (8%) or an amount (₹800).</dd></div>
+    <div><dt>Covenant</dt><dd>A promise in the bond's rulebook limiting what the issuer may do.</dd></div>
+    <div><dt>Credit spread</dt><dd>Extra yield over a government bond of the same maturity.</dd></div>
+    <div><dt>Default</dt><dd>Failure to pay on time or to keep the bond's key terms.</dd></div>
+    <div><dt>Discount / premium</dt><dd>Trading below / above face value.</dd></div>
+    <div><dt>Duration</dt><dd>Average time to receive a bond's value; also its sensitivity to rate changes.</dd></div>
+    <div><dt>Face value (par)</dt><dd>The amount repaid at maturity.</dd></div>
+    <div><dt>Haircut</dt><dd>A cut in what bondholders are owed, agreed in a restructuring.</dd></div>
+    <div><dt>Investment grade</dt><dd>Rated BBB or higher.</dd></div>
+    <div><dt>Issuer</dt><dd>The borrower who sells the bond.</dd></div>
+    <div><dt>Junk / high-yield</dt><dd>Rated BB or lower; higher coupons for higher risk.</dd></div>
+    <div><dt>Ladder</dt><dd>Bonds with staggered maturities, one maturing each period.</dd></div>
+    <div><dt>Maturity</dt><dd>The date the bond ends and face value is repaid.</dd></div>
+    <div><dt>Present value</dt><dd>What a future payment is worth today, discounted at the market rate.</dd></div>
+    <div><dt>Primary / secondary market</dt><dd>First sale by the issuer / later trading between investors.</dd></div>
+    <div><dt>Real return</dt><dd>Return after subtracting inflation.</dd></div>
+    <div><dt>Seniority</dt><dd>A bond's place in line for repayment if the issuer fails.</dd></div>
+    <div><dt>Trustee</dt><dd>A firm that watches the issuer and acts for all bondholders.</dd></div>
+    <div><dt>Yield curve</dt><dd>Yields of similar bonds plotted against maturity.</dd></div>
+    <div><dt>Yield to maturity</dt><dd>The total yearly return if you hold to maturity and every payment is made.</dd></div>
+    <div><dt>Zero-coupon bond</dt><dd>A bond with no coupons, sold at a discount and repaid at face value.</dd></div>
+  </dl>
+
+  <h2 style="font-size:clamp(1.4rem,3vw,1.8rem);margin-top:32px">From Kesarpur to real life</h2>
+  <div class="prose" style="max-width:68ch">
+    <p>Kesarpur, Dhoolgarh and everyone in them are fictional, and the rates are illustrative. The mechanics are real. In India, individuals usually reach bonds in these ways:</p>
+    <ul>
+      <li><strong>Government securities</strong> (G-Secs, T-bills, state SDLs) bought directly through the RBI Retail Direct platform, including through non-competitive bids in auctions.</li>
+      <li><strong>Listed corporate bonds and NCDs</strong>, bought through a broker or a SEBI-registered online bond platform. Check the rating, the security and seniority, and how easily it can be sold before buying.</li>
+      <li><strong>Debt mutual funds, target maturity funds and bond ETFs</strong>, which hold many bonds at once. They spread default risk, but their value moves with interest rates according to the fund's duration.</li>
+    </ul>
+    <p>Before buying any bond, ask five questions from this story: Who is the issuer, and how likely are they to pay (Chapter 5)? What is the yield to maturity, not just the coupon (Chapter 9)? How much will the price swing if rates move (Chapter 10)? What is left after tax and inflation (Chapter 11)? Might I need this money before it matures (Chapter 15)?</p>
+  </div>
+  <p class="disclaimer">This page explains how bonds work. It is not investment advice. Rules, taxes and available products change, so check current details with official sources or a registered adviser before investing.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+  const price = (c, r, n, fv=10000) => { let s=0; for(let t=1;t<=n;t++) s += c*fv/Math.pow(1+r,t); return s + fv/Math.pow(1+r,n); };
+  const ns='http://www.w3.org/2000/svg';
+  const el = (tag, attrs, text) => { const e=document.createElementNS(ns,tag); for(const k in attrs) e.setAttribute(k, attrs[k]); if(text!=null) e.textContent=text; return e; };
+
+  // Cash flow timeline
+  const cf = document.getElementById('cf');
+  const flows = [-10000, 800, 800, 800, 800, 10800];
+  const scale = 105/10800, base = 135;
+  flows.forEach((v,i)=>{
+    const x = 70 + i*108, h = Math.max(2, Math.abs(v)*scale);
+    cf.appendChild(el('rect',{x:x-18,width:36,rx:2,y:v<0?base:base-h,height:h,fill:v<0?'var(--river)':'var(--coin)'}));
+    cf.appendChild(el('text',{x:x,'text-anchor':'middle','font-size':12,fill:'var(--ink)',y:v<0?base+h+16:base-h-8},(v<0?'−':'+')+fmt(Math.abs(v))));
+    cf.appendChild(el('text',{x:x,'text-anchor':'middle','font-size':11,fill:'var(--muted)',y:v<0?base-8:base+18},'Year '+i));
+  });
+
+  // See-saw
+  const rate = document.getElementById('rate'), years = document.getElementById('years');
+  const plank = document.getElementById('plank');
+  const pct = v => (+v).toFixed(2).replace(/\.?0+$/,'') + '%';
+  function upd(){
+    const r = +rate.value/100, n = +years.value, p = price(.08, r, n), chg = (p/10000-1)*100;
+    document.getElementById('rate-out').textContent = pct(rate.value);
+    document.getElementById('years-out').textContent = n;
+    document.getElementById('ss-rate').textContent = pct(rate.value);
+    document.getElementById('ss-price').textContent = fmt(p);
+    document.getElementById('r-price').textContent = fmt(p);
+    document.getElementById('r-chg').textContent = (chg>=0?'+':'−') + Math.abs(chg).toFixed(1) + '%';
+    const pill = document.getElementById('r-pill');
+    if (Math.abs(chg) < 0.05){ pill.textContent='At par'; pill.className='pill par'; }
+    else if (chg>0){ pill.textContent='Premium'; pill.className='pill prem'; }
+    else { pill.textContent='Discount'; pill.className='pill disc'; }
+    const ang = Math.max(-14, Math.min(14, (+rate.value-8)*2.2));
+    plank.style.transform = 'rotate(' + (-ang) + 'deg)';
+    const note = document.getElementById('r-note');
+    if (Math.abs(chg) < 0.05) note.textContent = 'When the market rate equals the 8% coupon, the bond is worth exactly its face value.';
+    else if (chg<0) note.textContent = 'New bonds pay ' + pct(rate.value) + ', more than this bond’s 8%, so buyers will only take it at a lower price.';
+    else note.textContent = 'New bonds pay only ' + pct(rate.value) + ', less than this bond’s 8%, so buyers pay extra for it.';
+  }
+  rate.addEventListener('input', upd); years.addEventListener('input', upd); upd();
+
+  // Duration bars
+  const bars = document.getElementById('dur-bars');
+  function dur(shift){
+    const mats=[1,5,10,30];
+    bars.innerHTML = '';
+    mats.forEach(n=>{
+      const v = (price(.08, .08+shift/100, n)/10000-1)*100;
+      const row = document.createElement('div'); row.className='bar';
+      row.innerHTML = '<span class="mono">' + n + (n===1?' year':' years') + '</span><div class="track"><div class="fill"></div></div><span class="v"></span>';
+      const f = row.querySelector('.fill');
+      f.style.width = Math.min(100, Math.abs(v)/30*100) + '%';
+      f.style.background = v<0 ? 'var(--risk)' : 'var(--coin)';
+      row.querySelector('.v').textContent = (v>=0?'+':'−') + Math.abs(v).toFixed(2) + '%';
+      bars.appendChild(row);
+    });
+  }
+  document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed', x===b ? 'true':'false'));
+    dur(+b.dataset.shift);
+  }));
+  dur(1);
+
+  // Price-yield curve
+  (function(){
+    const g = document.getElementById('pyc');
+    const L=70,R=575,T=20,B=250, y0=2,y1=16, p0=4000,p1=20000;
+    const X=y=>L+(y-y0)/(y1-y0)*(R-L), Y=p=>B-(p-p0)/(p1-p0)*(B-T);
+    for(let p=4000;p<=20000;p+=4000){ g.appendChild(el('line',{x1:L,x2:R,y1:Y(p),y2:Y(p),stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-8,y:Y(p)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'₹'+(p/1000)+'k')); }
+    for(let y=2;y<=16;y+=2){ g.appendChild(el('text',{x:X(y),y:B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},y+'%')); }
+    g.appendChild(el('text',{x:(L+R)/2,y:B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Market yield'));
+    let d=''; for(let y=y0;y<=y1+1e-9;y+=0.25){ d+=(d?'L':'M')+X(y).toFixed(1)+' '+Y(price(.08,y/100,10)).toFixed(1)+' '; }
+    // tangent at 8% using modified duration
+    let mac=0; for(let t=1;t<=10;t++) mac += t*(t<10?800:10800)/Math.pow(1.08,t); const md = mac/10000/1.08;
+    const tl = y => 10000*(1 - md*(y-8)/100);
+    const ta = 3, tb = 15;
+    g.appendChild(el('path',{d:'M'+X(ta)+' '+Y(tl(ta))+' L'+X(tb)+' '+Y(tl(tb)),stroke:'var(--muted)','stroke-width':1.5,'stroke-dasharray':'6 5',fill:'none'}));
+    g.appendChild(el('path',{d:d,stroke:'var(--river)','stroke-width':2.5,fill:'none'}));
+    g.appendChild(el('circle',{cx:X(8),cy:Y(10000),r:4.5,fill:'var(--coin)'}));
+    g.appendChild(el('text',{x:X(8)+10,y:Y(10000)-10,'font-size':12,fill:'var(--ink)'},'8% yield → ₹10,000 (par)'));
+    g.appendChild(el('text',{x:X(2.6),y:Y(price(.08,.026,10))-2,'font-size':11,fill:'var(--river)'},fmt(price(.08,.02,10))+' at 2%'));
+    g.appendChild(el('text',{x:X(16),y:Y(price(.08,.16,10))-12,'text-anchor':'end','font-size':11,fill:'var(--river)'},fmt(price(.08,.16,10))+' at 16%'));
+  })();
+
+  // Yield curve
+  (function(){
+    const yc = document.getElementById('yc');
+    const L=60, R=570, T=20, B=210, ymin=5, ymax=9;
+    const labels=['3M','1Y','2Y','5Y','10Y','30Y'];
+    const normal=[6.2,6.5,6.8,7.1,7.4,7.7], flat=[7.2,7.25,7.25,7.3,7.3,7.3], inverted=[7.9,7.8,7.6,7.2,6.9,6.7];
+    const X=i=>L+(R-L)*i/(labels.length-1), Y=v=>B-(v-ymin)/(ymax-ymin)*(B-T);
+    for(let v=5; v<=9; v++){ yc.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); yc.appendChild(el('text',{x:L-10,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},v+'%')); }
+    labels.forEach((l,i)=> yc.appendChild(el('text',{x:X(i),y:B+20,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},l)));
+    const path=a=>a.map((v,i)=>(i?'L':'M')+X(i)+' '+Y(v)).join(' ');
+    yc.appendChild(el('path',{d:path(flat),fill:'none',stroke:'var(--muted)','stroke-width':2,'stroke-dasharray':'2 4'}));
+    yc.appendChild(el('path',{d:path(inverted),fill:'none',stroke:'var(--risk)','stroke-width':2,'stroke-dasharray':'6 5'}));
+    yc.appendChild(el('path',{d:path(normal),fill:'none',stroke:'var(--river)','stroke-width':2.5}));
+    normal.forEach((v,i)=> yc.appendChild(el('circle',{cx:X(i),cy:Y(v),r:3.5,fill:'var(--river)'})));
+    yc.appendChild(el('text',{x:X(5)-6,y:Y(7.7)-10,'text-anchor':'end','font-size':12,fill:'var(--river)'},'Normal'));
+    yc.appendChild(el('text',{x:X(0)+6,y:Y(7.9)-10,'font-size':12,fill:'var(--risk)'},'Inverted'));
+    yc.appendChild(el('text',{x:X(5),y:Y(7.3)+18,'text-anchor':'end','font-size':12,fill:'var(--muted)'},'Flat'));
+    yc.appendChild(el('text',{x:(L+R)/2,y:B+42,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Time to maturity'));
+  })();
+
+  // Transmission chain
+  (function(){
+    const g = document.getElementById('chain');
+    const steps=['Central bank raises its policy rate','Government bond yields rise','Loan rates and deposit rates rise','Borrowing and spending slow','Inflation cools'];
+    const w=170, gap=37, top=30, h=90;
+    steps.forEach((s,i)=>{
+      const x = 10 + i*(w+gap);
+      g.appendChild(el('rect',{x:x,y:top,width:w,height:h,rx:8,fill:i===1?'var(--river-soft)':'var(--paper)',stroke:i===1?'var(--river)':'var(--rule)'}));
+      const words = s.split(' '); const lines=[]; let cur='';
+      words.forEach(wd=>{ if((cur+' '+wd).trim().length>18){ lines.push(cur.trim()); cur=wd; } else cur+=' '+wd; }); lines.push(cur.trim());
+      lines.forEach((ln,j)=> g.appendChild(el('text',{x:x+w/2,y:top+h/2-(lines.length-1)*9+j*18+4,'text-anchor':'middle','font-size':13,fill:'var(--ink)'},ln)));
+      g.appendChild(el('text',{x:x+12,y:top-10,'font-size':11,fill:'var(--muted)'},'Step '+(i+1)));
+      if(i<steps.length-1){ const ax=x+w+4; g.appendChild(el('path',{d:'M'+ax+' '+(top+h/2)+' L'+(ax+gap-10)+' '+(top+h/2),stroke:'var(--muted)','stroke-width':1.5,fill:'none'})); g.appendChild(el('path',{d:'M'+(ax+gap-14)+' '+(top+h/2-5)+' L'+(ax+gap-8)+' '+(top+h/2)+' L'+(ax+gap-14)+' '+(top+h/2+5),stroke:'var(--muted)','stroke-width':1.5,fill:'none'})); }
+    });
+  })();
+
+  // Ladder
+  (function(){
+    const box = document.getElementById('ladder-vis');
+    [1,2,3,4,5].forEach(n=>{
+      const r = document.createElement('div'); r.className='rung';
+      r.innerHTML = '<span class="mono">Rung '+n+'</span><div class="lane"><div class="seg-b" style="width:'+(n/5*100)+'%">₹10,000 · matures Yr '+n+'</div></div>';
+      box.appendChild(r);
+    });
+  })();
+})();
+(function(){
+const ns='http://www.w3.org/2000/svg';
+const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function axes(g,o){const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L),Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);o.yt.forEach(v=>{g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'}));g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v)));});(o.xt||[]).forEach(v=>g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));return{X,Y};}
+const pd=(pts,X,Y)=>pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+function line(g,pts,X,Y,a){const e=el('path',Object.assign({d:pd(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},a));g.appendChild(e);return e;}
+function box(g,x,y,w,h,t,s,f,st){g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:f||'var(--paper)',stroke:st||'var(--rule)','stroke-width':1.5}));g.appendChild(el('text',{x:x+w/2,y:y+h/2-(s?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},t));if(s)g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s));}
+const T={};
+function clearRun(k,g){(T[k]||[]).forEach(clearTimeout);T[k]=[];g.querySelectorAll('.xs').forEach(n=>n.remove());}
+function seq(k,g,d,c,dur,r,delay){if(reduce)return;const n=el('circle',{r:r||5,fill:c,opacity:0,class:'xs'});const a=el('animateMotion',{dur:dur+'s',path:d,begin:'indefinite',fill:'freeze'});n.appendChild(a);g.appendChild(n);T[k].push(setTimeout(()=>{n.setAttribute('opacity',1);try{a.beginElement();}catch(e){}},delay*1000));}
+function later(k,fn,delay){if(reduce)return;T[k].push(setTimeout(fn,delay*1000));}
+function replay(g,sel,cls,step){g.querySelectorAll(sel).forEach((p,i)=>{p.classList.remove(cls);void p.getBoundingClientRect();p.style.animationDelay=(i*(step||.15))+'s';p.classList.add(cls);});}
+function onView(n,fn){if(reduce||!('IntersectionObserver' in window))return;const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){fn();io.disconnect();}});},{threshold:.35});io.observe(n);}
+function wire(id,g,fn){const b=document.getElementById(id);if(b)b.addEventListener('click',fn);onView(g,fn);}
+
+// Book build
+(function(){const g=document.getElementById('x-book');if(!g)return;
+const rows=[['7.70%',2.5],['7.85%',6],['8.00%',13],['8.20%',21]];const L=80,R=560,sc=(R-L)/22;
+rows.forEach(([r,v],i)=>{const y=30+i*44;g.appendChild(el('text',{x:L-10,y:y+18,'text-anchor':'end','font-size':12,fill:'var(--ink)'},r));
+g.appendChild(el('rect',{x:L,y,width:v*sc,height:26,rx:3,fill:i===2?'var(--coin)':'var(--river)',opacity:i===3?.45:.9,class:'bk',style:'transform-origin:'+L+'px '+(y+13)+'px'}));
+g.appendChild(el('text',{x:L+v*sc+6,y:y+18,'font-size':11,fill:'var(--ink)'},'₹'+v+' cr'+(i===2?'  ← cut-off: coupon 8%':'')));});
+const xl=L+10*sc;g.appendChild(el('line',{x1:xl,x2:xl,y1:20,y2:206,stroke:'var(--risk)','stroke-width':2,'stroke-dasharray':'5 4'}));
+g.appendChild(el('text',{x:xl+6,y:16,'font-size':11,fill:'var(--risk)'},'₹10 crore needed'));
+g.appendChild(el('text',{x:L,y:224,'font-size':10,fill:'var(--muted)'},'Total bids at each rate or lower'));
+wire('x-book-r',g,()=>replay(g,'.bk','xgx',0.45));})();
+
+// Spreads
+(function(){const g=document.getElementById('x-spread');if(!g)return;
+const rows=[['Govt','sovereign',0],['AAA','power co.',0.5],['AA','Kesarpur',1],['A','textile',2],['BB','Dhoolgarh',4],['BB−','cement',5]];
+const L=60,R=620,TT=20,B=210,Y=v=>B-v/13*(B-TT),W=(R-L)/6;
+[0,3,6,9,12].forEach(v=>{g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'}));g.appendChild(el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},v+'%'));});
+rows.forEach(([r,s,sp],i)=>{const x=L+i*W+W*0.2,w=W*0.6;const gg=el('g',{class:'sb',style:'transform-origin:'+(x+w/2)+'px '+B+'px'});
+gg.appendChild(el('rect',{x,y:Y(7),width:w,height:B-Y(7),fill:'var(--river)',opacity:.85}));
+if(sp>0)gg.appendChild(el('rect',{x,y:Y(7+sp),width:w,height:Y(7)-Y(7+sp),fill:'var(--risk)',opacity:.85}));
+gg.appendChild(el('text',{x:x+w/2,y:Y(7+sp)-6,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},(7+sp).toFixed(1)+'%'));g.appendChild(gg);
+g.appendChild(el('text',{x:x+w/2,y:B+16,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},r));g.appendChild(el('text',{x:x+w/2,y:B+30,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s));});
+wire('x-spread-r',g,()=>replay(g,'.sb','xgy',0.2));})();
+
+// Recovery waterfall
+(function(){const g=document.getElementById('x-claims'),s=document.getElementById('x-rec');if(!g||!s)return;
+const TT=[['Secured lenders',40,'var(--river)'],['Senior unsecured bonds',30,'var(--river)'],['Subordinated bonds',15,'var(--coin)'],['Preference shares',5,'var(--coin)'],['Ordinary shareholders',0,'var(--risk)']];
+const L=200,R=600,sc=(R-L)/60;const refs=[];
+TT.forEach(([n,c,col],i)=>{const y=10+i*45;g.appendChild(el('text',{x:L-10,y:y+19,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+if(c)g.appendChild(el('rect',{x:L,y:y+4,width:c*sc,height:22,rx:3,fill:'none',stroke:'var(--muted)','stroke-dasharray':'4 3'}));
+const f=el('rect',{x:L,y:y+4,width:0,height:22,rx:3,fill:col,opacity:.85,style:'transition:width .5s ease'});g.appendChild(f);
+const t=el('text',{x:L,y:y+40,'font-size':10,fill:'var(--muted)'},'');g.appendChild(t);refs.push([f,t,c]);});
+function u(){const V=+s.value;document.getElementById('x-rec-out').textContent='₹'+V+' cr';let left=V;
+refs.forEach(([f,t,c],i)=>{let p;if(i<4){p=Math.min(c,left);left-=p;t.textContent='Gets ₹'+p+' cr of ₹'+c+' cr owed: '+Math.round(p/c*100)+' paise per rupee';}else{p=left;t.textContent=p>0?'Gets what’s left: ₹'+p+' cr':'Gets nothing';}f.setAttribute('width',Math.min(R-L,p*sc));});
+document.getElementById('x-rec-note').textContent='Dashed boxes show what each group is owed (₹90 crore before shareholders). Each group must be paid in full before the next gets anything.';}
+s.addEventListener('input',u);u();})();
+
+// Dhoolgarh vs Kesarpur
+(function(){const g=document.getElementById('x-dhool');if(!g)return;
+const K=[[0,10000],[1,10050],[2,9503],[2.5,9250],[3,9600],[4,9800],[5,10000]];
+const D=[[0,10000],[1,9800],[2,9400],[2.9,9100],[3,4000],[4,4300]];
+const {X,Y}=axes(g,{L:70,R:600,T:16,B:220,x0:0,x1:5,y0:2000,y1:11000,yt:[2000,4000,6000,8000,10000],yf:v=>'₹'+v.toLocaleString('en-IN'),xt:[0,1,2,3,4,5],xf:v=>'Yr '+v});
+line(g,K,X,Y,{stroke:'var(--river)','stroke-width':3,pathLength:1000,class:'dl'});
+line(g,D,X,Y,{stroke:'var(--risk)','stroke-width':3,pathLength:1000,class:'dl'});
+line(g,[[4,4300],[5,7000]],X,Y,{stroke:'var(--risk)','stroke-width':2,'stroke-dasharray':'5 4'});
+line(g,[[4,4300],[5,3500]],X,Y,{stroke:'var(--risk)','stroke-width':2,'stroke-dasharray':'2 4'});
+const mk=(x,y,t,c,dy,anc)=>{g.appendChild(el('circle',{cx:X(x),cy:Y(y),r:4.5,fill:c}));g.appendChild(el('text',{x:X(x)+(anc==='end'?-8:8),y:Y(y)+dy,'text-anchor':anc||'start','font-size':11,fill:c},t));};
+mk(2,9400,'Outlook negative','var(--risk)',22);mk(3,4000,'Default','var(--risk)',4);mk(2.5,9250,'Contagion dip','var(--river)',-12,'end');
+mk(5,7000,'Secured ≈ 70 paise','var(--risk)',-8,'end');mk(5,3500,'Unsecured ≈ 35 paise','var(--risk)',18,'end');mk(5,10000,'Kesarpur repaid in full','var(--river)',-10,'end');
+wire('x-dhool-r',g,()=>replay(g,'.dl','xdraw',0.4));})();
+
+// Life of the bond
+(function(){const g=document.getElementById('x-life');if(!g)return;
+[[100,170,330,68],[330,68,560,170]].forEach(([a,b,c,d])=>g.appendChild(el('line',{x1:a,y1:b,x2:c,y2:d,stroke:'var(--rule)','stroke-dasharray':'4 4'})));
+g.appendChild(el('line',{x1:170,y1:196,x2:260,y2:196,stroke:'var(--rule)','stroke-dasharray':'4 4'}));g.appendChild(el('line',{x1:400,y1:196,x2:490,y2:196,stroke:'var(--rule)','stroke-dasharray':'4 4'}));
+box(g,250,14,160,54,'Kesarpur Council','pays the coupons','var(--river-soft)','var(--river)');
+box(g,30,170,140,52,'Meera','Years 0–2','var(--paper)','var(--coin)');
+box(g,260,170,140,52,'Arjun','one afternoon','var(--paper)','var(--rule)');
+box(g,490,170,140,52,'Co-op bank','Years 2–5','var(--paper)','var(--coin)');
+const st=el('text',{x:330,y:252,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'Kesarpur paid every coupon and the ₹10,000, whoever held the bond.');g.appendChild(st);
+const steps=[[0,'M100 170 L330 68','var(--river)',7,'Year 0: Meera lends ₹10,000 to the council'],[1.7,'M330 68 L100 170','var(--coin)',5,'Year 1: ₹800 coupon to Meera'],[3.3,'M330 68 L100 170','var(--coin)',5,'Year 2: ₹800 coupon to Meera'],[4.9,'M170 190 L260 190','var(--river)',7,'Year 2: Meera sells the bond to Arjun for ₹9,503'],[4.9,'M260 204 L170 204','var(--coin)',6,''],[6.5,'M400 190 L490 190','var(--river)',7,'Same afternoon: Arjun sells it to the co-op bank'],[6.5,'M490 204 L400 204','var(--coin)',6,''],[8.1,'M330 68 L560 170','var(--coin)',5,'Year 3: ₹800 coupon to the bank'],[9.5,'M330 68 L560 170','var(--coin)',5,'Year 4: ₹800 coupon to the bank'],[10.9,'M330 68 L560 170','var(--river)',9,'Year 5: ₹10,800 to the bank. The promise is kept.']];
+function run(){clearRun('life',g);if(reduce)return;steps.forEach(([t,d,c,r,lab])=>{seq('life',g,d,c,1.2,r,t);if(lab)later('life',()=>{st.textContent=lab;},t);});}
+wire('x-life-r',g,run);})();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 01</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="1"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="index.html" rel="prev"><small>← Previous</small>Series overview</a><a href="common-pot.html" rel="next"><small>Next story →</small>The Common Pot</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

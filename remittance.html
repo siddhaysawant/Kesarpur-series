@@ -1,0 +1,869 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Remittance</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 06 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html" aria-current="page"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: sixth story in the Kesarpur series. Storybook column with a ledger margin; wide interludes and many animated diagrams. Berry accent; saffron for the rupee, green for the dollar; green/red reserved for gain/loss. */
+:root{
+  --bg:#F3F1F2; --paper:#FCFBFB; --ink:#22191E; --muted:#66585F; --rule:#DCD2D7;
+  --acc:#8A2F5F; --acc-soft:#F1DDE7; --inr:#B4660E; --inr-soft:#F7E6D1; --usd:#2D6B50; --usd-soft:#DCEDE4;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B3313F; --down-soft:#F6DCDF;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151013; --paper:#1E171B; --ink:#EEE5EA; --muted:#AC9CA4; --rule:#3A2E34;
+  --acc:#E59CC2; --acc-soft:#3A2030; --inr:#F2AA5A; --inr-soft:#3B2914; --usd:#86CFA9; --usd-soft:#1B3127;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151013; --paper:#1E171B; --ink:#EEE5EA; --muted:#AC9CA4; --rule:#3A2E34;
+  --acc:#E59CC2; --acc-soft:#3A2030; --inr:#F2AA5A; --inr-soft:#3B2914; --usd:#86CFA9; --usd-soft:#1B3127;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.inr .label{color:var(--inr)}
+.note.usd .label{color:var(--usd)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.i{border-color:var(--inr)} .col.s{border-color:var(--usd)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about the foreign exchange market, in sixteen chapters</span>
+    <h1>The Kesarpur Remittance</h1>
+    <p class="lede">Salim works in Dubai and sends 5,000 dirhams home to Kesarpur every month. How many rupees his mother receives depends on a price set every second by the largest market on Earth. Follow his money across the border, and you will understand how currencies are traded, why the rupee rises and falls, and who wins and loses when it does.</p>
+    <div class="cast">
+      <span class="chip">Salim, electrician in Dubai</span>
+      <span class="chip">Lakshmi, Sunrise Foods</span>
+      <span class="chip">Imran, phone importer</span>
+      <span class="chip">Kabir, student in Melbourne</span>
+      <span class="chip">Mr. Iyer, bank dealer</span>
+      <span class="chip">The RBI</span>
+    </div>
+  </div>
+  <figure style="margin:0">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Animated map-like diagram: money flowing into Kesarpur, India, from Dubai, London, Singapore, New York and Melbourne, and payments flowing out"><g id="hero-map"></g></svg>
+  </figure>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Payday in Dubai</a></li>
+    <li><a href="#why"><span>01</span>Why money must be exchanged</a></li>
+    <li><a href="#quote"><span>02</span>Reading a rate</a></li>
+    <li><a href="#journey"><span>03</span>The journey of Salim's dirhams</a></li>
+    <li><a href="#price"><span>04</span>The price of a rupee</a></li>
+    <li><a href="#drivers"><span>05</span>What moves the rupee</a></li>
+    <li><a href="#winners"><span>06</span>Winners and losers</a></li>
+    <li><a href="#bop"><span>07</span>India's foreign accounts</a></li>
+    <li><a href="#rbi"><span>08</span>The RBI in the market</a></li>
+    <li><a href="#forward"><span>09</span>Tomorrow's exchange rate</a></li>
+    <li><a href="#hedge"><span>10</span>Protecting against the rupee</a></li>
+    <li><a href="#market"><span>11</span>The market that never sleeps</a></li>
+    <li><a href="#history"><span>12</span>A short life of the rupee</a></li>
+    <li><a href="#crises"><span>13</span>Currency crises</a></li>
+    <li><a href="#rules"><span>14</span>The rules in India</a></li>
+    <li><a href="#you"><span>15</span>Forex in your own life</a></li>
+    <li><a href="#epilogue"><span>16</span>Eid at home</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>Money crossing borders</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Payday in Dubai</h2></header>
+  <div class="prose">
+    <p>Salim grew up in Kesarpur, two streets from the bridge. For nine years he has worked as an electrician on building sites in Dubai. On the last day of every month, his salary of 7,500 UAE dirhams lands in his account. He keeps 2,500 for rent and food, and sends 5,000 home.</p>
+    <p>In Kesarpur, his mother Rukhsana runs the household on that money. She doesn't think in dirhams; she thinks in rupees. One month the transfer brings ₹1,14,000; a year later, the same 5,000 dirhams brings ₹1,22,000. She hasn't been sent more. The rupee has fallen.</p>
+    <p>That's good for her this month, but the same fall makes cooking oil, fertiliser and petrol in Kesarpur more expensive, because India buys them from abroad in dollars.</p>
+    <p>Behind every transfer, every import, every foreign holiday and every overseas investment, someone has to swap one currency for another. The place where that happens is the <strong>foreign exchange market</strong>, usually called <strong>forex</strong> or <strong>FX</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Sixth story</span>This follows the bond, mutual fund, stock, derivatives and money market stories. Lakshmi's company, Mr. Iyer's bank and the RBI appear again.</div>
+    <div class="note inr"><span class="label">Remittances</span>Money sent home by people working abroad. India receives more than any other country, over $100 billion a year in recent years, much of it from the Gulf, the US and the UK.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="why">
+  <header><span class="label">Chapter 1</span><h2>Why money must be exchanged</h2></header>
+  <div class="prose">
+    <p>Each country has its own money, and inside its borders, that's the only money that works. Rukhsana can't pay the grocer in dirhams. A Dubai supermarket won't accept rupees for Sunrise pickles. So whenever value crosses a border, one currency has to be <em>sold</em> and another <em>bought</em>.</p>
+    <p>Think of everyone in Kesarpur who touches another currency:</p>
+    <ul>
+      <li><strong>Salim</strong> has dirhams and wants rupees for his mother.</li>
+      <li><strong>Lakshmi</strong> is paid in dollars by foreign supermarkets and needs rupees for wages and mangoes.</li>
+      <li><strong>Imran</strong>, who runs the town's biggest phone shop, imports phones priced in dollars. He has rupees and needs dollars.</li>
+      <li><strong>Kabir</strong>, Meera's great-grandson, is studying engineering in Melbourne. His family has rupees and needs Australian dollars for fees.</li>
+      <li><strong>India's oil companies</strong> buy crude oil priced in dollars, so they need huge amounts of dollars every day.</li>
+      <li><strong>Foreign investors</strong> buying Sunrise shares or Indian government bonds bring dollars and need rupees.</li>
+    </ul>
+    <p>Some of these people have the currency others want. Salim and Lakshmi bring dollars and dirhams <em>in</em>; Imran, Kabir and the oil companies need dollars to send <em>out</em>. The forex market matches them, mostly through banks, and the price at which they swap is the <strong>exchange rate</strong>.</p>
+  </div>
+  <aside>
+    <div class="note usd"><span class="label">Why the dollar</span>The US dollar is on one side of almost 90% of all currency trades worldwide. Oil, many commodities and much world trade are priced in dollars, so most currencies are exchanged through it.</div>
+    <div class="note"><span class="label">Biggest market</span>The Bank for International Settlements' 2022 survey found about $7.5 trillion of currency traded on an average day, far more than all the world's stock markets combined.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="quote">
+  <header><span class="label">Chapter 2</span><h2>Reading a rate</h2></header>
+  <div class="prose">
+    <p>Mr. Iyer, the treasurer from the money market story, now also runs the cooperative bank's small forex desk. His screen shows:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Pair</th><th class="num">Bid</th><th class="num">Ask</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td><strong>USD/INR</strong></td><td class="num">83.99</td><td class="num">84.01</td><td>One US dollar costs about ₹84</td></tr>
+          <tr><td>USD/AED</td><td class="num">3.6725</td><td class="num">3.6725</td><td>Dirham fixed ("pegged") to the dollar</td></tr>
+          <tr><td>AED/INR (cross)</td><td class="num">22.87</td><td class="num">22.88</td><td>84 ÷ 3.6725: one dirham ≈ ₹22.87</td></tr>
+          <tr><td>EUR/USD</td><td class="num">1.0849</td><td class="num">1.0851</td><td>One euro costs about $1.085</td></tr>
+          <tr><td>AUD/USD</td><td class="num">0.6549</td><td class="num">0.6551</td><td>One Australian dollar ≈ $0.655, so ≈ ₹55</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative interbank rates used throughout this story. In a pair like USD/INR, the first currency (base) is the one being priced, in units of the second (quote).</figcaption>
+  </figure>
+  <div class="prose">
+    <p>The <strong>bid</strong> is what a dealer will pay you for one dollar; the <strong>ask</strong> is what a dealer will charge you. Between big banks the gap is tiny, two paise. But as money moves toward ordinary people, the gap widens, because each layer adds its margin.</p>
+    <p>Ananya, the nurse from the fund story, needs $1,000 for a conference in Singapore. Here's what the same $1,000 costs her in different places.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="amt">Dollars Ananya needs <output id="amt-out">$1,000</output></label><input id="amt" type="range" min="100" max="5000" step="100" value="1000"></div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Bar chart of the rupee cost of buying dollars at different places"><g id="spread-chart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="spread-note"></p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Base and quote</span>In USD/INR = 84.00, the dollar is the base and the rupee the quote. If the number rises to 86, the dollar has strengthened and the rupee weakened.</div>
+    <div class="note"><span class="label">Cross rate</span>A rate between two currencies worked out through a third, usually the dollar.</div>
+    <div class="note inr"><span class="label">Rupee "falls" when the number rises</span>This confuses everyone at first. USD/INR moving from 84 to 88 means each dollar costs more rupees: the rupee has <em>depreciated</em>.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="journey">
+  <header><span class="label">Chapter 3</span><h2>The journey of Salim's dirhams</h2></header>
+  <div class="prose">
+    <p>On payday evening, Salim opens a remittance app on his phone and sends 5,000 dirhams. Ten minutes later, Rukhsana's phone buzzes in Kesarpur. It feels like magic, but several institutions passed the money along.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">How a remittance travels</span><div class="seg"><button type="button" id="journey-replay">Send again</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 900 250" width="100%" style="min-width:760px" role="img" aria-label="Animated flow: Salim's dirhams go to a Dubai exchange house, which converts them; the payment passes through a correspondent bank network to an Indian bank, which credits his mother's account in rupees"><g id="journey"></g></svg></div>
+    <figcaption>Dirhams leave Salim (green), the exchange house converts them, and rupees arrive in Kesarpur (saffron). Each step takes a small margin or fee.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col s"><h3>1. Exchange house</h3><p>The Dubai exchange company takes his dirhams and offers a rate, say 22.80 rupees per dirham, a little below the 22.87 interbank rate. That gap is its main income.</p></div>
+    <div class="col m"><h3>2. Accounts abroad</h3><p>The exchange house holds rupees in an account at an Indian bank (from its side, a <em>nostro</em> account: "ours, with you"). It doesn't ship money; it instructs the Indian bank to move rupees from that account.</p></div>
+    <div class="col m"><h3>3. Messaging</h3><p>The instruction travels over secure bank messaging networks such as SWIFT, or a direct link between the exchange house and the Indian bank.</p></div>
+    <div class="col i"><h3>4. Last mile</h3><p>The Indian bank credits Rukhsana's account through India's domestic payment systems, such as IMPS, in minutes.</p></div>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>How Salim sends AED 5,000</th><th class="num">Rate (₹ per AED)</th><th class="num">Fee</th><th class="num">Rukhsana receives</th><th class="num">Total cost vs. interbank</th></tr></thead>
+        <tbody>
+          <tr><td>Interbank rate (benchmark only)</td><td class="num">22.87</td><td class="num">—</td><td class="num">₹1,14,364</td><td class="num">—</td></tr>
+          <tr><td>Remittance app</td><td class="num">22.80</td><td class="num">AED 0</td><td class="num">₹1,14,000</td><td class="num">0.3%</td></tr>
+          <tr><td>Exchange house counter</td><td class="num">22.65</td><td class="num">AED 15</td><td class="num">₹1,12,907</td><td class="num">1.3%</td></tr>
+          <tr><td>Bank wire transfer</td><td class="num">22.19</td><td class="num">AED 50</td><td class="num">₹1,09,807</td><td class="num">4.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. The real cost is the rate margin plus the fee. Over a year, the difference between the cheapest and dearest route here is more than ₹50,000 for Salim's family. Globally, sending money costs over 6% on average, according to World Bank data.</figcaption>
+  </figure>
+</section>
+
+<section class="chapter" id="price">
+  <header><span class="label">Chapter 4</span><h2>The price of a rupee</h2></header>
+  <div class="prose">
+    <p>Why is a dollar worth ₹84, and not ₹40 or ₹200? For most of India's history since 1993, the answer has been the same as for mangoes: <strong>supply and demand</strong>, with the RBI stepping in to smooth sharp swings (Chapter 8).</p>
+    <p>On any day, dollars come into India from exporters, remittances and foreign investors. Dollars are needed by importers, students and travellers abroad, Indian companies investing overseas, and foreign investors taking money out. When more dollars are wanted than offered, buyers have to pay more rupees for each one, and the rupee weakens. When more dollars arrive than are needed, the rupee strengthens.</p>
+    <p>Move the sliders. Each line shows how many dollars people want to supply or buy at each exchange rate. Where they cross is the market rate.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="sup">Dollars coming in (exports, remittances, investment) <output id="sup-out">Normal</output></label><input id="sup" type="range" min="-10" max="10" step="1" value="0"></div>
+      <div class="ctrl"><label for="dem">Dollars going out (oil, imports, outflows) <output id="dem-out">Normal</output></label><input id="dem" type="range" min="-10" max="10" step="1" value="0"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 300" width="100%" style="min-width:480px" role="img" aria-label="Supply and demand chart for dollars in India, with the exchange rate where they cross"><g id="sd"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Market rate</span><span class="big" id="sd-rate">₹84.00</span></div>
+      <div><span class="label">Rupee</span><span class="big" id="sd-move">Unchanged</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="sd-note"></p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Floating rate</span>A rate set by the market. India's rupee has floated, with RBI management, since 1993. Some currencies, like the UAE dirham, are pegged at a fixed rate to another.</div>
+    <div class="note usd"><span class="label">Supply of dollars</span>When the rupee weakens, Indian exports become cheaper abroad and people abroad send more home, so more dollars arrive. That's why the supply line slopes upward.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="drivers">
+  <header><span class="label">Chapter 5</span><h2>What moves the rupee</h2></header>
+  <div class="prose">
+    <p>Behind the supply and demand of dollars are deeper forces. Iyer keeps a list on his desk of what he watches each morning.</p>
+  </div>
+  <div class="cols">
+    <div class="col d"><h3>Oil prices</h3><p>India imports most of its crude oil, paid in dollars. When oil jumps from $70 to $100 a barrel, India needs many more dollars for the same oil, and the rupee usually weakens.</p></div>
+    <div class="col"><h3>Interest rates</h3><p>If Indian rates rise relative to US rates, foreign investors earn more by holding rupee bonds, so dollars flow in. When the US Federal Reserve raises rates sharply, money often leaves countries like India.</p></div>
+    <div class="col"><h3>Inflation</h3><p>If prices in India rise faster than in the US year after year, each rupee buys less, and over time the rupee tends to fall against the dollar. This idea is called purchasing power parity.</p></div>
+    <div class="col s"><h3>Foreign investment</h3><p>Foreign companies building factories (FDI) and investors buying shares and bonds (FPI) bring dollars. FPI money can leave fast in a scare.</p></div>
+    <div class="col i"><h3>Trade and services</h3><p>Exports of goods and especially services, like software and IT, bring dollars. A widening trade deficit weighs on the rupee.</p></div>
+    <div class="col m"><h3>Global mood and the dollar</h3><p>When the world is frightened, investors rush to the dollar as a safe haven, and most emerging-market currencies, including the rupee, fall together, whatever is happening in India.</p></div>
+  </div>
+  <div class="prose">
+    <h3 class="sub-h">The masala dosa test</h3>
+    <p>Kabir notices a plain masala dosa costs about ₹80 in Kesarpur and AUD 16 in Melbourne. At ₹55 per Australian dollar, the Melbourne dosa costs ₹880, eleven times as much. Does that mean the rupee is "too weak"? Not exactly. Rent, wages and services are far cheaper in India, and they can't be traded across borders. Comparisons like this, made famous by The Economist's Big Mac index, show why exchange rates can differ a lot from what local prices would suggest, and why economists adjust incomes for <strong>purchasing power</strong> when comparing countries.</p>
+  </div>
+</section>
+
+<section class="chapter" id="winners">
+  <header><span class="label">Chapter 6</span><h2>Winners and losers</h2></header>
+  <div class="prose">
+    <p>"Is a weak rupee good or bad?" Kabir's father asks Iyer. Iyer says it depends entirely on which side of the border your money is on. Move the slider and watch what happens to each person in Kesarpur.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="fx">Rupees per US dollar <output id="fx-out">₹84.00</output></label><input id="fx" type="range" min="76" max="94" step="0.5" value="84"></div>
+    <div class="scroll"><svg viewBox="0 0 640 290" width="100%" style="min-width:500px" role="img" aria-label="Bars showing how each person's rupee amount changes with the exchange rate"><g id="wl"></g></svg></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Person</th><th>Foreign amount</th><th class="num">In rupees</th><th class="num">Change vs ₹84</th></tr></thead>
+        <tbody id="wl-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="prose">
+    <p>A weaker rupee helps people who <em>receive</em> foreign money: Salim's family, exporters like Lakshmi, IT companies, and tourism. It hurts people who <em>pay</em> foreign money: importers like Imran, students abroad like Kabir, and, through oil and imported goods, every household, because petrol, cooking oil, electronics and fertiliser get dearer. That spreads into inflation.</p>
+    <p>A stronger rupee does the reverse. That's why neither "strong" nor "weak" is simply good. What hurts most is a <em>sudden</em> move that nobody planned for.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Depreciation</span>A fall in a floating currency's value. A <dfn>devaluation</dfn> is a deliberate cut by a government in a fixed or pegged rate.</div>
+    <div class="note risk"><span class="label">Imported inflation</span>When the rupee falls, the rupee price of imports rises, and some of that passes on to shop prices. The RBI watches this closely.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>The country's view</h2></div>
+
+<section class="chapter wide" id="bop">
+  <header><span class="label">Chapter 7</span><h2>India's foreign accounts</h2></header>
+  <div class="prose">
+    <p>Add up every dollar that comes into India and every dollar that goes out, and you get the <strong>balance of payments</strong>. It's like a household's account of money from abroad, but for the whole country. Here is an illustrative month.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">An illustrative month, in billions of dollars</span><div class="seg"><button type="button" id="bop-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 760 330" width="100%" style="min-width:620px" role="img" aria-label="Stacked bars of India's dollar inflows and outflows in an illustrative month, with the difference added to reserves"><g id="bop-chart"></g></svg></div>
+    <figcaption>Illustrative figures, not actual data. Inflows exceed outflows by $4 billion, which the RBI buys and adds to its reserves.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col i"><h3>Current account</h3><p>Trade in goods and services, plus income and transfers like Salim's. India usually imports more goods than it exports, partly offset by strong services exports and remittances. The result is often a small <strong>current account deficit</strong>.</p></div>
+    <div class="col s"><h3>Capital account</h3><p>Investment and borrowing: foreign companies building factories, investors buying shares and bonds, Indian companies borrowing abroad. These flows usually cover the current account deficit.</p></div>
+    <div class="col"><h3>Reserves</h3><p>If more comes in than goes out, the RBI typically buys the extra dollars and adds them to <strong>foreign exchange reserves</strong>. In a bad month, it sells some. India's reserves are among the largest in the world.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="rbi">
+  <header><span class="label">Chapter 8</span><h2>The RBI in the market</h2></header>
+  <div class="prose">
+    <p>One morning, a global scare sends foreign investors rushing to sell Indian shares and take their dollars home. The rupee falls from 84 to 85.50 by noon. Importers panic and buy dollars in case it falls further, which pushes it down more.</p>
+    <p>Then large sell orders for dollars appear from a few public-sector banks. Dealers know what that usually means: the RBI is selling dollars from its reserves through those banks. The fall slows, and the rupee closes at 85.10.</p>
+    <p>India runs a <strong>managed float</strong>. The RBI doesn't defend a particular rate, but it steps in to prevent disorderly swings: selling dollars when the rupee falls too fast, buying them when it rises too fast. Choose a direction and watch it act.</p>
+  </div>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="Choose what the rupee is doing" id="rbi-mode">
+      <button type="button" data-v="sell" aria-pressed="true">Rupee falling fast: RBI sells dollars</button>
+      <button type="button" data-v="buy" aria-pressed="false">Rupee rising fast: RBI buys dollars</button>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:500px" role="img" aria-label="Animated diagram of the RBI moving dollars between its reserves and the market, with reserves and rupee liquidity changing"><g id="rbi-chart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="rbi-note"></p>
+  </div>
+  <div class="prose">
+    <p>Intervention has side effects. When the RBI sells dollars, banks pay it rupees, which drains rupee cash from the banking system (the money market story's "defending the rupee" day). The RBI often offsets that with other operations, called <strong>sterilisation</strong>. And reserves aren't unlimited: a central bank that tries to hold a rate against the whole market can run out, as several did in the crises of Chapter 13.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Forex reserves</span>Dollars, other currencies, gold and other assets held by the central bank. They pay for imports in a crisis and give confidence that the country can meet its foreign payments.</div>
+    <div class="note"><span class="label">Smoothing, not fixing</span>The RBI's stated aim is to curb excessive volatility, not to target a particular level of the rupee.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="forward">
+  <header><span class="label">Chapter 9</span><h2>Tomorrow's exchange rate</h2></header>
+  <div class="prose">
+    <p>Lakshmi will be paid $10 lakh by a Dubai supermarket in three months. In the derivatives story, her bank offered to lock in ₹84.40 per dollar. Why not ₹84, today's rate?</p>
+    <p>Iyer explains with an arbitrage argument, the same logic as futures pricing in the derivatives story. A bank that promises Lakshmi rupees in three months could borrow dollars today, sell them for rupees at ₹84, and invest those rupees for three months. Rupee interest rates (say 6.5%) are higher than dollar rates (say 4.5%), so the rupees grow faster than the dollar debt. The fair forward rate passes that difference on.</p>
+  </div>
+  <div class="formula">Forward = Spot × (1 + rupee rate × t) ÷ (1 + dollar rate × t)
+
+3 months: 84.00 × (1 + 0.065 × 0.25) ÷ (1 + 0.045 × 0.25) ≈ 84.42
+1 year:   84.00 × 1.065 ÷ 1.045 ≈ 85.61</div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">The forward rate climbs with time</span><div class="seg"><button type="button" id="fwd-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Chart of the USD/INR forward rate rising from 84.00 today to about 85.61 in one year"><g id="fwd"></g></svg></div>
+    <figcaption>The extra over spot is the forward premium, about 2% a year, roughly the gap between Indian and US interest rates. It's not a forecast that the rupee will fall; it's the cost of carrying money in two currencies.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Interest rate parity</span>The rule that the forward premium should roughly equal the interest rate difference between two currencies. Otherwise, banks could make riskless profits.</div>
+    <div class="note usd"><span class="label">Spot settlement</span>A normal "spot" forex trade settles two working days later (T+2). Forwards settle on any agreed future date.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="hedge">
+  <header><span class="label">Chapter 10</span><h2>Protecting against the rupee</h2></header>
+  <div class="prose">
+    <p>After a bad year when the rupee jumped from 84 to 90, Imran lost ₹18 lakh on one shipment of phones. His dollar bill was the same, but in rupees it cost much more, and he had already fixed his shop prices. He came to Iyer for help. So did everyone else.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Person</th><th>Risk</th><th>Tool</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lakshmi</strong> (exporter)</td><td>Rupee strengthens before she's paid</td><td>Sells dollars forward at ₹84.42</td><td>Knows exactly how many rupees she'll get</td></tr>
+          <tr><td><strong>Imran</strong> (importer)</td><td>Rupee weakens before he pays</td><td>Buys dollars forward, or buys a call option on USD/INR</td><td>Caps his phone costs; the option keeps the benefit if the rupee strengthens</td></tr>
+          <tr><td><strong>Sunrise</strong> (both)</td><td>Buys some imported jars and oil in dollars</td><td><strong>Natural hedge</strong>: pays dollar costs from dollar income</td><td>Only the net amount is exposed</td></tr>
+          <tr><td><strong>Kabir's family</strong></td><td>Fees due each semester</td><td>Pays some fees early, or loads a forex card in stages</td><td>Spreads the risk over time</td></tr>
+          <tr><td><strong>Salim</strong></td><td>Rupee strengthens, fewer rupees home</td><td>Usually none; sends regularly</td><td>Regular sending averages the rate over time</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>In India, companies with real foreign-currency exposure can hedge through banks with forwards, swaps and options. Anyone can also trade exchange-traded currency futures and options on rupee pairs on Indian exchanges, like those in the derivatives story. The principle is the same as Gopal's mango contract: give up some possible gain to remove a damaging loss.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Natural hedge</span>Matching foreign income with foreign costs in the same currency, so currency moves largely cancel out without any contract.</div>
+    <div class="note risk"><span class="label">Unhedged borrowing</span>Companies that borrow cheaply in dollars but earn only rupees take a large hidden risk. If the rupee falls sharply, their debt grows in rupee terms overnight.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>The world's biggest market</h2></div>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 11</span><h2>The market that never sleeps</h2></header>
+  <div class="prose">
+    <p>The forex market has no single building or exchange. It's a global web of banks, dealers and electronic platforms trading with each other directly (over the counter). Because it spans every time zone, it runs 24 hours a day on weekdays, passing from Asia to Europe to America and back.</p>
+  </div>
+  <figure class="fig-card">
+    <span class="label">A trading day, in Indian time</span>
+    <div class="scroll"><svg viewBox="0 0 900 230" width="100%" style="min-width:740px" role="img" aria-label="Animated 24-hour timeline in Indian time showing the Asian, Indian, London and New York trading sessions and their overlaps"><g id="clock"></g></svg></div>
+    <figcaption>Approximate hours in Indian Standard Time; they shift by an hour when Europe and the US change their clocks. The moving line sweeps through a day. Trading is busiest when London and New York overlap.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col"><h3>The interbank market</h3><p>The core: big global banks quoting prices to each other and to large clients in huge amounts. A few financial centres, especially London, New York, Singapore and Hong Kong, handle most of it.</p></div>
+    <div class="col"><h3>Who trades</h3><p>Banks, companies paying for trade, investment funds, central banks, hedge funds, high-speed trading firms, and, through layers of brokers, individuals. Most volume is between financial institutions, not for trade in goods.</p></div>
+    <div class="col i"><h3>India's onshore market</h3><p>Authorised banks trade rupee pairs with each other and with clients, mainly during Indian business hours. Exchanges also list rupee futures and options (USD/INR futures began on NSE in 2008).</p></div>
+    <div class="col m"><h3>Offshore NDF market</h3><p>Outside India, in places like Singapore and London, investors trade non-deliverable forwards on the rupee, settled in dollars. Prices there often move first when news breaks overnight.</p></div>
+    <div class="col s"><h3>Spot, forward, swap</h3><p>Most daily turnover globally is in <strong>FX swaps</strong> (exchanging currencies now and reversing later), followed by spot and outright forwards. Options are a smaller share.</p></div>
+    <div class="col d"><h3>Pips and paise</h3><p>Currency prices move in tiny steps. For EUR/USD the smallest standard step, a <em>pip</em>, is 0.0001. For USD/INR, quotes move in quarters of a paisa.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="history">
+  <header><span class="label">Chapter 12</span><h2>A short life of the rupee</h2></header>
+  <div class="prose">
+    <p>Meera, now in her nineties, remembers when a dollar cost under ₹10. The rupee's history mirrors India's economic story.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Rupees per US dollar, approximate yearly averages</span><div class="seg"><button type="button" id="hist-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 680 300" width="100%" style="min-width:520px" role="img" aria-label="Line chart of rupees per dollar rising from about 17.5 in 1990 to about 84 in 2024, with events marked"><g id="hist"></g></svg></div>
+    <figcaption>Approximate annual averages, rounded, for illustration. Higher means a weaker rupee.</figcaption>
+  </figure>
+  <div class="prose">
+    <p><strong>Before 1991</strong>, the rupee's value was set by the government, and buying foreign currency was tightly controlled. <strong>In 1991</strong>, India nearly ran out of dollars: reserves fell to a few weeks of imports, and the government had to pledge gold abroad to borrow. It devalued the rupee sharply and began opening the economy. <strong>By 1993</strong>, the rupee was moving to a market-determined rate.</p>
+    <p>Since then, the rupee has drifted weaker over the long run, mostly because India's inflation has been higher than America's, with sharper drops in crises: 2008, 2013 (the "taper tantrum", when the rupee fell to a record low of nearly ₹69 after the US hinted at slowing its bond buying), and 2022, when the US raised rates fast.</p>
+  </div>
+  <aside>
+    <div class="note inr"><span class="label">1991's lesson</span>A country that runs short of foreign currency can't pay for oil, medicine or debt. That's why India has built up large reserves since.</div>
+    <div class="note"><span class="label">Long-run drift</span>A currency losing value against the dollar over decades isn't necessarily a sign of failure. It largely reflects the inflation gap, while India's economy grew many times larger.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="crises">
+  <header><span class="label">Chapter 13</span><h2>Currency crises</h2></header>
+  <div class="prose">
+    <p>Currency markets can move with a violence that surprises even professionals, especially when a government promises to hold a rate that the market no longer believes.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Britain, 1992</strong><span>The pound was held within a band against other European currencies. Speculators, most famously George Soros's fund, bet heavily that Britain couldn't keep it there. On "Black Wednesday", the Bank of England spent billions and raised rates, then gave up and let the pound fall. Soros's fund reportedly made about $1 billion.</span></div>
+    <div class="risk-row"><strong>Asia, 1997</strong><span>Thailand had pegged the baht to the dollar while its companies borrowed heavily in dollars. When investors fled, reserves ran out, the peg broke, and the baht collapsed. The panic spread to Indonesia, South Korea and Malaysia, where companies with dollar debts were ruined overnight.</span></div>
+    <div class="risk-row"><strong>India, 2013</strong><span>When the US Federal Reserve hinted it would slow its bond buying, money rushed out of emerging markets. The rupee fell about 15% in a few months. The RBI raised short-term rates, restricted gold imports, and offered banks a special window to attract foreign currency deposits from Indians abroad, which brought in over $30 billion.</span></div>
+    <div class="risk-row"><strong>The common thread</strong><span>A fixed or defended rate, large borrowing in a foreign currency, a widening deficit, and money that can leave quickly. When investors decide the rate can't hold, they all try to get out at once.</span></div>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Speculative attack</span>Massive selling of a currency by investors betting a peg will break. If reserves run low, the bet becomes self-fulfilling.</div>
+    <div class="note"><span class="label">The trilemma</span>A country can't have all three at once: a fixed exchange rate, free movement of capital, and its own interest rate policy. It must give up one.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="rules">
+  <header><span class="label">Chapter 14</span><h2>The rules in India</h2></header>
+  <div class="prose">
+    <p>Foreign exchange in India is governed by the <strong>Foreign Exchange Management Act (FEMA), 1999</strong>, which replaced a far stricter older law, and by RBI rules under it.</p>
+    <ul>
+      <li><strong>Authorised dealers.</strong> Only banks and firms authorised by the RBI may deal in foreign currency with the public. Money changers need authorisation too.</li>
+      <li><strong>The Liberalised Remittance Scheme (LRS).</strong> A resident individual can send up to $2,50,000 a year abroad for permitted purposes: study, travel, medical care, gifts, and investing abroad. Tax may be collected at source on some remittances above a threshold, which can be adjusted against your tax.</li>
+      <li><strong>Current and capital accounts.</strong> The rupee is freely convertible for trade and current payments, but some capital transactions, like certain overseas investments and foreign borrowing, have limits.</li>
+      <li><strong>Retail forex trading.</strong> Residents may trade currency derivatives only in permitted pairs involving the rupee, on recognised Indian exchanges or with authorised banks. Online platforms offering leveraged trading in pairs like EUR/USD or "forex signals" to Indian residents are not authorised, and the RBI publishes an <strong>Alert List</strong> of such unauthorised forex trading platforms. Sending money to them can break the law and is a common route to fraud.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Warning signs</span>Social media ads promising daily forex profits, payments to personal UPI IDs, "account managers" on messaging apps, and pressure to deposit more to "unlock" withdrawals.</div>
+    <div class="note"><span class="label">Check before you trade</span>Is the platform authorised in India? Is it on the RBI Alert List? Is the pair a rupee pair on a recognised exchange?</div>
+  </aside>
+</section>
+
+<section class="chapter" id="you">
+  <header><span class="label">Chapter 15</span><h2>Forex in your own life</h2></header>
+  <div class="prose">
+    <p>Most people meet the forex market a few times a year: a trip, a fee, a gift, an online purchase. The same principles apply.</p>
+    <h3 class="sub-h" style="margin-top:0">Travelling</h3>
+    <ul>
+      <li>Compare the total rupees you pay, not the rate shown on a board; fees can hide in the rate.</li>
+      <li>Prepaid forex cards and some international debit or credit cards often beat airport counters.</li>
+      <li>When a shop or ATM abroad offers to charge you "in rupees", decline. This is <strong>dynamic currency conversion</strong>, and its rate is usually poor. Pay in the local currency.</li>
+    </ul>
+    <h3 class="sub-h">Sending money home or abroad</h3>
+    <ul>
+      <li>Compare the amount that actually arrives across a few services.</li>
+      <li>Regular smaller transfers average out rate swings; trying to time the "best day" rarely works.</li>
+    </ul>
+    <h3 class="sub-h">Studying abroad</h3>
+    <ul>
+      <li>Fees are fixed in foreign currency, so a falling rupee raises your cost. Budget with a margin of 5–10%.</li>
+      <li>Education loans, LRS limits and tax collected at source all have rules worth checking early.</li>
+    </ul>
+    <h3 class="sub-h">Investing abroad</h3>
+    <p>Rohit puts a small part of his savings into an international index fund. If the rupee weakens, his foreign investments are worth more in rupees, which partly protects him. That's also a currency risk in reverse: if the rupee strengthens, it reduces his returns.</p>
+  </div>
+  <aside>
+    <div class="note usd"><span class="label">Total cost</span>Rate margin + fees + card charges. The rate closest to the interbank (mid-market) rate isn't always cheapest if fees are high.</div>
+    <div class="note"><span class="label">Gifts from abroad</span>Money from close relatives abroad is generally allowed and often tax-free, but rules depend on amount and relationship. Keep records.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Eid at home</h2></header>
+  <div class="prose">
+    <p>Three years later, Salim comes home for Eid. He has sent 5,000 dirhams every month without fail. Some months they turned into ₹1,10,000 and some into ₹1,23,000, depending on oil prices, US interest rates and the mood of investors he'd never meet. With help from Rukhsana's careful budgeting, the money paid for his sister's wedding and a new roof.</p>
+    <p>Lakshmi's export orders are hedged three months ahead. Imran buys his dollars forward and sleeps better. Kabir has graduated, and his family is glad they paid fees in stages.</p>
+    <p>That is what an exchange rate is: the price of one country's money in another's. And that is what the forex market is: a never-closing global marketplace that swaps the world's currencies, so that a nurse can attend a conference, an electrician can support his mother, a pickle maker can sell abroad, and a country can buy the oil it runs on.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The six stories</span><em>Bonds</em> lend. <em>Mutual funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing. <em>Forex</em> carries money across borders.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Seven myths about forex</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">A weak rupee means a weak economy.</span><span>It reflects inflation, interest rates, oil and global flows. India has grown fast while the rupee drifted weaker.</span></div>
+    <div class="myth"><span class="m">A strong rupee is always good.</span><span>It hurts exporters, IT companies and families receiving remittances.</span></div>
+    <div class="myth"><span class="m">The forward rate is a forecast.</span><span>It mostly reflects the interest rate gap, not a prediction.</span></div>
+    <div class="myth"><span class="m">"Zero commission" means free.</span><span>The cost is often hidden in a worse exchange rate.</span></div>
+    <div class="myth"><span class="m">Paying in rupees abroad is safer.</span><span>Dynamic currency conversion usually gives a poor rate.</span></div>
+    <div class="myth"><span class="m">Online forex trading apps are a legal way to earn.</span><span>Leveraged trading in non-rupee pairs on unauthorised platforms isn't permitted for Indian residents, and many are scams.</span></div>
+    <div class="myth"><span class="m">The RBI fixes the rupee.</span><span>It smooths sharp moves; the market sets the level.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before any currency transaction: a checklist</h2>
+  <ul class="check">
+    <li>I've compared the amount actually received or paid across a few providers.</li>
+    <li>I know the mid-market rate, so I can see the margin.</li>
+    <li>I've included every fee and card charge.</li>
+    <li>I'll pay abroad in local currency, not rupees.</li>
+    <li>For a big future payment, I've considered locking the rate or paying in stages.</li>
+    <li>I'm using an authorised bank or dealer.</li>
+    <li>Any trading platform is authorised in India and not on the RBI Alert List.</li>
+    <li>I know the LRS limit and any tax collected at source.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Salim's payday</td><td>Remittances, exchange rate</td><td>Value crossing borders must change currency</td></tr>
+        <tr><td>Iyer's screen</td><td>Pairs, bid/ask, cross rates</td><td>How rates are quoted and read</td></tr>
+        <tr><td>Ananya's $1,000</td><td>Spreads and margins</td><td>Retail rates hide costs</td></tr>
+        <tr><td>The app transfer</td><td>Correspondent banking</td><td>Money moves by accounts and messages, not trucks</td></tr>
+        <tr><td>Dollars in vs. out</td><td>Supply and demand</td><td>Flows set the floating rate</td></tr>
+        <tr><td>Iyer's morning list</td><td>Drivers</td><td>Oil, rates, inflation, flows, global mood</td></tr>
+        <tr><td>The slider of fortunes</td><td>Winners and losers</td><td>Receivers like a weak rupee; payers don't</td></tr>
+        <tr><td>The country's month</td><td>Balance of payments, reserves</td><td>All foreign flows added up</td></tr>
+        <tr><td>Big sell orders at noon</td><td>Managed float, intervention</td><td>The RBI smooths, it doesn't fix</td></tr>
+        <tr><td>₹84.42, not ₹84</td><td>Forward rate, interest rate parity</td><td>The forward premium reflects interest gaps</td></tr>
+        <tr><td>Imran's ₹18 lakh loss</td><td>Hedging, natural hedge</td><td>Lock in or match your currency exposure</td></tr>
+        <tr><td>1991, 1997, 2013</td><td>Currency crises</td><td>Defended pegs and foreign debt can snap</td></tr>
+        <tr><td>The Alert List</td><td>FEMA, LRS</td><td>Know the rules and avoid unauthorised platforms</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Appreciation / depreciation</dt><dd>A floating currency gaining / losing value.</dd></div>
+    <div><dt>Authorised dealer</dt><dd>A bank or firm permitted by the RBI to deal in foreign exchange.</dd></div>
+    <div><dt>Balance of payments</dt><dd>Record of all a country's transactions with the rest of the world.</dd></div>
+    <div><dt>Base / quote currency</dt><dd>In USD/INR, USD is priced in INR.</dd></div>
+    <div><dt>Bid / ask</dt><dd>Price a dealer pays / charges.</dd></div>
+    <div><dt>Cross rate</dt><dd>A rate between two currencies worked out through a third.</dd></div>
+    <div><dt>Current account deficit</dt><dd>Spending more abroad on goods, services and income than earning.</dd></div>
+    <div><dt>Devaluation</dt><dd>An official cut in a fixed or pegged rate.</dd></div>
+    <div><dt>Dynamic currency conversion</dt><dd>Being charged abroad in your home currency, usually at a poor rate.</dd></div>
+    <div><dt>FEMA</dt><dd>India's Foreign Exchange Management Act, 1999.</dd></div>
+    <div><dt>Forward premium</dt><dd>How much the forward rate exceeds spot.</dd></div>
+    <div><dt>Forex reserves</dt><dd>Foreign currency and gold held by the central bank.</dd></div>
+    <div><dt>FX swap</dt><dd>Exchange currencies now and reverse the exchange later.</dd></div>
+    <div><dt>Hedging</dt><dd>Reducing the risk of a currency move.</dd></div>
+    <div><dt>Interest rate parity</dt><dd>Forward premium ≈ interest rate difference.</dd></div>
+    <div><dt>Intervention</dt><dd>A central bank buying or selling currency in the market.</dd></div>
+    <div><dt>LRS</dt><dd>Liberalised Remittance Scheme: up to $2,50,000 a year abroad per resident.</dd></div>
+    <div><dt>Managed float</dt><dd>Market-set rate with central bank smoothing.</dd></div>
+    <div><dt>Mid-market rate</dt><dd>Halfway between interbank bid and ask.</dd></div>
+    <div><dt>NDF</dt><dd>Non-deliverable forward, traded offshore and settled in dollars.</dd></div>
+    <div><dt>Nostro / vostro</dt><dd>"Our account with you" / "your account with us", between banks.</dd></div>
+    <div><dt>Peg</dt><dd>A currency fixed to another at a set rate.</dd></div>
+    <div><dt>Pip</dt><dd>The smallest standard price step in a currency pair.</dd></div>
+    <div><dt>Purchasing power parity</dt><dd>The idea that rates adjust so the same goods cost the same everywhere.</dd></div>
+    <div><dt>Remittance</dt><dd>Money sent across borders, often by workers to family.</dd></div>
+    <div><dt>Spot rate</dt><dd>Rate for immediate exchange, settled in two working days.</dd></div>
+    <div><dt>Sterilisation</dt><dd>Offsetting the effect of intervention on domestic money supply.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how the foreign exchange market works. Salim, Sunrise Foods, Imran and all rates and transfer costs in the story are fictional and illustrative; the historical rupee chart shows rounded approximate yearly averages. Rules such as LRS limits and tax collected at source change. It is not financial, legal or tax advice. Check current rules with the RBI, your bank or a qualified adviser.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const fmt=n=>(n<0?'−':'')+'₹'+Math.round(Math.abs(n)).toLocaleString('en-IN');
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function axes(g,o){
+    const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L), Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);
+    o.yt.forEach(v=>{ g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v))); });
+    (o.xt||[]).forEach(v=> g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));
+    if(o.xl) g.appendChild(el('text',{x:(o.L+o.R)/2,y:o.B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xl));
+    return {X,Y};
+  }
+  const pathD=(pts,X,Y)=>pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+  function line(g,pts,X,Y,attrs){ const e=el('path',Object.assign({d:pathD(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},attrs)); g.appendChild(e); return e; }
+  function mover(g,d,color,dur,r,begin){ if(reduce) return null; const c=el('circle',{r:r||5,fill:color}); const a=el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(begin||0))+'s'}); c.appendChild(a); g.appendChild(c); return c; }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  function arrow(g,x1,y1,x2,y2,color){ g.appendChild(el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':2})); const a=Math.atan2(y2-y1,x2-x1), s=8; g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*0.6*Math.sin(a),y2-s*Math.sin(a)-s*0.6*Math.cos(a)],[x2-s*Math.cos(a)-s*0.6*Math.sin(a),y2-s*Math.sin(a)+s*0.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:color})); }
+  function animate(g,sel){ g.querySelectorAll(sel).forEach((p,i)=>{ p.classList.remove('draw'); void p.getBoundingClientRect(); p.style.animationDelay=(i*0.3)+'s'; p.classList.add('draw'); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+  function seg(id,cb){ document.querySelectorAll('#'+id+' button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#'+id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); cb(b.dataset.v); })); }
+
+  // Hero: flows into Kesarpur
+  (function(){
+    const g=document.getElementById('hero-map');
+    g.appendChild(el('rect',{x:0,y:0,width:440,height:300,rx:8,fill:'var(--paper)'}));
+    for(let x=20;x<440;x+=30) for(let y=20;y<300;y+=30) g.appendChild(el('circle',{cx:x,cy:y,r:1.2,fill:'var(--rule)'}));
+    const K=[260,170];
+    const places=[['Dubai',190,130,'AED','var(--usd)',1],['London',110,50,'GBP','var(--usd)',1],['New York',30,95,'USD','var(--usd)',1],['Singapore',350,215,'SGD','var(--usd)',1],['Melbourne',400,275,'AUD','var(--inr)',-1]];
+    places.forEach(([n,x,y,c,col,dir],i)=>{
+      const mx=(x+K[0])/2, my=Math.min(y,K[1])-40;
+      const d = dir>0 ? `M${x} ${y} Q${mx} ${my} ${K[0]} ${K[1]}` : `M${K[0]} ${K[1]} Q${mx+30} ${(y+K[1])/2+10} ${x} ${y}`;
+      g.appendChild(el('path',{d,fill:'none',stroke:col,'stroke-width':1.5,'stroke-dasharray':'4 4',opacity:.7}));
+      g.appendChild(el('circle',{cx:x,cy:y,r:6,fill:col}));
+      g.appendChild(el('text',{x:x,y:y-12,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},n+' · '+c));
+      mover(g,d,col,2.6+i*0.5,4.5,i*0.4);
+    });
+    g.appendChild(el('circle',{cx:K[0],cy:K[1],r:16,fill:'var(--inr)'}));
+    g.appendChild(el('text',{x:K[0],y:K[1]+5,'text-anchor':'middle','font-size':14,fill:'var(--paper)'},'₹'));
+    g.appendChild(el('text',{x:K[0]+22,y:K[1]+4,'font-size':12,fill:'var(--ink)'},'Kesarpur'));
+    g.appendChild(el('text',{x:16,y:288,'font-size':10,fill:'var(--muted)'},'GREEN: MONEY COMING IN · SAFFRON: FEES GOING OUT'));
+  })();
+
+  // Spread chart
+  (function(){
+    const s=document.getElementById('amt'), g=document.getElementById('spread-chart');
+    const rows=[['Interbank (mid-market)',84.00,'var(--usd)'],['Prepaid forex card',84.90,'var(--acc)'],['Bank branch',85.20,'var(--acc)'],['Airport counter',87.50,'var(--down)']];
+    function u(){ const a=+s.value; g.innerHTML=''; const max=a*88, L=190,R=560;
+      document.getElementById('amt-out').textContent='$'+a.toLocaleString('en-IN');
+      rows.forEach(([n,r,c],i)=>{ const y=20+i*50, v=a*r, w=(v/max)*(R-L);
+        g.appendChild(el('text',{x:L-10,y:y+20,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+        g.appendChild(el('text',{x:L-10,y:y+34,'text-anchor':'end','font-size':10,fill:'var(--muted)'},'₹'+r.toFixed(2)+' per $'));
+        g.appendChild(el('rect',{x:L,y:y+8,width:w,height:24,rx:3,fill:c,opacity:.85,style:'transition:width .3s ease'}));
+        const extra=v-a*84; g.appendChild(el('text',{x:L+w+8,y:y+25,'font-size':12,fill:'var(--ink)'},fmt(v)+(extra>0?'  (+'+fmt(extra)+')':'')));
+      });
+      document.getElementById('spread-note').textContent='Buying at the airport costs '+fmt(a*(87.5-84.9))+' more than a forex card for the same $'+a.toLocaleString('en-IN')+'. Rates are illustrative.';
+    }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Remittance journey
+  (function(){
+    const g=document.getElementById('journey');
+    const nodes=[[10,'Salim','AED 5,000','var(--usd-soft)','var(--usd)'],[190,'Exchange house','Dubai: converts','var(--paper)','var(--rule)'],[370,'Bank network','SWIFT / direct link','var(--paper)','var(--rule)'],[550,'Indian bank','debits nostro','var(--paper)','var(--rule)'],[730,'Rukhsana','₹1,14,000','var(--inr-soft)','var(--inr)']];
+    nodes.forEach(([x,t,s,f,st])=>box(g,x,90,150,64,t,s,f,st));
+    for(let i=0;i<4;i++) arrow(g,nodes[i][0]+152,122,nodes[i+1][0]-4,122,'var(--muted)');
+    ['Rate margin','Message','Instruction','IMPS credit'].forEach((t,i)=>g.appendChild(el('text',{x:nodes[i][0]+170,y:110,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},t)));
+    g.appendChild(el('text',{x:450,y:200,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'Typical time on a good app: minutes. Money never physically crosses the border.'));
+    g.appendChild(el('text',{x:450,y:224,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Dirhams stay in the UAE; rupees already held in India change owners.'));
+    function run(){ g.querySelectorAll('.jm').forEach(n=>n.remove()); if(reduce) return;
+      const c1=el('circle',{r:7,fill:'var(--usd)',class:'jm'}); c1.appendChild(el('animateMotion',{dur:'1.4s',fill:'freeze',path:'M85 122 L265 122',begin:'indefinite'})); g.appendChild(c1);
+      const c2=el('circle',{r:7,fill:'var(--inr)',class:'jm',opacity:0}); c2.appendChild(el('animateMotion',{dur:'2.6s',fill:'freeze',path:'M265 122 L805 122',begin:'indefinite'})); g.appendChild(c2);
+      const a1=c1.firstChild, a2=c2.firstChild;
+      try{ a1.beginElement(); setTimeout(()=>{ c1.remove(); c2.setAttribute('opacity',1); a2.beginElement(); },1400); }catch(e){}
+    }
+    document.getElementById('journey-replay').addEventListener('click',run); onView(g,run);
+  })();
+
+  // Supply and demand
+  (function(){
+    const sS=document.getElementById('sup'), sD=document.getElementById('dem'), g=document.getElementById('sd');
+    const L=70,R=600,T=20,B=240, q0=40,q1=80, r0=76,r1=92;
+    const X=q=>L+(q-q0)/(q1-q0)*(R-L), Y=r=>B-(r-r0)/(r1-r0)*(B-T);
+    [76,80,84,88,92].forEach(v=>{ g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'₹'+v)); });
+    g.appendChild(el('text',{x:(L+R)/2,y:B+30,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Dollars traded (illustrative, $ billion a month)'));
+    g.appendChild(el('text',{x:L,y:12,'font-size':11,fill:'var(--muted)'},'₹ per $'));
+    const sp=el('path',{fill:'none',stroke:'var(--usd)','stroke-width':3}), dp=el('path',{fill:'none',stroke:'var(--down)','stroke-width':3});
+    g.appendChild(sp); g.appendChild(dp);
+    const sl=el('text',{'font-size':11,fill:'var(--usd)'},'Dollars coming in'), dl=el('text',{'font-size':11,fill:'var(--down)'},'Dollars wanted');
+    g.appendChild(sl); g.appendChild(dl);
+    const hl=el('line',{stroke:'var(--acc)','stroke-dasharray':'4 4'}); g.appendChild(hl);
+    const dot=el('circle',{r:8,fill:'var(--acc)',stroke:'var(--paper)','stroke-width':2,style:'transition:cx .3s ease, cy .3s ease'}); g.appendChild(dot);
+    function u(){ const S0=60+(+sS.value), D0=60+(+sD.value);
+      const sq=r=>S0+2*(r-84), dq=r=>D0-2*(r-84);
+      sp.setAttribute('d','M'+X(sq(r0))+' '+Y(r0)+' L'+X(sq(r1))+' '+Y(r1));
+      dp.setAttribute('d','M'+X(dq(r0))+' '+Y(r0)+' L'+X(dq(r1))+' '+Y(r1));
+      sl.setAttribute('x',Math.min(R-100,X(sq(r1))+6)); sl.setAttribute('y',Y(r1)+14);
+      dl.setAttribute('x',Math.min(R-90,X(dq(r0))+6)); dl.setAttribute('y',Y(r0)-6);
+      const r=84+(D0-S0)/4, q=sq(r);
+      dot.setAttribute('cx',X(q)); dot.setAttribute('cy',Y(r)); hl.setAttribute('x1',L); hl.setAttribute('x2',X(q)); hl.setAttribute('y1',Y(r)); hl.setAttribute('y2',Y(r));
+      const lab=v=>v===0?'Normal':(v>0?'+':'−')+Math.abs(v)*2+'% vs normal';
+      document.getElementById('sup-out').textContent=lab(+sS.value); document.getElementById('dem-out').textContent=lab(+sD.value);
+      document.getElementById('sd-rate').textContent='₹'+r.toFixed(2);
+      const m=document.getElementById('sd-move'); m.textContent= Math.abs(r-84)<0.01?'Unchanged': r>84?'Weaker':'Stronger'; m.className='big '+(r>84.01?'down':r<83.99?'up':'');
+      document.getElementById('sd-note').textContent = Math.abs(r-84)<0.01 ? 'Dollars arriving and dollars wanted balance at ₹84.' : r>84 ? 'More dollars are wanted than are arriving, so buyers bid up the dollar: each one now costs ₹'+r.toFixed(2)+'.' : 'More dollars are arriving than are wanted, so sellers accept fewer rupees per dollar: ₹'+r.toFixed(2)+'.';
+    }
+    [sS,sD].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Winners and losers
+  (function(){
+    const s=document.getElementById('fx'), g=document.getElementById('wl'), tb=document.getElementById('wl-tbody');
+    const people=[['Salim’s family','AED 5,000 a month',r=>5000*r/3.6725,1],['Lakshmi (exporter)','$10,00,000 order',r=>1e6*r,1],['Imran (importer)','$3,00,000 of phones',r=>3e5*r,-1],['Kabir (student)','AUD 40,000 fees',r=>40000*0.655*r,-1]];
+    function u(){ const r=+s.value; document.getElementById('fx-out').textContent='₹'+r.toFixed(2); g.innerHTML=''; tb.innerHTML='';
+      const L=200,R=620,mid=(L+R)/2;
+      g.appendChild(el('line',{x1:mid,x2:mid,y1:10,y2:270,stroke:'var(--muted)'}));
+      g.appendChild(el('text',{x:mid-6,y:284,'text-anchor':'end','font-size':10,fill:'var(--down)'},'← worse off'));
+      g.appendChild(el('text',{x:mid+6,y:284,'font-size':10,fill:'var(--up)'},'better off →'));
+      people.forEach(([n,a,f,side],i)=>{ const base=f(84), now=f(r), pct=(now/base-1)*100, good=side*pct; const y=20+i*62;
+        g.appendChild(el('text',{x:L-10,y:y+20,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+        g.appendChild(el('text',{x:L-10,y:y+36,'text-anchor':'end','font-size':10,fill:'var(--muted)'},side>0?'receives foreign money':'pays foreign money'));
+        const w=Math.min(Math.abs(good),12)/12*(R-mid-10);
+        g.appendChild(el('rect',{x:good>=0?mid:mid-w,y:y+8,width:w,height:28,rx:3,fill:good>=0?'var(--up)':'var(--down)',opacity:.85}));
+        g.appendChild(el('text',{x:good>=0?mid+w+6:mid-w-6,y:y+27,'text-anchor':good>=0?'start':'end','font-size':11,fill:'var(--ink)'},(good>=0?'+':'−')+Math.abs(good).toFixed(1)+'%'));
+        const tr=document.createElement('tr'); const diff=now-base;
+        const lakh=v=>v>=1e7?'₹'+(v/1e7).toFixed(2)+' cr':v>=1e5?'₹'+(v/1e5).toFixed(2)+' lakh':fmt(v);
+        tr.innerHTML='<td>'+n+'</td><td>'+a+'</td><td class="num">'+lakh(now)+'</td><td class="num '+((side*diff)>0?'up':(side*diff)<0?'down':'')+'">'+(diff>=0?'+':'−')+lakh(Math.abs(diff))+'</td>'; tb.appendChild(tr);
+      });
+    }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Balance of payments
+  (function(){
+    const g=document.getElementById('bop-chart');
+    const inflow=[['Goods exports',37,'var(--usd)'],['Services exports',30,'var(--usd)'],['Remittances',10,'var(--inr)'],['FDI',6,'var(--acc)'],['Portfolio (FPI)',4,'var(--acc)']];
+    const outflow=[['Goods imports (incl. oil)',58,'var(--down)'],['Services imports',16,'var(--down)'],['Income paid abroad',4,'var(--muted)'],['Other outflows',5,'var(--muted)']];
+    const B=300, sc=3, bw=150;
+    function stack(items,x,cls){ let y=B; items.forEach(([n,v,c])=>{ const h=v*sc; y-=h; g.appendChild(el('rect',{x,y,width:bw,height:h,fill:c,opacity:.82,stroke:'var(--paper)','stroke-width':1.5,class:cls,style:'transform-origin:'+(x+bw/2)+'px '+B+'px'})); g.appendChild(el('text',{x:x+bw+10,y:y+h/2+4,'font-size':11,fill:'var(--ink)'},n+'  $'+v+'bn')); }); return B-y; }
+    const hi=stack(inflow,70,'bopbar'), ho=stack(outflow,430,'bopbar');
+    g.appendChild(el('text',{x:145,y:B-hi-10,'text-anchor':'middle','font-size':13,fill:'var(--usd)'},'In: $87bn'));
+    g.appendChild(el('text',{x:505,y:B-ho-10,'text-anchor':'middle','font-size':13,fill:'var(--down)'},'Out: $83bn'));
+    g.appendChild(el('line',{x1:40,x2:740,y1:B,y2:B,stroke:'var(--muted)'}));
+    g.appendChild(el('text',{x:380,y:24,'text-anchor':'middle','font-size':12,fill:'var(--acc)'},'Difference +$4bn → RBI adds to reserves'));
+    const style=document.createElement('style'); style.textContent='@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}} .bopgrow{animation:grow 1s ease both}'; document.head.appendChild(style);
+    const run=()=>{ g.querySelectorAll('.bopbar').forEach((r,i)=>{ r.classList.remove('bopgrow'); void r.getBoundingClientRect(); r.style.animationDelay=(i*0.12)+'s'; r.classList.add('bopgrow'); }); };
+    document.getElementById('bop-replay').addEventListener('click',run); onView(g,run);
+  })();
+
+  // RBI intervention
+  (function(){
+    const g=document.getElementById('rbi-chart'); let mode='sell';
+    function draw(){ g.innerHTML='';
+      box(g,30,90,160,70,'RBI reserves','dollars + gold','var(--usd-soft)','var(--usd)');
+      box(g,450,90,160,70,'Forex market','banks, importers','var(--paper)','var(--rule)');
+      const top='M190 110 L450 110', bot='M450 140 L190 140';
+      g.appendChild(el('path',{d:top,stroke:'var(--rule)','stroke-width':2,fill:'none'}));
+      g.appendChild(el('path',{d:bot,stroke:'var(--rule)','stroke-width':2,fill:'none'}));
+      const sell=mode==='sell';
+      g.appendChild(el('text',{x:320,y:100,'text-anchor':'middle','font-size':11,fill:'var(--usd)'},sell?'Dollars → market':'Rupees → market'));
+      g.appendChild(el('text',{x:320,y:160,'text-anchor':'middle','font-size':11,fill:'var(--inr)'},sell?'← Rupees to RBI':'← Dollars to RBI'));
+      for(let i=0;i<3;i++){ mover(g,top,sell?'var(--usd)':'var(--inr)',2.4,5,i*0.8); mover(g,bot,sell?'var(--inr)':'var(--usd)',2.4,5,i*0.8+0.4); }
+      // gauges
+      const res=sell?0.62:0.82, liq=sell?0.4:0.75;
+      [['Reserves',res,'var(--usd)',sell?'falling':'rising'],['Rupee cash in banks',liq,'var(--inr)',sell?'drained':'added'],['USD/INR',sell?0.45:0.55,'var(--acc)',sell?'fall slowed':'rise slowed']].forEach(([n,v,c,t],i)=>{ const x=40+i*200;
+        g.appendChild(el('text',{x,y:205,'font-size':11,fill:'var(--muted)'},n));
+        g.appendChild(el('rect',{x,y:212,width:160,height:10,rx:3,fill:'var(--rule)'}));
+        const bar=el('rect',{x,y:212,width:0,height:10,rx:3,fill:c,style:'transition:width .8s ease'}); g.appendChild(bar); requestAnimationFrame(()=>bar.setAttribute('width',160*v));
+        g.appendChild(el('text',{x,y:240,'font-size':11,fill:'var(--ink)'},t)); });
+      document.getElementById('rbi-note').textContent = sell ? 'Selling dollars adds dollar supply, slowing the rupee’s fall. Reserves shrink, and the rupees banks pay to the RBI leave the banking system.' : 'Buying dollars soaks up excess supply, slowing the rupee’s rise. Reserves grow, and the rupees the RBI pays out add cash to the banking system.';
+    }
+    seg('rbi-mode',v=>{mode=v;draw();}); draw();
+  })();
+
+  // Forward curve
+  (function(){
+    const g=document.getElementById('fwd');
+    const {X,Y}=axes(g,{L:70,R:600,T:20,B:200,x0:0,x1:12,y0:83.5,y1:86,yt:[84,84.5,85,85.5,86],yf:v=>v.toFixed(2),xt:[0,3,6,9,12],xf:v=>v===0?'Today':v+' mo',xl:'Months ahead'});
+    const pts=[]; for(let m=0;m<=12;m+=0.25){ const t=m/12; pts.push([m,84*(1+0.065*t)/(1+0.045*t)]); }
+    g.appendChild(el('line',{x1:X(0),x2:X(12),y1:Y(84),y2:Y(84),stroke:'var(--muted)','stroke-dasharray':'5 4'}));
+    g.appendChild(el('text',{x:X(12)-4,y:Y(84)+16,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'Spot ₹84.00'));
+    line(g,pts,X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'fw'});
+    [[3,84.42],[12,85.61]].forEach(([m,v])=>{ g.appendChild(el('circle',{cx:X(m),cy:Y(v),r:5,fill:'var(--acc)'})); g.appendChild(el('text',{x:X(m)-8,y:Y(v)-10,'text-anchor':'end','font-size':11,fill:'var(--ink)'},'₹'+v.toFixed(2))); });
+    const run=()=>animate(g,'.fw'); document.getElementById('fwd-replay').addEventListener('click',run); onView(g,run);
+  })();
+
+  // 24h clock
+  (function(){
+    const g=document.getElementById('clock');
+    const L=120,R=870, X=h=>L+h/24*(R-L);
+    const sessions=[['Sydney / Tokyo',3.5,12.5,'var(--acc)'],['India (onshore)',9,17,'var(--inr)'],['London',12.5,21.5,'var(--usd)'],['New York',17.5,26.5,'var(--down)']];
+    for(let h=0;h<=24;h+=3){ g.appendChild(el('line',{x1:X(h),x2:X(h),y1:20,y2:180,stroke:'var(--rule)'})); g.appendChild(el('text',{x:X(h),y:198,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},(h%24)+':00')); }
+    g.appendChild(el('rect',{x:X(17.5),y:20,width:X(21.5)-X(17.5),height:160,fill:'var(--acc-soft)'}));
+    g.appendChild(el('text',{x:X(19.5),y:16,'text-anchor':'middle','font-size':10,fill:'var(--acc)'},'Busiest overlap'));
+    sessions.forEach(([n,a,b,c],i)=>{ const y=34+i*36;
+      g.appendChild(el('text',{x:L-10,y:y+15,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+      const seg=(s,e)=>g.appendChild(el('rect',{x:X(s),y,width:X(e)-X(s),height:20,rx:4,fill:c,opacity:.8}));
+      if(b>24){ seg(a,24); seg(0,b-24); } else seg(a,b); });
+    g.appendChild(el('text',{x:L,y:220,'font-size':11,fill:'var(--muted)'},'Indian Standard Time (approximate)'));
+    const sw=el('line',{x1:L,x2:L,y1:24,y2:180,stroke:'var(--ink)','stroke-width':2}); g.appendChild(sw);
+    if(!reduce){ sw.appendChild(el('animate',{attributeName:'x1',from:L,to:R,dur:'12s',repeatCount:'indefinite'})); sw.appendChild(el('animate',{attributeName:'x2',from:L,to:R,dur:'12s',repeatCount:'indefinite'})); }
+    else { sw.setAttribute('x1',X(19.5)); sw.setAttribute('x2',X(19.5)); }
+  })();
+
+  // Rupee history
+  (function(){
+    const g=document.getElementById('hist');
+    const d=[[1990,17.5],[1991,22.7],[1992,25.9],[1993,30.5],[1995,32.4],[1998,41.3],[2000,44.9],[2002,48.6],[2005,44.1],[2007,41.3],[2009,48.4],[2011,46.7],[2013,58.6],[2015,64.2],[2017,65.1],[2019,70.4],[2020,74.1],[2022,78.6],[2024,83.7]];
+    const {X,Y}=axes(g,{L:60,R:650,T:20,B:250,x0:1990,x1:2024,y0:10,y1:90,yt:[10,30,50,70,90],yf:v=>'₹'+v,xt:[1990,1995,2000,2005,2010,2015,2020,2024],xf:v=>v});
+    line(g,d,X,Y,{stroke:'var(--inr)','stroke-width':3,pathLength:1000,class:'hl'});
+    const ev=[[1991,22.7,'1991 crisis, devaluation',-1],[2008,45,'2008 global crisis',1],[2013,58.6,'2013 taper tantrum',-1],[2022,78.6,'2022 US rate hikes',-1]];
+    ev.forEach(([x,y,t,s])=>{ g.appendChild(el('circle',{cx:X(x),cy:Y(y),r:5,fill:'var(--acc)'})); g.appendChild(el('text',{x:X(x)+(x>2015?-8:8),y:Y(y)+(s<0?-12:20),'text-anchor':x>2015?'end':'start','font-size':11,fill:'var(--acc)'},t)); });
+    g.appendChild(el('text',{x:X(2024),y:Y(83.7)+20,'text-anchor':'end','font-size':11,fill:'var(--ink)'},'≈ ₹84'));
+    const run=()=>animate(g,'.hl'); document.getElementById('hist-replay').addEventListener('click',run); onView(g,run);
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 06</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="6"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="overnight-loan.html" rel="prev"><small>← Previous</small>The Overnight Loan</a><a href="warehouse.html" rel="next"><small>Next story →</small>The Warehouse</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

@@ -1,0 +1,874 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Warehouse</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 07 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html" aria-current="page"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: seventh story in the Kesarpur series. Storybook column with a ledger margin; wide interludes and animated diagrams. Mustard accent for crops, gold for gold, earth-brown for oil and metals; green/red reserved for gain/loss. */
+:root{
+  --bg:#F3F2EE; --paper:#FCFBF8; --ink:#221F17; --muted:#655F51; --rule:#DAD5C8;
+  --acc:#7F6208; --acc-soft:#F1E7C6; --gold:#B58A12; --gold-soft:#F6EBC9; --earth:#6A4A30; --earth-soft:#EADFD3; --leaf:#3F6B3A; --leaf-soft:#E2ECDD;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B3313F; --down-soft:#F6DCDF;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14130F; --paper:#1D1B15; --ink:#EEE9DD; --muted:#ABA392; --rule:#37332A;
+  --acc:#E1C15A; --acc-soft:#352C12; --gold:#F0C858; --gold-soft:#3A2F12; --earth:#D3A882; --earth-soft:#33261C; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14130F; --paper:#1D1B15; --ink:#EEE9DD; --muted:#ABA392; --rule:#37332A;
+  --acc:#E1C15A; --acc-soft:#352C12; --gold:#F0C858; --gold-soft:#3A2F12; --earth:#D3A882; --earth-soft:#33261C; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.gold .label{color:var(--gold)}
+.note.earth .label{color:var(--earth)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.g{border-color:var(--gold)} .col.e{border-color:var(--earth)} .col.l{border-color:var(--leaf)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.growy{animation:grow .9s ease both}
+.growx{animation:growx .9s ease both}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about the commodity market, in sixteen chapters</span>
+    <h1>The Kesarpur Warehouse</h1>
+    <p class="lede">At harvest, Gopal's farmer group can sell its mustard seed for ₹5,200 a quintal. Seven months later, the same seed sells for ₹6,100. Between those two prices sit a warehouse, a bank loan, an exchange and a whole market. Follow the mustard, the gold in Rukhsana's cupboard and the diesel in Harjeet's tanks, and you'll understand how the world trades the things it grows, digs up and burns.</p>
+    <div class="cast">
+      <span class="chip">Gopal, farmer group leader</span>
+      <span class="chip">Rukhsana, Salim's mother</span>
+      <span class="chip">Harjeet, petrol pump owner</span>
+      <span class="chip">Mr. Iyer, bank</span>
+      <span class="chip">Lakshmi, Sunrise Foods</span>
+      <span class="chip">Kamala &amp; Rohit</span>
+    </div>
+  </div>
+  <figure style="margin:0">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Animated diagram: sacks moving from a field to a warehouse and then to the market, under a curve showing price low at harvest and higher months later"><g id="hero"></g></svg>
+  </figure>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>Too much mustard in March</a></li>
+    <li><a href="#what"><span>01</span>What a commodity is</a></li>
+    <li><a href="#mandi"><span>02</span>The mandi</a></li>
+    <li><a href="#seasons"><span>03</span>The seasons of price</a></li>
+    <li><a href="#warehouse"><span>04</span>The warehouse and its receipt</a></li>
+    <li><a href="#exchange"><span>05</span>The commodity exchange</a></li>
+    <li><a href="#curve"><span>06</span>Contango and backwardation</a></li>
+    <li><a href="#gold"><span>07</span>Gold in Rukhsana's cupboard</a></li>
+    <li><a href="#goldprice"><span>08</span>How gold is priced in India</a></li>
+    <li><a href="#papergold"><span>09</span>Gold without the cupboard</a></li>
+    <li><a href="#goldmoves"><span>10</span>Why gold moves</a></li>
+    <li><a href="#oil"><span>11</span>Harjeet's diesel</a></li>
+    <li><a href="#metals"><span>12</span>Copper, steel and the economy</a></li>
+    <li><a href="#speculation"><span>13</span>Hoarders, bubbles and bans</a></li>
+    <li><a href="#market"><span>14</span>The commodity market at scale</a></li>
+    <li><a href="#you"><span>15</span>Commodities for you</a></li>
+    <li><a href="#epilogue"><span>16</span>The next sowing</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>From field to market</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>Too much mustard in March</h2></header>
+  <div class="prose">
+    <p>Gopal, the mango farmer from the derivatives story, now leads a farmer producer organisation of 300 families. In the cool months after the monsoon, many of them grow mustard, whose seed is crushed into the oil that every Kesarpur kitchen cooks with, and that Sunrise Foods uses for its pickles.</p>
+    <p>In March, the whole district harvests at once. Trucks queue outside the mandi. Buyers know the farmers need cash for loans, school fees and the next crop, and the price drops to ₹5,200 a quintal (100 kg). By October, the seed has been bought up, crushed and eaten, and mills are hunting for more. The price has climbed to ₹6,100.</p>
+    <p>The farmers grew the seed. Someone else earned the extra ₹900 a quintal for simply holding it for seven months. Gopal wants to know why it can't be them.</p>
+    <p>To answer him, we have to understand how raw goods are priced, stored and traded: the <strong>commodity market</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Seventh story</span>This follows the bond, mutual fund, stock, derivatives, money market and forex stories. Gopal, Lakshmi, Iyer, Rukhsana, Kamala and Rohit all return.</div>
+    <div class="note"><span class="label">Quintal</span>The standard unit for crops in Indian mandis: 100 kilograms. Gold is quoted per 10 grams, crude oil per barrel (159 litres).</div>
+  </aside>
+</section>
+
+<section class="chapter" id="what">
+  <header><span class="label">Chapter 1</span><h2>What a commodity is</h2></header>
+  <div class="prose">
+    <p>A <strong>commodity</strong> is a basic good where one unit of a given grade is as good as another. A quintal of grade-A mustard seed from Gopal's field is interchangeable with a quintal from the next village. A gram of 24-carat gold in Kesarpur is the same as a gram in Zurich. That sameness, called being <strong>fungible</strong>, is what lets commodities be traded in bulk, stored together and priced on exchanges.</p>
+    <p>A Sunrise pickle jar, by contrast, is a branded product. Customers pay for Lakshmi's recipe, not just mangoes and oil.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Group</th><th>Examples</th><th>Who cares most</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Agricultural</strong> ("softs" and grains)</td><td>Mustard, wheat, rice, chana, cotton, sugar, spices, guar, coffee</td><td>Farmers, food companies, every household</td></tr>
+          <tr><td><strong>Precious metals</strong></td><td>Gold, silver, platinum</td><td>Families, jewellers, central banks, investors</td></tr>
+          <tr><td><strong>Base metals</strong></td><td>Copper, aluminium, zinc, nickel, steel</td><td>Builders, carmakers, electrical firms</td></tr>
+          <tr><td><strong>Energy</strong></td><td>Crude oil, natural gas, coal</td><td>Transport, power plants, governments</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Commodities are different from shares and bonds in an important way: <strong>they pay nothing</strong>. A share pays dividends; a bond pays interest. A sack of mustard or a gold bar just sits there, and storing it costs money. The only way to profit from holding a commodity is for its price to rise. That fact shapes almost everything in this story.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Hard and soft</span><dfn>Hard</dfn> commodities are mined or extracted: metals, oil. <dfn>Soft</dfn> commodities are grown: crops, livestock.</div>
+    <div class="note"><span class="label">Grade matters</span>"Mustard" isn't one thing. Exchanges define exact grades: oil content, moisture, impurities. Prices adjust for quality differences.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="mandi">
+  <header><span class="label">Chapter 2</span><h2>The mandi</h2></header>
+  <div class="prose">
+    <p>Most Indian crops are first sold in a <strong>mandi</strong>, a regulated market yard. Farmers bring their produce, commission agents arrange auctions, and traders and mills bid. This is the <strong>spot market</strong>: goods change hands now, for cash, at today's price. Here's how mustard travels from Gopal's field to Rukhsana's kitchen, and how the price grows along the way.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">From field to bottle: one kilo of mustard</span><div class="seg"><button type="button" id="chain-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 920 260" width="100%" style="min-width:760px" role="img" aria-label="Animated supply chain from farmer to mandi to trader to oil mill to shop, with price per kilo of seed-equivalent rising at each step"><g id="chain"></g></svg></div>
+    <figcaption>Illustrative. A kilo of mustard seed yields roughly a third of a kilo of oil plus oilcake for cattle feed. Each step adds transport, processing, packing, risk and margin. Bars show the value of the seed's share at each step.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col"><h3>Minimum support price</h3><p>For about two dozen crops, the government announces a <strong>minimum support price (MSP)</strong> each season. For crops like wheat and rice, government agencies buy large amounts at that price. For many others, including mustard, government buying is more limited, so market prices can still fall below MSP at harvest.</p></div>
+    <div class="col"><h3>e-NAM</h3><p>Since 2016, the national electronic agriculture market lets traders bid online for produce in participating mandis across states, widening the pool of buyers for a farmer's lot.</p></div>
+    <div class="col l"><h3>Farmer groups</h3><p>Farmer producer organisations (FPOs) like Gopal's pool their members' crops. A large, graded lot attracts better buyers, can be stored, and can even be sold on an exchange.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="seasons">
+  <header><span class="label">Chapter 3</span><h2>The seasons of price</h2></header>
+  <div class="prose">
+    <p>Iyer at the cooperative bank has watched mustard prices for years. The pattern repeats: low at harvest, when supply floods in; higher through the lean months, as stocks are used up; then down again when the next crop's size becomes clear.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">A typical year for mustard seed (₹ per quintal)</span><div class="seg"><button type="button" id="season-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:500px" role="img" aria-label="Line chart of mustard prices through the year, lowest at the March harvest and highest around October, with the support price line"><g id="season"></g></svg></div>
+    <figcaption>Illustrative pattern. Real years vary with crop size, imports of other edible oils, and weather. The dashed line is an illustrative support price.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Some crops swing far harder. Onions and tomatoes can't be stored long, so one bad monsoon or a heatwave can multiply prices within weeks, and a bumper crop can push them so low that farmers dump produce on the road. That's why kitchen staples sometimes make headlines, and why governments step in with export bans, stock limits and imports.</p>
+    <p>Prices also depend on the whole world. India imports a large share of its edible oils, such as palm and soybean oil. If palm oil from Indonesia and Malaysia gets cheaper, mills buy less mustard, and Gopal's price falls even with an average Indian crop.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Supply shocks</span>Commodity supply can't respond quickly. A farmer can't grow more mustard until next season; a mine takes years to open. So small shortages cause big price jumps.</div>
+    <div class="note"><span class="label">Rabi and kharif</span>India's two main crop seasons: <dfn>kharif</dfn>, sown with the monsoon (rice, cotton, soybean), and <dfn>rabi</dfn>, sown in winter and harvested in spring (wheat, mustard, chana).</div>
+  </aside>
+</section>
+
+<section class="chapter" id="warehouse">
+  <header><span class="label">Chapter 4</span><h2>The warehouse and its receipt</h2></header>
+  <div class="prose">
+    <p>Gopal's answer is the warehouse on the Kesarpur highway. It's registered with India's warehousing regulator (WDRA). Here's what happens when the FPO brings 500 quintals of mustard in March:</p>
+    <ul>
+      <li>The seed is tested, graded, weighed, fumigated and stacked. The warehouse is insured.</li>
+      <li>The FPO receives an <strong>electronic negotiable warehouse receipt (e-NWR)</strong>: a digital document saying exactly what's stored, how much and of what grade. It can be transferred to a buyer without moving a single sack.</li>
+      <li>Iyer's bank lends against the receipt: about 70% of the seed's value, at 9% a year. The farmers get cash now to repay their crop loans, without selling at the harvest low.</li>
+    </ul>
+    <p>But storage isn't free, and the price might not rise. Try the decision yourself.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="w-later">Expected price after storing <output id="w-later-out">₹6,100</output></label><input id="w-later" type="range" min="4600" max="7000" step="50" value="6100"></div>
+      <div class="ctrl"><label for="w-months">Months in the warehouse <output id="w-months-out">7</output></label><input id="w-months" type="range" min="1" max="10" step="1" value="7"></div>
+      <div class="ctrl"><label for="w-rate">Loan interest rate <output id="w-rate-out">9%</output></label><input id="w-rate" type="range" min="6" max="16" step="0.5" value="9"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Waterfall bars from the harvest price through extra price, minus storage, interest and handling, to the net result per quintal"><g id="wf"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Net extra per quintal</span><span class="big" id="w-net">₹574</span></div>
+      <div><span class="label">For 500 quintals</span><span class="big" id="w-tot">₹2,87,000</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="w-note"></p>
+  </div>
+  <div class="prose">
+    <p>Storage is a bet that the price will rise by more than the cost of waiting. It usually does for mustard, but not always. In a year with a huge next crop or cheap imported oil, the October price can be lower than March's, and the farmers lose twice: a lower price <em>and</em> the storage costs. Chapter 5 shows how they can protect against that.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Cost of carry</span>Storage, insurance and interest: the cost of holding a commodity over time. In the derivatives story, the same idea set futures prices.</div>
+    <div class="note"><span class="label">Pledge finance</span>Loans against warehouse receipts let farmers avoid distress sales. The bank's security is the stored grain itself.</div>
+    <div class="note risk"><span class="label">Warehouse risk</span>Receipts are only as good as the warehouse. Fraud, missing stock or poor storage have hit lenders and traders before, which is why registration, audits and insurance matter.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="exchange">
+  <header><span class="label">Chapter 5</span><h2>The commodity exchange</h2></header>
+  <div class="prose">
+    <p>Gopal's group can protect its stored mustard by selling <strong>futures</strong>, exactly like the mango contract story, but on a commodity exchange. India's two main commodity exchanges were set up in 2003: <strong>NCDEX</strong>, focused on farm goods, and <strong>MCX</strong>, focused on metals and energy. Since 2015, they've been regulated by SEBI.</p>
+    <p>A futures contract on an exchange specifies everything: the commodity, grade, quantity, delivery centre and month. If Gopal's FPO sells October futures at ₹6,000 in March, it has locked in roughly that price. If the October spot price falls to ₹5,000, the gain on the futures roughly offsets the lower price for the seed. If it rises to ₹6,800, the futures lose, but the seed sells for more.</p>
+    <p>Some contracts end in <strong>delivery</strong>: the seller places goods in an exchange-approved warehouse, and the buyer receives the warehouse receipt. That link to physical goods keeps futures prices honest. Most traders, though, close their positions before expiry.</p>
+    <p>There's a catch for farm goods in India. Since late 2021, SEBI has suspended new futures trading in several sensitive farm commodities, including wheat, chana, mustard and soybean, citing concerns about food inflation, and has extended the suspension several times. So in practice Gopal's group might use forward deals with mills, or futures in other crops still trading. The debate continues: futures help farmers find prices and hedge, but governments worry that speculation can push up food prices.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Spot (mandi)</th><th>Forward</th><th>Exchange futures</th></tr></thead>
+        <tbody>
+          <tr><td>When goods change hands</td><td>Now</td><td>On an agreed later date</td><td>At expiry, or never if closed early</td></tr>
+          <tr><td>Price fixed</td><td>Now, at today's price</td><td>Now, for the future</td><td>Now, for the future; settled daily</td></tr>
+          <tr><td>Counterparty</td><td>The buyer in front of you</td><td>One private buyer</td><td>Exchange clearing house</td></tr>
+          <tr><td>Standard terms</td><td>No</td><td>No</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Price discovery</span>Futures prices tell everyone what the market expects for future months. Mills, traders and farmers use them even if they never trade.</div>
+    <div class="note"><span class="label">Options too</span>MCX and NCDEX also list options on some commodity futures, the same "insurance" idea as Gopal's mango put.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="curve">
+  <header><span class="label">Chapter 6</span><h2>Contango and backwardation</h2></header>
+  <div class="prose">
+    <p>Look at the futures prices for several delivery months side by side, and you get a <strong>futures curve</strong>. Its shape tells a story about supply.</p>
+    <p>Normally, later months cost more, to pay for storage, insurance and interest. This upward slope is <strong>contango</strong>. But when there's a shortage right now, buyers will pay more for goods today than for goods later. The curve slopes down. This is <strong>backwardation</strong>. The extra value of having the goods in hand, rather than on paper, is called the <strong>convenience yield</strong>.</p>
+  </div>
+  <div class="panel">
+    <div class="seg" role="group" aria-label="Choose market condition" id="curve-mode">
+      <button type="button" data-v="contango" aria-pressed="true">Plenty in storage (contango)</button>
+      <button type="button" data-v="back" aria-pressed="false">Shortage now (backwardation)</button>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Futures curve for delivery months, sloping up in contango or down in backwardation"><g id="curve-chart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="curve-note"></p>
+  </div>
+  <div class="prose">
+    <p>The shape matters to investors who never touch a sack. A fund that holds commodity futures must keep "rolling" them: selling the expiring month and buying the next. In contango, it keeps selling cheap and buying dear, which drains returns even if the spot price doesn't move. That's one reason commodity funds can lag the commodity's price over time.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Roll yield</span>The gain or loss from replacing expiring futures with later ones. Negative in contango, positive in backwardation.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>Gold</h2></div>
+
+<section class="chapter" id="gold">
+  <header><span class="label">Chapter 7</span><h2>Gold in Rukhsana's cupboard</h2></header>
+  <div class="prose">
+    <p>Rukhsana, Salim's mother from the forex story, is buying gold for her daughter's wedding. In her steel cupboard is a small cloth bundle: her mother's bangles, her own wedding necklace, coins bought one at a time over thirty years. For many Indian families, gold is savings, insurance and heirloom in one. India is one of the world's two largest buyers of gold, alongside China, and imports almost all of it.</p>
+    <p>At the jeweller, she learns the vocabulary of gold:</p>
+  </div>
+  <figure class="fig-card">
+    <span class="label">How pure is it?</span>
+    <div class="scroll"><svg viewBox="0 0 640 190" width="100%" style="min-width:460px" role="img" aria-label="Bars showing gold purity for 24, 22 and 18 carat"><g id="karat"></g></svg></div>
+    <figcaption>Pure gold is too soft for most jewellery, so it's mixed with copper, silver or zinc. Karat (K) measures purity out of 24.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Since 2021, gold jewellery sold in most of India must be <strong>hallmarked</strong> by the Bureau of Indian Standards. Each piece carries a six-digit code (HUID) that can be checked in the government's BIS Care app, showing its purity.</p>
+    <p>Then there's the bill. Let's price a 20-gram, 22K necklace.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="j-rate">24K gold rate per 10 g <output id="j-rate-out">₹70,000</output></label><input id="j-rate" type="range" min="40000" max="150000" step="1000" value="70000"></div>
+      <div class="ctrl"><label for="j-mk">Making charges <output id="j-mk-out">12%</output></label><input id="j-mk" type="range" min="3" max="25" step="1" value="12"></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <tbody>
+          <tr><td>Gold value: 20 g × 22K rate (91.6% of 24K)</td><td class="num" id="j-gold">₹1,28,240</td></tr>
+          <tr><td>Making charges</td><td class="num" id="j-make">₹15,389</td></tr>
+          <tr><td>GST at 3% on gold + making</td><td class="num" id="j-gst">₹4,309</td></tr>
+          <tr class="total"><td>Rukhsana pays</td><td class="num" id="j-tot">₹1,47,938</td></tr>
+          <tr><td>If sold back tomorrow (gold value less ~3%)</td><td class="num" id="j-back">₹1,24,393</td></tr>
+          <tr class="hl"><td>Lost immediately</td><td class="num" id="j-lost">₹23,545</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Jewellery is wonderful to wear and pass down. As an <em>investment</em>, it starts 15% or more behind, because making charges and GST don't come back when you sell. Gold prices have to rise a lot just to recover them.</p>
+  </div>
+  <aside>
+    <div class="note gold"><span class="label">Hallmark</span>A purity mark from an assaying centre. A HUID code lets you verify a piece's purity. Coins and bars from banks and refiners also come stamped with purity.</div>
+    <div class="note gold"><span class="label">Rates are illustrative</span>Gold's price moves daily and has risen sharply in recent years. Move the slider to today's rate to see the real numbers.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="goldprice">
+  <header><span class="label">Chapter 8</span><h2>How gold is priced in India</h2></header>
+  <div class="prose">
+    <p>Rukhsana asks why the gold rate changes every morning. The answer connects three markets: global gold, forex and government taxes.</p>
+    <p>Gold is priced worldwide in US dollars per <strong>troy ounce</strong> (31.1035 grams), mainly in London and New York. To get the Indian price, you convert ounces to grams, dollars to rupees, then add import duty and GST.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="g-usd">Gold in US$ per ounce <output id="g-usd-out">$2,500</output></label><input id="g-usd" type="range" min="1500" max="4500" step="25" value="2500"></div>
+      <div class="ctrl"><label for="g-fx">Rupees per dollar <output id="g-fx-out">₹84.00</output></label><input id="g-fx" type="range" min="70" max="95" step="0.5" value="84"></div>
+      <div class="ctrl"><label for="g-duty">Import duty <output id="g-duty-out">6%</output></label><input id="g-duty" type="range" min="0" max="15" step="0.5" value="6"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Stacked bar showing how the Indian gold price per 10 grams builds from the international price, currency, duty and GST"><g id="gp"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Indian price per 10 g, 24K</span><span class="big" id="g-out">₹73,715</span></div>
+      <div><span class="label">Before duty and GST</span><span class="big" id="g-base">₹67,517</span></div>
+    </div>
+  </div>
+  <div class="formula">₹ per 10 g ≈ $ per ounce × ₹ per $ ÷ 31.1035 × 10 × (1 + duty) × (1 + 3% GST)</div>
+  <div class="prose">
+    <p>That's why gold in India can rise even when global gold is flat: if the rupee falls from 84 to 88 to the dollar, Indian gold gets about 5% dearer. Try it on the slider. Import duty matters too: India cut gold import duty sharply in 2024, and local prices fell on the day of the announcement. Local premiums or discounts, set by supply and demand at Indian dealers, add a little more on top.</p>
+  </div>
+  <aside>
+    <div class="note gold"><span class="label">Troy ounce</span>The traditional unit for precious metals: 31.1035 g, a little heavier than an ordinary ounce (28.35 g).</div>
+    <div class="note"><span class="label">Link to forex</span>A weaker rupee makes every imported commodity dearer in India: gold, oil, edible oil, fertiliser. That's why the forex and commodity markets move together.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="papergold">
+  <header><span class="label">Chapter 9</span><h2>Gold without the cupboard</h2></header>
+  <div class="prose">
+    <p>Rohit, Kamala's grandson, wants some gold in his savings as protection, but he doesn't want jewellery or a locker. He compares the options.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Form</th><th>What you own</th><th>Costs</th><th>Pros</th><th>Watch out</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Jewellery</strong></td><td>Physical gold, usually 22K</td><td>Making charges, GST, resale deductions</td><td>Use and heritage</td><td>Weak investment; theft; purity disputes</td></tr>
+          <tr><td><strong>Coins and bars</strong></td><td>Physical gold, 24K</td><td>Small premium, GST, storage</td><td>Simple, no making charges</td><td>Safe storage; resale spread</td></tr>
+          <tr><td><strong>Gold ETF</strong></td><td>Units backed by gold held by a custodian</td><td>Small yearly expense; brokerage</td><td>Tracks gold closely; trades on the stock exchange</td><td>Needs a demat account; no interest</td></tr>
+          <tr><td><strong>Gold mutual fund</strong></td><td>A fund that invests in gold ETFs</td><td>Fund expense on top of ETF</td><td>SIP possible; no demat needed</td><td>Slightly higher cost</td></tr>
+          <tr><td><strong>Sovereign Gold Bonds</strong></td><td>Government bonds linked to gold price</td><td>None while held</td><td>2.5% yearly interest on top of gold price; tax benefits if held to maturity</td><td>The government stopped issuing new ones after early 2024; existing bonds trade on exchanges</td></tr>
+          <tr><td><strong>"Digital gold" on apps</strong></td><td>A claim on gold held by a private company</td><td>Buy-sell spread, GST, storage after a period</td><td>Tiny amounts</td><td>Not regulated by SEBI or the RBI; you depend on the provider</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Rohit chooses a gold ETF through his existing demat account, adding a little each month. He also checks the latest tax rules, because gold ETFs, gold funds and physical gold have been taxed differently and the rules changed in 2024.</p>
+  </div>
+  <aside>
+    <div class="note gold"><span class="label">Gold ETF</span>An exchange-traded fund where each unit represents a small, fixed quantity of physical gold held in a vault. Silver ETFs have been allowed in India since 2022.</div>
+    <div class="note risk"><span class="label">Regulation matters</span>An ETF or fund is regulated by SEBI and audited. A private app's "digital gold" sits outside that regulation.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="goldmoves">
+  <header><span class="label">Chapter 10</span><h2>Why gold moves</h2></header>
+  <div class="prose">
+    <p>Gold pays no interest and has limited industrial use. So why does its price swing, and why has it risen so much over two decades?</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Gold in US$ per ounce, approximate yearly averages</span><div class="seg"><button type="button" id="gold-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 680 290" width="100%" style="min-width:520px" role="img" aria-label="Line chart of gold prices from about 280 dollars in 2000 to about 2,400 dollars in 2024, with a dip from 2013 to 2015"><g id="goldhist"></g></svg></div>
+    <figcaption>Approximate rounded yearly averages, for illustration. Gold rose much further in 2025, crossing $4,000 an ounce at times.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col g"><h3>Real interest rates</h3><p>Holding gold means giving up interest. When interest rates after inflation are high, gold is less attractive; when they're low or negative, gold shines. The gold fall of 2013–2015 came as US rates were expected to rise.</p></div>
+    <div class="col g"><h3>Fear</h3><p>In wars, financial crises and pandemics, investors buy gold as a store of value that no government can print. The 2008 crisis and 2020 pandemic both pushed gold up.</p></div>
+    <div class="col g"><h3>The dollar</h3><p>Gold is priced in dollars, so a weaker dollar usually means a higher gold price, and vice versa.</p></div>
+    <div class="col g"><h3>Central banks</h3><p>Central banks, including the RBI, hold gold in their reserves. In recent years they've bought record amounts, over 1,000 tonnes a year globally in 2022–2024, partly to depend less on the dollar.</p></div>
+    <div class="col g"><h3>Indian and Chinese demand</h3><p>Weddings, festivals like Akshaya Tritiya and Dhanteras, and good harvests lift jewellery demand. But very high prices can cut buying.</p></div>
+    <div class="col m"><h3>What gold doesn't do</h3><p>Gold can go nowhere for years. From 2011 to 2019, its dollar price was roughly flat or lower. It protects against some crises, not against everything.</p></div>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Safe haven</span>An asset people rush to in a crisis. Gold, the US dollar and US government bonds are the classic ones.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>Energy, metals and the economy</h2></div>
+
+<section class="chapter" id="oil">
+  <header><span class="label">Chapter 11</span><h2>Harjeet's diesel</h2></header>
+  <div class="prose">
+    <p>Harjeet runs the petrol pump on the Kesarpur highway. Every truck carrying Gopal's mustard and every bus to the district hospital fills up there. He knows the world's oil news before most people, because his customers complain within days.</p>
+    <p>India imports roughly 85% of the crude oil it uses. Crude is priced in dollars per barrel, usually benchmarked to <strong>Brent</strong>. The price swings with how much OPEC+ countries pump, the strength of world demand, wars and sanctions, US shale output, and the season.</p>
+    <p>But crude is only part of what Harjeet's customers pay. Here's how an illustrative litre of petrol is built.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">What's in a litre of petrol (illustrative, ₹)</span><div class="seg"><button type="button" id="petrol-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 170" width="100%" style="min-width:480px" role="img" aria-label="Horizontal stacked bar of the price of one litre of petrol, split into base price, central excise, dealer commission and state tax"><g id="petrol"></g></svg></div>
+    <figcaption>Illustrative, roughly the structure in a large Indian city. Taxes differ by state, and change with government decisions.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Taxes make up a large share, so pump prices don't move one-for-one with crude. When oil spiked to about $147 a barrel in July 2008, or when it collapsed in 2020, governments and oil companies adjusted taxes and margins, cushioning the change.</p>
+    <p>Oil has had some of the wildest moves of any market. In April 2020, with the world in lockdown and storage tanks full, a US crude futures contract (WTI) briefly traded <em>below zero</em>: sellers paid buyers to take oil they had no place to put. It's the clearest lesson in this story that a commodity isn't just a price on a screen; it's a physical thing that has to go somewhere.</p>
+  </div>
+  <aside>
+    <div class="note earth"><span class="label">Brent and WTI</span>The two main benchmark crude prices: Brent (North Sea) is used for most oil India buys; WTI is the US benchmark.</div>
+    <div class="note earth"><span class="label">Inflation link</span>Diesel moves vegetables, grain and goods across India. A sharp oil rise feeds into the cost of almost everything.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="metals">
+  <header><span class="label">Chapter 12</span><h2>Copper, steel and the economy</h2></header>
+  <div class="prose">
+    <p>When Sunrise built its new factory, the price of steel, copper wiring and aluminium sheets mattered as much as mangoes. Base metals are the raw materials of buildings, cars, power lines and phones, so their prices rise when the world is building and fall when it slows. Copper is sometimes nicknamed "Dr. Copper" because its price is seen as a quick reading of the world economy's health.</p>
+    <p>For two decades, China's construction boom drove metal demand. In the 2000s, rising Chinese demand pushed up copper, iron ore and oil together, a long rise called a <strong>commodity super cycle</strong>. When Chinese growth slowed in the 2010s, many metal prices fell sharply.</p>
+    <p>Today, a new source of demand is the energy transition: electric cars, solar panels, wind turbines and power grids need large amounts of copper, lithium, nickel and other metals. Mines take a decade or more to develop, so prices can stay high while supply catches up.</p>
+    <p>In India, MCX lists futures on copper, aluminium, zinc, lead and nickel. Globally, the main metals exchange is the London Metal Exchange.</p>
+  </div>
+  <aside>
+    <div class="note earth"><span class="label">Cyclical</span>Prices that rise and fall with the economic cycle. Base metals are among the most cyclical things you can buy.</div>
+    <div class="note"><span class="label">Commodity-linked shares</span>Shares of mining, steel and oil companies often move with commodity prices, magnified by their own debt and costs.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="speculation">
+  <header><span class="label">Chapter 13</span><h2>Hoarders, bubbles and bans</h2></header>
+  <div class="prose">
+    <p>Commodity markets attract speculation, and sometimes manipulation, because supplies are limited and everyone needs the goods.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Kamala's silver</strong><span>After her options losses, Kamala tried silver futures on MCX, persuaded that "silver must catch up with gold". She bought with margin. A sudden 8% fall in two days wiped out most of her deposit. The leverage lessons from the derivatives story apply in full.</span></div>
+    <div class="risk-row"><strong>The Hunt brothers, 1980</strong><span>Two US oil billionaires tried to corner the world's silver market, buying huge amounts of physical silver and futures. The price rose from about $6 an ounce in early 1979 to nearly $50 in January 1980. Exchanges changed the rules to limit buying on borrowed money, and the price collapsed on "Silver Thursday" in March 1980.</span></div>
+    <div class="risk-row"><strong>NSEL, 2013</strong><span>On India's National Spot Exchange, some contracts were sold as safe commodity trades. The exchange suspended trading in 2013, and payments of about ₹5,600 crore to investors defaulted, after it emerged that much of the stock supposedly backing them did not exist in the warehouses.</span></div>
+    <div class="risk-row"><strong>Hoarding</strong><span>Traders who hold back essential goods to push up prices can be prosecuted. Under the Essential Commodities Act, governments can impose stock limits on items like pulses, onions and edible oils when prices spike.</span></div>
+    <div class="risk-row"><strong>Export bans and duties</strong><span>To keep food affordable at home, India has at times banned or restricted exports of wheat, rice, onions and sugar. That protects consumers but can cut farmers' prices and shake world markets.</span></div>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Silver during the Hunt brothers' attempt (approximate, US$ per ounce)</span><div class="seg"><button type="button" id="silver-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 240" width="100%" style="min-width:480px" role="img" aria-label="Chart showing silver rising from about 6 dollars in 1979 to nearly 50 in January 1980 and falling to about 11 by March 1980"><g id="silver"></g></svg></div>
+    <figcaption>Approximate values, for illustration. A price that rises eightfold on borrowed money can fall almost as fast.</figcaption>
+  </figure>
+  <aside>
+    <div class="note risk"><span class="label">Corner</span>Buying up so much of a commodity that others who need it must pay whatever you ask. Illegal in regulated markets, and usually ends badly for the attempter.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>The commodity market at scale</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. Commodity markets connect farmers in Punjab, oil fields in the Gulf, copper mines in Chile and gold vaults in London. They have three layers: the <strong>physical market</strong> (mandis, ports, warehouses, refineries), the <strong>derivatives market</strong> (futures and options on exchanges), and the <strong>investment market</strong> (ETFs, funds and shares linked to commodities).</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Exchanges</h3><p>India: MCX (metals and energy), NCDEX (farm goods), and commodity segments on NSE and BSE. Abroad: CME Group (including NYMEX and COMEX) in the US, ICE (Brent crude) and the London Metal Exchange.</p></div>
+    <div class="col l"><h3>Hedgers</h3><p>Farmers and FPOs, food processors like Sunrise, oil refiners, airlines, jewellers, metal fabricators: people with real exposure to prices.</p></div>
+    <div class="col d"><h3>Speculators and arbitrageurs</h3><p>Traders, funds and individuals betting on prices, and arbitrageurs keeping spot, futures and international prices in line.</p></div>
+    <div class="col g"><h3>Big physical players</h3><p>Global trading houses buy, store, ship and blend commodities around the world, earning from price differences between places and times.</p></div>
+    <div class="col e"><h3>Governments</h3><p>MSP and public procurement, buffer stocks held by the Food Corporation of India, strategic petroleum reserves, import duties, export bans and stock limits. Governments are bigger players in commodities than in almost any other market.</p></div>
+    <div class="col m"><h3>Regulators</h3><p>SEBI regulates commodity derivatives; the warehousing regulator (WDRA) oversees registered warehouses and e-NWRs; food, consumer and trade ministries set many rules on farm goods.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="you">
+  <header><span class="label">Chapter 15</span><h2>Commodities for you</h2></header>
+  <div class="prose">
+    <p>Most people meet commodities as prices: petrol, cooking oil, gold. Some also want them in their savings. Here's how Kesarpur's families decide.</p>
+    <ul>
+      <li><strong>Gold as a small slice.</strong> Many advisers suggest gold as a modest part of savings, often around 5–10%, as a cushion against crises and a weak rupee, not as the main engine of growth. Rohit uses a gold ETF.</li>
+      <li><strong>Jewellery for joy, not returns.</strong> Rukhsana still buys wedding jewellery, knowing that making charges and GST aren't an investment.</li>
+      <li><strong>Avoid commodity futures unless you have a real exposure.</strong> Gopal's group hedges its crop; Kamala's silver bet was speculation with borrowed money.</li>
+      <li><strong>Understand what a commodity fund actually holds.</strong> Physical gold, futures, or shares of mining companies all behave differently.</li>
+      <li><strong>Remember commodities pay nothing.</strong> Over long periods, shares of good companies have usually grown far more than raw commodities, because companies reinvest and grow; a bar of gold doesn't.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note gold"><span class="label">Inflation hedge?</span>Commodities often rise when inflation is driven by raw material costs, but the link is loose. Gold has gone years without beating inflation.</div>
+    <div class="note risk"><span class="label">Schemes to avoid</span>"Guaranteed return" commodity schemes, gold-savings plans from unregulated firms, and anything promising profits from "trading commodities for you".</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>The next sowing</h2></header>
+  <div class="prose">
+    <p>In October, Gopal's group sells its stored mustard to a large oil mill at ₹6,050 a quintal. After storage and interest, the 300 families earn about ₹2.6 lakh more than they would have in March. They use part of it to build their own small grading shed.</p>
+    <p>The mill presses the seed into the oil that goes into Sunrise's pickles. Rukhsana's daughter wears her new necklace at the wedding, with its HUID code checked on her brother Salim's phone. Harjeet watches the oil price on his phone between customers. And Iyer adds a new line to his bank's loan book: lending against warehouse receipts.</p>
+    <p>That is what a commodity is: a basic, interchangeable good that the world needs, whose price is pulled by seasons, weather, wars, interest rates and currencies. And that is what the commodity market is: the mandis, warehouses, exchanges and vaults where those goods and the promises about them are traded, so that what's grown or mined in one place and season can feed, power and adorn people in another.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The seven stories</span><em>Bonds</em> lend. <em>Funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing. <em>Forex</em> crosses borders. <em>Commodities</em> price the real stuff underneath it all.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Seven myths about commodities</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Gold never falls.</span><span>Gold fell sharply in 2013–2015 and was roughly flat for most of the 2010s.</span></div>
+    <div class="myth"><span class="m">Jewellery is the best way to own gold.</span><span>Making charges and GST put you 10–20% behind from day one.</span></div>
+    <div class="myth"><span class="m">Holding crops always pays.</span><span>Prices can fall after storage, and storage, interest and spoilage cost money.</span></div>
+    <div class="myth"><span class="m">A commodity fund tracks the spot price.</span><span>Futures-based funds lose or gain from rolling contracts, so they can drift from spot.</span></div>
+    <div class="myth"><span class="m">Petrol prices follow crude one-for-one.</span><span>Taxes and margins form a large share and are adjusted separately.</span></div>
+    <div class="myth"><span class="m">Digital gold on an app is the same as an ETF.</span><span>An ETF is SEBI-regulated; app-based digital gold is not.</span></div>
+    <div class="myth"><span class="m">Prices can't go below zero.</span><span>In April 2020, a US oil futures contract briefly did.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before buying any commodity: a checklist</h2>
+  <ul class="check">
+    <li>I know whether I'm buying for use, protection or speculation.</li>
+    <li>For gold jewellery, I've checked the hallmark and HUID, the making charges and the buy-back terms.</li>
+    <li>For investment gold, I've compared ETFs, gold funds and existing SGBs on cost and tax.</li>
+    <li>I'm using SEBI-regulated products or authorised dealers.</li>
+    <li>For stored crops, I've added up storage, interest, insurance and the risk that prices fall.</li>
+    <li>For any futures trade, I understand margin, leverage and delivery rules.</li>
+    <li>Commodities are a small part of my savings, not the whole plan.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>₹5,200 in March, ₹6,100 in October</td><td>Seasonality</td><td>Harvest gluts and lean months move prices</td></tr>
+        <tr><td>One quintal like any other</td><td>Fungibility, grades</td><td>Standard goods can be traded in bulk</td></tr>
+        <tr><td>The mandi auction</td><td>Spot market, MSP, e-NAM</td><td>Today's goods at today's price</td></tr>
+        <tr><td>The highway warehouse</td><td>e-NWR, pledge finance, cost of carry</td><td>Store, borrow, wait for a better price</td></tr>
+        <tr><td>October futures at ₹6,000</td><td>Commodity futures</td><td>Lock in a future price on an exchange</td></tr>
+        <tr><td>Plenty vs. shortage</td><td>Contango, backwardation</td><td>The curve shows what's scarce now</td></tr>
+        <tr><td>Rukhsana's necklace</td><td>Karats, hallmark, making charges</td><td>Jewellery is use first, investment second</td></tr>
+        <tr><td>The morning gold rate</td><td>Global price × rupee × duty</td><td>Indian gold links three markets</td></tr>
+        <tr><td>Rohit's gold ETF</td><td>Paper gold</td><td>Gold exposure without the cupboard</td></tr>
+        <tr><td>Harjeet's litre</td><td>Crude oil, taxes</td><td>Energy prices pass into everything</td></tr>
+        <tr><td>Dr. Copper</td><td>Base metals, super cycles</td><td>Metals track how fast the world builds</td></tr>
+        <tr><td>Kamala's silver, the Hunts, NSEL</td><td>Speculation, corners, fraud</td><td>Limited supply invites bets and abuse</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Backwardation</dt><dd>Futures priced below spot, usually because of a current shortage.</dd></div>
+    <div><dt>Barrel</dt><dd>Unit for crude oil: 159 litres.</dd></div>
+    <div><dt>Brent / WTI</dt><dd>Main global benchmark crude oil prices.</dd></div>
+    <div><dt>Commodity</dt><dd>A basic, interchangeable good like grain, metal or oil.</dd></div>
+    <div><dt>Contango</dt><dd>Futures priced above spot, reflecting storage and financing costs.</dd></div>
+    <div><dt>Convenience yield</dt><dd>The benefit of holding the physical good rather than a contract.</dd></div>
+    <div><dt>Cost of carry</dt><dd>Storage, insurance and interest for holding a commodity.</dd></div>
+    <div><dt>Delivery</dt><dd>Settling a futures contract by handing over the actual goods.</dd></div>
+    <div><dt>e-NAM</dt><dd>India's online national agricultural market platform.</dd></div>
+    <div><dt>e-NWR</dt><dd>Electronic negotiable warehouse receipt for stored goods.</dd></div>
+    <div><dt>FPO</dt><dd>Farmer producer organisation: a group of farmers acting together.</dd></div>
+    <div><dt>Fungible</dt><dd>Interchangeable: one unit is as good as another of the same grade.</dd></div>
+    <div><dt>Gold ETF</dt><dd>Exchange-traded fund backed by physical gold.</dd></div>
+    <div><dt>Hallmark / HUID</dt><dd>Official purity mark / six-digit ID on Indian gold jewellery.</dd></div>
+    <div><dt>Karat</dt><dd>Gold purity out of 24: 22K = 91.6% gold.</dd></div>
+    <div><dt>Making charges</dt><dd>Jeweller's fee for crafting, usually a percentage of gold value.</dd></div>
+    <div><dt>Mandi</dt><dd>Regulated agricultural market yard.</dd></div>
+    <div><dt>MCX / NCDEX</dt><dd>India's main commodity exchanges.</dd></div>
+    <div><dt>MSP</dt><dd>Minimum support price announced by the government for certain crops.</dd></div>
+    <div><dt>Quintal</dt><dd>100 kilograms.</dd></div>
+    <div><dt>Roll yield</dt><dd>Gain or loss from replacing expiring futures with later ones.</dd></div>
+    <div><dt>Sovereign Gold Bond</dt><dd>Government bond linked to gold's price, paying 2.5% interest.</dd></div>
+    <div><dt>Spot price</dt><dd>Price for immediate delivery.</dd></div>
+    <div><dt>Super cycle</dt><dd>A long, broad rise in commodity prices driven by structural demand.</dd></div>
+    <div><dt>Troy ounce</dt><dd>31.1035 grams; the unit for precious metals.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how commodity markets work. Gopal's group, Rukhsana, Harjeet and all prices, costs and charts are fictional or approximate and for illustration; gold and oil prices change daily. Rules on farm futures, gold products and taxes have changed several times. It is not investment or tax advice. Check current prices and rules with official sources, SEBI and qualified advisers.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const fmt=n=>(n<0?'−':'')+'₹'+Math.round(Math.abs(n)).toLocaleString('en-IN');
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function axes(g,o){
+    const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L), Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);
+    o.yt.forEach(v=>{ g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v))); });
+    (o.xt||[]).forEach(v=> g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));
+    if(o.xl) g.appendChild(el('text',{x:(o.L+o.R)/2,y:o.B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xl));
+    return {X,Y};
+  }
+  const pathD=(pts,X,Y)=>pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+  function line(g,pts,X,Y,attrs){ const e=el('path',Object.assign({d:pathD(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},attrs)); g.appendChild(e); return e; }
+  function mover(g,d,color,dur,r,begin,shape){ if(reduce) return; const c= shape==='sack' ? el('rect',{x:-6,y:-5,width:12,height:10,rx:3,fill:color}) : el('circle',{r:r||5,fill:color,cx:0,cy:0}); const grp=el('g',{}); grp.appendChild(c); const a=el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(begin||0))+'s'}); grp.appendChild(a); g.appendChild(grp); }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  function arrow(g,x1,y1,x2,y2,color){ g.appendChild(el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':2})); const a=Math.atan2(y2-y1,x2-x1), s=8; g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*0.6*Math.sin(a),y2-s*Math.sin(a)-s*0.6*Math.cos(a)],[x2-s*Math.cos(a)-s*0.6*Math.sin(a),y2-s*Math.sin(a)+s*0.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:color})); }
+  function replayClass(g,sel,cls){ g.querySelectorAll(sel).forEach((p,i)=>{ p.classList.remove(cls); void p.getBoundingClientRect(); p.style.animationDelay=(i*(cls==='draw'?0.3:0.12))+'s'; p.classList.add(cls); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+  function seg(id,cb){ document.querySelectorAll('#'+id+' button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#'+id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); cb(b.dataset.v); })); }
+  function wire(btn,g,sel,cls){ const run=()=>replayClass(g,sel,cls); document.getElementById(btn).addEventListener('click',run); onView(g,run); }
+
+  // Hero
+  (function(){
+    const g=document.getElementById('hero');
+    g.appendChild(el('rect',{x:0,y:0,width:440,height:300,rx:8,fill:'var(--paper)'}));
+    // price curve
+    const pts=[[0,5400],[1,5250],[2,5200],[3,5300],[4,5450],[5,5600],[6,5750],[7,5900],[8,6050],[9,6100],[10,5900],[11,5600]];
+    const X=m=>30+m*34, Y=v=>130-(v-5100)/1100*100;
+    g.appendChild(el('path',{d:pathD(pts,X,Y)+' L'+X(11)+' 140 L'+X(0)+' 140 Z',fill:'var(--acc-soft)'}));
+    line(g,pts,X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'hc'});
+    g.appendChild(el('circle',{cx:X(2),cy:Y(5200),r:5,fill:'var(--down)'}));
+    g.appendChild(el('text',{x:X(2),y:Y(5200)+18,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Mar ₹5,200'));
+    g.appendChild(el('circle',{cx:X(9),cy:Y(6100),r:5,fill:'var(--up)'}));
+    g.appendChild(el('text',{x:X(9),y:Y(6100)-10,'text-anchor':'middle','font-size':11,fill:'var(--up)'},'Oct ₹6,100'));
+    g.appendChild(el('text',{x:20,y:22,'font-size':11,fill:'var(--muted)'},'MUSTARD SEED, ₹ PER QUINTAL'));
+    // field -> warehouse -> market
+    g.appendChild(el('rect',{x:20,y:220,width:90,height:50,rx:6,fill:'var(--leaf-soft)',stroke:'var(--leaf)'}));
+    g.appendChild(el('text',{x:65,y:250,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'Field'));
+    g.appendChild(el('path',{d:'M170 270 L170 228 L220 200 L270 228 L270 270 Z',fill:'var(--earth-soft)',stroke:'var(--earth)'}));
+    g.appendChild(el('text',{x:220,y:252,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'Warehouse'));
+    g.appendChild(el('rect',{x:330,y:220,width:90,height:50,rx:6,fill:'var(--acc-soft)',stroke:'var(--acc)'}));
+    g.appendChild(el('text',{x:375,y:250,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'Mill'));
+    g.appendChild(el('line',{x1:110,x2:170,y1:245,y2:245,stroke:'var(--rule)','stroke-width':2,'stroke-dasharray':'4 4'}));
+    g.appendChild(el('line',{x1:270,x2:330,y1:245,y2:245,stroke:'var(--rule)','stroke-width':2,'stroke-dasharray':'4 4'}));
+    mover(g,'M110 245 L170 245','var(--acc)',1.6,0,0,'sack'); mover(g,'M110 245 L170 245','var(--acc)',1.6,0,0.8,'sack');
+    mover(g,'M270 245 L330 245','var(--acc)',3.2,0,0.4,'sack');
+    g.appendChild(el('text',{x:220,y:292,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Store at harvest, sell in the lean months'));
+    onView(g,()=>replayClass(g,'.hc','draw'));
+  })();
+
+  // Supply chain
+  (function(){
+    const g=document.getElementById('chain');
+    const steps=[['Gopal','farmer',52,'var(--leaf-soft)','var(--leaf)'],['Mandi','auction + fees',54,'var(--paper)','var(--rule)'],['Trader','transport, risk',57,'var(--paper)','var(--rule)'],['Oil mill','crushing, packing',66,'var(--paper)','var(--rule)'],['Shop','retail margin',74,'var(--acc-soft)','var(--acc)']];
+    const W=150, gap=40, top=30;
+    steps.forEach(([t,s,v,f,st],i)=>{ const x=10+i*(W+gap);
+      box(g,x,top,W,56,t,s,f,st);
+      const h=v*1.9; g.appendChild(el('rect',{x:x+W/2-24,y:236-h,width:48,height:h,rx:4,fill:'var(--acc)',opacity:.8,class:'cbar',style:'transform-origin:'+(x+W/2)+'px 236px'}));
+      g.appendChild(el('text',{x:x+W/2,y:236-h-6,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},'₹'+v+'/kg'));
+      if(i<4) arrow(g,x+W+2,top+28,x+W+gap-4,top+28,'var(--muted)');
+    });
+    g.appendChild(el('line',{x1:0,x2:910,y1:236,y2:236,stroke:'var(--rule)'}));
+    mover(g,'M85 58 L275 58 L465 58 L655 58 L845 58','var(--acc)',6,0,0,'sack');
+    wire('chain-replay',g,'.cbar','growy');
+  })();
+
+  // Seasonality
+  (function(){
+    const g=document.getElementById('season');
+    const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const v=[5500,5400,5200,5250,5400,5550,5700,5850,6000,6100,5950,5700];
+    const {X,Y}=axes(g,{L:70,R:610,T:20,B:230,x0:0,x1:11,y0:5000,y1:6300,yt:[5000,5300,5600,5900,6200],yf:x=>'₹'+x.toLocaleString('en-IN'),xt:[0,1,2,3,4,5,6,7,8,9,10,11],xf:i=>m[i]});
+    g.appendChild(el('rect',{x:X(1.5),y:20,width:X(4.5)-X(1.5),height:210,fill:'var(--leaf-soft)',opacity:.6}));
+    g.appendChild(el('text',{x:X(3),y:34,'text-anchor':'middle','font-size':11,fill:'var(--leaf)'},'Harvest'));
+    g.appendChild(el('line',{x1:70,x2:610,y1:Y(5650),y2:Y(5650),stroke:'var(--muted)','stroke-dasharray':'6 4'}));
+    g.appendChild(el('text',{x:606,y:Y(5650)-6,'text-anchor':'end','font-size':11,fill:'var(--muted)'},'Support price'));
+    line(g,v.map((y,i)=>[i,y]),X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'sl'});
+    g.appendChild(el('circle',{cx:X(2),cy:Y(5200),r:5,fill:'var(--down)'}));
+    g.appendChild(el('circle',{cx:X(9),cy:Y(6100),r:5,fill:'var(--up)'}));
+    g.appendChild(el('text',{x:X(9),y:Y(6100)-10,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'+₹900'));
+    wire('season-replay',g,'.sl','draw');
+  })();
+
+  // Warehouse waterfall
+  (function(){
+    const L=document.getElementById('w-later'), M=document.getElementById('w-months'), R=document.getElementById('w-rate'), g=document.getElementById('wf');
+    function u(){ const now=5200, later=+L.value, mo=+M.value, r=+R.value/100;
+      const extra=later-now, storage=15*mo, interest=0.7*now*r*mo/12, handling=30, net=extra-storage-interest-handling;
+      document.getElementById('w-later-out').textContent='₹'+later.toLocaleString('en-IN');
+      document.getElementById('w-months-out').textContent=mo; document.getElementById('w-rate-out').textContent=(+R.value)+'%';
+      const n=document.getElementById('w-net'); n.textContent=(net>=0?'+':'')+fmt(net); n.className='big '+(net>=0?'up':'down');
+      const t=document.getElementById('w-tot'); t.textContent=(net>=0?'+':'')+fmt(net*500); t.className='big '+(net>=0?'up':'down');
+      document.getElementById('w-note').textContent = net>=0 ? 'Storing beats selling at harvest by '+fmt(net)+' a quintal, if the price really reaches ₹'+later.toLocaleString('en-IN')+'.' : 'Storing loses '+fmt(-net)+' a quintal compared with selling at harvest. The price rise doesn’t cover the cost of waiting.';
+      g.innerHTML='';
+      const items=[['Extra price',extra],['Storage',-storage],['Interest',-interest],['Handling',-handling]];
+      const vals=[extra,storage,interest,handling,Math.abs(net)]; const mx=Math.max(400,...vals.map(Math.abs))*1.15;
+      const base=115, sc=95/mx, W=90, gap=28; let run=0;
+      g.appendChild(el('line',{x1:20,x2:630,y1:base,y2:base,stroke:'var(--muted)'}));
+      items.forEach(([n,v],i)=>{ const x=30+i*(W+gap); const y0=base-run*sc, y1=base-(run+v)*sc; run+=v;
+        g.appendChild(el('rect',{x,y:Math.min(y0,y1),width:W,height:Math.max(1,Math.abs(y1-y0)),rx:3,fill:v>=0?'var(--up)':'var(--down)',opacity:.85}));
+        g.appendChild(el('text',{x:x+W/2,y:Math.max(y0,y1)+16,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},(v>=0?'+':'−')+fmt(Math.abs(v)).replace('−','')));
+        g.appendChild(el('text',{x:x+W/2,y:222,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},n));
+      });
+      const x=30+4*(W+gap), yN=base-net*sc;
+      g.appendChild(el('rect',{x,y:Math.min(base,yN),width:W,height:Math.max(1,Math.abs(base-yN)),rx:3,fill:net>=0?'var(--acc)':'var(--down)'}));
+      g.appendChild(el('text',{x:x+W/2,y:Math.max(base,yN)+16,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},(net>=0?'+':'−')+fmt(Math.abs(net)).replace('−','')));
+      g.appendChild(el('text',{x:x+W/2,y:222,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Net per quintal'));
+    }
+    [L,M,R].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Futures curve
+  (function(){
+    const g=document.getElementById('curve-chart'); let mode='contango';
+    const months=['Spot','Nov','Dec','Jan','Feb','Mar'];
+    const {X,Y}=axes(g,{L:70,R:600,T:20,B:200,x0:0,x1:5,y0:5600,y1:6600,yt:[5600,5800,6000,6200,6400,6600],yf:v=>'₹'+v.toLocaleString('en-IN'),xt:[0,1,2,3,4,5],xf:i=>months[i],xl:'Delivery month'});
+    const p=el('path',{fill:'none',stroke:'var(--acc)','stroke-width':3,'stroke-linejoin':'round'}); g.appendChild(p);
+    const dots=[]; for(let i=0;i<6;i++){ const c=el('circle',{r:5,fill:'var(--acc)',cx:X(i),cy:Y(6000),style:'transition:cy .6s ease'}); g.appendChild(c); dots.push(c); }
+    function draw(){ const vals = mode==='contango' ? [6000,6060,6120,6180,6240,6300] : [6400,6260,6140,6040,5960,5900];
+      if(!reduce){ const from=p.getAttribute('d'); }
+      p.setAttribute('d',pathD(vals.map((v,i)=>[i,v]),X,Y));
+      dots.forEach((c,i)=>c.setAttribute('cy',Y(vals[i])));
+      document.getElementById('curve-note').textContent = mode==='contango' ? 'Warehouses are full. Each later month costs a bit more, covering storage and interest. Holders are paid to wait.' : 'Seed is scarce right now. Mills pay a premium for immediate delivery, so the nearest month is the dearest. No one is paid to store.';
+    }
+    seg('curve-mode',v=>{mode=v;draw();}); draw();
+  })();
+
+  // Karat bars
+  (function(){
+    const g=document.getElementById('karat');
+    [['24K','99.9%',99.9],['22K','91.6%',91.6],['18K','75.0%',75]].forEach(([k,p,v],i)=>{ const y=20+i*52;
+      g.appendChild(el('text',{x:60,y:y+22,'text-anchor':'end','font-size':14,fill:'var(--ink)'},k));
+      g.appendChild(el('rect',{x:72,y,width:520,height:32,rx:4,fill:'var(--rule)'}));
+      g.appendChild(el('rect',{x:72,y,width:520*v/100,height:32,rx:4,fill:'var(--gold)',class:'kb',style:'transform-origin:72px '+(y+16)+'px'}));
+      g.appendChild(el('text',{x:82,y:y+21,'font-size':12,fill:'var(--paper)'},p+' gold'));
+      g.appendChild(el('text',{x:588,y:y+21,'text-anchor':'end','font-size':11,fill:'var(--muted)'},v<99?(100-v).toFixed(1)+'% other metals':''));
+    });
+    onView(g,()=>replayClass(g,'.kb','growx'));
+  })();
+
+  // Jewellery calculator
+  (function(){
+    const r=document.getElementById('j-rate'), m=document.getElementById('j-mk');
+    function u(){ const rate=+r.value, mk=+m.value/100; const gold=20/10*rate*0.916, make=gold*mk, gst=(gold+make)*0.03, tot=gold+make+gst, back=gold*0.97;
+      document.getElementById('j-rate-out').textContent='₹'+rate.toLocaleString('en-IN'); document.getElementById('j-mk-out').textContent=(+m.value)+'%';
+      [['j-gold',gold],['j-make',make],['j-gst',gst],['j-tot',tot],['j-back',back],['j-lost',tot-back]].forEach(([id,v])=>document.getElementById(id).textContent=fmt(v)); }
+    [r,m].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Gold price build
+  (function(){
+    const a=document.getElementById('g-usd'), f=document.getElementById('g-fx'), d=document.getElementById('g-duty'), g=document.getElementById('gp');
+    function u(){ const usd=+a.value, fx=+f.value, duty=+d.value/100;
+      const base=usd*fx/31.1035*10, dutyAmt=base*duty, gst=(base+dutyAmt)*0.03, tot=base+dutyAmt+gst;
+      document.getElementById('g-usd-out').textContent='$'+usd.toLocaleString('en-IN'); document.getElementById('g-fx-out').textContent='₹'+fx.toFixed(2); document.getElementById('g-duty-out').textContent=(+d.value)+'%';
+      document.getElementById('g-out').textContent=fmt(tot); document.getElementById('g-base').textContent=fmt(base);
+      g.innerHTML=''; const L=20,R=620, sc=(R-L)/(4500*95/31.1035*10*1.18);
+      const parts=[['International price in ₹',base,'var(--gold)'],['Import duty',dutyAmt,'var(--earth)'],['GST 3%',gst,'var(--acc)']];
+      let x=L; parts.forEach(([n,v,c],i)=>{ const w=v*sc; g.appendChild(el('rect',{x,y:60,width:Math.max(0,w),height:50,fill:c,opacity:.9,style:'transition:width .3s ease, x .3s ease'}));
+        const ly=i===0?44:(i===1?136:156);
+        g.appendChild(el('text',{x:i===0?x+4:x+Math.max(w,0)/2,y:ly,'text-anchor':i===0?'start':'middle','font-size':11,fill:'var(--ink)'},n+': '+fmt(v)));
+        x+=w; });
+      g.appendChild(el('text',{x:Math.min(x+8,R-120),y:92,'font-size':13,fill:'var(--ink)'},'= '+fmt(tot)));
+      g.appendChild(el('text',{x:L,y:200,'font-size':11,fill:'var(--muted)'},'$'+usd.toLocaleString('en-IN')+'/oz × ₹'+fx.toFixed(2)+' ÷ 31.1035 g × 10 g = '+fmt(base)+' before taxes'));
+    }
+    [a,f,d].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Gold history
+  (function(){
+    const g=document.getElementById('goldhist');
+    const dat=[[2000,279],[2002,310],[2004,410],[2006,604],[2008,872],[2010,1225],[2011,1572],[2012,1669],[2013,1411],[2014,1266],[2015,1160],[2016,1251],[2018,1268],[2019,1393],[2020,1770],[2021,1799],[2022,1800],[2023,1943],[2024,2386]];
+    const {X,Y}=axes(g,{L:64,R:650,T:20,B:240,x0:2000,x1:2024,y0:0,y1:2500,yt:[0,500,1000,1500,2000,2500],yf:v=>'$'+v.toLocaleString('en-IN'),xt:[2000,2004,2008,2012,2016,2020,2024],xf:v=>v});
+    g.appendChild(el('path',{d:pathD(dat,X,Y)+' L'+X(2024)+' '+Y(0)+' L'+X(2000)+' '+Y(0)+' Z',fill:'var(--gold-soft)'}));
+    line(g,dat,X,Y,{stroke:'var(--gold)','stroke-width':3,pathLength:1000,class:'gh'});
+    [[2008,872,'2008 crisis',-1],[2012,1669,'2011–12 peak',-1],[2015,1160,'2015 low',1],[2020,1770,'2020 pandemic',-1]].forEach(([x,y,t,s])=>{ g.appendChild(el('circle',{cx:X(x),cy:Y(y),r:5,fill:'var(--earth)'})); g.appendChild(el('text',{x:X(x),y:Y(y)+(s<0?-12:20),'text-anchor':'middle','font-size':11,fill:'var(--earth)'},t)); });
+    g.appendChild(el('text',{x:X(2024)-6,y:Y(2386)-10,'text-anchor':'end','font-size':11,fill:'var(--ink)'},'≈ $2,400'));
+    wire('gold-replay',g,'.gh','draw');
+  })();
+
+  // Petrol build-up
+  (function(){
+    const g=document.getElementById('petrol');
+    const parts=[['Base price (crude, refining, freight)',55,'var(--earth)'],['Central excise',20,'var(--acc)'],['Dealer commission',4.5,'var(--leaf)'],['State VAT',15.5,'var(--gold)']];
+    const L=20,R=620, tot=95, sc=(R-L)/tot; let x=L;
+    parts.forEach(([n,v,c],i)=>{ const w=v*sc; g.appendChild(el('rect',{x,y:40,width:w,height:46,fill:c,opacity:.9,class:'pb',style:'transform-origin:'+L+'px 63px'}));
+      if(w>60) g.appendChild(el('text',{x:x+w/2,y:68,'text-anchor':'middle','font-size':12,fill:'var(--paper)'},'₹'+v));
+      g.appendChild(el('rect',{x:L+(i%2)*300,y:110+Math.floor(i/2)*24,width:12,height:12,fill:c}));
+      g.appendChild(el('text',{x:L+(i%2)*300+18,y:120+Math.floor(i/2)*24,'font-size':11,fill:'var(--ink)'},n+': ₹'+v));
+      x+=w; });
+    g.appendChild(el('text',{x:R,y:30,'text-anchor':'end','font-size':12,fill:'var(--ink)'},'≈ ₹'+tot+' per litre'));
+    g.appendChild(el('text',{x:L,y:30,'font-size':11,fill:'var(--muted)'},'Taxes ≈ '+Math.round((20+15.5)/tot*100)+'% of the price'));
+    wire('petrol-replay',g,'.pb','growx');
+  })();
+
+  // Silver
+  (function(){
+    const g=document.getElementById('silver');
+    const pts=[[0,6],[3,8],[6,9],[8,12],[9,17],[10,22],[11,32],[12,49],[13,38],[14,11],[16,14]];
+    const lab=['Jan 79','','','Jul 79','','','','','','Oct 79','','','Jan 80','','Mar 80','','May 80'];
+    const {X,Y}=axes(g,{L:56,R:610,T:20,B:200,x0:0,x1:16,y0:0,y1:50,yt:[0,10,20,30,40,50],yf:v=>'$'+v,xt:[0,3,9,12,14,16],xf:i=>lab[i]||''});
+    g.appendChild(el('path',{d:pathD(pts,X,Y)+' L'+X(16)+' '+Y(0)+' L'+X(0)+' '+Y(0)+' Z',fill:'var(--down-soft)',opacity:.7}));
+    line(g,pts,X,Y,{stroke:'var(--muted)','stroke-width':3,pathLength:1000,class:'sv'});
+    g.appendChild(el('circle',{cx:X(12),cy:Y(49),r:5,fill:'var(--down)'}));
+    g.appendChild(el('text',{x:X(12)-8,y:Y(49)+4,'text-anchor':'end','font-size':11,fill:'var(--down)'},'≈ $49 peak'));
+    g.appendChild(el('text',{x:X(14)+8,y:Y(11)-6,'font-size':11,fill:'var(--down)'},'Silver Thursday'));
+    wire('silver-replay',g,'.sv','draw');
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 07</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="7"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="remittance.html" rel="prev"><small>← Previous</small>The Remittance</a><a href="flat.html" rel="next"><small>Next story →</small>The Flat</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

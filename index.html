@@ -1,0 +1,360 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Series</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Eleven stories. One town.</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html" aria-current="page">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: home page for the eleven-story series. A town map hero you can click, then reading paths, a story shelf with progress, and a character map. Each story keeps its own accent colour from its page. */
+:root{
+  --bg:#F2F3F2; --paper:#FCFCFB; --ink:#1C2124; --muted:#5D6569; --rule:#D5DADB;
+  --river:#2A4F86; --river-soft:#DCE5F1; --land:#E7EBE4; --land2:#DCE3D6;
+  --c1:#2A4F86; --c2:#2F6B4F; --c3:#6A3D74; --c4:#A9520F; --c5:#14646E; --c6:#8A2F5F; --c7:#7F6208; --c8:#9A4526; --c9:#3B3F9E; --c10:#2B4570; --c11:#1E6480;
+  --up:#2E7D4F; --up-soft:#DDEFE3;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121517; --paper:#1A1E21; --ink:#E7EBEC; --muted:#A0A9AD; --rule:#30373B;
+  --river:#94B4EE; --river-soft:#1C2B42; --land:#1C2420; --land2:#222C26;
+  --c1:#94B4EE; --c2:#86CBA6; --c3:#CFA3D8; --c4:#F2A25E; --c5:#7FCBD4; --c6:#E59CC2; --c7:#E1C15A; --c8:#E99A78; --c9:#A7ABF2; --c10:#9DB5E0; --c11:#86C6DE;
+  --up:#7CD39E; --up-soft:#1B3325; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121517; --paper:#1A1E21; --ink:#E7EBEC; --muted:#A0A9AD; --rule:#30373B;
+  --river:#94B4EE; --river-soft:#1C2B42; --land:#1C2420; --land2:#222C26;
+  --c1:#94B4EE; --c2:#86CBA6; --c3:#CFA3D8; --c4:#F2A25E; --c5:#7FCBD4; --c6:#E59CC2; --c7:#E1C15A; --c8:#E99A78; --c9:#A7ABF2; --c10:#9DB5E0; --c11:#86C6DE;
+  --up:#7CD39E; --up-soft:#1B3325; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto;padding-block:40px 96px;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.12;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--river);outline-offset:3px}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sec-head{display:flex;flex-direction:column;gap:8px;max-width:64ch}
+.sec-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem)}
+.sec-head p{color:var(--muted)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:36px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.18rem;color:var(--muted);max-width:38ch}
+.stats{margin-top:24px;display:flex;flex-wrap:wrap;gap:22px}
+.stats div{display:flex;flex-direction:column}
+.stats b{font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1}
+.stats span{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.85rem;padding:10px 16px;border-radius:999px;text-decoration:none;border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.map-card{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.map-card svg{width:100%;height:auto;display:block}
+.map-card .hint{font-size:.8rem;color:var(--muted);padding:0 6px 4px}
+.pin{cursor:pointer}
+.pin:focus{outline:none}
+.pin:focus-visible circle.ring,.pin:hover circle.ring{stroke-width:3;r:15}
+svg text{font-family:var(--mono)}
+
+/* Paths */
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.path{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.path h3{font-size:1.25rem}
+.path p{font-size:.92rem;color:var(--muted)}
+.path ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.path li a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:center;text-decoration:none;font-size:.92rem;padding:4px 0}
+.path li a:hover span:last-child{text-decoration:underline}
+.num-dot{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:.75rem;color:var(--paper)}
+.level{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* Shelf */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.progress{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.progress .bar{width:140px;height:8px;background:var(--rule);border-radius:4px;overflow:hidden}
+.progress .bar i{display:block;height:100%;background:var(--up);width:0;transition:width .4s ease}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform .2s ease, border-color .2s ease}
+.card:hover{transform:translateY(-2px);border-color:var(--cc)}
+.card .cover{height:92px;position:relative;background:var(--cc);overflow:hidden}
+.card .cover svg{position:absolute;inset:0;width:100%;height:100%}
+.card .cover .n{position:absolute;left:14px;bottom:10px;font-family:var(--display);font-size:2rem;color:var(--paper);line-height:1}
+.card .cover .mk{position:absolute;right:12px;top:10px;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);opacity:.9}
+.card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.18rem}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline}
+.card .who{font-size:.85rem;color:var(--muted)}
+.card .hook{font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.chips span{font-family:var(--mono);font-size:.68rem;padding:2px 7px;border-radius:999px;border:1px solid var(--rule);color:var(--muted)}
+.card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:8px;border-top:1px solid var(--rule)}
+.card .foot label{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.75rem;color:var(--muted);cursor:pointer}
+.card .foot input{accent-color:var(--up);width:16px;height:16px}
+.card .foot a{font-family:var(--mono);font-size:.78rem;text-decoration:none;color:var(--cc)}
+.card.done .cover::after{content:"Read";position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:.7rem;background:var(--paper);color:var(--up);padding:2px 8px;border-radius:999px}
+.card[hidden]{display:none}
+
+/* Flow */
+.flow-card{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.scroll{overflow-x:auto}
+
+/* Characters */
+.cast-wrap{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:22px;align-items:start}
+.people{display:flex;flex-direction:column;gap:4px}
+.people button{font:inherit;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:8px 12px;border-radius:6px;border:1px solid transparent;background:transparent;color:var(--ink);cursor:pointer;font-size:.95rem}
+.people button span:last-child{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.people button[aria-pressed="true"]{background:var(--paper);border-color:var(--rule)}
+.who-panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.who-panel h3{font-size:1.5rem}
+.who-panel .role{color:var(--muted);font-size:.95rem}
+.appear{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.appear a{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.appear .dot{width:100%;aspect-ratio:1;max-width:44px;border-radius:50%;border:2px solid var(--rule);display:grid;place-items:center;font-size:.8rem;color:var(--muted);transition:all .25s ease}
+.appear a.on .dot{background:var(--cc);border-color:var(--cc);color:var(--paper)}
+.appear a.on{color:var(--ink)}
+.moments{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+
+.foot-note{font-size:.82rem;color:var(--muted);max-width:72ch;border-top:1px solid var(--rule);padding-top:20px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .paths{grid-template-columns:1fr}
+  .cast-wrap{grid-template-columns:1fr}
+  .people{flex-direction:row;flex-wrap:wrap}
+  .people button{grid-template-columns:auto}
+  .people button span:last-child{display:none}
+  .appear{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">Eleven illustrated stories · one fictional town</span>
+    <h1>The Kesarpur Series</h1>
+    <p class="lede">How money really works, told through the people of one small Indian town: a bridge built with bonds, a pickle company that lists on the stock exchange, a nurse's first SIP, a farmer's mango contract, and more. Click a place on the map to open its story.</p>
+    <div class="stats">
+      <div><b>11</b><span>stories</span></div>
+      <div><b>176</b><span>chapters</span></div>
+      <div><b>100+</b><span>interactive diagrams</span></div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="bridge-bond.html" target="_self" rel="noopener">Start with story 1 →</a>
+      <a class="btn" href="#paths">Choose a reading path</a>
+    </div>
+  </div>
+  <figure class="map-card" style="margin:0">
+    <svg viewBox="0 0 640 420" role="img" aria-label="Map of the fictional town of Kesarpur with eleven places, each linking to a story"><g id="map"></g></svg>
+    <span class="hint" id="map-hint">Hover or tap a place to see its story.</span>
+  </figure>
+</section>
+
+<section id="paths" style="display:flex;flex-direction:column;gap:20px">
+  <div class="sec-head">
+    <span class="label">Where to begin</span>
+    <h2>Three reading paths</h2>
+    <p>Each story stands alone, but they build on each other. Characters, numbers and ideas carry over. If you're new, start with the first path.</p>
+  </div>
+  <div class="paths" id="paths-grid"></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:20px">
+  <div class="sec-head">
+    <span class="label">The shelf</span>
+    <h2>All eleven stories</h2>
+    <p>Tick a story when you've read it. Your progress is saved in this browser only.</p>
+  </div>
+  <div class="toolbar">
+    <div class="seg" role="group" aria-label="Filter by level" id="filter">
+      <button type="button" data-v="all" aria-pressed="true">All</button>
+      <button type="button" data-v="Beginner" aria-pressed="false">Beginner</button>
+      <button type="button" data-v="Intermediate" aria-pressed="false">Intermediate</button>
+      <button type="button" data-v="Advanced" aria-pressed="false">Advanced</button>
+    </div>
+    <div class="progress"><span id="prog-txt">0 of 11 read</span><span class="bar"><i id="prog-bar"></i></span></div>
+  </div>
+  <div class="shelf" id="shelf"></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:20px">
+  <div class="sec-head">
+    <span class="label">The big picture</span>
+    <h2>How the markets connect</h2>
+    <p>Savings flow from households through banks, funds and insurers into bonds, shares and private deals, which fund governments and companies. Returns, interest and payouts flow back. Every story is one part of this loop.</p>
+  </div>
+  <div class="flow-card">
+    <div class="scroll"><svg viewBox="0 0 960 410" width="100%" style="min-width:760px" role="img" aria-label="Animated diagram of how household savings flow through intermediaries and markets to governments and companies, with returns flowing back"><g id="flow"></g></svg></div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:20px">
+  <div class="sec-head">
+    <span class="label">The people</span>
+    <h2>Who appears where</h2>
+    <p>The same families and neighbours walk through all eleven stories. Pick someone to see where they appear and what they learn.</p>
+  </div>
+  <div class="cast-wrap">
+    <div class="people" id="people" role="group" aria-label="Characters"></div>
+    <div class="who-panel" id="who" aria-live="polite"></div>
+  </div>
+</section>
+
+<p class="foot-note">All characters, companies and figures in the Kesarpur stories are fictional and illustrative. The stories explain how markets work; they are not investment, insurance, legal or tax advice. Rules, rates and taxes change, so check current information with official sources and qualified advisers.</p>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const S=[
+    {n:1,title:'The Bridge Bond',market:'Bonds',url:'bridge-bond.html',lead:'Meera, retired teacher',hook:'A town borrows ₹10 crore to rebuild its bridge, and a teacher lends it ₹10,000.',chips:['coupon','yield','duration','default'],level:'Beginner',place:'Bridge',xy:[318,214]},
+    {n:2,title:'The Common Pot',market:'Mutual funds',url:'common-pot.html',lead:'Ananya, nurse',hook:'Two hundred nurses pool ₹5,000 each, and learn how a fund really works.',chips:['NAV','SIP','expense ratio','debt funds'],level:'Beginner',place:'Hospital',xy:[470,300]},
+    {n:3,title:'The Pickle Share',market:'Stock market',url:'pickle-share.html',lead:'Lakshmi & Rohit',hook:'A kitchen pickle business grows into a company listed on the exchange.',chips:['IPO','P/E','order book','indices'],level:'Beginner',place:'Sunrise factory',xy:[150,320]},
+    {n:4,title:'The Mango Contract',market:'Derivatives',url:'mango-contract.html',lead:'Gopal, farmer',hook:'A farmer and a pickle maker agree on May’s mango price in January.',chips:['futures','options','margin','swaps'],level:'Advanced',place:'Mango orchard',xy:[80,90]},
+    {n:5,title:'The Overnight Loan',market:'Money market',url:'overnight-loan.html',lead:'Mr. Iyer, bank treasurer',hook:'A cooperative bank is ₹15 crore short at 4 pm on a Friday.',chips:['repo','T-bills','RBI corridor','liquid funds'],level:'Intermediate',place:'Co-op bank',xy:[250,370]},
+    {n:6,title:'The Remittance',market:'Forex',url:'remittance.html',lead:'Salim, in Dubai',hook:'An electrician sends 5,000 dirhams home, and the rupee decides what arrives.',chips:['exchange rate','RBI','forwards','LRS'],level:'Intermediate',place:'Bus stand · to Dubai',xy:[590,370]},
+    {n:7,title:'The Warehouse',market:'Commodities',url:'warehouse.html',lead:'Gopal, Rukhsana, Harjeet',hook:'Mustard at harvest, wedding gold, and diesel at the highway pump.',chips:['mandi','gold','oil','warehouse receipts'],level:'Intermediate',place:'Highway warehouse',xy:[560,70]},
+    {n:8,title:'The Flat',market:'Real estate',url:'flat.html',lead:'Ananya, again',hook:'Rent or buy a ₹40 lakh flat on the far side of the bridge?',chips:['EMI','RERA','rent vs buy','REITs'],level:'Intermediate',place:'New towers',xy:[400,110]},
+    {n:9,title:'The Ledger',market:'Crypto',url:'ledger.html',lead:'Varun, student',hook:'A nineteen-year-old is tempted by a memecoin, and learns what a blockchain is.',chips:['blockchain','mining','scams','VDA tax'],level:'Advanced',place:'College',xy:[230,70]},
+    {n:10,title:'The Safety Net',market:'Insurance',url:'safety-net.html',lead:'Suresh, bus conductor',hook:'After a friend’s death, a conductor protects his own family.',chips:['term','health','room rent','claims'],level:'Beginner',place:'Bus depot',xy:[60,250]},
+    {n:11,title:'The Cold Chain',market:'Private markets',url:'cold-chain.html',lead:'Meghna, founder',hook:'Solar cold rooms for farmers, funded by angels and venture capital.',chips:['cap table','VC','buyouts','J-curve'],level:'Advanced',place:'Village cold room',xy:[130,170]}
+  ];
+  const col=n=>'var(--c'+n+')';
+
+  // Map
+  (function(){
+    const g=document.getElementById('map'), hint=document.getElementById('map-hint');
+    g.appendChild(el('rect',{x:0,y:0,width:640,height:420,rx:8,fill:'var(--land)'}));
+    for(let i=0;i<7;i++) g.appendChild(el('rect',{x:20+i*90,y:20+((i*37)%40),width:60,height:28,rx:4,fill:'var(--land2)'}));
+    // river
+    const riverD='M0 200 C120 170 220 240 330 210 S520 180 640 215';
+    g.appendChild(el('path',{d:riverD+' L640 255 C520 225 420 255 330 250 S120 210 0 240 Z',fill:'var(--river-soft)'}));
+    const rl=el('path',{d:'M0 222 C120 192 220 260 330 230 S520 200 640 236',fill:'none',stroke:'var(--river)','stroke-width':1.5,'stroke-dasharray':'10 14',opacity:.6}); g.appendChild(rl);
+    if(!reduce) rl.appendChild(el('animate',{attributeName:'stroke-dashoffset',from:0,to:-48,dur:'3s',repeatCount:'indefinite'}));
+    // roads
+    g.appendChild(el('path',{d:'M318 0 L318 420',stroke:'var(--rule)','stroke-width':8,fill:'none'}));
+    g.appendChild(el('path',{d:'M0 340 L640 340',stroke:'var(--rule)','stroke-width':6,fill:'none'}));
+    g.appendChild(el('path',{d:'M318 120 L640 60',stroke:'var(--rule)','stroke-width':6,fill:'none'}));
+    // bridge
+    g.appendChild(el('rect',{x:306,y:196,width:24,height:60,fill:'var(--ink)',opacity:.85}));
+    if(!reduce){ const bus=el('rect',{x:310,y:0,width:16,height:10,rx:2,fill:'var(--c10)'}); bus.appendChild(el('animateMotion',{path:'M0 160 L0 290',dur:'6s',repeatCount:'indefinite'})); g.appendChild(bus); }
+    g.appendChild(el('text',{x:16,y:410,'font-size':10,fill:'var(--muted)'},'OLD TOWN · HOSPITAL · STATION'));
+    g.appendChild(el('text',{x:16,y:16,'font-size':10,fill:'var(--muted)'},'FAR BANK · FIELDS · NEW TOWERS'));
+    g.appendChild(el('text',{x:624,y:410,'text-anchor':'end','font-size':10,fill:'var(--c6)'},'→ Dubai'));
+    S.forEach(s=>{ const [x,y]=s.xy; const a=el('a',{href:s.url,target:'_self',rel:'noopener',class:'pin',tabindex:0,'aria-label':'Story '+s.n+': '+s.title+', '+s.market});
+      a.appendChild(el('circle',{cx:x,cy:y,r:13,fill:col(s.n),class:'ring',stroke:'var(--paper)','stroke-width':2,style:'transition:r .2s ease'}));
+      a.appendChild(el('text',{x,y:y+4,'text-anchor':'middle','font-size':11,fill:'var(--paper)'},s.n));
+      const lx = x>520 ? x-18 : x+18, anchor = x>520?'end':'start';
+      a.appendChild(el('text',{x:lx,y:y-2,'text-anchor':anchor,'font-size':10.5,fill:'var(--ink)'},s.place));
+      a.appendChild(el('text',{x:lx,y:y+11,'text-anchor':anchor,'font-size':9.5,fill:col(s.n)},s.market));
+      const show=()=>{ hint.innerHTML='<strong>'+s.n+'. '+s.title+'</strong> · '+s.market+' · '+s.hook; };
+      a.addEventListener('mouseenter',show); a.addEventListener('focus',show);
+      g.appendChild(a); });
+  })();
+
+  // Paths
+  (function(){
+    const P=[
+      {t:'Foundations',lvl:'Start here',d:'Saving, lending, owning, and protecting yourself. Everything else builds on these.',ids:[1,2,3,10]},
+      {t:'How the system runs',lvl:'Next',d:'The plumbing behind your bank, your rupee, your groceries and your home.',ids:[5,6,7,8]},
+      {t:'Risk and frontiers',lvl:'Advanced',d:'Contracts on prices, startups, buyouts and digital assets. Powerful, and easy to get wrong.',ids:[4,11,9]}
+    ];
+    const box=document.getElementById('paths-grid');
+    P.forEach(p=>{ const d=document.createElement('div'); d.className='path';
+      d.innerHTML='<span class="level" style="color:var(--muted)">'+p.lvl+'</span><h3>'+p.t+'</h3><p>'+p.d+'</p><ol>'+p.ids.map(i=>{ const s=S[i-1]; return '<li><a href="'+s.url+'" target="_self" rel="noopener"><span class="num-dot" style="background:'+col(s.n)+'">'+s.n+'</span><span>'+s.title+' · <span style="color:var(--muted)">'+s.market+'</span></span></a></li>'; }).join('')+'</ol>';
+      box.appendChild(d); });
+  })();
+
+  // Shelf
+  (function(){
+    const shelf=document.getElementById('shelf'); let read={};
+    try{ read=JSON.parse(localStorage.getItem('kesarpur-read')||'{}')||{}; }catch(e){ read={}; }
+    const save=()=>{ try{ localStorage.setItem('kesarpur-read',JSON.stringify(read)); }catch(e){} };
+    const patterns=[
+      (g,c)=>{ g.appendChild(el('path',{d:'M0 70 Q80 40 160 70 T320 70',stroke:'currentColor',fill:'none','stroke-width':3,opacity:.35})); g.appendChild(el('path',{d:'M110 92 Q160 40 210 92',stroke:'currentColor',fill:'none','stroke-width':4,opacity:.5})); },
+      (g)=>{ for(let i=0;i<14;i++) g.appendChild(el('circle',{cx:150+((i*37)%120),cy:20+((i*23)%60),r:6,fill:'currentColor',opacity:.3})); },
+      (g)=>{ let d='M120 80'; for(let i=0;i<10;i++) d+=' L'+(130+i*18)+' '+(70-i*5+(i%2?10:0)); g.appendChild(el('path',{d,stroke:'currentColor',fill:'none','stroke-width':3,opacity:.5})); },
+      (g)=>{ g.appendChild(el('path',{d:'M120 80 L180 30 L240 80',stroke:'currentColor',fill:'none','stroke-width':3,opacity:.5})); g.appendChild(el('line',{x1:120,x2:300,y1:55,y2:55,stroke:'currentColor','stroke-dasharray':'4 4',opacity:.4})); },
+      (g)=>{ for(let i=0;i<6;i++) g.appendChild(el('circle',{cx:150+i*24,cy:46,r:9,fill:'none',stroke:'currentColor','stroke-width':2,opacity:.45})); },
+      (g)=>{ g.appendChild(el('path',{d:'M130 70 Q200 0 290 50',stroke:'currentColor',fill:'none','stroke-width':3,'stroke-dasharray':'6 6',opacity:.5})); g.appendChild(el('circle',{cx:290,cy:50,r:6,fill:'currentColor',opacity:.5})); },
+      (g)=>{ g.appendChild(el('path',{d:'M140 85 L180 50 L220 85 Z',fill:'currentColor',opacity:.3})); g.appendChild(el('rect',{x:230,y:40,width:50,height:45,fill:'currentColor',opacity:.25})); },
+      (g)=>{ [0,1,2,3].forEach(i=>g.appendChild(el('rect',{x:150+i*32,y:85-(30+i*12),width:24,height:30+i*12,fill:'currentColor',opacity:.3}))); },
+      (g)=>{ [0,1,2,3,4].forEach(i=>{ g.appendChild(el('rect',{x:130+i*34,y:34,width:26,height:24,rx:3,fill:'none',stroke:'currentColor','stroke-width':2,opacity:.5})); if(i<4) g.appendChild(el('line',{x1:156+i*34,x2:164+i*34,y1:46,y2:46,stroke:'currentColor','stroke-width':2,opacity:.5})); }); },
+      (g)=>{ g.appendChild(el('path',{d:'M220 18 L260 30 L260 58 Q260 80 220 92 Q180 80 180 58 L180 30 Z',fill:'none',stroke:'currentColor','stroke-width':3,opacity:.5})); },
+      (g)=>{ g.appendChild(el('path',{d:'M140 85 L190 70 L230 72 L300 20',stroke:'currentColor',fill:'none','stroke-width':3,opacity:.5})); g.appendChild(el('circle',{cx:300,cy:20,r:5,fill:'currentColor',opacity:.6})); }
+    ];
+    S.forEach((s,i)=>{ const c=document.createElement('article'); c.className='card'+(read[s.n]?' done':''); c.style.setProperty('--cc',col(s.n)); c.dataset.level=s.level;
+      c.innerHTML='<div class="cover"><svg viewBox="0 0 320 92" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="color:var(--paper)"></svg><span class="n">'+s.n+'</span><span class="mk">'+s.market+'</span></div>'+
+        '<div class="body"><h3><a href="'+s.url+'" target="_self" rel="noopener">'+s.title+'</a></h3><span class="who">'+s.lead+' · '+s.level+'</span><p class="hook">'+s.hook+'</p><div class="chips">'+s.chips.map(x=>'<span>'+x+'</span>').join('')+'</div>'+
+        '<div class="foot"><label><input type="checkbox" id="read-'+s.n+'"'+(read[s.n]?' checked':'')+'> Read</label><a href="'+s.url+'" target="_self" rel="noopener">Open story →</a></div></div>';
+      patterns[i](c.querySelector('svg'));
+      c.querySelector('input').addEventListener('change',e=>{ read[s.n]=e.target.checked; if(!e.target.checked) delete read[s.n]; c.classList.toggle('done',e.target.checked); save(); prog(); });
+      shelf.appendChild(c); });
+    function prog(){ const k=Object.keys(read).length; document.getElementById('prog-txt').textContent=k+' of 11 read'; document.getElementById('prog-bar').style.width=(k/11*100)+'%'; }
+    prog();
+    document.querySelectorAll('#filter button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#filter button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); const v=b.dataset.v; shelf.querySelectorAll('.card').forEach(c=>{ c.hidden = v!=='all' && c.dataset.level!==v; }); }));
+  })();
+
+  // Flow diagram
+  (function(){
+    const g=document.getElementById('flow');
+    const node=(x,y,w,h,t,sub,n)=>{ const a=el('a',{href:n?S[n-1].url:'#',target:'_self',rel:'noopener'}); a.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:'var(--paper)',stroke:n?col(n):'var(--ink)','stroke-width':n?2:1.5})); a.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':12,fill:'var(--ink)'},t)); if(sub) a.appendChild(el('text',{x:x+w/2,y:y+h/2+13,'text-anchor':'middle','font-size':9.5,fill:n?col(n):'var(--muted)'},sub)); g.appendChild(a); };
+    node(20,140,130,70,'Households','savings & salaries',0);
+    node(220,30,150,46,'Banks & money mkt','story 5',5);
+    node(220,100,150,46,'Mutual funds','story 2',2);
+    node(220,170,150,46,'Insurers','story 10',10);
+    node(220,240,150,46,'Direct investing','stories 3, 8, 9',null);
+    node(450,20,150,46,'Bonds','story 1',1);
+    node(450,90,150,46,'Shares','story 3',3);
+    node(450,160,150,46,'Private markets','story 11',11);
+    node(450,230,150,46,'Property & gold','stories 7, 8',8);
+    node(680,60,130,60,'Governments','bridges, roads',null);
+    node(680,170,130,60,'Companies','factories, jobs',null);
+    node(450,290,150,44,'Derivatives & forex','stories 4, 6',4);
+    const pairs=[[150,175,220,53],[150,175,220,123],[150,175,220,193],[150,175,220,263],[370,53,450,43],[370,123,450,113],[370,123,450,43],[370,193,450,43],[370,193,450,183],[370,263,450,253],[370,263,450,113],[600,43,680,90],[600,113,680,200],[600,183,680,200]];
+    pairs.forEach(([x1,y1,x2,y2],i)=>{ const d='M'+x1+' '+y1+' C'+(x1+40)+' '+y1+' '+(x2-40)+' '+y2+' '+x2+' '+y2; g.appendChild(el('path',{d,fill:'none',stroke:'var(--rule)','stroke-width':1.5}));
+      if(!reduce){ const c=el('circle',{r:3.5,fill:'var(--c7)'}); c.appendChild(el('animateMotion',{path:d,dur:(2.4+(i%4)*0.4)+'s',repeatCount:'indefinite',begin:(-i*0.25)+'s'})); const gg=el('g',{}); gg.appendChild(c); g.appendChild(gg); } });
+    const back='M745 230 C760 420 70 420 85 210';
+    g.appendChild(el('path',{d:back,fill:'none',stroke:'var(--up)','stroke-width':1.5,'stroke-dasharray':'5 5'}));
+    if(!reduce){ [0,1.5,3].forEach(b=>{ const c=el('circle',{r:4,fill:'var(--up)'}); c.appendChild(el('animateMotion',{path:back,dur:'4.5s',repeatCount:'indefinite',begin:(-b)+'s'})); const gg=el('g',{}); gg.appendChild(c); g.appendChild(gg); }); }
+    g.appendChild(el('text',{x:415,y:400,'font-size':11,fill:'var(--up)','text-anchor':'middle'},'interest, dividends, rent and payouts flow back to households'));
+    g.appendChild(el('text',{x:20,y:20,'font-size':10,fill:'var(--muted)'},'GOLD DOTS: SAVINGS FLOWING IN · GREEN: RETURNS FLOWING BACK'));
+  })();
+
+  // Characters
+  (function(){
+    const C=[
+      {k:'meera',name:'Meera',role:'Retired maths teacher, the family’s calm voice',in:[1,2,6,8,9],m:['Lends ₹10,000 to rebuild the bridge (1)','Teaches Ananya compounding (2)','Remembers a dollar under ₹10 (6)','Sees the bridge from Ananya’s flat (8)']},
+      {k:'ananya',name:'Ananya',role:'Nurse, Meera’s granddaughter',in:[2,5,8,10],m:['Starts a ₹5,000 SIP (2)','Keeps emergency money in a liquid fund (5)','Buys her first flat (8)','Explains hospital bills to Suresh (10)']},
+      {k:'kamala',name:'Kamala',role:'The great-aunt who makes every mistake so you don’t have to',in:[1,2,3,4,7,8,9,10,11],m:['Loses on options and borrowed money (3, 4)','Bets on silver futures (7)','Buys an unsellable plot (8)','Falls for a crypto bot scam (9)','Is mis-sold a "fixed deposit" (10)']},
+      {k:'rohit',name:'Rohit',role:'Software engineer, Kamala’s grandson',in:[3,4,7,8,9,11],m:['Buys his first shares (3)','Learns margin the hard way (4)','Holds gold ETFs and REITs (7, 8)','Talks his cousin out of a memecoin (9)']},
+      {k:'lakshmi',name:'Lakshmi',role:'Founder of Sunrise Foods',in:[3,4,5,6,7,11],m:['Takes her pickle company public (3)','Fixes mango prices with Gopal (4)','Issues commercial paper (5)','Hedges dollar exports (6)']},
+      {k:'gopal',name:'Gopal',role:'Mango farmer, then farmer-group leader',in:[4,7,10,11],m:['Signs a forward contract (4)','Stores mustard and borrows against it (7)','Claims crop insurance after hail (10)','Uses Meghna’s cold rooms (11)']},
+      {k:'iyer',name:'Mr. Iyer',role:'Treasurer of the cooperative bank',in:[5,6,7,8,10],m:['Borrows ₹15 crore overnight (5)','Runs the forex desk (6)','Lends against warehouse receipts (7)','Gives Ananya her home loan (8)']},
+      {k:'suresh',name:'Suresh',role:'Bus conductor and father',in:[1,10],m:['Buys a zero-coupon bond for his daughter (1)','Builds his family’s safety net (10)']},
+      {k:'salim',name:'Salim & Rukhsana',role:'Electrician in Dubai, and his mother',in:[6,7,9],m:['Sends money home every month (6)','Buys wedding gold (7)','Avoids crypto remittances (9)']},
+      {k:'meghna',name:'Meghna',role:'Lakshmi’s daughter, startup founder',in:[11],m:['Builds Kesar Cold Chain from angel round to Series B (11)']},
+      {k:'varun',name:'Varun',role:'College student tempted by crypto',in:[9],m:['Learns what a blockchain is before buying (9)']},
+      {k:'harjeet',name:'Harjeet',role:'Petrol pump owner',in:[7,10,11],m:['Explains the price of petrol (7)','Insures his pump and tanker (10)','Borrows from a private credit fund (11)']}
+    ];
+    const list=document.getElementById('people'), panel=document.getElementById('who');
+    function show(c){ document.querySelectorAll('#people button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===c.k?'true':'false'));
+      panel.innerHTML='<h3>'+c.name+'</h3><p class="role">'+c.role+'</p><div class="appear">'+S.map(s=>'<a href="'+s.url+'" target="_self" rel="noopener" class="'+(c.in.includes(s.n)?'on':'')+'" style="--cc:'+col(s.n)+'" title="'+s.title+'"><span class="dot">'+s.n+'</span><span>'+s.market.split(' ')[0]+'</span></a>').join('')+'</div><span class="label">Key moments</span><ul class="moments">'+c.m.map(x=>'<li>'+x+'</li>').join('')+'</ul>'; }
+    C.forEach((c,i)=>{ const b=document.createElement('button'); b.type='button'; b.dataset.k=c.k; b.setAttribute('aria-pressed','false'); b.innerHTML='<span>'+c.name+'</span><span>'+c.in.length+' '+(c.in.length===1?'story':'stories')+'</span>'; b.addEventListener('click',()=>show(c)); list.appendChild(b); });
+    show(C[0]);
+  })();
+})();
+</script>
+
+<script src="series.js"></script></body></html>

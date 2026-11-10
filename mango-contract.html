@@ -1,0 +1,1038 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Mango Contract</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 04 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html" aria-current="page"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: fourth story in the Kesarpur series. Storybook column with a ledger margin; wide interludes span the full width. Mango-orange accent; green/red reserved for gain/loss. */
+:root{
+  --bg:#F4F2EF; --paper:#FCFBF9; --ink:#231D18; --muted:#665B52; --rule:#DDD5CD;
+  --acc:#A9520F; --acc-soft:#F6E3D2; --leaf:#3F6B3A; --leaf-soft:#E2ECDD;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B3313F; --down-soft:#F6DCDF;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16120F; --paper:#1F1A16; --ink:#EFE8E1; --muted:#AA9E93; --rule:#3A322B;
+  --acc:#F2A25E; --acc-soft:#3A2717; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#16120F; --paper:#1F1A16; --ink:#EFE8E1; --muted:#AA9E93; --rule:#3A322B;
+  --acc:#F2A25E; --acc-soft:#3A2717; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C97; --down-soft:#3F1E22; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.contract{background:var(--paper);border:1px solid var(--acc);border-radius:4px;padding:6px}
+.contract-in{border:1px dashed var(--acc);padding:18px;display:flex;flex-direction:column;gap:10px}
+.contract h3{font-size:1.25rem;color:var(--acc);text-align:center}
+.contract dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;margin:0}
+.contract dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.contract dd{margin:0;font-family:var(--mono);font-size:.95rem}
+.contract .sig{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--rule);padding-top:10px;font-family:var(--mono);font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.leaf .label{color:var(--leaf)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--down-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+.seg-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.l{border-color:var(--leaf)} .col.u{border-color:var(--up)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about derivatives, in sixteen chapters</span>
+    <h1>The Kesarpur Mango Contract</h1>
+    <p class="lede">A mango farmer and a pickle company shake hands on a price months before the harvest. That handshake is the oldest derivative there is. Follow it from the orchard to the exchange, and you will understand futures, options and swaps, how they protect people, and how they ruin them.</p>
+    <div class="cast">
+      <span class="chip">Gopal, mango farmer</span>
+      <span class="chip">Lakshmi, Sunrise Foods</span>
+      <span class="chip">Rohit, investor</span>
+      <span class="chip">Kamala, the great-aunt</span>
+      <span class="chip">Farida, town treasurer</span>
+      <span class="chip">Neha, analyst</span>
+    </div>
+  </div>
+  <div class="contract" role="group" aria-label="Illustration of the forward contract between Gopal and Sunrise Foods">
+    <div class="contract-in">
+      <span class="label" style="text-align:center">Forward agreement · signed in January</span>
+      <h3>10,000 kg Alphonso-type mangoes</h3>
+      <dl>
+        <div><dt>Seller</dt><dd>Gopal's orchard</dd></div>
+        <div><dt>Buyer</dt><dd>Sunrise Foods</dd></div>
+        <div><dt>Price</dt><dd>₹60 per kg</dd></div>
+        <div><dt>Delivery</dt><dd>15 May</dd></div>
+        <div><dt>Quality</dt><dd>Grade A, ripe</dd></div>
+        <div><dt>Total</dt><dd>₹6,00,000</dd></div>
+      </dl>
+      <div class="sig"><span>Gopal ✓</span><span>Lakshmi ✓</span><span>Money paid today: ₹0</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>The gamble in the orchard</a></li>
+    <li><a href="#forward"><span>01</span>The handshake</a></li>
+    <li><a href="#what"><span>02</span>What a derivative is</a></li>
+    <li><a href="#futures"><span>03</span>From handshake to exchange</a></li>
+    <li><a href="#margin"><span>04</span>Margin and the daily settling-up</a></li>
+    <li><a href="#leverage"><span>05</span>Leverage cuts both ways</a></li>
+    <li><a href="#pricing"><span>06</span>What a future should cost</a></li>
+    <li><a href="#options"><span>07</span>Options: insurance for prices</a></li>
+    <li><a href="#payoff"><span>08</span>Drawing an option</a></li>
+    <li><a href="#premium"><span>09</span>What makes an option expensive</a></li>
+    <li><a href="#hedging"><span>10</span>Hedging in real life</a></li>
+    <li><a href="#swaps"><span>11</span>Swaps and currency contracts</a></li>
+    <li><a href="#kamala"><span>12</span>Kamala's lottery tickets</a></li>
+    <li><a href="#blowups"><span>13</span>When derivatives blew up</a></li>
+    <li><a href="#market"><span>14</span>The derivatives market</a></li>
+    <li><a href="#rules"><span>15</span>Rohit's rules</a></li>
+    <li><a href="#epilogue"><span>16</span>The next harvest</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>Agreeing on tomorrow's price</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>The gamble in the orchard</h2></header>
+  <div class="prose">
+    <p>Gopal owns a mango orchard twelve kilometres outside Kesarpur. Every January the trees flower, and every May he harvests about 10,000 kg of fruit. Between flowering and harvest, he spends about ₹4 lakh on labour, fertiliser, water and spraying, much of it borrowed.</p>
+    <p>He has no idea what his mangoes will sell for. In a good year for everyone, with heavy crops across the state, prices can crash to ₹40 a kilo. In a year of unseasonal rain or heat, they can shoot to ₹90. The same orchard, the same work, can earn ₹4 lakh or ₹9 lakh. At ₹40, he can barely repay his loan. Two bad years in a row, and he could lose the land his grandfather planted.</p>
+    <p>Twelve kilometres away, Lakshmi has the opposite problem. Sunrise Foods, the pickle company from the stock market story, needs those mangoes. If prices jump to ₹90, her costs explode and her profit vanishes, because she can't raise the price of pickle jars already promised to supermarkets. She is afraid of <em>high</em> prices. Gopal is afraid of <em>low</em> prices.</p>
+    <p>Both of them are gambling on a price neither can control. And neither of them wants to.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Three possible roads from January to May</span><div class="seg"><button type="button" id="paths-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:480px" role="img" aria-label="Animated chart of three possible mango price paths from January to May, ending at 90, 60 and 40 rupees per kilo"><g id="paths"></g></svg></div>
+    <figcaption>Illustrative. The same orchard can face any of these. Gopal fears the bottom road; Lakshmi fears the top one.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Fourth story</span>This follows <em>The Kesarpur Bridge Bond</em>, <em>The Common Pot</em> and <em>The Pickle Share</em>. Kamala, who lost money on options in the stock story, explains what happened in Chapter 12.</div>
+    <div class="note"><span class="label">Price risk</span>The danger that a price moves against you before you buy or sell. Farmers, factories, airlines, importers, exporters and investors all live with it.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="forward">
+  <header><span class="label">Chapter 1</span><h2>The handshake</h2></header>
+  <div class="prose">
+    <p>In January, Lakshmi drives out to the orchard. Over tea, they agree on something simple: in May, Gopal will deliver 10,000 kg of grade-A mangoes to Sunrise, and Sunrise will pay ₹60 a kilo, <em>whatever the market price is then</em>. No money changes hands today. They write it on one page and both sign.</p>
+    <p>This is a <strong>forward contract</strong>: an agreement made today to buy or sell something on a future date at a price fixed today.</p>
+    <p>Now move the slider to choose the May market price, and see what happens to each of them.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="spot">Market price of mangoes in May <output id="spot-out">₹60/kg</output></label><input id="spot" type="range" min="35" max="95" step="1" value="60"></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th class="num">Without the contract</th><th class="num">With the contract</th><th class="num">Contract's effect</th></tr></thead>
+        <tbody>
+          <tr><td>Gopal receives</td><td class="num" id="g-un">₹6,00,000</td><td class="num">₹6,00,000</td><td class="num" id="g-eff">₹0</td></tr>
+          <tr><td>Sunrise pays</td><td class="num" id="s-un">₹6,00,000</td><td class="num">₹6,00,000</td><td class="num" id="s-eff">₹0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Chart of Gopal's income with and without the forward contract for every May price"><g id="fw-chart"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--muted)"></i>Gopal without contract</span><span><i style="background:var(--acc)"></i>Gopal with contract (flat ₹6 lakh)</span><span><i style="background:var(--up-soft);height:10px"></i>Contract helps Gopal</span><span><i style="background:var(--down-soft);height:10px"></i>Contract helps Sunrise</span></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="fw-note"></p>
+  </div>
+  <div class="prose">
+    <p>Notice three things. First, with the contract, both of them know their number in January: ₹6 lakh. They can plan, borrow, and sleep. Second, the contract's gain for one is always exactly the other's loss. If May's price is ₹80, Gopal "gives up" ₹2 lakh he could have earned, and Sunrise "saves" exactly ₹2 lakh. Third, and most important: <strong>neither of them was trying to make money from the contract</strong>. They were trying to remove uncertainty. That is called <strong>hedging</strong>.</p>
+    <p>Gopal's neighbour mocks him in a year when prices hit ₹85. "You lost ₹2.5 lakh!" Gopal doesn't see it that way. He bought certainty. In the year prices fell to ₹42, the same neighbour had to sell two acres.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Forward contract</span>A private agreement to trade at a fixed future price and date. Custom terms, no money upfront, settled at the end.</div>
+    <div class="note leaf"><span class="label">Hedging</span>Taking a position that offsets a risk you already have. A hedger gives up some possible gain to avoid a possible loss.</div>
+    <div class="note"><span class="label">Long and short</span>The buyer (Sunrise) is <dfn>long</dfn>: gains if the price rises. The seller (Gopal) is <dfn>short</dfn>: gains if the price falls.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="what">
+  <header><span class="label">Chapter 2</span><h2>What a derivative is</h2></header>
+  <div class="prose">
+    <p>The paper Gopal and Lakshmi signed has no value of its own. Its value depends entirely on something else: the price of mangoes. If mangoes rise, the contract becomes valuable to Sunrise. If they fall, it becomes valuable to Gopal. Its value is <em>derived</em> from the mango price. That is why it is called a <strong>derivative</strong>.</p>
+    <p>The thing a derivative depends on is the <strong>underlying</strong>. It can be almost anything with a price: mangoes, wheat, gold, crude oil, a company's share, a stock index like the Nifty, a currency like the dollar, an interest rate, even the chance that a company defaults.</p>
+    <p>There are four basic kinds, and this story covers each:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Type</th><th>What it is</th><th>Obligation?</th><th>Where traded</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Forward</strong></td><td>Private agreement to buy/sell later at a fixed price</td><td>Both sides must perform</td><td>Privately (OTC)</td></tr>
+          <tr><td><strong>Future</strong></td><td>A standardised forward, traded on an exchange</td><td>Both sides must perform</td><td>Exchange</td></tr>
+          <tr><td><strong>Option</strong></td><td>The <em>right</em>, not the obligation, to buy or sell at a fixed price</td><td>Only the seller is bound</td><td>Exchange or OTC</td></tr>
+          <tr><td><strong>Swap</strong></td><td>An agreement to exchange one stream of payments for another</td><td>Both sides must perform</td><td>Mostly OTC</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Every derivative has two sides, and before costs <strong>it is a zero-sum game</strong>: what one side gains, the other loses. That's different from owning a share in Sunrise, where if the company grows, every shareholder can gain at once. A derivative creates no new value by itself. What it can do is move risk from someone who doesn't want it to someone who is willing to carry it, for a price.</p>
+    <p>Three kinds of people use derivatives:</p>
+    <ul>
+      <li><strong>Hedgers</strong> like Gopal and Lakshmi, who already have a risk and want to reduce it.</li>
+      <li><strong>Speculators</strong>, who have no mangoes and no pickle factory, but take a position because they think the price will move. They carry the risk hedgers don't want, and they make it easier for hedgers to find someone to trade with.</li>
+      <li><strong>Arbitrageurs</strong>, who look for the same thing trading at two different prices, buy the cheap one and sell the expensive one, and in doing so keep prices in line.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Underlying</span>The asset or rate whose price a derivative depends on. No underlying, no derivative.</div>
+    <div class="note"><span class="label">Very old idea</span>Rice futures traded at the Dojima exchange in Osaka from the 1730s. The Chicago Board of Trade was founded in 1848 so farmers and grain merchants could fix prices ahead of harvest, much like Gopal and Lakshmi.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="futures">
+  <header><span class="label">Chapter 3</span><h2>From handshake to exchange</h2></header>
+  <div class="prose">
+    <p>The handshake works well for Gopal and Lakshmi, who trust each other. But three problems appear as soon as more people try it.</p>
+    <ul>
+      <li><strong>Counterparty risk.</strong> In a year prices hit ₹85, a farmer in the next village quietly sold his mangoes to a trader at ₹85 instead of delivering to his buyer at ₹60. The contract was only as good as his word. And in a year prices crashed to ₹40, a small pickle maker simply refused to pay ₹60.</li>
+      <li><strong>Hard to find a partner.</strong> Gopal found Lakshmi by luck. A farmer who wants to lock in a price may not know any buyer who wants the same quantity on the same date.</li>
+      <li><strong>No way out.</strong> If Gopal's trees are hit by disease in March, he's stuck with a contract to deliver mangoes he doesn't have.</li>
+    </ul>
+    <p>A <strong>futures contract</strong> solves all three. It is a forward with three changes:</p>
+    <ul>
+      <li><strong>Standardised.</strong> The exchange fixes everything except the price: the quantity (say, one contract = 1,000 kg), the quality, the delivery place, and the expiry date. Every contract is identical, so anyone can trade with anyone.</li>
+      <li><strong>Traded on an exchange.</strong> Buyers and sellers meet in an order book, as with shares. You can buy or sell a contract any day before expiry, which also means you can <em>exit</em> by doing the opposite trade.</li>
+      <li><strong>Guaranteed by a clearing house.</strong> The clearing corporation becomes the buyer to every seller and the seller to every buyer. Gopal no longer needs to trust Lakshmi; he needs to trust the clearing house, which protects itself with margin (Chapter 4).</li>
+    </ul>
+    <p>Most futures today don't end with a truck of mangoes. Before expiry, most traders <em>close</em> their position by taking the opposite trade, and simply collect or pay the difference in price. Many contracts, including index futures, are <strong>cash-settled</strong>: there's nothing to deliver, so only the difference is paid. In India, futures on individual shares are <strong>physically settled</strong>: if you hold to expiry, you actually buy or sell the shares.</p>
+  </div>
+  <figure class="fig-card">
+    <span class="label">Before and after the clearing house</span>
+    <div class="scroll"><svg viewBox="0 0 660 250" width="100%" style="min-width:560px" role="img" aria-label="Diagram: on the left, a farmer and a buyer trade directly and must trust each other. On the right, many buyers and sellers each deal only with a clearing house in the middle, sending margin money to it."><g id="clear"></g></svg></div>
+    <figcaption>Left: a forward depends on two people trusting each other. Right: in futures, every buyer and seller deals only with the clearing house, which collects margin (moving dots) from all of them and guarantees every trade.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Forward vs. future</span>Forward: private, custom, one counterparty, settled at the end. Future: exchange-traded, standard, clearing-house guaranteed, settled every day.</div>
+    <div class="note"><span class="label">Lot size</span>The fixed quantity in one contract. You can trade one lot, two lots, but not half a lot. SEBI sets minimum contract values for equity derivatives.</div>
+    <div class="note"><span class="label">Expiry</span>The last day a contract trades. Index and stock futures in India expire monthly on a fixed weekday, with up to three months' contracts trading at once.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="margin">
+  <header><span class="label">Chapter 4</span><h2>Margin and the daily settling-up</h2></header>
+  <div class="prose">
+    <p>How does the clearing house make sure nobody walks away? Two tools: <strong>margin</strong> and <strong>mark-to-market</strong>.</p>
+    <p>Rohit, the young engineer from the stock market story, buys one index futures contract. The index stands at 20,000 and one contract covers 75 units, so the contract is worth 20,000 × 75 = ₹15 lakh. He doesn't pay ₹15 lakh. He deposits <strong>margin</strong>, about 12% of it, ₹1.8 lakh, with his broker. Margin is not a price or a fee. It's a security deposit to show he can cover losses.</p>
+    <p>Then, every evening, the exchange settles up. If the index rose, money is moved from sellers' accounts into buyers'. If it fell, the reverse. This is <strong>mark-to-market</strong>: losses can't pile up quietly until expiry, because they are paid every single day.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Day</th><th class="num">Index close</th><th class="num">Daily P&amp;L (×75)</th><th class="num">Account after P&amp;L</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>0 (buys)</td><td class="num">20,000</td><td class="num">—</td><td class="num">₹1,80,000</td><td>Deposits margin</td></tr>
+          <tr><td>1</td><td class="num">20,150</td><td class="num up">+₹11,250</td><td class="num">₹1,91,250</td><td>—</td></tr>
+          <tr class="hl"><td>2</td><td class="num">19,900</td><td class="num down">−₹18,750</td><td class="num">₹1,72,500</td><td>Below ₹1.8 lakh: adds ₹7,500</td></tr>
+          <tr class="hl"><td>3</td><td class="num">19,700</td><td class="num down">−₹15,000</td><td class="num">₹1,65,000</td><td>Adds ₹15,000</td></tr>
+          <tr><td>4</td><td class="num">19,850</td><td class="num up">+₹11,250</td><td class="num">₹1,91,250</td><td>—</td></tr>
+          <tr><td>5 (sells)</td><td class="num">20,300</td><td class="num up">+₹33,750</td><td class="num">₹2,25,000</td><td>Closes position</td></tr>
+          <tr class="total"><td colspan="2">Total</td><td class="num up">+₹22,500</td><td colspan="2">Put in ₹2,02,500, took out ₹2,25,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative. Simplified: in practice the required margin itself also changes with prices and volatility.</figcaption>
+  </figure>
+  <figure class="fig-card">
+    <span class="label">Rohit's account, day by day</span>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:480px" role="img" aria-label="Chart of Rohit's margin account balance over six days, dipping below the required margin line twice, and daily profit and loss bars"><g id="mtm"></g></svg></div>
+    <figcaption>Bars show each day's gain or loss. The line shows his account after that day's settlement. Twice it fell below the required margin (dashed line), and he had to top up.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>On days 2 and 3, Rohit's broker sent him a <strong>margin call</strong>: top up your account by the end of the day, or we'll close your position. He paid. Had he not, his contract would have been sold at the day-3 low, locking in a ₹33,750 loss, and he would never have seen the recovery.</p>
+    <p>This daily discipline is what makes futures safe <em>for the system</em>. Nobody can lose more than a day or two of price moves before they have to pay. It is not what makes them safe <em>for the trader</em>. That's the next chapter.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Margin</span>A deposit, set by the exchange based on how much the price could move in a bad day or two. More volatile underlyings need higher margins.</div>
+    <div class="note"><span class="label">Mark-to-market</span>Revaluing every open position at the day's closing price and settling gains and losses in cash each day.</div>
+    <div class="note risk"><span class="label">Margin call</span>A demand to add money when losses eat into your margin. Failing to pay means the broker closes your position, often at the worst moment.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="leverage">
+  <header><span class="label">Chapter 5</span><h2>Leverage cuts both ways</h2></header>
+  <div class="prose">
+    <p>Look again at Rohit's trade. The index rose 1.5% (20,000 to 20,300). His profit was ₹22,500 on ₹1.8 lakh of margin: 12.5%. A small move in the underlying became a big move in his account. That multiplier is <strong>leverage</strong>.</p>
+    <p>With ₹1.8 lakh of margin controlling ₹15 lakh of index, Rohit's leverage is about 8×. Every 1% move in the index is about an 8% move in his money, <em>in either direction</em>.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="lev-m">Margin as % of contract value <output id="lev-m-out">12%</output></label><input id="lev-m" type="range" min="5" max="50" step="1" value="12"></div>
+      <div class="ctrl"><label for="lev-x">Index move <output id="lev-x-out">−5%</output></label><input id="lev-x" type="range" min="-10" max="10" step="0.5" value="-5"></div>
+    </div>
+    <div class="readout">
+      <div><span class="label">Leverage</span><span class="big" id="lev-l">8.3×</span></div>
+      <div><span class="label">Gain or loss</span><span class="big" id="lev-pl">−₹75,000</span></div>
+      <div><span class="label">On your margin</span><span class="big" id="lev-pct">−41.7%</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="lev-note"></p>
+  </div>
+  <div class="prose">
+    <p>A 5% fall in the index, which happens several times in many years, wipes out over 40% of Rohit's money. A 12% fall wipes out all of it. If the index gaps down overnight more than that, he can lose <em>more than his deposit</em> and still owe the broker.</p>
+    <p>Compare this with buying ₹1.8 lakh of an index fund. A 5% fall costs ₹9,000, and he can wait as long as he likes for a recovery. With the futures contract, margin calls may force him out before any recovery comes.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Leverage</span>Controlling a large position with a small amount of money. It doesn't change the odds of a trade; it multiplies the result, good or bad.</div>
+    <div class="note leaf"><span class="label">For a hedger</span>Leverage is useful: Lakshmi can protect ₹6 lakh of mango purchases while tying up only a fraction of that in margin. The loss on her futures is offset by cheaper mangoes, so her overall risk falls.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="pricing">
+  <header><span class="label">Chapter 6</span><h2>What a future should cost</h2></header>
+  <div class="prose">
+    <p>Rohit notices that the index futures price is not 20,000 like the index itself. It's about 20,107. Why pay more for something later than now?</p>
+    <p>Neha, his analyst friend, explains with an arbitrage argument. There are two ways to own the index in 30 days:</p>
+    <ul>
+      <li>Buy the shares today for 20,000, paying for them now. That money could have earned interest instead, at about 6.5% a year.</li>
+      <li>Buy a future and keep the money in the bank for 30 days. You earn interest, and pay for the index only at expiry.</li>
+    </ul>
+    <p>Both give you the index in 30 days, so they must cost the same in the end. The future must therefore cost about the spot price plus the interest you'd earn by waiting, minus any dividends you'd miss by not holding the shares. This is the <strong>cost of carry</strong>.</p>
+  </div>
+  <div class="formula">Fair futures price ≈ Spot × (1 + r × days ÷ 365) − dividends before expiry
+
+         = 20,000 × (1 + 0.065 × 30 ÷ 365) ≈ 20,107   (ignoring dividends)</div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Futures and spot meet at expiry</span><div class="seg"><button type="button" id="conv-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 260" width="100%" style="min-width:480px" role="img" aria-label="Chart showing the futures price staying above the index and the gap shrinking to zero on expiry day"><g id="conv"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--acc)"></i>Futures price</span><span><i style="background:var(--muted)"></i>Index (spot)</span><span><i style="background:var(--acc-soft);height:10px"></i>Basis (the gap)</span></div>
+    <figcaption>Illustrative 30-day path. The gap is about the interest you'd earn by waiting, so it shrinks as fewer days remain, and disappears at expiry.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>If the future traded at 20,300, arbitrageurs would buy the shares, sell the future, and lock in a near-riskless profit until the gap closed. If it traded at 19,900, they'd do the reverse. That's why futures stay close to fair value. The gap between the future and the spot price is called the <strong>basis</strong>. It shrinks every day, and on expiry day the future equals the spot. This is called <strong>convergence</strong>.</p>
+    <p>For mangoes, cost of carry also includes storage, spoilage and insurance. For crops that can't be stored long, futures prices before and after a harvest can differ hugely, because they depend on expected supply, not on today's fruit.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Contango and backwardation</span>Futures above spot is <dfn>contango</dfn>, the normal case. Futures below spot is <dfn>backwardation</dfn>, often seen when something is scarce right now.</div>
+    <div class="note"><span class="label">Price discovery</span>Futures markets often react to news before the spot market does, so they help set prices for the real goods.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>The right, not the obligation</h2></div>
+
+<section class="chapter" id="options">
+  <header><span class="label">Chapter 7</span><h2>Options: insurance for prices</h2></header>
+  <div class="prose">
+    <p>After a few years of forwards, Gopal has a complaint. When prices fall, the contract saves him. But in the year prices hit ₹85, he watched his neighbours earn ₹25 a kilo more than him. Is there a way to be protected from low prices without giving up high ones?</p>
+    <p>There is, but it costs money. A trader at the district mandi offers him a deal: for ₹3 a kilo paid today, Gopal gets the <em>right</em> to sell his mangoes to the trader in May at ₹55 a kilo. If the market price in May is below ₹55, Gopal uses that right. If it's above, he ignores it and sells at the market price. The trader keeps the ₹3 either way.</p>
+    <p>This is an <strong>option</strong>. Specifically, it's a <strong>put option</strong>: the right to <em>sell</em> at a fixed price. The fixed price, ₹55, is the <strong>strike price</strong>. The ₹3 is the <strong>premium</strong>.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>May price</th><th class="num">No protection</th><th class="num">Forward at ₹60</th><th class="num">Put at ₹55 (cost ₹3)</th></tr></thead>
+        <tbody>
+          <tr><td>₹40</td><td class="num">₹40</td><td class="num">₹60</td><td class="num">₹52</td></tr>
+          <tr><td>₹55</td><td class="num">₹55</td><td class="num">₹60</td><td class="num">₹52</td></tr>
+          <tr><td>₹60</td><td class="num">₹60</td><td class="num">₹60</td><td class="num">₹57</td></tr>
+          <tr><td>₹75</td><td class="num">₹75</td><td class="num">₹60</td><td class="num">₹72</td></tr>
+          <tr><td>₹90</td><td class="num">₹90</td><td class="num">₹60</td><td class="num">₹87</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Gopal's effective price per kg in each case. The put gives a floor of ₹52 (₹55 strike minus ₹3 premium) and keeps nearly all the upside.</figcaption>
+  </figure>
+  <figure class="fig-card">
+    <span class="label">Three ways to face the May price</span>
+    <div class="scroll"><svg viewBox="0 0 640 280" width="100%" style="min-width:480px" role="img" aria-label="Chart comparing Gopal's effective price per kilo with no protection, a forward at 60, and a put at 55"><g id="hedge3"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--muted)"></i>No protection</span><span><i style="background:var(--leaf)"></i>Forward at ₹60</span><span><i style="background:var(--acc)"></i>Put at ₹55 (cost ₹3)</span></div>
+    <figcaption>The forward is a flat line: certainty, no upside. The put has a floor at ₹52 and then rises with the market, always ₹3 below the unprotected line.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>The put is exactly like crop insurance, or car insurance. You pay a premium. If disaster strikes, you're protected. If it doesn't, the premium is gone, and you're glad you didn't need it.</p>
+    <p>Lakshmi can do the mirror image. She buys a <strong>call option</strong>: the right to <em>buy</em> mangoes at ₹65 in May. If prices go to ₹90, she pays only ₹65. If they fall to ₹45, she ignores the option and buys cheaply at the market.</p>
+    <p>There's one crucial asymmetry. The <strong>buyer</strong> of an option has a right and can walk away; the most they can lose is the premium. The <strong>seller</strong> (also called the <strong>writer</strong>) has an obligation. The trader who sold Gopal the put must buy his mangoes at ₹55 even if the market collapses to ₹30. The seller collects a small premium and takes on a potentially large loss. Option sellers are the insurance companies of the derivatives world.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Call and put</span><dfn>Call</dfn>: the right to buy at the strike. Gains when prices rise. <dfn>Put</dfn>: the right to sell at the strike. Gains when prices fall.</div>
+    <div class="note"><span class="label">Exercise</span>Using the right. In India, stock and index options are <dfn>European-style</dfn>: they can be exercised only at expiry. <dfn>American-style</dfn> options can be exercised any time before.</div>
+    <div class="note risk"><span class="label">Buyer vs. seller</span>Buyer: limited loss (the premium), possibly large gain. Seller: limited gain (the premium), possibly large loss.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="payoff">
+  <header><span class="label">Chapter 8</span><h2>Drawing an option</h2></header>
+  <div class="prose">
+    <p>Option traders think in pictures called <strong>payoff diagrams</strong>: profit or loss at expiry for every possible price of the underlying. Here they are for options on Sunrise Foods shares, currently at ₹180, with 30 days to expiry. The premium is calculated from a standard pricing model (Chapter 9). Choose the option, the side and the strike.</p>
+  </div>
+  <div class="panel">
+    <div class="seg-row">
+      <div class="seg" role="group" aria-label="Option type" id="po-type"><button type="button" data-v="call" aria-pressed="true">Call</button><button type="button" data-v="put" aria-pressed="false">Put</button></div>
+      <div class="seg" role="group" aria-label="Buy or sell" id="po-side"><button type="button" data-v="buy" aria-pressed="true">Buy</button><button type="button" data-v="sell" aria-pressed="false">Sell</button></div>
+    </div>
+    <div class="ctrl" style="max-width:420px"><label for="po-k">Strike price <output id="po-k-out">₹190</output></label><input id="po-k" type="range" min="150" max="210" step="5" value="190"></div>
+    <div class="scroll">
+      <svg viewBox="0 0 640 300" width="100%" style="min-width:520px" role="img" aria-label="Payoff diagram at expiry for the chosen option"><g id="po-chart"></g></svg>
+    </div>
+    <div class="readout">
+      <div><span class="label">Premium per share</span><span class="big" id="po-prem">₹2.82</span></div>
+      <div><span class="label">Break-even at expiry</span><span class="big" id="po-be">₹192.82</span></div>
+      <div><span class="label">Maximum gain</span><span class="big" id="po-max">Unlimited</span></div>
+      <div><span class="label">Maximum loss</span><span class="big" id="po-min">₹2.82</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)" id="po-note"></p>
+  </div>
+  <div class="cols">
+    <div class="col u"><h3>Buy a call</h3><p>Bet that the price rises well above the strike. Loss limited to the premium; gain grows as the price rises. Used by Lakshmi to cap her mango costs.</p></div>
+    <div class="col u"><h3>Buy a put</h3><p>Protection against a fall, or a bet on one. Loss limited to the premium. Used by Gopal, and by investors protecting a portfolio.</p></div>
+    <div class="col d"><h3>Sell a call</h3><p>Collect a premium, betting the price stays below the strike. If it soars, losses have no ceiling, unless you own the shares (a covered call).</p></div>
+    <div class="col d"><h3>Sell a put</h3><p>Collect a premium, agreeing to buy at the strike if the price falls. Large losses in a crash; this is how the mandi trader insured Gopal.</p></div>
+  </div>
+  <div class="prose">
+    <p>Options are described by where the strike sits relative to today's price. A call with a strike below the current price is <strong>in the money</strong>: it would be worth exercising now. At the current price, it's <strong>at the money</strong>. Above, it's <strong>out of the money</strong>: it needs the price to rise before it's worth anything. For puts, it's the reverse.</p>
+  </div>
+</section>
+
+<section class="chapter" id="premium">
+  <header><span class="label">Chapter 9</span><h2>What makes an option expensive</h2></header>
+  <div class="prose">
+    <p>Why did the ₹190 call cost ₹2.82 and not ₹1 or ₹10? In 1973, the economists Fischer Black and Myron Scholes, with Robert Merton, published a formula that answered this question. It earned a Nobel prize in 1997, and versions of it are still used by every options desk.</p>
+    <p>You don't need the formula, but you do need its ingredients. An option's premium has two parts:</p>
+    <ul>
+      <li><strong>Intrinsic value</strong>: what it would be worth if exercised right now. A ₹170 call when the share is at ₹180 has ₹10 of intrinsic value. Out-of-the-money options have none.</li>
+      <li><strong>Time value</strong>: everything else. It's the price of the <em>chance</em> that the option becomes more valuable before expiry.</li>
+    </ul>
+    <p>Time value depends mostly on two things: how much time is left, and how much the price is expected to swing. Try them.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="bs-t">Days to expiry <output id="bs-t-out">30</output></label><input id="bs-t" type="range" min="1" max="180" step="1" value="30"></div>
+      <div class="ctrl"><label for="bs-v">Expected volatility (yearly) <output id="bs-v-out">30%</output></label><input id="bs-v" type="range" min="10" max="80" step="1" value="30"></div>
+    </div>
+    <div class="readout">
+      <div><span class="label">₹190 call premium</span><span class="big" id="bs-c">₹2.82</span></div>
+      <div><span class="label">₹170 put premium</span><span class="big" id="bs-p">₹2.05</span></div>
+      <div><span class="label">Call loses per day (theta)</span><span class="big" id="bs-th">₹0.07</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)">Sunrise share at ₹180, interest rate 6.5%. Both options are out of the money, so their premium is entirely time value.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Time decay: watching an option melt</span><div class="seg"><button type="button" id="decay-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 270" width="100%" style="min-width:480px" role="img" aria-label="Chart of option premiums falling as expiry approaches, slowly at first and then steeply in the final days"><g id="decay"></g></svg></div>
+    <div class="legend"><span><i style="background:var(--acc)"></i>₹180 call (at the money)</span><span><i style="background:var(--down)"></i>₹190 call (out of the money)</span></div>
+    <figcaption>If the share price stays at ₹180, both premiums shrink every day, and fastest in the last two weeks. This is what every option buyer is paying for and every seller is collecting.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Slide days to expiry down to 1, and the call is worth almost nothing: there's no time left for the share to climb to ₹190. Time value melts every day, faster near expiry. This is <strong>time decay</strong>, and it works against every option buyer and for every seller.</p>
+    <p>Slide volatility up, and both options become more expensive. If the share might swing wildly, the chance of reaching ₹190 rises. The volatility that the market's option prices imply is called <strong>implied volatility</strong>. It jumps before results, elections and budgets, and in crashes, because that's when people pay most for protection.</p>
+    <p>Traders summarise how an option reacts to each ingredient using the <strong>Greeks</strong>:</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Greek</th><th>Measures how the premium changes when…</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Delta</strong></td><td>the underlying price moves ₹1</td><td>Delta 0.3: premium rises about 30 paise per ₹1 rise in the share</td></tr>
+          <tr><td><strong>Gamma</strong></td><td>delta itself changes as price moves</td><td>Highest for at-the-money options near expiry, where things move fastest</td></tr>
+          <tr><td><strong>Theta</strong></td><td>one day passes</td><td>Theta −0.07: loses about 7 paise a day if nothing else changes</td></tr>
+          <tr><td><strong>Vega</strong></td><td>implied volatility moves 1 point</td><td>Premiums can collapse after results even if the price barely moves ("IV crush")</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Moneyness</span>In the money options cost more but behave more like the underlying. Far out of the money options are cheap because they usually expire worthless.</div>
+    <div class="note risk"><span class="label">Cheap isn't cheap</span>A ₹0.40 option isn't a bargain. Its low price reflects a low chance of paying off. Slide days to 7 to see a weekly ₹190 call.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>Protection and peril</h2></div>
+
+<section class="chapter wide" id="hedging">
+  <header><span class="label">Chapter 10</span><h2>Hedging in real life</h2></header>
+  <div class="prose">
+    <p>Derivatives were invented for hedging, and most of their value to the economy still comes from it. Here is how each character in the Kesarpur stories uses them to <em>reduce</em> risk.</p>
+  </div>
+  <div class="cols">
+    <div class="col l"><h3>Gopal: a floor for his crop</h3><p>Buys a put on mangoes at ₹55 for ₹3/kg. His worst case is ₹52 a kilo, and he keeps the upside. In India, exchanges list futures on several farm goods; farmer groups (FPOs) can hedge together to reach lot sizes.</p></div>
+    <div class="col l"><h3>Lakshmi: a ceiling on costs</h3><p>Buys mango forwards from farmers and calls for the rest, and buys edible oil futures. Her pickle margins no longer swing with the weather.</p></div>
+    <div class="col l"><h3>Rohit: protecting shares</h3><p>Owns 1,000 Sunrise shares at ₹180 before a risky results day. He buys ₹170 puts for ₹2.05 a share, ₹2,050 in total. Whatever happens, his shares are effectively worth at least ₹167.95 until expiry. This is a <strong>protective put</strong>.</p></div>
+    <div class="col"><h3>Rohit: earning from shares</h3><p>In a quiet month, he sells ₹190 calls on the same shares for ₹2.82, earning ₹2,820. If Sunrise rises above ₹190, he must sell at ₹190 and misses gains above that. This is a <strong>covered call</strong>: income in exchange for capping upside.</p></div>
+    <div class="col"><h3>Ananya's mutual fund</h3><p>Fund managers sell index futures to reduce exposure quickly without selling dozens of shares, then buy them back later. Arbitrage funds (from the fund story) earn low-risk returns from the gap between share and futures prices.</p></div>
+    <div class="col m"><h3>A hedge is not free</h3><p>Premiums, margins and missed gains are the cost. A perfect hedge removes both losses and gains. The goal isn't to make money; it's to make the outcome survivable.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="swaps">
+  <header><span class="label">Chapter 11</span><h2>Swaps and currency contracts</h2></header>
+  <div class="prose">
+    <h3 class="sub-h" style="margin-top:0">The council's interest rate swap</h3>
+    <p>Years after the bridge, Farida, the Kesarpur treasurer, borrows ₹20 crore from a bank for a water treatment plant. The loan has a <strong>floating rate</strong>: it resets every year to the central bank's policy rate plus 2%. Today that's 8.5%. If rates rise to 11%, the town's interest bill jumps by ₹50 lakh a year, money it doesn't have.</p>
+    <p>Farida signs an <strong>interest rate swap</strong> with another bank. Each year, the town pays the bank a <em>fixed</em> 8.5% on ₹20 crore. The bank pays the town whatever the floating rate is. The town passes that floating payment straight to its lender.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Floating rate that year</th><th class="num">Pays lender (floating)</th><th class="num">Receives from swap bank (floating)</th><th class="num">Pays swap bank (fixed 8.5%)</th><th class="num">Net cost</th></tr></thead>
+        <tbody>
+          <tr><td>7.0%</td><td class="num">₹1.40 cr</td><td class="num">+₹1.40 cr</td><td class="num">₹1.70 cr</td><td class="num">₹1.70 cr</td></tr>
+          <tr><td>8.5%</td><td class="num">₹1.70 cr</td><td class="num">+₹1.70 cr</td><td class="num">₹1.70 cr</td><td class="num">₹1.70 cr</td></tr>
+          <tr><td>11.0%</td><td class="num">₹2.20 cr</td><td class="num">+₹2.20 cr</td><td class="num">₹1.70 cr</td><td class="num">₹1.70 cr</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>The swap turns a floating-rate loan into a fixed-rate one. In practice only the net difference is paid each period.</figcaption>
+  </figure>
+  <figure class="fig-card">
+    <span class="label">How the money flows in the swap</span>
+    <div class="scroll"><svg viewBox="0 0 660 230" width="100%" style="min-width:560px" role="img" aria-label="Diagram: the town pays floating interest to its lender, receives floating interest from the swap bank, and pays fixed 8.5 percent to the swap bank"><g id="swapflow"></g></svg></div>
+    <figcaption>The two floating payments cancel out for the town (moving dots in teal pass straight through). What's left is the fixed 8.5% it pays to the swap bank (orange).</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Only the interest is exchanged; the ₹20 crore itself never changes hands. That ₹20 crore is called the <strong>notional</strong> amount. Interest rate swaps are by far the biggest derivative market in the world by notional value, used by banks, companies and governments to manage borrowing costs.</p>
+    <h3 class="sub-h">Sunrise's dollar problem</h3>
+    <p>Sunrise sells $10 lakh (one million dollars) of pickle to a supermarket chain in Dubai, to be paid in three months. Today a dollar buys ₹84. If the rupee strengthens to ₹80 by payment day, Sunrise receives ₹40 lakh less than planned, enough to wipe out the profit on the order.</p>
+    <p>Its bank offers a <strong>currency forward</strong>: Sunrise agrees today to sell $10 lakh in three months at ₹84.40 per dollar. (The forward rate is a little higher than today's because Indian interest rates are higher than US rates, the same cost-of-carry logic as Chapter 6.) Sunrise now knows it will receive ₹8.44 crore, whether the rupee goes to ₹80 or ₹87.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Swap</span>An exchange of cash-flow streams: fixed for floating interest, one currency for another, or a commodity price for a fixed price.</div>
+    <div class="note"><span class="label">Who regulates</span>In India, interest rate and currency derivatives are mainly regulated by the RBI, and exchange-traded equity and commodity derivatives by SEBI.</div>
+    <div class="note risk"><span class="label">Counterparty risk returns</span>Most swaps are private (OTC) deals. If the bank on the other side fails, the protection can vanish. After 2008, regulators pushed many swaps through central clearing houses.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="kamala">
+  <header><span class="label">Chapter 12</span><h2>Kamala's lottery tickets</h2></header>
+  <div class="prose">
+    <p>Kamala, Rohit's great-aunt, mentioned her options losses in the stock market story. Here is what happened.</p>
+    <p>A video on her phone showed a young man who "turned ₹10,000 into ₹4 lakh" buying index options on expiry day. It looked easy. Options that cost only a few rupees sometimes jumped to ₹100 in a few hours. Kamala opened an account and started buying cheap, out-of-the-money weekly calls and puts, a few thousand rupees at a time.</p>
+    <p>The first month, she doubled her money twice. Then came a long string of small losses: most of her options expired worthless, a few rupees at a time. When she was down, she bought more, to win it back. Over a year she lost ₹3.2 lakh, most of her savings outside her house.</p>
+    <p>She was not unlucky. She was on the wrong side of the arithmetic.</p>
+    <ul>
+      <li><strong>Time decay.</strong> Every option she bought lost value every day it didn't move her way. Weekly options decay fastest.</li>
+      <li><strong>Cheap options are cheap for a reason.</strong> A far out-of-the-money option priced at ₹2 is pricing a small chance of a big move. Most expire at zero.</li>
+      <li><strong>Costs.</strong> Brokerage, transaction taxes, exchange fees and the bid–ask spread were charged on every trade, win or lose. Frequent trading turned small costs into large ones.</li>
+      <li><strong>The other side.</strong> The people selling her options were often professional firms with fast computers, careful risk models and diversified books.</li>
+      <li><strong>Behaviour.</strong> Chasing losses, betting bigger after wins, and trading on feelings.</li>
+    </ul>
+    <p>Her story is common. SEBI studied individual traders in equity futures and options and found that about 93% of them lost money over the three years to March 2024, with total net losses of over ₹1.8 lakh crore. Earlier studies found similar results. In response, from late 2024 SEBI raised minimum contract sizes, limited weekly expiries to one index per exchange, and required option premiums to be paid upfront, to make reckless betting harder.</p>
+    <p>Selling options isn't safe either. Kamala's neighbour, who sold far out-of-the-money options to collect "steady income", earned small amounts for months and then lost two years' gains in a single day when the market gapped. Traders describe it as picking up coins in front of a steamroller.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Speculation is legal</span>Speculators provide a real service by carrying risk hedgers want to shed. But they are paid only if they are better informed, better capitalised or more disciplined than the other side.</div>
+    <div class="note risk"><span class="label">Risk disclosure</span>Indian brokers must show a risk disclosure, based on SEBI's study, before you trade F&amp;O. Read it.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="blowups">
+  <header><span class="label">Chapter 13</span><h2>When derivatives blew up</h2></header>
+  <div class="prose">
+    <p>In 2002 Warren Buffett called derivatives "financial weapons of mass destruction". He used them himself, but he was warning about what happens when leverage, complexity and weak controls come together. History gives examples at every scale.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Barings Bank, 1995</strong><span>A single trader in Singapore, Nick Leeson, built up huge unauthorised futures positions on the Japanese stock market and hid the losses in a secret account. An earthquake in Kobe sent the market down, losses reached about £800 million, and Britain's oldest merchant bank, more than 200 years old, collapsed.</span></div>
+    <div class="risk-row"><strong>LTCM, 1998</strong><span>A US hedge fund run by star traders and two Nobel prize-winning economists used enormous leverage on trades its models said were nearly riskless. When Russia defaulted and markets behaved in ways the models didn't expect, the fund lost billions in weeks. Banks were organised to rescue it to stop the damage spreading.</span></div>
+    <div class="risk-row"><strong>2008 financial crisis</strong><span>Banks had packaged US home loans into complex securities and sold protection on them using <em>credit default swaps</em>, insurance-like contracts against default. The insurer AIG had sold vast amounts without setting aside enough to pay. When home loans defaulted, AIG needed a huge government rescue, and the web of OTC contracts spread panic across the global financial system.</span></div>
+    <div class="risk-row"><strong>Small-scale, every day</strong><span>Individuals wiped out by leveraged positions, companies that "hedged" by taking bets bigger than their real exposure, and exporters ruined by complex currency products they didn't understand.</span></div>
+  </div>
+  <div class="prose">
+    <p>The common thread isn't the derivative. It's <strong>leverage</strong> (positions far bigger than the capital behind them), <strong>opacity</strong> (nobody knew who owed what to whom), and <strong>overconfidence</strong> (models that assumed rare events wouldn't happen). The fixes since 2008, more central clearing, more margin, reporting of OTC trades, and tighter limits for individuals, target exactly those three.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Credit default swap</span>A contract where one side pays a regular fee and the other pays out if a borrower defaults. Like insurance on a bond, but you don't need to own the bond to buy it.</div>
+    <div class="note"><span class="label">Systemic risk</span>The danger that one firm's failure spreads to others because they're linked by contracts. Clearing houses reduce it but concentrate risk in themselves, so they are heavily regulated.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>The derivatives market</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. The derivatives market is where all these contracts are created and traded: on exchanges and privately, on almost every price in the economy. It's enormous. The notional value of outstanding contracts worldwide is many times the size of the world's economy, though the money actually at risk is far smaller, because notional is just the size of the underlying, not what changes hands.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Exchange-traded</h3><p>Standard futures and options on exchanges such as NSE, BSE, MCX and NCDEX in India, or CME in the US. Cleared centrally, margined daily, prices public. Equity index options dominate Indian volumes; by number of contracts traded, NSE has been the world's largest derivatives exchange in recent years.</p></div>
+    <div class="col"><h3>Over the counter (OTC)</h3><p>Private, customised contracts between banks, companies and funds: swaps, forwards, complex options. Far larger by notional value worldwide. Since 2008, many are reported to trade repositories and cleared centrally.</p></div>
+    <div class="col l"><h3>Underlyings in India</h3><p><strong>Equity</strong>: Nifty, Bank Nifty, Sensex and about 200 stocks. <strong>Currency</strong>: rupee against the dollar, euro, pound and yen. <strong>Interest rates</strong>: government bond futures and swaps. <strong>Commodities</strong>: gold, silver, crude oil, natural gas, metals and some farm goods.</p></div>
+    <div class="col m"><h3>Participants</h3><p>Banks and companies hedging; mutual funds and insurers managing risk; foreign investors; proprietary trading firms and market makers, many using algorithms; and a large number of individual traders.</p></div>
+    <div class="col m"><h3>Regulators</h3><p>SEBI for exchange-traded equity, commodity and currency derivatives; RBI for interest rate and OTC currency derivatives and for banks. Exchanges and clearing corporations set margins and position limits.</p></div>
+    <div class="col d"><h3>Data traders watch</h3><p><strong>Open interest</strong>: the number of contracts still open. <strong>Put–call ratio</strong>: puts traded vs. calls, a mood gauge. <strong>Implied volatility</strong> indices such as India VIX, sometimes called the fear gauge.</p></div>
+  </div>
+  <div class="prose">
+    <h3 class="sub-h">A short Indian history</h3>
+    <p>Forward trading in cotton and other goods existed in Indian markets for over a century, with long periods of bans. Modern exchange-traded equity derivatives began in June 2000, when index futures launched on the NSE and BSE. Index options followed in 2001, then stock options and stock futures the same year. National commodity exchanges like MCX and NCDEX opened in 2003, and currency futures in 2008. Commodity derivatives regulation moved to SEBI in 2015. Volumes grew enormously after 2020 as millions of individuals began trading options on their phones, which led to SEBI's studies and tighter rules from 2024.</p>
+  </div>
+</section>
+
+<section class="chapter" id="rules">
+  <header><span class="label">Chapter 15</span><h2>Rohit's rules</h2></header>
+  <div class="prose">
+    <p>After watching Kamala's losses and learning to hedge, Rohit writes down his rules for derivatives. He keeps them on his phone's lock screen.</p>
+    <ul>
+      <li><strong>Hedge, don't bet.</strong> Use derivatives only to reduce a risk he already has, like protecting shares before an event.</li>
+      <li><strong>Know the worst case in rupees before entering.</strong> If he can't say exactly how much he could lose, he doesn't trade.</li>
+      <li><strong>Never sell options he can't cover.</strong> Covered calls on shares he owns are fine. Naked selling isn't.</li>
+      <li><strong>Size matters more than direction.</strong> No position where a bad day could seriously hurt him.</li>
+      <li><strong>Count all the costs</strong>: premium, brokerage, taxes, spread, and the time decay he is paying.</li>
+      <li><strong>No borrowed money, ever.</strong></li>
+      <li><strong>Ignore anyone selling courses, tips or screenshots of profits.</strong> They are rarely showing the losses.</li>
+    </ul>
+    <p>Most of the time, his best derivatives decision is none at all. His index fund and a few shares, held for years, don't need them.</p>
+    <h3 class="sub-h">Tax note</h3>
+    <p>In India, profits and losses from futures and options are generally treated as non-speculative business income, taxed at your slab rate, with record-keeping and possibly audit requirements. Rules change, so check with a tax professional before trading.</p>
+  </div>
+  <aside>
+    <div class="note leaf"><span class="label">Questions to ask</span>What risk am I reducing? What does this cost? What's my maximum loss? What happens if the market gaps overnight? Could I explain this trade to Meera?</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>The next harvest</h2></header>
+  <div class="prose">
+    <p>Ten years on, Gopal leads a farmer producer organisation of 300 mango growers. Together they sell part of each year's crop forward to Sunrise and other buyers, and they buy price protection for the rest. A bad price year no longer means selling land. His son is studying agricultural economics.</p>
+    <p>Lakshmi's company knows its mango, oil and currency costs months in advance. Its profits are steadier, which, as the stock market story explained, makes investors willing to pay more for its shares.</p>
+    <p>Kamala has closed her trading account. She tells her story at the Kesarpur senior citizens' club, which she says is the best return she's ever made on ₹3.2 lakh.</p>
+    <p>That is what a derivative is: a contract whose value comes from something else's price, which lets people agree today on tomorrow's terms. And that is what the derivatives market is: a place where risk itself is bought and sold. In the hands of a farmer or a pickle maker, it is insurance. In the hands of someone chasing quick money with leverage, it is one of the fastest ways to lose it.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The four stories</span><em>Bonds</em> lend. <em>Mutual funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. Together they make up most of what people mean by the financial markets.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Eight myths about derivatives</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Derivatives are just gambling.</span><span>They began as insurance for farmers and merchants, and most of their economic value still comes from hedging.</span></div>
+    <div class="myth"><span class="m">Buying options is low risk because loss is limited.</span><span>Limited per trade, but most out-of-the-money options expire worthless. Repeated small losses add up to large ones.</span></div>
+    <div class="myth"><span class="m">Selling options is safe, steady income.</span><span>Small regular gains, then rare but huge losses. Unlimited risk on naked calls.</span></div>
+    <div class="myth"><span class="m">A cheap option is a bargain.</span><span>It's cheap because the market thinks it probably won't pay off.</span></div>
+    <div class="myth"><span class="m">Margin is the most you can lose.</span><span>With futures and sold options, losses can exceed your deposit.</span></div>
+    <div class="myth"><span class="m">Hedging makes money.</span><span>A hedge reduces risk and costs something. If your hedge often profits, it's probably a bet.</span></div>
+    <div class="myth"><span class="m">Notional value is money at risk.</span><span>Notional is the size of the underlying. Actual exposure is usually much smaller, though it can grow fast.</span></div>
+    <div class="myth"><span class="m">A good strategy from a video will work for me.</span><span>Screenshots show winners. SEBI's data shows that about nine in ten individual F&amp;O traders lose.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before any derivative trade: a checklist</h2>
+  <ul class="check">
+    <li>I can name the specific risk this trade reduces, or I admit it's a bet.</li>
+    <li>I know the lot size and the full contract value I control.</li>
+    <li>I know my maximum loss in rupees, including an overnight gap.</li>
+    <li>I can meet margin calls without selling other things in a panic.</li>
+    <li>I understand how time decay and volatility affect this position.</li>
+    <li>I've counted premium, brokerage, taxes and the bid–ask spread.</li>
+    <li>I'm not using borrowed money or money I'll need soon.</li>
+    <li>I know what I'll do at expiry, including physical settlement for stock derivatives.</li>
+    <li>I've read the broker's risk disclosure.</li>
+    <li>I'm not acting on a tip, a course, or a screenshot of someone else's profits.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Gopal fears ₹40, Lakshmi fears ₹90</td><td>Price risk</td><td>Opposite fears make a natural trade</td></tr>
+        <tr><td>The January handshake</td><td>Forward contract, hedging</td><td>Fix tomorrow's price today</td></tr>
+        <tr><td>Paper worth nothing alone</td><td>Derivative, underlying</td><td>Value derived from another price</td></tr>
+        <tr><td>The farmer who broke his word</td><td>Futures, clearing house</td><td>Standard contracts with a guaranteed counterparty</td></tr>
+        <tr><td>Rohit's margin calls</td><td>Margin, mark-to-market</td><td>Pay losses daily, so they can't pile up</td></tr>
+        <tr><td>1.5% index move, 12.5% gain</td><td>Leverage</td><td>Small moves, big results, both ways</td></tr>
+        <tr><td>20,107 vs. 20,000</td><td>Cost of carry, basis</td><td>Futures price = spot + interest − dividends</td></tr>
+        <tr><td>Gopal's ₹55 put</td><td>Options, premium, strike</td><td>Insurance: a right, not an obligation</td></tr>
+        <tr><td>The payoff chart</td><td>Calls, puts, buy and sell</td><td>Buyers risk the premium; sellers risk much more</td></tr>
+        <tr><td>₹2.82 for a ₹190 call</td><td>Time value, volatility, Greeks</td><td>Options melt with time and swell with fear</td></tr>
+        <tr><td>Farida's ₹20 crore loan</td><td>Interest rate swap</td><td>Swap floating payments for fixed</td></tr>
+        <tr><td>Sunrise's dollar order</td><td>Currency forward</td><td>Lock in an exchange rate</td></tr>
+        <tr><td>Kamala's weekly options</td><td>Speculation, SEBI study</td><td>Most individual traders lose</td></tr>
+        <tr><td>Barings, LTCM, 2008</td><td>Systemic risk</td><td>Leverage + opacity + overconfidence</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>American / European option</dt><dd>Exercisable any time before expiry / only at expiry.</dd></div>
+    <div><dt>Arbitrage</dt><dd>Profiting from the same thing priced differently in two places.</dd></div>
+    <div><dt>At / in / out of the money</dt><dd>Strike equal to / favourable to / unfavourable to the current price.</dd></div>
+    <div><dt>Basis</dt><dd>Gap between futures price and spot price.</dd></div>
+    <div><dt>Call option</dt><dd>The right to buy at the strike price.</dd></div>
+    <div><dt>Cash / physical settlement</dt><dd>Pay the price difference / actually deliver the underlying.</dd></div>
+    <div><dt>Clearing corporation</dt><dd>Guarantees trades by becoming the counterparty to both sides.</dd></div>
+    <div><dt>Cost of carry</dt><dd>Interest and storage costs that make futures differ from spot.</dd></div>
+    <div><dt>Covered call</dt><dd>Selling a call on shares you own.</dd></div>
+    <div><dt>Credit default swap</dt><dd>A contract that pays out if a borrower defaults.</dd></div>
+    <div><dt>Delta, gamma, theta, vega</dt><dd>Option sensitivity to price, delta's change, time, and volatility.</dd></div>
+    <div><dt>Expiry</dt><dd>The last day a contract exists.</dd></div>
+    <div><dt>Forward</dt><dd>Private agreement to trade later at a fixed price.</dd></div>
+    <div><dt>Future</dt><dd>Standardised, exchange-traded forward.</dd></div>
+    <div><dt>Hedging</dt><dd>Taking a position that offsets an existing risk.</dd></div>
+    <div><dt>Implied volatility</dt><dd>Expected price swings implied by option prices.</dd></div>
+    <div><dt>Intrinsic / time value</dt><dd>Value if exercised now / the extra paid for the chance of more.</dd></div>
+    <div><dt>Leverage</dt><dd>Controlling a large position with little money.</dd></div>
+    <div><dt>Lot size</dt><dd>The fixed quantity in one contract.</dd></div>
+    <div><dt>Margin</dt><dd>A deposit held against possible losses.</dd></div>
+    <div><dt>Margin call</dt><dd>A demand to add money after losses.</dd></div>
+    <div><dt>Mark-to-market</dt><dd>Daily settlement of gains and losses.</dd></div>
+    <div><dt>Notional</dt><dd>The face size of the underlying a contract covers.</dd></div>
+    <div><dt>Open interest</dt><dd>Number of contracts not yet closed.</dd></div>
+    <div><dt>Premium</dt><dd>The price paid for an option.</dd></div>
+    <div><dt>Protective put</dt><dd>Buying a put to insure shares you own.</dd></div>
+    <div><dt>Put option</dt><dd>The right to sell at the strike price.</dd></div>
+    <div><dt>Strike price</dt><dd>The fixed price in an option contract.</dd></div>
+    <div><dt>Swap</dt><dd>Exchange of one stream of payments for another.</dd></div>
+    <div><dt>Underlying</dt><dd>The asset or rate a derivative depends on.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how derivatives work. Gopal, Sunrise Foods, the contracts and all figures in the story are fictional and illustrative; option prices come from a standard textbook model, not a live market. It is not investment, trading or tax advice. Rules, contract specifications and taxes change, so check official sources or consult a SEBI-registered adviser before trading derivatives.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const fmt = n => (n<0?'−':'')+'₹' + Math.round(Math.abs(n)).toLocaleString('en-IN');
+  const fmt2 = n => (n<0?'−':'')+'₹' + Math.abs(n).toFixed(2);
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+
+  // Normal CDF and Black-Scholes
+  const N=x=>{const t=1/(1+0.2316419*Math.abs(x));const d=0.3989423*Math.exp(-x*x/2);const p=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));return x>0?1-p:p;};
+  const bs=(S,K,T,v,r,put)=>{const d1=(Math.log(S/K)+(r+v*v/2)*T)/(v*Math.sqrt(T)),d2=d1-v*Math.sqrt(T);return put?K*Math.exp(-r*T)*N(-d2)-S*N(-d1):S*N(d1)-K*Math.exp(-r*T)*N(d2);};
+
+  // Forward
+  (function(){
+    const s=document.getElementById('spot');
+    function u(){ const p=+s.value, un=p*10000, eff=600000-un;
+      document.getElementById('spot-out').textContent='₹'+p+'/kg';
+      document.getElementById('g-un').textContent=fmt(un);
+      document.getElementById('s-un').textContent=fmt(un);
+      const g=document.getElementById('g-eff'), sf=document.getElementById('s-eff');
+      g.textContent=(eff>0?'+':'')+fmt(eff); g.className='num '+(eff>0?'up':eff<0?'down':'');
+      sf.textContent=(eff<0?'+':'')+fmt(-eff).replace('−','−'); sf.className='num '+(eff<0?'up':eff>0?'down':'');
+      if(eff<0) sf.textContent='+'+fmt(-eff); else if(eff>0) sf.textContent='−'+fmt(eff); else sf.textContent='₹0';
+      document.getElementById('fw-note').textContent = p===60 ? 'At ₹60 the contract makes no difference to either side.'
+        : p<60 ? 'Prices fell. The contract protects Gopal: he still gets ₹60. Sunrise pays '+fmt(eff)+' more than the market price, the cost of its certainty.'
+        : 'Prices rose. The contract protects Sunrise: it still pays ₹60. Gopal earns '+fmt(-eff)+' less than the market would have paid, the cost of his certainty.'; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Leverage
+  (function(){
+    const m=document.getElementById('lev-m'), x=document.getElementById('lev-x');
+    function u(){ const mp=+m.value/100, mv=+x.value/100, val=1500000, margin=val*mp, pl=val*mv, pct=pl/margin*100;
+      document.getElementById('lev-m-out').textContent=(+m.value)+'%';
+      document.getElementById('lev-x-out').textContent=(mv>0?'+':mv<0?'−':'')+Math.abs(+x.value)+'%';
+      document.getElementById('lev-l').textContent=(1/mp).toFixed(1)+'×';
+      const p=document.getElementById('lev-pl'); p.textContent=(pl>0?'+':'')+fmt(pl); p.className='big '+(pl>0?'up':pl<0?'down':'');
+      const q=document.getElementById('lev-pct'); q.textContent=(pct>0?'+':pct<0?'−':'')+Math.abs(pct).toFixed(1)+'%'; q.className='big '+(pct>0?'up':pct<0?'down':'');
+      document.getElementById('lev-note').textContent = pct<=-100 ? 'This move wipes out the entire margin and more. The trader owes the broker '+fmt(-pl-margin)+' beyond the deposit.'
+        : 'Contract value ₹15 lakh, margin '+fmt(margin)+'. Index fall that wipes out the margin: '+(mp*100).toFixed(0)+'%.'; }
+    [m,x].forEach(e=>e.addEventListener('input',u)); u();
+  })();
+
+  // Payoff diagram
+  (function(){
+    let type='call', side='buy'; const k=document.getElementById('po-k'); const g=document.getElementById('po-chart');
+    const S=180,T=30/365,V=0.3,R=0.065;
+    const L=60,Rr=620,Tp=20,B=250, x0=130,x1=230;
+    function draw(){
+      const K=+k.value, prem=bs(S,K,T,V,R,type==='put'), sgn=side==='buy'?1:-1;
+      const pay=s=>sgn*((type==='call'?Math.max(s-K,0):Math.max(K-s,0))-prem);
+      let ymax=0; for(let s=x0;s<=x1;s++) ymax=Math.max(ymax,Math.abs(pay(s))); ymax=Math.max(10,Math.ceil(ymax/10)*10);
+      const X=s=>L+(s-x0)/(x1-x0)*(Rr-L), Y=v=>Tp+(ymax-v)/(2*ymax)*(B-Tp);
+      g.innerHTML='';
+      g.appendChild(el('rect',{x:L,y:Tp,width:Rr-L,height:Y(0)-Tp,fill:'var(--up-soft)',opacity:.5}));
+      g.appendChild(el('rect',{x:L,y:Y(0),width:Rr-L,height:B-Y(0),fill:'var(--down-soft)',opacity:.5}));
+      [-ymax,-ymax/2,0,ymax/2,ymax].forEach(v=>{ g.appendChild(el('line',{x1:L,x2:Rr,y1:Y(v),y2:Y(v),stroke:v===0?'var(--muted)':'var(--rule)'})); g.appendChild(el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},(v>0?'+':v<0?'−':'')+Math.abs(v))); });
+      for(let s=x0;s<=x1;s+=20) g.appendChild(el('text',{x:X(s),y:B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'₹'+s));
+      g.appendChild(el('text',{x:(L+Rr)/2,y:B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Sunrise share price at expiry'));
+      g.appendChild(el('text',{x:L+6,y:Tp+14,'font-size':11,fill:'var(--up)'},'PROFIT ₹/share'));
+      g.appendChild(el('text',{x:L+6,y:B-6,'font-size':11,fill:'var(--down)'},'LOSS ₹/share'));
+      g.appendChild(el('line',{x1:X(S),x2:X(S),y1:Tp,y2:B,stroke:'var(--muted)','stroke-dasharray':'3 4'}));
+      g.appendChild(el('text',{x:X(S)+4,y:Tp+30,'font-size':10,fill:'var(--muted)'},'Today ₹180'));
+      g.appendChild(el('line',{x1:X(K),x2:X(K),y1:Tp,y2:B,stroke:'var(--acc)','stroke-dasharray':'2 3',opacity:.6}));
+      g.appendChild(el('text',{x:X(K)+4,y:B-22,'font-size':10,fill:'var(--acc)'},'Strike ₹'+K));
+      let d=''; for(let s=x0;s<=x1;s+=0.5) d+=(d?'L':'M')+X(s).toFixed(1)+' '+Y(pay(s)).toFixed(1)+' ';
+      g.appendChild(el('path',{d:d,fill:'none',stroke:'var(--acc)','stroke-width':3}));
+      const be = type==='call'?K+prem:K-prem;
+      if(be>=x0&&be<=x1) g.appendChild(el('circle',{cx:X(be),cy:Y(0),r:5,fill:'var(--paper)',stroke:'var(--acc)','stroke-width':2}));
+      document.getElementById('po-k-out').textContent='₹'+K;
+      document.getElementById('po-prem').textContent='₹'+prem.toFixed(2);
+      document.getElementById('po-be').textContent='₹'+be.toFixed(2);
+      let mx,mn;
+      if(side==='buy'){ mn='₹'+prem.toFixed(2); mx= type==='call'?'Unlimited':'₹'+(K-prem).toFixed(2); }
+      else { mx='₹'+prem.toFixed(2); mn= type==='call'?'Unlimited':'₹'+(K-prem).toFixed(2); }
+      document.getElementById('po-max').textContent=mx; document.getElementById('po-min').textContent=mn;
+      const money = type==='call' ? (K<S?'in the money':K===S?'at the money':'out of the money') : (K>S?'in the money':K===S?'at the money':'out of the money');
+      document.getElementById('po-note').textContent='This '+type+' is '+money+'. '+(side==='buy'
+        ? 'As the buyer you pay ₹'+prem.toFixed(2)+' now and profit only if the share ends beyond ₹'+be.toFixed(2)+'.'
+        : 'As the seller you collect ₹'+prem.toFixed(2)+' now and keep it all only if the share ends '+(type==='call'?'below':'above')+' ₹'+K+'.')+' Per share; one contract covers a full lot.';
+    }
+    function seg(id,cb){ document.querySelectorAll('#'+id+' button').forEach(b=>b.addEventListener('click',()=>{ document.querySelectorAll('#'+id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false')); cb(b.dataset.v); draw(); })); }
+    seg('po-type',v=>type=v); seg('po-side',v=>side=v); k.addEventListener('input',draw); draw();
+  })();
+
+  // Premium explorer
+  (function(){
+    const t=document.getElementById('bs-t'), v=document.getElementById('bs-v');
+    function u(){ const T=+t.value/365, V=+v.value/100, c=bs(180,190,T,V,.065), p=bs(180,170,T,V,.065), c1=+t.value>1?bs(180,190,(+t.value-1)/365,V,.065):0;
+      document.getElementById('bs-t-out').textContent=t.value;
+      document.getElementById('bs-v-out').textContent=v.value+'%';
+      document.getElementById('bs-c').textContent='₹'+c.toFixed(2);
+      document.getElementById('bs-p').textContent='₹'+p.toFixed(2);
+      document.getElementById('bs-th').textContent='₹'+Math.max(0,c-c1).toFixed(2); }
+    [t,v].forEach(e=>e.addEventListener('input',u)); u();
+  })();
+
+  // ---------- Diagrams ----------
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function axes(g,o){
+    const X=v=>o.L+(v-o.x0)/(o.x1-o.x0)*(o.R-o.L), Y=v=>o.B-(v-o.y0)/(o.y1-o.y0)*(o.B-o.T);
+    o.yt.forEach(v=>{ g.appendChild(el('line',{x1:o.L,x2:o.R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:o.L-8,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},o.yf(v))); });
+    o.xt.forEach(v=> g.appendChild(el('text',{x:X(v),y:o.B+18,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xf(v))));
+    if(o.xl) g.appendChild(el('text',{x:(o.L+o.R)/2,y:o.B+38,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},o.xl));
+    return {X,Y};
+  }
+  function pathD(pts,X,Y){ return pts.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' '); }
+  function line(g,pts,X,Y,attrs){ const e=el('path',Object.assign({d:pathD(pts,X,Y),fill:'none','stroke-linejoin':'round','stroke-linecap':'round'},attrs)); g.appendChild(e); return e; }
+  function mover(g,d,color,dur,r){ if(reduce) return; const c=el('circle',{r:r||5,fill:color}); c.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d})); g.appendChild(c); }
+  function arrowHead(g,x,y,dir,color){ const s=7; const pts = dir==='r'?[[x,y],[x-s,y-s*0.7],[x-s,y+s*0.7]] : dir==='l'?[[x,y],[x+s,y-s*0.7],[x+s,y+s*0.7]] : dir==='d'?[[x,y],[x-s*0.7,y-s],[x+s*0.7,y-s]] : [[x,y],[x-s*0.7,y+s],[x+s*0.7,y+s]]; g.appendChild(el('polygon',{points:pts.map(p=>p.join(',')).join(' '),fill:color})); }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  // Replay animations: lines are visible at rest; class "draw" replays the drawing.
+  function animate(svgG, sel){ const ps=svgG.querySelectorAll(sel); ps.forEach((p,i)=>{ p.classList.remove('draw'); void p.getBoundingClientRect(); p.style.animationDelay=(i*0.35)+'s'; p.classList.add('draw'); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+
+  // 1. Price paths (prologue)
+  (function(){
+    const g=document.getElementById('paths');
+    const {X,Y}=axes(g,{L:64,R:600,T:20,B:230,x0:0,x1:4,y0:30,y1:100,yt:[30,40,50,60,70,80,90,100],yf:v=>'₹'+v,xt:[0,1,2,3,4],xf:v=>['Jan','Feb','Mar','Apr','May'][v]});
+    g.appendChild(el('rect',{x:64,y:Y(100),width:536,height:Y(80)-Y(100),fill:'var(--down-soft)',opacity:.6}));
+    g.appendChild(el('rect',{x:64,y:Y(45),width:536,height:Y(30)-Y(45),fill:'var(--down-soft)',opacity:.6}));
+    g.appendChild(el('text',{x:70,y:Y(100)+14,'font-size':11,fill:'var(--down)'},"Lakshmi's nightmare"));
+    g.appendChild(el('text',{x:70,y:Y(30)-6,'font-size':11,fill:'var(--down)'},"Gopal's nightmare"));
+    const paths=[[[0,58],[1,62],[2,70],[3,78],[4,90]],[[0,58],[1,57],[2,61],[3,59],[4,60]],[[0,58],[1,55],[2,50],[3,44],[4,40]]];
+    const cols=['var(--down)','var(--acc)','var(--down)'];
+    paths.forEach((p,i)=>{ line(g,p,X,Y,{stroke:cols[i],'stroke-width':3,pathLength:1000,class:'pp'}); g.appendChild(el('circle',{cx:X(4),cy:Y(p[4][1]),r:5,fill:cols[i]})); g.appendChild(el('text',{x:X(4)-10,y:Y(p[4][1])-10,'text-anchor':'end','font-size':12,fill:'var(--ink)'},'₹'+p[4][1]+'/kg → ₹'+(p[4][1]/10)+' lakh')); });
+    g.appendChild(el('circle',{cx:X(0),cy:Y(58),r:5,fill:'var(--ink)'}));
+    const run=()=>animate(g,'.pp');
+    document.getElementById('paths-replay').addEventListener('click',run); onView(g,run);
+  })();
+
+  // 2. Forward payoff chart, follows the slider
+  (function(){
+    const g=document.getElementById('fw-chart'), s=document.getElementById('spot');
+    const {X,Y}=axes(g,{L:64,R:600,T:16,B:210,x0:35,x1:95,y0:3,y1:10,yt:[3,4,5,6,7,8,9,10],yf:v=>'₹'+v+'L',xt:[35,45,55,65,75,85,95],xf:v=>'₹'+v,xl:'Market price of mangoes in May (₹/kg)'});
+    g.appendChild(el('polygon',{points:[[X(35),Y(3.5)],[X(60),Y(6)],[X(35),Y(6)]].map(p=>p.join(',')).join(' '),fill:'var(--up-soft)'}));
+    g.appendChild(el('polygon',{points:[[X(60),Y(6)],[X(95),Y(9.5)],[X(95),Y(6)]].map(p=>p.join(',')).join(' '),fill:'var(--down-soft)'}));
+    line(g,[[35,3.5],[95,9.5]],X,Y,{stroke:'var(--muted)','stroke-width':2.5});
+    line(g,[[35,6],[95,6]],X,Y,{stroke:'var(--acc)','stroke-width':3});
+    const v=el('line',{y1:16,y2:210,stroke:'var(--ink)','stroke-dasharray':'3 4',style:'transition:all .25s ease'}); g.appendChild(v);
+    const d1=el('circle',{r:6,fill:'var(--muted)',style:'transition:all .25s ease'}), d2=el('circle',{r:6,fill:'var(--acc)',style:'transition:all .25s ease'}); g.appendChild(d1); g.appendChild(d2);
+    const t=el('text',{'font-size':12,fill:'var(--ink)'}); g.appendChild(t);
+    function u(){ const p=+s.value, x=X(p); v.setAttribute('x1',x); v.setAttribute('x2',x); d1.setAttribute('cx',x); d1.setAttribute('cy',Y(p/10)); d2.setAttribute('cx',x); d2.setAttribute('cy',Y(6));
+      t.setAttribute('x',p>80?x-8:x+8); t.setAttribute('text-anchor',p>80?'end':'start'); t.setAttribute('y',30); t.textContent='May price ₹'+p; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // 3. Clearing house diagram
+  (function(){
+    const g=document.getElementById('clear');
+    g.appendChild(el('text',{x:130,y:18,'text-anchor':'middle','font-size':12,fill:'var(--muted)'},'FORWARD: TWO PEOPLE'));
+    g.appendChild(el('text',{x:480,y:18,'text-anchor':'middle','font-size':12,fill:'var(--muted)'},'FUTURES: CLEARING HOUSE IN THE MIDDLE'));
+    g.appendChild(el('line',{x1:280,x2:280,y1:10,y2:240,stroke:'var(--rule)'}));
+    box(g,20,100,90,50,'Gopal','seller','var(--leaf-soft)','var(--leaf)');
+    box(g,150,100,110,50,'Sunrise','buyer','var(--acc-soft)','var(--acc)');
+    g.appendChild(el('line',{x1:112,x2:148,y1:118,y2:118,stroke:'var(--muted)','stroke-width':1.5}));
+    g.appendChild(el('line',{x1:112,x2:148,y1:132,y2:132,stroke:'var(--muted)','stroke-width':1.5}));
+    arrowHead(g,148,118,'r','var(--muted)'); arrowHead(g,112,132,'l','var(--muted)');
+    g.appendChild(el('text',{x:130,y:180,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'If one breaks their word,'));
+    g.appendChild(el('text',{x:130,y:196,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'the other is stuck.'));
+    box(g,420,98,120,56,'Clearing house','guarantees all','var(--acc-soft)','var(--acc)');
+    const buyers=[[300,40],[300,108],[300,176]], sellers=[[580,40],[580,108],[580,176]];
+    buyers.forEach(([x,y],i)=>{ box(g,x,y,70,36,'Buyer '+(i+1)); const d='M'+(x+70)+' '+(y+18)+' L420 126'; g.appendChild(el('path',{d,stroke:'var(--rule)','stroke-width':1.5,fill:'none'})); mover(g,d,'var(--acc)',2+i*0.4,4); });
+    sellers.forEach(([x,y],i)=>{ box(g,x-10,y,70,36,'Seller '+(i+1)); const d='M'+(x-10)+' '+(y+18)+' L540 126'; g.appendChild(el('path',{d,stroke:'var(--rule)','stroke-width':1.5,fill:'none'})); mover(g,d,'var(--leaf)',2.2+i*0.4,4); });
+    g.appendChild(el('text',{x:480,y:236,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'Dots: margin money flowing in from both sides'));
+  })();
+
+  // 4. Mark-to-market chart
+  (function(){
+    const g=document.getElementById('mtm');
+    const bal=[180000,191250,172500,165000,191250,225000], pl=[0,11250,-18750,-15000,11250,33750];
+    const {X,Y}=axes(g,{L:72,R:600,T:20,B:220,x0:-0.5,x1:5.5,y0:140000,y1:230000,yt:[140000,160000,180000,200000,220000],yf:v=>'₹'+(v/100000).toFixed(1)+'L',xt:[0,1,2,3,4,5],xf:v=>'Day '+v});
+    const zero=Y(140000);
+    pl.forEach((p,i)=>{ if(!p) return; const h=Math.abs(p)/90000*(220-20); g.appendChild(el('rect',{x:X(i)-14,y:220-h,width:28,height:h,fill:p>0?'var(--up-soft)':'var(--down-soft)',stroke:p>0?'var(--up)':'var(--down)'})); g.appendChild(el('text',{x:X(i),y:220-h-6,'text-anchor':'middle','font-size':10,fill:p>0?'var(--up)':'var(--down)'},(p>0?'+':'−')+(Math.abs(p)/1000).toFixed(1)+'k')); });
+    g.appendChild(el('line',{x1:72,x2:600,y1:Y(180000),y2:Y(180000),stroke:'var(--down)','stroke-dasharray':'6 4','stroke-width':1.5}));
+    g.appendChild(el('text',{x:598,y:Y(180000)-6,'text-anchor':'end','font-size':11,fill:'var(--down)'},'Required margin ₹1.8L'));
+    line(g,bal.map((b,i)=>[i,b]),X,Y,{stroke:'var(--acc)','stroke-width':3});
+    bal.forEach((b,i)=>{ const low=b<180000; g.appendChild(el('circle',{cx:X(i),cy:Y(b),r:low?7:5,fill:low?'var(--down)':'var(--acc)',stroke:'var(--paper)','stroke-width':2})); });
+    g.appendChild(el('text',{x:X(2),y:Y(172500)+22,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Top up ₹7,500'));
+    g.appendChild(el('text',{x:X(3),y:Y(165000)+22,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Top up ₹15,000'));
+    g.appendChild(el('text',{x:X(5)-8,y:Y(225000)+18,'text-anchor':'end','font-size':11,fill:'var(--ink)'},'₹2.25L'));
+  })();
+
+  // 5. Convergence chart
+  (function(){
+    const g=document.getElementById('conv');
+    const spot=[], fut=[];
+    for(let d=30; d>=0; d--){ const i=30-d; const s=20000+90*Math.sin(i/3.2)+60*Math.sin(i/1.7)+4*i; spot.push([i,s]); fut.push([i,s*(1+0.065*d/365)]); }
+    const {X,Y}=axes(g,{L:72,R:600,T:16,B:210,x0:0,x1:30,y0:19800,y1:20400,yt:[19800,20000,20200,20400],yf:v=>v.toLocaleString('en-IN'),xt:[0,10,20,30],xf:v=>(30-v)+' days left',xl:'Time to expiry'});
+    const poly=fut.concat(spot.slice().reverse()).map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' ');
+    g.appendChild(el('polygon',{points:poly,fill:'var(--acc-soft)'}));
+    line(g,spot,X,Y,{stroke:'var(--muted)','stroke-width':2.5,pathLength:1000,class:'cv'});
+    line(g,fut,X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'cv'});
+    const b0=fut[0][1]-spot[0][1];
+    g.appendChild(el('text',{x:X(0)+6,y:Y(fut[0][1])-10,'font-size':11,fill:'var(--acc)'},'Basis ≈ '+Math.round(b0)+' points'));
+    g.appendChild(el('circle',{cx:X(30),cy:Y(spot[30][1]),r:6,fill:'var(--acc)',stroke:'var(--paper)','stroke-width':2}));
+    g.appendChild(el('text',{x:X(30)-10,y:Y(spot[30][1])-12,'text-anchor':'end','font-size':11,fill:'var(--ink)'},'Expiry: basis = 0'));
+    const run=()=>animate(g,'.cv'); document.getElementById('conv-replay').addEventListener('click',run); onView(g,run);
+  })();
+
+  // 6. Three hedging choices
+  (function(){
+    const g=document.getElementById('hedge3');
+    const {X,Y}=axes(g,{L:64,R:600,T:16,B:220,x0:35,x1:95,y0:30,y1:100,yt:[30,40,50,60,70,80,90,100],yf:v=>'₹'+v,xt:[35,45,55,65,75,85,95],xf:v=>'₹'+v,xl:'Market price in May (₹/kg)'});
+    g.appendChild(el('text',{x:70,y:28,'font-size':11,fill:'var(--muted)'},'Gopal effectively receives (₹/kg)'));
+    line(g,[[35,35],[95,95]],X,Y,{stroke:'var(--muted)','stroke-width':2.5,'stroke-dasharray':'6 4'});
+    line(g,[[35,60],[95,60]],X,Y,{stroke:'var(--leaf)','stroke-width':3});
+    line(g,[[35,52],[55,52],[95,92]],X,Y,{stroke:'var(--acc)','stroke-width':3.5});
+    g.appendChild(el('circle',{cx:X(55),cy:Y(52),r:5,fill:'var(--acc)'}));
+    g.appendChild(el('text',{x:X(40),y:Y(52)+18,'font-size':11,fill:'var(--acc)'},'Floor ₹52'));
+    g.appendChild(el('text',{x:X(90),y:Y(60)+18,'text-anchor':'end','font-size':11,fill:'var(--leaf)'},'Fixed ₹60'));
+    g.appendChild(el('text',{x:X(93),y:Y(89)+16,'text-anchor':'end','font-size':11,fill:'var(--acc)'},'₹3 below market'));
+  })();
+
+  // 7. Time decay chart
+  (function(){
+    const g=document.getElementById('decay');
+    const {X,Y}=axes(g,{L:60,R:600,T:16,B:210,x0:60,x1:0,y0:0,y1:10,yt:[0,2,4,6,8,10],yf:v=>'₹'+v,xt:[60,45,30,15,7,0],xf:v=>v+'d',xl:'Days left to expiry (share stays at ₹180)'});
+    const atm=[], otm=[];
+    for(let d=60; d>=0; d-=0.5){ const T=Math.max(d,0.01)/365; atm.push([d,bs(180,180,T,.3,.065)]); otm.push([d,bs(180,190,T,.3,.065)]); }
+    line(g,atm,X,Y,{stroke:'var(--acc)','stroke-width':3,pathLength:1000,class:'dc'});
+    line(g,otm,X,Y,{stroke:'var(--down)','stroke-width':3,pathLength:1000,class:'dc'});
+    g.appendChild(el('rect',{x:X(14),y:16,width:X(0)-X(14),height:194,fill:'var(--down-soft)',opacity:.45}));
+    g.appendChild(el('text',{x:X(7),y:32,'text-anchor':'middle','font-size':11,fill:'var(--down)'},'Fastest melt'));
+    g.appendChild(el('text',{x:X(60)+6,y:Y(atm[0][1])-8,'font-size':11,fill:'var(--acc)'},'₹'+atm[0][1].toFixed(2)));
+    g.appendChild(el('text',{x:X(60)+6,y:Y(otm[0][1])+16,'font-size':11,fill:'var(--down)'},'₹'+otm[0][1].toFixed(2)));
+    const run=()=>animate(g,'.dc'); document.getElementById('decay-replay').addEventListener('click',run); onView(g,run);
+  })();
+
+  // 8. Swap flow diagram
+  (function(){
+    const g=document.getElementById('swapflow');
+    box(g,20,85,150,60,'Lending bank','₹20 cr floating loan');
+    box(g,255,85,150,60,'Kesarpur council','pays net fixed 8.5%','var(--acc-soft)','var(--acc)');
+    box(g,490,85,150,60,'Swap bank','fixed ↔ floating');
+    // council -> lender: floating
+    const d1='M255 115 L170 115'; g.appendChild(el('path',{d:d1,stroke:'var(--muted)','stroke-width':2,fill:'none'})); arrowHead(g,170,115,'l','var(--muted)');
+    g.appendChild(el('text',{x:212,y:105,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'floating'));
+    // swap bank -> council: floating (upper arc)
+    const d2='M490 100 C450 55, 445 55, 405 100'; g.appendChild(el('path',{d:d2,stroke:'var(--muted)','stroke-width':2,fill:'none'})); arrowHead(g,405,100,'d','var(--muted)');
+    g.appendChild(el('text',{x:447,y:52,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'floating (repo + 2%)'));
+    // council -> swap bank: fixed (lower arc)
+    const d3='M405 130 C445 180, 450 180, 490 130'; g.appendChild(el('path',{d:d3,stroke:'var(--acc)','stroke-width':2.5,fill:'none'})); arrowHead(g,490,130,'u','var(--acc)');
+    g.appendChild(el('text',{x:447,y:190,'text-anchor':'middle','font-size':11,fill:'var(--acc)'},'fixed 8.5%'));
+    mover(g,'M490 100 C450 55, 445 55, 405 100 L330 115 L170 115','var(--leaf)',3.2,5);
+    mover(g,d3,'var(--acc)',2.4,5);
+    g.appendChild(el('text',{x:330,y:222,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Floating in = floating out, so the town’s cost is fixed at 8.5% (₹1.70 cr a year)'));
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 04</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="4"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="pickle-share.html" rel="prev"><small>← Previous</small>The Pickle Share</a><a href="overnight-loan.html" rel="next"><small>Next story →</small>The Overnight Loan</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>

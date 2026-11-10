@@ -1,0 +1,815 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>The Kesarpur Safety Net</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="series.css"><script>try{const t=localStorage.getItem("kesarpur-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body><a class="ks-skip" href="#ks-content">Skip to content</a><div class="ks-header"><nav class="ks-nav" aria-label="Series navigation"><a class="ks-brand" href="index.html">Kesarpur <em>Series</em></a><span class="ks-position">Story 10 / 11</span><div class="ks-actions"><details class="ks-menu"><summary>All stories <span aria-hidden="true">⌄</span></summary><div class="ks-menu-panel"><a href="index.html">Series overview</a><a href="bridge-bond.html"><span>01</span> The Bridge Bond</a><a href="common-pot.html"><span>02</span> The Common Pot</a><a href="pickle-share.html"><span>03</span> The Pickle Share</a><a href="mango-contract.html"><span>04</span> The Mango Contract</a><a href="overnight-loan.html"><span>05</span> The Overnight Loan</a><a href="remittance.html"><span>06</span> The Remittance</a><a href="warehouse.html"><span>07</span> The Warehouse</a><a href="flat.html"><span>08</span> The Flat</a><a href="ledger.html"><span>09</span> The Ledger</a><a href="safety-net.html" aria-current="page"><span>10</span> The Safety Net</a><a href="cold-chain.html"><span>11</span> The Cold Chain</a></div></details><button id="ks-theme" type="button" aria-label="Switch colour theme">Theme</button></div></nav><div class="ks-reading"><i id="ks-progress"></i></div></div><div id="ks-content" tabindex="-1"></div>
+
+
+
+
+
+<style>
+/* Layout: tenth story in the Kesarpur series. Storybook column with a ledger margin; wide interludes and animated diagrams. Navy accent for protection, amber for premiums and money; green/crimson reserved for paid/rejected and gain/loss. */
+:root{
+  --bg:#F1F2F4; --paper:#FBFBFC; --ink:#1B1F27; --muted:#5C6270; --rule:#D4D8DF;
+  --acc:#2B4570; --acc-soft:#DDE4F0; --amber:#AE6F08; --amber-soft:#F5E6CC; --leaf:#3F6B3A; --leaf-soft:#E2ECDD;
+  --up:#2E7D4F; --up-soft:#DDEFE3; --down:#B0203C; --down-soft:#F6DCE1;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12151B; --paper:#1A1E26; --ink:#E6E9EF; --muted:#A0A7B4; --rule:#2F3540;
+  --acc:#9DB5E0; --acc-soft:#1E2A40; --amber:#EFB24D; --amber-soft:#382A12; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151B; --paper:#1A1E26; --ink:#E6E9EF; --muted:#A0A7B4; --rule:#2F3540;
+  --acc:#9DB5E0; --acc-soft:#1E2A40; --amber:#EFB24D; --amber-soft:#382A12; --leaf:#9CC994; --leaf-soft:#1F2D1C;
+  --up:#7CD39E; --up-soft:#1B3325; --down:#F38C9E; --down-soft:#401C24; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.075rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:48px 96px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em;display:flex;flex-direction:column;gap:.45em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h3.sub-h{font-size:1.35rem;margin-top:.7em}
+.up{color:var(--up)} .down{color:var(--down)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-bottom:36px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);margin-top:10px}
+.hero .lede{margin-top:18px;font-size:1.2rem;color:var(--muted);max-width:36ch}
+.hero .cast{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);background:var(--paper)}
+.hero svg{width:100%;height:auto;display:block}
+
+.toc{border-block:1px solid var(--rule);padding-block:22px;display:flex;flex-direction:column;gap:12px}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 24px}
+.toc a{text-decoration:none;color:var(--ink);display:flex;gap:10px;font-size:.95rem;padding-block:2px}
+.toc a span{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em;padding-top:3px}
+.toc a:hover{color:var(--acc)}
+.part{padding-top:72px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.part h2{font-size:clamp(1.3rem,2.6vw,1.6rem);color:var(--acc)}
+
+.chapter{display:grid;grid-template-columns:minmax(0,640px) minmax(0,300px);gap:20px 56px;padding-block:56px 8px;scroll-margin-top:16px}
+.chapter > *{grid-column:1}
+.chapter > aside{grid-column:2;grid-row:1 / span 30}
+.chapter > header{grid-row:1}
+.chapter header{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.chapter h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+.chapter.wide{grid-template-columns:minmax(0,1fr)}
+.chapter.wide > *{grid-column:1}
+.chapter.wide .prose{max-width:68ch}
+.prose{display:flex;flex-direction:column;gap:1.05em}
+.say{border-left:2px solid var(--rule);padding-left:16px;font-style:italic}
+.say b{font-style:normal;font-weight:600;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.formula{font-family:var(--mono);font-size:.92rem;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;white-space:pre;line-height:1.6}
+
+aside{display:flex;flex-direction:column;gap:14px;align-self:start}
+.note{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;font-size:.92rem;line-height:1.55}
+.note .label{display:block;margin-bottom:4px;color:var(--acc)}
+.note.amber .label{color:var(--amber)}
+.note.risk .label{color:var(--down)}
+.note dfn{font-style:normal;font-weight:600}
+
+figure{margin:8px 0;display:flex;flex-direction:column;gap:10px}
+figcaption{font-size:.85rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--mono)}
+.fig-card{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fig-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--ink);font-weight:600}
+tr.hl td{background:var(--acc-soft)}
+
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctrl{display:flex;flex-direction:column;gap:6px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+.ctrl output{font-family:var(--mono)}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.readout div{display:flex;flex-direction:column;gap:2px}
+.readout .big{font-family:var(--mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-family:var(--mono);font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--paper)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.col{display:flex;flex-direction:column;gap:8px;font-size:.95rem;line-height:1.6;min-width:0;border-top:3px solid var(--acc);padding-top:12px}
+.col.a{border-color:var(--amber)} .col.l{border-color:var(--leaf)} .col.d{border-color:var(--down)} .col.m{border-color:var(--muted)}
+.col h3{font-size:1.2rem}
+.risks{display:flex;flex-direction:column}
+.risk-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule);font-size:.95rem}
+.risk-row strong{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--down)}
+
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.myth{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.94rem;line-height:1.6}
+.myth .m{font-family:var(--display);font-size:1.1rem;color:var(--down)}
+.myth .m::before{content:"Myth  ";font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4px 32px;margin:0}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--rule);font-size:.93rem;line-height:1.55}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;color:var(--muted)}
+.check{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 28px}
+.check li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:.95rem}
+.check li::before{content:"";width:14px;height:14px;border:1.5px solid var(--acc);border-radius:3px;margin-top:6px}
+.recap{padding-block:64px 0;display:flex;flex-direction:column;gap:20px}
+.disclaimer{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:70ch}
+
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.growx{animation:growx .9s ease both} .growy{animation:grow .9s ease both} .pop{animation:pop .5s ease both}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .chapter{grid-template-columns:minmax(0,1fr)}
+  .chapter > aside{grid-column:1;grid-row:auto}
+  .risk-row{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.draw{stroke-dashoffset:0!important}}
+</style>
+
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <span class="label">A story about insurance, in sixteen chapters</span>
+    <h1>The Kesarpur Safety Net</h1>
+    <p class="lede">When a bus depot mechanic dies in an accident, his family is left with a loan, two children and no income. His friend Suresh, the bus conductor, goes home and asks a question every family should ask: what would happen to mine? Follow Suresh as he learns how insurance works, what it's for, what it isn't for, and how to buy the right kind without being sold the wrong kind.</p>
+    <div class="cast">
+      <span class="chip">Suresh, bus conductor</span>
+      <span class="chip">Leela, his wife</span>
+      <span class="chip">Mr. Malhotra, agent</span>
+      <span class="chip">Ananya, nurse</span>
+      <span class="chip">Gopal, farmer</span>
+      <span class="chip">Harjeet, petrol pump</span>
+    </div>
+  </div>
+  <figure style="margin:0">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Animated diagram: many families pay small premiums into a shared pool, and the pool pays a large amount to the one family that suffers a loss"><g id="hero"></g></svg>
+  </figure>
+</section>
+
+<nav class="toc" aria-label="Contents">
+  <span class="label">Contents</span>
+  <ol>
+    <li><a href="#prologue"><span>—</span>What happened to Raju's family</a></li>
+    <li><a href="#pool"><span>01</span>The pool</a></li>
+    <li><a href="#insurer"><span>02</span>Inside an insurance company</a></li>
+    <li><a href="#what"><span>03</span>Insure the big, not the small</a></li>
+    <li><a href="#howmuch"><span>04</span>How much life cover?</a></li>
+    <li><a href="#term"><span>05</span>Term, endowment, ULIP</a></li>
+    <li><a href="#health"><span>06</span>The hospital bill</a></li>
+    <li><a href="#roomrent"><span>07</span>The room-rent trap</a></li>
+    <li><a href="#fineprint"><span>08</span>Reading the fine print</a></li>
+    <li><a href="#property"><span>09</span>Vehicles, shops and fire</a></li>
+    <li><a href="#crop"><span>10</span>Insurance for a crop</a></li>
+    <li><a href="#schemes"><span>11</span>Government schemes</a></li>
+    <li><a href="#claims"><span>12</span>When a claim is refused</a></li>
+    <li><a href="#missell"><span>13</span>Kamala's "fixed deposit"</a></li>
+    <li><a href="#market"><span>14</span>The insurance market at scale</a></li>
+    <li><a href="#plan"><span>15</span>Suresh's family plan</a></li>
+    <li><a href="#epilogue"><span>16</span>Five years later</a></li>
+    <li><a href="#myths"><span>+</span>Myths, checklist, glossary</a></li>
+  </ol>
+</nav>
+
+<div class="part"><span class="label">Part one</span><h2>How insurance works</h2></div>
+
+<section class="chapter" id="prologue">
+  <header><span class="label">Prologue</span><h2>What happened to Raju's family</h2></header>
+  <div class="prose">
+    <p>Suresh has been a conductor on the Kesarpur–district headquarters bus for twelve years. In the bond story he bought a zero-coupon bond for his baby daughter, Priya. She's now in school, and her brother Arjun is four.</p>
+    <p>Last month, Raju, a mechanic at the bus depot and Suresh's friend, was killed when a truck hit his motorcycle. He was 36. He left his wife, two children, a ₹4 lakh loan for his house extension, and almost no savings. The depot staff collected ₹60,000. Raju's wife now works as a cook in three houses, and the eldest child has left school.</p>
+    <p>Raju had one insurance policy: a small "money-back" plan an agent sold him, which paid ₹1.5 lakh. It was gone in four months.</p>
+    <p>That night, Suresh does the sum he has always avoided. If he died tomorrow, what would Leela and the children have? The answer frightens him. The next morning, he starts learning about <strong>insurance</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Tenth story</span>This follows the nine market stories. Suresh, Ananya, Gopal, Harjeet, Kamala and Iyer's bank all appear.</div>
+    <div class="note amber"><span class="label">Protection first</span>Every earlier story assumed nothing terrible happens while you save and invest. Insurance is what protects the plan when something does.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="pool">
+  <header><span class="label">Chapter 1</span><h2>The pool</h2></header>
+  <div class="prose">
+    <p>At the depot canteen, Ananya, the nurse from the fund story, explains it the way her hospital's finance officer once explained it to her.</p>
+    <div class="say"><b>Ananya</b>"Imagine a thousand depot workers. Each year, about one in a hundred has a serious accident or illness that costs ₹2 lakh. Nobody knows who. If each of you saves for it alone, you need ₹2 lakh sitting idle. But if all thousand put ₹2,000 a year into one pot, the pot has ₹20 lakh, enough to pay the ten who get hurt. Everyone swaps a big, unknown risk for a small, known cost."</div>
+    <p>That's insurance: <strong>pooling risk</strong>. Each person pays a small <strong>premium</strong>, and the pool pays the few who suffer a loss. It works because of the <strong>law of large numbers</strong>: you can't predict what happens to one person, but across thousands of people the total becomes very predictable. Try it.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="lln">People in the pool <output id="lln-out">1,000</output></label><input id="lln" type="range" min="1" max="5" step="1" value="3"></div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Bars showing cost per person in ten simulated years, varying wildly in a small pool and settling close to ₹2,000 in a large pool"><g id="llnchart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="lln-note"></p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Premium</span>The price you pay for insurance, usually yearly or monthly.</div>
+    <div class="note"><span class="label">Law of large numbers</span>As a group grows, its actual average loss gets closer and closer to the expected average. That's what lets an insurer set a fair price.</div>
+    <div class="note amber"><span class="label">An old idea</span>Merchants shared shipping risks thousands of years ago. Modern insurance grew from London's marine insurers in the 1600s and 1700s.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="insurer">
+  <header><span class="label">Chapter 2</span><h2>Inside an insurance company</h2></header>
+  <div class="prose">
+    <p>An insurance company runs the pool professionally. Here's what happens to Suresh's premium.</p>
+  </div>
+  <figure class="fig-card">
+    <span class="label">How an insurer works</span>
+    <div class="scroll"><svg viewBox="0 0 860 260" width="100%" style="min-width:700px" role="img" aria-label="Animated flow: premiums from policyholders go to the insurer; the insurer invests the money, mostly in bonds, pays claims to the few who suffer losses, passes part of large risks to a reinsurer, and keeps reserves"><g id="flow"></g></svg></div>
+    <figcaption>Premiums flow in; claims, expenses and reinsurance flow out; the money in between is invested, mostly in government and corporate bonds like those in the bond story.</figcaption>
+  </figure>
+  <div class="prose">
+    <ul>
+      <li><strong>Actuaries</strong> use data on deaths, illness and accidents to calculate how much each kind of person is likely to cost. A 30-year-old non-smoker costs less to cover than a 50-year-old smoker.</li>
+      <li><strong>Underwriters</strong> check each application: age, health, job, habits. They may ask for medical tests, charge more, exclude something, or decline.</li>
+      <li><strong>Investments.</strong> Premiums arrive long before most claims. Insurers invest this money, mostly in government bonds and other safe assets. Insurance companies are among the biggest buyers of long-term bonds in India.</li>
+      <li><strong>Reinsurance.</strong> To avoid being ruined by one huge disaster, insurers pass part of their risk to <strong>reinsurers</strong>, insurers for insurers.</li>
+      <li><strong>Regulation.</strong> The <strong>Insurance Regulatory and Development Authority of India (IRDAI)</strong> licenses insurers, sets capital rules so they can pay claims, approves products, and handles complaints.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Adverse selection</span>People who expect to claim are keenest to buy. That's why insurers ask health questions, and why hiding a condition can void a policy.</div>
+    <div class="note risk"><span class="label">Moral hazard</span>Being insured can make people less careful. Deductibles and co-payments keep some cost with the policyholder for that reason.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="what">
+  <header><span class="label">Chapter 3</span><h2>Insure the big, not the small</h2></header>
+  <div class="prose">
+    <p>Should Suresh insure his phone? His bus pass? Iyer, the bank treasurer from the money market story, gives him a simple test: insure what would wreck you, not what would merely annoy you.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">What to insure</span><div class="seg"><button type="button" id="matrix-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 330" width="100%" style="min-width:500px" role="img" aria-label="Two-by-two grid of how likely a loss is against how big it is, with examples placed in each box and advice: insure rare big losses, budget for small common ones"><g id="matrix"></g></svg></div>
+    <figcaption>Insurance is cheapest and most valuable for rare, severe losses. Frequent small costs are better paid from savings, because insuring them costs more than they're worth after the insurer's expenses.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Self-insure</span>Paying small losses yourself from an emergency fund. Cheaper over time than insuring them.</div>
+    <div class="note amber"><span class="label">Avoid and reduce</span>Some risks are better avoided or reduced: a helmet, a smoke detector, a seat belt. Insurance pays after the loss; prevention stops it.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part two</span><h2>Life and health</h2></div>
+
+<section class="chapter" id="howmuch">
+  <header><span class="label">Chapter 4</span><h2>How much life cover?</h2></header>
+  <div class="prose">
+    <p>Life insurance pays a lump sum to your family if you die during the policy. It isn't for you; it replaces your income for the people who depend on it. The key question is how much they'd need.</p>
+    <p>Suresh lists it: the family spends about ₹2.5 lakh a year that his salary pays for; he wants to cover that until Arjun is about 25; there's a ₹5 lakh loan; and he wants ₹15 lakh for the children's education. He has ₹3 lakh in savings and his provident fund.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="h-exp">Yearly family expenses you pay <output id="h-exp-out">₹2.5 lakh</output></label><input id="h-exp" type="range" min="100000" max="1500000" step="25000" value="250000"></div>
+      <div class="ctrl"><label for="h-yrs">Years to support them <output id="h-yrs-out">25</output></label><input id="h-yrs" type="range" min="5" max="40" step="1" value="25"></div>
+      <div class="ctrl"><label for="h-debt">Loans outstanding <output id="h-debt-out">₹5 lakh</output></label><input id="h-debt" type="range" min="0" max="5000000" step="100000" value="500000"></div>
+      <div class="ctrl"><label for="h-goal">Children's goals <output id="h-goal-out">₹15 lakh</output></label><input id="h-goal" type="range" min="0" max="5000000" step="100000" value="1500000"></div>
+      <div class="ctrl"><label for="h-sav">Existing savings <output id="h-sav-out">₹3 lakh</output></label><input id="h-sav" type="range" min="0" max="5000000" step="100000" value="300000"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 170" width="100%" style="min-width:480px" role="img" aria-label="Stacked bar showing income replacement, loans and goals, minus savings, giving the life cover needed"><g id="hlvchart"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Cover needed</span><span class="big" id="h-out">₹65.8 lakh</span></div>
+      <div><span class="label">Rounded up</span><span class="big" id="h-round">₹75 lakh</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)">Expenses are valued assuming the payout is invested to earn about 2% more than inflation. A common rough rule is 10–15 times yearly income; a calculation like this is better.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Who needs life cover</span>Anyone whose income others depend on. A single person with no dependants and no loans may need little or none. Children almost never need it.</div>
+    <div class="note amber"><span class="label">Review it</span>Need is highest when children are young and loans are large, and falls as savings grow and children become independent.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="term">
+  <header><span class="label">Chapter 5</span><h2>Term, endowment, ULIP</h2></header>
+  <div class="prose">
+    <p>Mr. Malhotra, the agent who sold Raju his policy, visits Suresh. He recommends an <strong>endowment plan</strong>: ₹50,000 a year for 20 years, life cover of ₹10 lakh, and "guaranteed money back at maturity, nothing wasted". Suresh compares it with a <strong>term plan</strong>, which pays only if he dies during the term, and returns nothing if he survives.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Type</th><th>What it does</th><th>Cover per rupee</th><th>Returns</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td><strong>Term</strong></td><td>Pure protection. Pays the sum assured if you die during the term. Nothing if you survive.</td><td>Very high</td><td>None; it's not an investment</td></tr>
+          <tr><td><strong>Endowment / money-back</strong></td><td>Insurance plus a savings component. Pays at maturity or death.</td><td>Low</td><td>Often around 4–6% a year, locked in for decades</td></tr>
+          <tr><td><strong>ULIP</strong></td><td>Insurance plus market-linked investment funds, with a 5-year lock-in.</td><td>Low to moderate</td><td>Market-linked, after several layers of charges</td></tr>
+          <tr><td><strong>Whole life</strong></td><td>Cover until very old age (often 99 or 100).</td><td>Low</td><td>Low</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Then Suresh tries the alternative people call "buy term and invest the rest": buy ₹1 crore of term cover for about ₹12,000 a year, and put the other ₹38,000 into a mutual fund SIP.</p>
+  </div>
+  <div class="panel">
+    <div class="ctrl"><label for="bt-r">Return on the invested difference <output id="bt-r-out">8%</output></label><input id="bt-r" type="range" min="4" max="12" step="0.5" value="8"></div>
+    <div class="scroll"><svg viewBox="0 0 640 250" width="100%" style="min-width:480px" role="img" aria-label="Comparison of life cover and money at maturity for an endowment plan versus term insurance plus investing the difference"><g id="btchart"></g></svg></div>
+    <p style="font-size:.9rem;color:var(--muted)" id="bt-note"></p>
+  </div>
+  <div class="prose">
+    <p>The term route gives ten times the protection for the same yearly spend, and the maturity money is comparable or better at moderate returns. The endowment's "nothing wasted" feeling comes at the cost of far too little cover, which is exactly what failed Raju's family. Endowments also lose heavily if you stop paying early, because surrender values in the first years are low.</p>
+    <p>Term insurance works only with discipline: the "invest the rest" part has to actually happen. For people who know they won't invest on their own, a combined plan may still be better than nothing, but they should know what they're paying for.</p>
+  </div>
+  <aside>
+    <div class="note amber"><span class="label">Illustrative numbers</span>Term premiums depend on age, health, habits and insurer. For a healthy 30-something, ₹1 crore of cover often costs roughly ₹10,000–15,000 a year online.</div>
+    <div class="note"><span class="label">Agents' commissions</span>Commissions on endowment and ULIP plans are usually much higher than on term plans, which partly explains what gets pushed.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="health">
+  <header><span class="label">Chapter 6</span><h2>The hospital bill</h2></header>
+  <div class="prose">
+    <p>Ananya works at the district hospital and sees insurance from the other side every day. She tells Suresh that for most families, the bigger financial danger isn't death; it's a serious illness. A heart surgery, a cancer treatment or a long ICU stay can cost several lakh rupees, and push a family into debt for years.</p>
+    <p>A <strong>health insurance</strong> policy pays hospital bills up to a <strong>sum insured</strong> each year. Here's what happened when Leela was admitted for gallbladder surgery the following year, using a ₹5 lakh family floater policy.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">A cashless claim, step by step</span><div class="seg"><button type="button" id="cashless-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 860 220" width="100%" style="min-width:700px" role="img" aria-label="Animated timeline of a cashless hospital claim: admission, pre-authorisation request, insurer approval, treatment, final bill, discharge"><g id="cashless"></g></svg></div>
+    <figcaption>In a network hospital, the insurer (often through a third-party administrator) pays the hospital directly. Elsewhere, you pay first and claim reimbursement with bills and reports.</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="col"><h3>Family floater</h3><p>One sum insured shared by the whole family. Cheaper than separate policies, but one big claim can use it all up for everyone that year.</p></div>
+    <div class="col a"><h3>Super top-up</h3><p>Extra cover that starts once a yearly total of bills crosses a set amount (the deductible). A cheap way to add ₹10–20 lakh of cover on top of a base policy.</p></div>
+    <div class="col l"><h3>No-claim bonus</h3><p>Many policies raise the sum insured each claim-free year, with no extra premium.</p></div>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Network hospital</span>A hospital with an agreement with your insurer or its TPA for cashless treatment. Check the list before choosing a policy.</div>
+    <div class="note"><span class="label">Pre- and post-hospitalisation</span>Most policies also cover tests and medicines for a set number of days before and after a hospital stay.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="roomrent">
+  <header><span class="label">Chapter 7</span><h2>The room-rent trap</h2></header>
+  <div class="prose">
+    <p>Leela's bill came to ₹3 lakh. But the insurer paid less than Suresh expected. The reason was one line in the policy: a <strong>room rent limit</strong> of 1% of the sum insured per day, ₹5,000. The hospital had only a private room at ₹8,000 a day free, so they took it.</p>
+    <p>Under many policies, choosing a room above the limit doesn't just cost you the extra rent. Charges linked to the room category, like doctors' visits, nursing and some procedures, are cut in the same proportion. This is called a <strong>proportionate deduction</strong>.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl"><label for="rr-room">Room rent chosen, per day <output id="rr-room-out">₹8,000</output></label><input id="rr-room" type="range" min="3000" max="15000" step="500" value="8000"></div>
+      <div class="ctrl"><label for="rr-limit">Policy room limit, per day <output id="rr-limit-out">₹5,000</output></label><input id="rr-limit" type="range" min="2000" max="15000" step="500" value="5000"></div>
+    </div>
+    <div class="scroll"><svg viewBox="0 0 640 230" width="100%" style="min-width:480px" role="img" aria-label="Bars comparing billed and paid amounts for room rent, linked charges and medicines"><g id="rrchart"></g></svg></div>
+    <div class="readout">
+      <div><span class="label">Bill</span><span class="big" id="rr-bill">₹3,00,000</span></div>
+      <div><span class="label">Insurer pays</span><span class="big up" id="rr-paid">₹2,28,000</span></div>
+      <div><span class="label">Suresh pays</span><span class="big down" id="rr-own">₹72,000</span></div>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted)">Illustrative: 4 days; linked charges ₹1.6 lakh; medicines and implants ₹1.08 lakh, usually paid in full. Rules on proportionate deduction vary by policy and have been tightened by IRDAI for some charges.</p>
+  </div>
+  <div class="prose">
+    <p>The lesson: when buying, prefer policies with <strong>no room rent limit</strong> or a "single private room" allowance. When admitted, ask which room category your policy covers before choosing.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Other cost-sharing</span><dfn>Co-payment</dfn>: you pay a fixed share of every claim (common in senior citizen policies). <dfn>Sub-limits</dfn>: caps on specific treatments like cataract surgery. <dfn>Deductible</dfn>: you pay the first amount yourself.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="fineprint">
+  <header><span class="label">Chapter 8</span><h2>Reading the fine print</h2></header>
+  <div class="prose">
+    <p>Suresh reads his health policy wording carefully for the first time. He finds:</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>Initial waiting period</strong><span>Illnesses (not accidents) in the first 30 days usually aren't covered.</span></div>
+    <div class="risk-row"><strong>Specific diseases</strong><span>Some conditions, such as cataract, hernia or joint replacement, have their own waiting period, often 1–2 years.</span></div>
+    <div class="risk-row"><strong>Pre-existing diseases</strong><span>Conditions you already have, like diabetes or high blood pressure, are covered only after a waiting period. Since 2024, IRDAI has capped this at three years.</span></div>
+    <div class="risk-row"><strong>Exclusions</strong><span>Cosmetic surgery, some fertility treatments, self-inflicted injuries and certain other items aren't covered. They're listed in the policy.</span></div>
+    <div class="risk-row"><strong>Disclosure</strong><span>You must truthfully declare your health, habits and existing illnesses when applying. Hiding them is the most common reason claims are refused.</span></div>
+  </div>
+  <div class="prose">
+    <p>He also learns three things that protect him:</p>
+    <ul>
+      <li><strong>Free-look period:</strong> after receiving a new policy, you can return it within a set period, now 30 days for most policies, and get most of the premium back.</li>
+      <li><strong>Portability:</strong> you can move a health policy to another insurer and keep the waiting period you've already served.</li>
+      <li><strong>Claim settlement data:</strong> insurers publish what share of claims they pay. A higher ratio, and fewer complaints, is a good sign, though it's only one measure.</li>
+    </ul>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Policy wording</span>The full legal document. The brochure summarises; the wording decides claims.</div>
+    <div class="note risk"><span class="label">Tell the truth</span>Disclose every condition and habit, even if it raises the premium. A cheaper policy that won't pay is worthless.</div>
+  </aside>
+</section>
+
+<div class="part"><span class="label">Part three</span><h2>Things, crops and schemes</h2></div>
+
+<section class="chapter" id="property">
+  <header><span class="label">Chapter 9</span><h2>Vehicles, shops and fire</h2></header>
+  <div class="prose">
+    <p>Harjeet, the petrol pump owner from the commodity story, insures very different things: his tanker truck, his pump's buildings and stock, and his liability if someone is hurt on his premises. This is <strong>general insurance</strong>: cover for property and liability, usually renewed every year.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Motor insurance</h3><p><strong>Third-party</strong> cover is compulsory by law for every vehicle on Indian roads; it pays for injury or damage you cause to others. <strong>Own-damage</strong> cover pays for your vehicle. The vehicle's insured value (IDV) falls with age.</p></div>
+    <div class="col a"><h3>Fire and property</h3><p>Covers buildings, machinery and stock against fire, lightning, floods, storms and some other perils. Harjeet adds cover for business interruption, to replace lost income while the pump is shut after a fire.</p></div>
+    <div class="col l"><h3>Liability</h3><p>Pays if he's legally responsible for harm to customers or the public. Many businesses also buy workers' compensation cover for employees.</p></div>
+  </div>
+  <div class="prose">
+    <p>Two ideas save Harjeet money. A <strong>deductible</strong>: he agrees to pay the first ₹25,000 of any claim, and his premium drops. And the <strong>no-claim bonus</strong> on motor insurance: a discount that grows each claim-free year, so he pays small repairs himself rather than claiming and losing it.</p>
+    <p>He also learns about <strong>under-insurance</strong>. If his stock is worth ₹50 lakh but he insures it for ₹25 lakh, the insurer may pay only half of any partial loss, because he insured only half its value. This is called the <strong>average clause</strong>.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Indemnity</span>General insurance aims to put you back where you were before the loss, not to let you profit from it.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="crop">
+  <header><span class="label">Chapter 10</span><h2>Insurance for a crop</h2></header>
+  <div class="prose">
+    <p>Gopal, the farmer from the derivatives and commodity stories, faces risks no warehouse or futures contract can fix: drought, hail, floods and pests that destroy the crop itself. For these, India runs the <strong>Pradhan Mantri Fasal Bima Yojana (PMFBY)</strong>, launched in 2016.</p>
+    <ul>
+      <li>Farmers pay a small share of the premium: 2% for kharif crops, 1.5% for rabi crops, and 5% for commercial and horticultural crops. Central and state governments pay the rest.</li>
+      <li>For widespread losses, claims are usually based on crop-cutting experiments measuring the average yield in an area, compared with a threshold. Individual farms can claim for some localised disasters.</li>
+      <li>Some states use <strong>weather-based</strong> insurance, which pays when rainfall or temperature at a weather station crosses set levels, without assessing each field.</li>
+    </ul>
+    <p>It's far from perfect: delayed payouts, disputes over yield measurements, and farmers unaware they were enrolled. But for Gopal's group, it means a hailstorm in February no longer means losing the land.</p>
+  </div>
+  <aside>
+    <div class="note amber"><span class="label">Price vs. yield</span>The derivatives story protected against a fall in <em>price</em>. Crop insurance protects against a fall in <em>quantity</em>. Gopal now uses both.</div>
+    <div class="note"><span class="label">Basis risk</span>Area-based and weather-based payouts may not match one farmer's actual loss.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="schemes">
+  <header><span class="label">Chapter 11</span><h2>Government schemes</h2></header>
+  <div class="prose">
+    <p>Iyer shows Suresh three low-cost government-backed schemes he can join through his bank account. Premiums shown are as revised in 2022; check current terms.</p>
+  </div>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Scheme</th><th>Covers</th><th>Cover</th><th class="num">Yearly premium</th><th>Who</th></tr></thead>
+        <tbody>
+          <tr><td><strong>PM Jeevan Jyoti Bima Yojana</strong></td><td>Death from any cause</td><td>₹2 lakh</td><td class="num">₹436</td><td>Ages 18–50 at joining, with a bank or post office account</td></tr>
+          <tr><td><strong>PM Suraksha Bima Yojana</strong></td><td>Accidental death or disability</td><td>Up to ₹2 lakh</td><td class="num">₹20</td><td>Ages 18–70</td></tr>
+          <tr><td><strong>Ayushman Bharat PM-JAY</strong></td><td>Hospital treatment</td><td>Up to ₹5 lakh per family a year</td><td class="num">Free</td><td>Eligible lower-income families; extended in 2024 to all citizens aged 70 and over</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+  <div class="prose">
+    <p>Raju's family would have received ₹4 lakh from these two small policies, for less than ₹500 a year. Suresh enrols that week. They're a valuable floor, but ₹2 lakh is far below what his family needs, so he treats them as an addition to proper term and health cover, not a replacement.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">Auto-debit</span>These schemes renew by automatic debit from your bank account each year. Keep enough balance on the renewal date, or the cover lapses.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="claims">
+  <header><span class="label">Chapter 12</span><h2>When a claim is refused</h2></header>
+  <div class="prose">
+    <p>Ananya sees claims refused every month at the hospital. The most common reasons: an undisclosed earlier illness, a treatment excluded or still in its waiting period, missing documents, or a policy that had lapsed because a premium wasn't paid. Some refusals are simply wrong.</p>
+    <p>When a claim is refused unfairly, there's a ladder of complaints, each step free or low-cost:</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">The complaints ladder</span><div class="seg"><button type="button" id="ladder-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 270" width="100%" style="min-width:480px" role="img" aria-label="Staircase of complaint steps: the insurer's grievance officer, IRDAI's Bima Bharosa portal, the Insurance Ombudsman, and the consumer commission"><g id="ladderchart"></g></svg></div>
+    <figcaption>Start with the insurer in writing. If there's no satisfactory reply, escalate. Keep copies of everything.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Insurance Ombudsman</span>An independent official who hears individual complaints about insurers free of charge, within monetary limits.</div>
+    <div class="note"><span class="label">Nominee</span>Always name a nominee in every policy and keep the family informed where the documents are. Many claims are delayed because families don't know a policy exists.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="missell">
+  <header><span class="label">Chapter 13</span><h2>Kamala's "fixed deposit"</h2></header>
+  <div class="prose">
+    <p>Kamala, whose investment mistakes run through these stories, went to her bank to renew a fixed deposit. A friendly staff member told her about a "better FD": "Pay ₹1 lakh a year for five years, get a big amount after ten, plus insurance." She signed.</p>
+    <p>It wasn't a fixed deposit. It was a ten-year endowment policy from the bank's partner insurer. When she needed money in the third year, the surrender value was far below what she'd paid. This is <strong>mis-selling</strong>, and policies sold at bank branches have been a frequent source of such complaints.</p>
+  </div>
+  <div class="risks">
+    <div class="risk-row"><strong>"It's like an FD"</strong><span>An FD is a bank deposit. A policy is insurance. Ask: "Is this an insurance policy? From which insurer?"</span></div>
+    <div class="risk-row"><strong>"Guaranteed returns"</strong><span>Ask for the exact guaranteed amount in writing, and work out the yearly return. It's often 4–6%, below inflation after tax rules and charges.</span></div>
+    <div class="risk-row"><strong>"Only five years"</strong><span>Paying for five years doesn't mean the money comes back in five years. Check the maturity date and the surrender value table.</span></div>
+    <div class="risk-row"><strong>Fake calls</strong><span>Callers claiming to be from IRDAI or offering "bonus" on old policies are frauds. IRDAI doesn't sell policies or call about bonuses.</span></div>
+  </div>
+  <div class="prose">
+    <p>Had Kamala noticed within the free-look period, she could have returned the policy. Rohit helps her file a complaint about the mis-selling with the insurer, and escalates to the grievance portal.</p>
+  </div>
+  <aside>
+    <div class="note risk"><span class="label">Benefit illustration</span>Insurers must give a document showing projected benefits at different return assumptions. Read the lower one, and the surrender values.</div>
+  </aside>
+</section>
+
+<section class="chapter wide" id="market">
+  <header><span class="label">Chapter 14</span><h2>The insurance market at scale</h2></header>
+  <div class="prose">
+    <p>Zoom out from Kesarpur. India's insurance market has grown quickly, but insurance premiums are still only around 4% of the country's GDP, well below many other countries. Many families, like Raju's, are badly under-insured: they have some policy, but far too little cover.</p>
+  </div>
+  <div class="cols">
+    <div class="col"><h3>Life insurers</h3><p>LIC, created in 1956 when life insurance was nationalised, is still the largest. Private life insurers have been allowed since 2000.</p></div>
+    <div class="col"><h3>General and health insurers</h3><p>Public-sector general insurers, private general insurers, and standalone health insurers covering motor, property, health, travel, crop and more.</p></div>
+    <div class="col a"><h3>Distribution</h3><p>Agents, banks (bancassurance), brokers, online aggregators and direct online sales. Online term plans are usually cheapest because there's no agent commission.</p></div>
+    <div class="col m"><h3>Reinsurers</h3><p>The state-owned GIC Re and global reinsurers take on part of insurers' largest risks.</p></div>
+    <div class="col m"><h3>Regulator and redress</h3><p>IRDAI regulates insurers and intermediaries, the Bima Bharosa portal handles complaints, and Insurance Ombudsmen resolve disputes.</p></div>
+    <div class="col l"><h3>Insurers as investors</h3><p>Insurers hold enormous long-term investments, especially government bonds. They are a major source of the long-term money that funds roads, bridges and companies in the other stories.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="plan">
+  <header><span class="label">Chapter 15</span><h2>Suresh's family plan</h2></header>
+  <div class="prose">
+    <p>Combining everything, Suresh and Leela build their family's safety net in order. Each layer protects the one above it.</p>
+  </div>
+  <figure class="fig-card">
+    <div class="fig-head"><span class="label">Build from the bottom</span><div class="seg"><button type="button" id="pyr-replay">Replay</button></div></div>
+    <div class="scroll"><svg viewBox="0 0 640 320" width="100%" style="min-width:480px" role="img" aria-label="Pyramid of financial priorities, built from the bottom: health cover, term life cover, accident cover, emergency fund, then long-term investments"><g id="pyr"></g></svg></div>
+    <figcaption>Investments from the earlier stories sit at the top. Without the layers below, one bad event can force a family to sell them at the worst time.</figcaption>
+  </figure>
+  <figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Layer</th><th>What Suresh chose</th><th class="num">Approx. yearly cost</th></tr></thead>
+        <tbody>
+          <tr><td>Health</td><td>₹5 lakh family floater with no room-rent limit + ₹15 lakh super top-up</td><td class="num">₹22,000</td></tr>
+          <tr><td>Life</td><td>₹75 lakh term cover to age 60, bought online</td><td class="num">₹11,000</td></tr>
+          <tr><td>Accident</td><td>PMSBY + PMJJBY, plus personal accident cover</td><td class="num">₹1,500</td></tr>
+          <tr><td>Emergency fund</td><td>Six months of expenses in savings and a liquid fund</td><td class="num">—</td></tr>
+          <tr class="total"><td>Total protection</td><td>About 9% of his take-home pay</td><td class="num">₹34,500</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Illustrative premiums. Actual prices depend on age, health, city and insurer.</figcaption>
+  </figure>
+  <aside>
+    <div class="note"><span class="label">Tax</span>Under the old tax regime, health premiums can be deducted under Section 80D, within limits. The new regime, now the default, doesn't allow this. Tax should never be the main reason to buy insurance.</div>
+  </aside>
+</section>
+
+<section class="chapter" id="epilogue">
+  <header><span class="label">Chapter 16</span><h2>Five years later</h2></header>
+  <div class="prose">
+    <p>Five years later, Arjun breaks his leg badly falling from a wall. The surgery and stay cost ₹2.6 lakh. The insurer pays it cashless; Suresh pays only for a few excluded items. A year after that, Gopal's mustard is hit by hail, and the crop insurance payout covers most of his loan. Harjeet's tanker is damaged in a collision; the insurer pays for repairs and the other driver's injuries.</p>
+    <p>Most years, though, nothing happens, and the premiums simply go. Suresh used to feel that was waste. Now he sees it differently: each year he paid for the certainty that Leela and the children would be all right whatever happened. Raju's family's story will never be theirs.</p>
+    <p>Suresh also helped start a small fund at the depot for Raju's children's schooling, and every new depot worker now gets a one-page guide to term cover, health cover and the government schemes.</p>
+    <p>That is what insurance is: many people paying small, certain amounts so that the few who suffer large, uncertain losses aren't ruined. And that is what the insurance market is: the insurers, reinsurers, regulators and distributors that run those pools, for lives, health, vehicles, shops and crops, and invest the money in between.</p>
+  </div>
+  <aside>
+    <div class="note"><span class="label">The ten stories</span><em>Bonds</em> lend. <em>Funds</em> pool. <em>Shares</em> own. <em>Derivatives</em> move risk. The <em>money market</em> keeps cash flowing. <em>Forex</em> crosses borders. <em>Commodities</em> price real goods. <em>Real estate</em> builds homes. <em>Crypto</em> tests trust. <em>Insurance</em> protects all of it.</div>
+  </aside>
+</section>
+
+<section class="recap" id="myths">
+  <span class="label">After the story</span>
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem)">Eight myths about insurance</h2>
+  <div class="myths">
+    <div class="myth"><span class="m">Term insurance wastes money if I survive.</span><span>You paid for protection and had it. That's the product working.</span></div>
+    <div class="myth"><span class="m">Insurance is a good investment.</span><span>Combined plans give too little cover and modest returns. Keep insurance and investing separate.</span></div>
+    <div class="myth"><span class="m">My employer's health cover is enough.</span><span>It ends when the job ends, often when you need it most. Keep your own policy too.</span></div>
+    <div class="myth"><span class="m">₹2–3 lakh health cover is enough.</span><span>One major surgery or ICU stay can exceed it. A super top-up adds cover cheaply.</span></div>
+    <div class="myth"><span class="m">Small details on the form don't matter.</span><span>Non-disclosure is the most common reason claims are refused.</span></div>
+    <div class="myth"><span class="m">Children need life insurance.</span><span>Life cover replaces income. Children usually have none to replace.</span></div>
+    <div class="myth"><span class="m">A bank officer selling a "plan" is selling an FD.</span><span>Ask directly whether it's an insurance policy.</span></div>
+    <div class="myth"><span class="m">All health policies are the same.</span><span>Room-rent limits, co-pays, sub-limits and waiting periods make huge differences.</span></div>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Before buying insurance: a checklist</h2>
+  <ul class="check">
+    <li>I've calculated how much life cover my dependants need.</li>
+    <li>I'm buying term cover for protection, separately from investments.</li>
+    <li>My family has health cover of its own, not only through an employer.</li>
+    <li>I've checked room-rent limits, co-pays, sub-limits and waiting periods.</li>
+    <li>The hospitals I'd use are in the insurer's network.</li>
+    <li>I've disclosed every health condition and habit truthfully.</li>
+    <li>I've named nominees and told my family where the documents are.</li>
+    <li>I've read the policy wording, not just the brochure, within the free-look period.</li>
+    <li>Premiums are on auto-pay so the cover can't lapse.</li>
+    <li>I'll review my cover after marriage, children, a home loan or a new job.</li>
+  </ul>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">What each moment taught</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>In the story</th><th>The concept</th><th>One-line meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Raju's family</td><td>Why insure</td><td>Losing an income can ruin a family</td></tr>
+        <tr><td>1,000 depot workers</td><td>Pooling, law of large numbers</td><td>Many small premiums pay for few big losses</td></tr>
+        <tr><td>The insurer's flow</td><td>Underwriting, reserves, reinsurance</td><td>Pricing risk, investing premiums, sharing big risks</td></tr>
+        <tr><td>Phone vs. house</td><td>What to insure</td><td>Insure rare, severe losses</td></tr>
+        <tr><td>Suresh's sum</td><td>Life cover needed</td><td>Replace income, clear debts, fund goals</td></tr>
+        <tr><td>Malhotra's plan</td><td>Term vs. endowment</td><td>Buy cover and invest separately</td></tr>
+        <tr><td>Leela's surgery</td><td>Health insurance, cashless</td><td>Hospital bills are the bigger everyday danger</td></tr>
+        <tr><td>The ₹8,000 room</td><td>Proportionate deduction</td><td>Small limits can cut big claims</td></tr>
+        <tr><td>Harjeet's pump</td><td>General insurance</td><td>Property, motor and liability cover</td></tr>
+        <tr><td>Gopal's hail</td><td>Crop insurance</td><td>Protects against losing the harvest itself</td></tr>
+        <tr><td>₹456 a year</td><td>Government schemes</td><td>A low-cost floor of cover</td></tr>
+        <tr><td>Kamala's "FD"</td><td>Mis-selling</td><td>Know what you're signing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:clamp(1.6rem,3.4vw,2.1rem);margin-top:32px">Glossary</h2>
+  <dl class="gloss">
+    <div><dt>Cashless claim</dt><dd>Insurer pays the network hospital directly.</dd></div>
+    <div><dt>Claim settlement ratio</dt><dd>Share of claims an insurer pays.</dd></div>
+    <div><dt>Co-payment</dt><dd>A fixed share of each claim you pay yourself.</dd></div>
+    <div><dt>Deductible</dt><dd>The amount you pay before insurance starts paying.</dd></div>
+    <div><dt>Endowment plan</dt><dd>Life insurance combined with savings, paying at maturity or death.</dd></div>
+    <div><dt>Exclusion</dt><dd>Something a policy doesn't cover.</dd></div>
+    <div><dt>Family floater</dt><dd>One sum insured shared by a family.</dd></div>
+    <div><dt>Free-look period</dt><dd>Time to return a new policy for a refund.</dd></div>
+    <div><dt>IDV</dt><dd>Insured declared value of a vehicle.</dd></div>
+    <div><dt>IRDAI</dt><dd>India's insurance regulator.</dd></div>
+    <div><dt>No-claim bonus</dt><dd>A reward for claim-free years.</dd></div>
+    <div><dt>Nominee</dt><dd>The person who receives a claim payout.</dd></div>
+    <div><dt>Ombudsman</dt><dd>Independent official resolving complaints.</dd></div>
+    <div><dt>Pre-existing disease</dt><dd>An illness you had before buying the policy.</dd></div>
+    <div><dt>Premium</dt><dd>The price of insurance.</dd></div>
+    <div><dt>Proportionate deduction</dt><dd>Cutting linked charges when a room above the limit is chosen.</dd></div>
+    <div><dt>Reinsurance</dt><dd>Insurance bought by insurers.</dd></div>
+    <div><dt>Sum assured / insured</dt><dd>The amount a life / health policy pays.</dd></div>
+    <div><dt>Super top-up</dt><dd>Extra health cover above a yearly deductible.</dd></div>
+    <div><dt>Surrender value</dt><dd>What you get if you stop a savings-linked policy early.</dd></div>
+    <div><dt>Term insurance</dt><dd>Pure life cover for a set period.</dd></div>
+    <div><dt>TPA</dt><dd>Third-party administrator handling health claims.</dd></div>
+    <div><dt>ULIP</dt><dd>Unit-linked insurance plan: insurance plus market funds.</dd></div>
+    <div><dt>Underwriting</dt><dd>Assessing risk and setting terms for a policy.</dd></div>
+    <div><dt>Waiting period</dt><dd>Time before certain conditions are covered.</dd></div>
+  </dl>
+  <p class="disclaimer">This page explains how insurance works. Suresh, Raju, Mr. Malhotra and all premiums, bills and payouts are fictional and illustrative. Scheme terms, IRDAI rules and tax treatment change over time. It is not insurance, financial or tax advice. Read the policy wording and check current terms with insurers, IRDAI and qualified advisers.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const ns='http://www.w3.org/2000/svg';
+  const el=(t,a,x)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;};
+  const fmt=n=>(n<0?'−':'')+'₹'+Math.round(Math.abs(n)).toLocaleString('en-IN');
+  const lakh=n=>(n<0?'−':'')+'₹'+(Math.abs(n)/1e5).toFixed(1).replace('.0','')+' lakh';
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mover(g,d,color,dur,r,begin){ if(reduce) return; const grp=el('g',{}); grp.appendChild(el('circle',{r:r||5,fill:color})); grp.appendChild(el('animateMotion',{dur:dur+'s',repeatCount:'indefinite',path:d,begin:(-(begin||0))+'s'})); g.appendChild(grp); }
+  function box(g,x,y,w,h,title,sub,fill,stroke){ g.appendChild(el('rect',{x,y,width:w,height:h,rx:8,fill:fill||'var(--paper)',stroke:stroke||'var(--rule)','stroke-width':1.5})); g.appendChild(el('text',{x:x+w/2,y:y+h/2-(sub?3:-4),'text-anchor':'middle','font-size':13,fill:'var(--ink)'},title)); if(sub) g.appendChild(el('text',{x:x+w/2,y:y+h/2+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},sub)); }
+  function arrow(g,x1,y1,x2,y2,color){ g.appendChild(el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':2})); const a=Math.atan2(y2-y1,x2-x1), s=8; g.appendChild(el('polygon',{points:[[x2,y2],[x2-s*Math.cos(a)+s*0.6*Math.sin(a),y2-s*Math.sin(a)-s*0.6*Math.cos(a)],[x2-s*Math.cos(a)-s*0.6*Math.sin(a),y2-s*Math.sin(a)+s*0.6*Math.cos(a)]].map(p=>p.join(',')).join(' '),fill:color})); }
+  function replayClass(g,sel,cls,step){ g.querySelectorAll(sel).forEach((p,i)=>{ p.classList.remove(cls); void p.getBoundingClientRect(); p.style.animationDelay=(i*(step||0.15))+'s'; p.classList.add(cls); }); }
+  function onView(node,fn){ if(reduce||!('IntersectionObserver' in window)) return; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ fn(); io.disconnect(); } }); },{threshold:0.4}); io.observe(node); }
+  function wire(btn,g,fn){ document.getElementById(btn).addEventListener('click',fn); onView(g,fn); }
+
+  // Hero: pool
+  (function(){
+    const g=document.getElementById('hero');
+    g.appendChild(el('rect',{x:0,y:0,width:440,height:300,rx:8,fill:'var(--paper)'}));
+    const fam=[]; for(let i=0;i<10;i++){ const x=30+i*42, y=40; fam.push([x,y]); g.appendChild(el('circle',{cx:x,cy:y,r:12,fill:i===6?'var(--down-soft)':'var(--acc-soft)',stroke:i===6?'var(--down)':'var(--acc)','stroke-width':1.5})); g.appendChild(el('text',{x,y:y+4,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},'₹')); }
+    g.appendChild(el('path',{d:'M130 130 Q220 110 310 130 L295 210 Q220 228 145 210 Z',fill:'var(--acc)',opacity:.9}));
+    g.appendChild(el('text',{x:220,y:172,'text-anchor':'middle','font-size':13,fill:'var(--paper)'},'The pool'));
+    fam.forEach(([x,y],i)=>mover(g,'M'+x+' '+(y+14)+' L220 140','var(--amber)',2.4,3.5,i*0.24));
+    g.appendChild(el('circle',{cx:380,cy:260,r:16,fill:'var(--down-soft)',stroke:'var(--down)','stroke-width':1.5}));
+    g.appendChild(el('text',{x:380,y:264,'text-anchor':'middle','font-size':10,fill:'var(--ink)'},'loss'));
+    g.appendChild(el('path',{d:'M260 210 Q330 250 364 258',fill:'none',stroke:'var(--leaf)','stroke-width':2,'stroke-dasharray':'4 4'}));
+    mover(g,'M260 210 Q330 250 364 258','var(--leaf)',2.4,7,0.6);
+    g.appendChild(el('text',{x:20,y:288,'font-size':10,fill:'var(--muted)'},'MANY SMALL PREMIUMS → ONE BIG CLAIM'));
+    g.appendChild(el('text',{x:20,y:18,'font-size':10,fill:'var(--muted)'},'FAMILIES PAYING PREMIUMS'));
+  })();
+
+  // Law of large numbers
+  (function(){
+    const s=document.getElementById('lln'), g=document.getElementById('llnchart'); const sizes=[10,100,1000,10000,100000];
+    function rng(seed){ let x=seed>>>0||1; return ()=>{ x^=x<<13; x>>>=0; x^=x>>>17; x^=x<<5; x>>>=0; return x/4294967296; }; }
+    function u(){ const N=sizes[+s.value-1]; document.getElementById('lln-out').textContent=N.toLocaleString('en-IN');
+      const r=rng(12345+N); const yrs=[];
+      for(let y=0;y<10;y++){ let claims=0; if(N<=1000){ for(let i=0;i<N;i++) if(r()<0.01) claims++; } else { let z=Math.sqrt(-2*Math.log(r()+1e-12))*Math.cos(2*Math.PI*r()); claims=Math.max(0,Math.round(N*0.01+z*Math.sqrt(N*0.0099))); } yrs.push(claims*200000/N); }
+      g.innerHTML=''; const L=70,R=610,T=16,B=210, mx=Math.max(8000,...yrs)*1.1, Y=v=>B-v/mx*(B-T);
+      [0,mx/4,mx/2,mx*3/4].forEach(v=>{ g.appendChild(el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--rule)'})); g.appendChild(el('text',{x:L-8,y:Y(v)+4,'text-anchor':'end','font-size':10,fill:'var(--muted)'},fmt(v))); });
+      g.appendChild(el('line',{x1:L,x2:R,y1:Y(2000),y2:Y(2000),stroke:'var(--amber)','stroke-width':2,'stroke-dasharray':'6 4'}));
+      g.appendChild(el('text',{x:R,y:Y(2000)-6,'text-anchor':'end','font-size':11,fill:'var(--amber)'},'Expected ₹2,000'));
+      const W=(R-L)/10; yrs.forEach((v,i)=>{ const x=L+i*W+W*0.18, w=W*0.64; g.appendChild(el('rect',{x,y:Y(v),width:w,height:Math.max(0.5,B-Y(v)),rx:2,fill:'var(--acc)',opacity:.85,class:'lb',style:'transform-origin:'+(x+w/2)+'px '+B+'px'})); g.appendChild(el('text',{x:x+w/2,y:B+16,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Yr '+(i+1))); });
+      g.appendChild(el('text',{x:L,y:B+34,'font-size':11,fill:'var(--muted)'},'Cost per person each year, if everyone shared the claims'));
+      if(!reduce) replayClass(g,'.lb','growy',0.04);
+      const sd=200000*Math.sqrt(.0099/N);
+      document.getElementById('lln-note').textContent = N<=100 ? 'With only '+N+' people, some years nobody claims and some years the cost per person is many times the average. Too unpredictable to price.' : 'With '+N.toLocaleString('en-IN')+' people, the cost per person stays close to ₹2,000 every year (typical swing about '+fmt(sd)+'). That predictability is what makes insurance work.'; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Insurer flow
+  (function(){
+    const g=document.getElementById('flow');
+    box(g,10,100,140,56,'Policyholders','pay premiums','var(--acc-soft)','var(--acc)');
+    box(g,250,90,160,76,'Insurer','actuaries · underwriters','var(--paper)','var(--acc)');
+    box(g,510,20,150,52,'Investments','mostly bonds','var(--amber-soft)','var(--amber)');
+    box(g,510,110,150,52,'Claims paid','to the few with losses','var(--leaf-soft)','var(--leaf)');
+    box(g,510,200,150,52,'Reinsurer','takes part of big risks');
+    box(g,720,110,130,52,'IRDAI','rules · capital · complaints','var(--paper)','var(--muted)');
+    arrow(g,152,128,246,128,'var(--amber)'); arrow(g,412,110,506,52,'var(--amber)'); arrow(g,412,128,506,136,'var(--leaf)'); arrow(g,412,148,506,222,'var(--muted)');
+    g.appendChild(el('line',{x1:720,y1:136,x2:662,y2:136,stroke:'var(--muted)','stroke-dasharray':'4 4'}));
+    g.appendChild(el('text',{x:450,y:46,'font-size':10,fill:'var(--amber)'},'invest the float'));
+    mover(g,'M80 128 L330 128','var(--amber)',2.2,5,0); mover(g,'M80 128 L330 128','var(--amber)',2.2,5,1.1);
+    mover(g,'M330 120 L585 46','var(--amber)',2.6,4,0.4); mover(g,'M330 128 L585 136','var(--leaf)',2.6,6,1.2);
+  })();
+
+  // Risk matrix
+  (function(){
+    const g=document.getElementById('matrix');
+    const L=110,R=620,T=20,B=280, mx=(L+R)/2, my=(T+B)/2;
+    const cells=[[L,T,'Rare, small','Ignore or pay yourself','var(--paper)'],[mx,T,'Rare, severe','INSURE','var(--acc-soft)'],[L,my,'Common, small','Budget from savings','var(--leaf-soft)'],[mx,my,'Common, severe','Avoid or reduce the risk','var(--down-soft)']];
+    cells.forEach(([x,y,t,a,f])=>{ g.appendChild(el('rect',{x,y,width:(R-L)/2,height:(B-T)/2,fill:f,stroke:'var(--rule)'})); g.appendChild(el('text',{x:x+10,y:y+20,'font-size':11,fill:'var(--muted)'},t.toUpperCase())); g.appendChild(el('text',{x:x+10,y:y+40,'font-size':13,fill:'var(--ink)'},a)); });
+    g.appendChild(el('text',{x:(L+R)/2,y:B+28,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'How big the loss would be →'));
+    g.appendChild(el('text',{x:L-12,y:(T+B)/2,'text-anchor':'middle','font-size':11,fill:'var(--muted)',transform:'rotate(-90 '+(L-12)+' '+((T+B)/2)+')'},'How likely ↓'));
+    const items=[[200,90,'Lost bus pass'],[230,115,'Phone screen'],[440,80,'Death of earner'],[480,105,'Cancer treatment'],[430,130,'House fire'],[560,95,'Disability'],[200,200,'Fever, doctor visit'],[230,230,'Spectacles'],[440,210,'Drunk driving'],[500,240,'No helmet']];
+    items.forEach(([x,y,t])=>{ const grp=el('g',{class:'mi',style:'transform-origin:'+x+'px '+y+'px'}); grp.appendChild(el('circle',{cx:x,cy:y,r:5,fill:'var(--amber)'})); grp.appendChild(el('text',{x:x+8,y:y+4,'font-size':11,fill:'var(--ink)'},t)); g.appendChild(grp); });
+    wire('matrix-replay',g,()=>replayClass(g,'.mi','pop',0.12));
+  })();
+
+  // Human life value
+  (function(){
+    const ids=['h-exp','h-yrs','h-debt','h-goal','h-sav'], c={}; ids.forEach(i=>c[i]=document.getElementById(i)); const g=document.getElementById('hlvchart');
+    const ann=(r,n)=>(1-Math.pow(1+r,-n))/r;
+    function u(){ const exp=+c['h-exp'].value, yrs=+c['h-yrs'].value, debt=+c['h-debt'].value, goal=+c['h-goal'].value, sav=+c['h-sav'].value;
+      const inc=exp*ann(0.02,yrs), need=Math.max(0,inc+debt+goal-sav);
+      document.getElementById('h-exp-out').textContent=lakh(exp); document.getElementById('h-yrs-out').textContent=yrs; document.getElementById('h-debt-out').textContent=lakh(debt); document.getElementById('h-goal-out').textContent=lakh(goal); document.getElementById('h-sav-out').textContent=lakh(sav);
+      document.getElementById('h-out').textContent=need>=1e7?'₹'+(need/1e7).toFixed(2)+' crore':lakh(need);
+      const rounded=Math.ceil(need/2.5e6)*2.5e6; document.getElementById('h-round').textContent=rounded>=1e7?'₹'+(rounded/1e7).toFixed(2).replace(/\.?0+$/,'')+' crore':lakh(rounded);
+      g.innerHTML=''; const L=20,R=620, tot=inc+debt+goal, sc=(R-L)/Math.max(tot,1); let x=L;
+      [['Income for family',inc,'var(--acc)'],['Loans',debt,'var(--down)'],['Goals',goal,'var(--amber)']].forEach(([n,v,col],i)=>{ const w=v*sc; g.appendChild(el('rect',{x,y:30,width:w,height:40,fill:col,opacity:.85})); if(w>80) g.appendChild(el('text',{x:x+6,y:55,'font-size':11,fill:'var(--paper)'},n)); x+=w; });
+      const sw=Math.min(sav,tot)*sc; g.appendChild(el('rect',{x:R-sw,y:84,width:sw,height:16,fill:'var(--leaf)',opacity:.85})); g.appendChild(el('text',{x:R-sw-6,y:97,'text-anchor':'end','font-size':11,fill:'var(--leaf)'},'minus savings '+lakh(sav)));
+      g.appendChild(el('text',{x:L,y:130,'font-size':12,fill:'var(--ink)'},'Income '+lakh(inc)+' + loans '+lakh(debt)+' + goals '+lakh(goal)+' − savings = '+lakh(need))); }
+    ids.forEach(i=>c[i].addEventListener('input',u)); u();
+  })();
+
+  // Buy term invest rest
+  (function(){
+    const s=document.getElementById('bt-r'), g=document.getElementById('btchart'); const fv=(p,r,n)=>p*((Math.pow(1+r,n)-1)/r)*(1+r);
+    function u(){ const r=+s.value/100; document.getElementById('bt-r-out').textContent=(+s.value)+'%';
+      const endo=fv(50000,0.05,20), inv=fv(38000,r,20); g.innerHTML='';
+      const L=170,R=600, sc=(R-L)/10000000;
+      const rows=[['Endowment: cover',1000000,'var(--muted)'],['Term: cover',10000000,'var(--acc)'],['Endowment: at maturity',endo,'var(--muted)'],['Term + SIP: at maturity',inv,'var(--amber)']];
+      g.appendChild(el('text',{x:L,y:14,'font-size':11,fill:'var(--muted)'},'LIFE COVER WHILE PAYING'));
+      g.appendChild(el('text',{x:L,y:132,'font-size':11,fill:'var(--muted)'},'MONEY AFTER 20 YEARS (BAR SCALE ×4)'));
+      rows.forEach(([n,v,c],i)=>{ const y= i<2 ? 22+i*44 : 140+(i-2)*44; const w = i<2 ? v*sc : v*sc*4;
+        g.appendChild(el('text',{x:L-10,y:y+20,'text-anchor':'end','font-size':12,fill:'var(--ink)'},n));
+        g.appendChild(el('rect',{x:L,y:y+4,width:Math.min(R-L,w),height:26,rx:3,fill:c,opacity:.85,style:'transition:width .3s ease'}));
+        g.appendChild(el('text',{x:L+Math.min(R-L,w)+6,y:y+22,'font-size':11,fill:'var(--ink)'},v>=1e7?'₹1 crore':lakh(v))); });
+      document.getElementById('bt-note').textContent='Both cost ₹50,000 a year for 20 years. Endowment assumed to return about 5% a year. Term costs ₹12,000; the other ₹38,000 is invested at '+(+s.value)+'%. Term + SIP gives 10× the cover and '+(inv>=endo?'more':'a bit less')+' money at the end ('+lakh(inv)+' vs '+lakh(endo)+').'; }
+    s.addEventListener('input',u); u();
+  })();
+
+  // Cashless timeline
+  (function(){
+    const g=document.getElementById('cashless');
+    const st=[['Admission','show health card'],['Pre-authorisation','hospital → TPA'],['Approval','within hours'],['Treatment','surgery, stay'],['Final bill','insurer pays hospital'],['Discharge','pay only exclusions']];
+    const W=125, gap=18;
+    st.forEach(([t,s],i)=>{ const x=10+i*(W+gap); const grp=el('g',{class:'cs',style:'transform-origin:'+(x+W/2)+'px 100px'});
+      grp.appendChild(el('rect',{x,y:70,width:W,height:64,rx:8,fill:i===5?'var(--leaf-soft)':'var(--paper)',stroke:i===5?'var(--leaf)':'var(--acc)','stroke-width':1.5}));
+      grp.appendChild(el('text',{x:x+W/2,y:98,'text-anchor':'middle','font-size':12,fill:'var(--ink)'},t)); grp.appendChild(el('text',{x:x+W/2,y:118,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},s)); g.appendChild(grp);
+      if(i<5) arrow(g,x+W+2,102,x+W+gap-2,102,'var(--muted)'); });
+    g.appendChild(el('text',{x:430,y:40,'text-anchor':'middle','font-size':11,fill:'var(--ink)'},'Leela’s ₹3 lakh bill: insurer paid ₹2.28 lakh directly (see the room-rent trap next)'));
+    g.appendChild(el('text',{x:430,y:170,'text-anchor':'middle','font-size':10,fill:'var(--muted)'},'Planned admission: request pre-authorisation in advance. Emergency: inform the insurer within the time the policy specifies.'));
+    wire('cashless-replay',g,()=>replayClass(g,'.cs','pop',0.3));
+  })();
+
+  // Room rent
+  (function(){
+    const rm=document.getElementById('rr-room'), lm=document.getElementById('rr-limit'), g=document.getElementById('rrchart');
+    function u(){ const room=+rm.value, lim=+lm.value, days=4, ratio=Math.min(1,lim/room), linked=160000, meds=108000;
+      const billRoom=room*days, paidRoom=Math.min(room,lim)*days, paidLinked=linked*ratio, bill=billRoom+linked+meds, paid=paidRoom+paidLinked+meds;
+      document.getElementById('rr-room-out').textContent=fmt(room); document.getElementById('rr-limit-out').textContent=fmt(lim);
+      document.getElementById('rr-bill').textContent=fmt(bill); document.getElementById('rr-paid').textContent=fmt(paid); document.getElementById('rr-own').textContent=fmt(bill-paid);
+      g.innerHTML=''; const L=190,R=620, sc=(R-L)/170000;
+      [['Room rent (4 days)',billRoom,paidRoom],['Linked charges (doctors, nursing)',linked,paidLinked],['Medicines and implants',meds,meds]].forEach(([n,b,p],i)=>{ const y=14+i*70;
+        g.appendChild(el('text',{x:L-10,y:y+18,'text-anchor':'end','font-size':11,fill:'var(--ink)'},n));
+        g.appendChild(el('rect',{x:L,y:y+4,width:b*sc,height:22,rx:3,fill:'var(--down-soft)',stroke:'var(--down)'}));
+        g.appendChild(el('rect',{x:L,y:y+30,width:p*sc,height:22,rx:3,fill:'var(--up)',opacity:.85,style:'transition:width .3s ease'}));
+        g.appendChild(el('text',{x:L+b*sc+6,y:y+20,'font-size':10,fill:'var(--muted)'},'billed '+fmt(b)));
+        g.appendChild(el('text',{x:L+p*sc+6,y:y+46,'font-size':10,fill:'var(--up)'},'paid '+fmt(p))); }); }
+    [rm,lm].forEach(x=>x.addEventListener('input',u)); u();
+  })();
+
+  // Complaints ladder
+  (function(){
+    const g=document.getElementById('ladderchart');
+    const steps=[['1. Insurer’s grievance officer','written complaint; reply within set time'],['2. IRDAI Bima Bharosa','online complaint portal'],['3. Insurance Ombudsman','free, independent, for individuals'],['4. Consumer commission','court-like forum, last resort']];
+    steps.forEach(([t,s],i)=>{ const x=20+i*150, y=200-i*55, w=150, h=50+i*55; const grp=el('g',{class:'ls',style:'transform-origin:'+(x+w/2)+'px 250px'});
+      grp.appendChild(el('rect',{x,y,width:w-6,height:250-y,fill:i===2?'var(--acc)':'var(--acc-soft)',stroke:'var(--acc)'}));
+      grp.appendChild(el('text',{x:x+8,y:y+20,'font-size':11,fill:i===2?'var(--paper)':'var(--ink)'},t.length>22?t.slice(0,22):t));
+      if(t.length>22) grp.appendChild(el('text',{x:x+8,y:y+34,'font-size':11,fill:i===2?'var(--paper)':'var(--ink)'},t.slice(22).trim()));
+      grp.appendChild(el('text',{x:x+8,y:y+(t.length>22?50:36),'font-size':9,fill:i===2?'var(--paper)':'var(--muted)'},s.length>26?s.slice(0,26)+'…':s));
+      g.appendChild(grp); });
+    g.appendChild(el('text',{x:20,y:266,'font-size':10,fill:'var(--muted)'},'Each step up is used only if the one below doesn’t resolve it'));
+    wire('ladder-replay',g,()=>replayClass(g,'.ls','growy',0.25));
+  })();
+
+  // Pyramid
+  (function(){
+    const g=document.getElementById('pyr');
+    const lv=[['Investments: SIPs, bonds, gold, home','var(--amber)','var(--paper)'],['Emergency fund: 6 months','var(--leaf-soft)','var(--ink)'],['Accident cover','var(--acc-soft)','var(--ink)'],['Term life cover','var(--acc-soft)','var(--ink)'],['Health insurance','var(--acc)','var(--paper)']];
+    const n=lv.length, top=20, h=54, cx=320;
+    lv.forEach(([t,f,tc],i)=>{ const y=top+i*(h+4), wTop=120+i*95, wBot=120+(i+1)*95; const pts=[[cx-wTop/2,y],[cx+wTop/2,y],[cx+wBot/2,y+h],[cx-wBot/2,y+h]];
+      const grp=el('g',{class:'pl',style:'transform-origin:'+cx+'px '+(y+h)+'px'}); grp.appendChild(el('polygon',{points:pts.map(p=>p.join(',')).join(' '),fill:f,stroke:'var(--rule)'}));
+      grp.appendChild(el('text',{x:cx,y:y+h/2+5,'text-anchor':'middle','font-size':12,fill:tc},t)); g.appendChild(grp); });
+    const run=()=>{ const ps=[...g.querySelectorAll('.pl')].reverse(); ps.forEach((p,i)=>{ p.classList.remove('pop'); void p.getBoundingClientRect(); p.style.animationDelay=(i*0.3)+'s'; p.classList.add('pop'); }); };
+    wire('pyr-replay',g,run);
+  })();
+})();
+</script>
+
+<section class="ks-finish" aria-label="Continue reading"><div class="ks-finish-top"><div><span class="ks-eyebrow">THE KESARPUR SERIES · STORY 10</span><h2>Keep exploring the town.</h2></div><label class="ks-read"><input type="checkbox" id="ks-read" data-story="10"> Mark this story as read</label></div><nav class="ks-pager" aria-label="Story sequence"><a href="ledger.html" rel="prev"><small>← Previous</small>The Ledger</a><a href="cold-chain.html" rel="next"><small>Next story →</small>The Cold Chain</a></nav><a class="ks-all" href="index.html#paths">Explore the three reading paths ↗</a></section><script src="series.js"></script></body></html>
